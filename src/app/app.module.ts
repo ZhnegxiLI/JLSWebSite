@@ -30,8 +30,15 @@ import { RootComponent } from './components/root/root.component';
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
+import { HttpClient } from '@angular/common/http';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function createTranslateLoader(http: HttpClient) {
+    //此出的路径需要和第二步新建的文件夹保持一致
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  }
 @NgModule({
     declarations: [
         // components
@@ -43,6 +50,14 @@ import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.compon
         PageHomeTwoComponent
     ],
     imports: [
+        TranslateModule.forRoot({
+            defaultLanguage: 'fr',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+          }),
         // modules (angular)
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         BrowserAnimationsModule,

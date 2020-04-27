@@ -7,6 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { CurrencyService } from './shared/services/currency.service';
 import { filter, first } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -23,8 +24,11 @@ export class AppComponent implements OnInit {
         private wishlist: WishlistService,
         private zone: NgZone,
         private scroller: ViewportScroller,
-        private currency: CurrencyService
+        private currency: CurrencyService,
+        private translate: TranslateService
     ) {
+
+        translate.setDefaultLang('fr');
         if (isPlatformBrowser(this.platformId)) {
             this.zone.runOutsideAngular(() => {
                 this.router.events.pipe(filter(event => event instanceof NavigationEnd), first()).subscribe(() => {
@@ -46,7 +50,7 @@ export class AppComponent implements OnInit {
         // with the arguments of the built-in pipe "currency"
         // https://angular.io/api/common/CurrencyPipe
         this.currency.options = {
-            code: 'USD',
+            code: 'EUR',
             // display: 'symbol',
             // digitsInfo: '1.2-2',
             // locale: 'en-US'

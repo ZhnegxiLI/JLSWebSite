@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CurrencyService } from '../../../../shared/services/currency.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-header-topbar',
@@ -8,22 +9,18 @@ import { CurrencyService } from '../../../../shared/services/currency.service';
 })
 export class TopbarComponent {
     languages = [
-        {name: 'English', image: 'language-1'},
-        {name: 'French',  image: 'language-2'},
-        {name: 'German',  image: 'language-3'},
-        {name: 'Russian', image: 'language-4'},
-        {name: 'Italian', image: 'language-5'}
+        {name: 'English', image: 'united-states', code:'en'},
+        {name: 'Français',  image: 'france', code:'fr'},
+        {name: '中文',  image: 'china', code:'cn'}
     ];
 
     currencies = [
-        {name: '€ Euro',           url: '', code: 'EUR', symbol: '€'},
-        {name: '£ Pound Sterling', url: '', code: 'GBP', symbol: '£'},
-        {name: '$ US Dollar',      url: '', code: 'USD', symbol: '$'},
-        {name: '₽ Russian Ruble',  url: '', code: 'RUB', symbol: '₽'}
+        {name: '€ Euro',           url: '', code: 'EUR', symbol: '€'}
     ];
 
     constructor(
-        public currencyService: CurrencyService
+        public currencyService: CurrencyService,
+        public translateService: TranslateService
     ) { }
 
     setCurrency(currency): void {
@@ -31,5 +28,9 @@ export class TopbarComponent {
             code: currency.code,
             display: currency.symbol,
         };
+    }
+
+    setLanguage(language): void {
+        this.translateService.setDefaultLang(language.code);
     }
 }

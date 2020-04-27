@@ -3,7 +3,7 @@
     <div class="topbar__container container">
         <div class="topbar__row">
             <div class="topbar__item topbar__item--link">
-                <a class="topbar-link" routerLink="/site/about-us">About Us</a>
+                <a class="topbar-link" routerLink="/site/about-us"> About Us</a>
             </div>
             <div class="topbar__item topbar__item--link">
                 <a class="topbar-link" routerLink="/site/contact-us">Contacts</a>
@@ -66,7 +66,7 @@
             <div class="topbar__item">
                 <div class="topbar-dropdown" appDropdown="topbar-dropdown--opened" #languageDropdown="appDropdown">
                     <button class="topbar-dropdown__btn" type="button" (click)="languageDropdown.toggle()">
-                        Language: <span class="topbar__item-value">EN</span>
+                        Language: <span class="topbar__item-value">{{ translateService.defaultLang }}</span>
                         <app-icon name="arrow-rounded-down-7x5" size="7x5"></app-icon>
                     </button>
 
@@ -80,9 +80,9 @@
                                     (mouseleave)="menuItem.classList.remove('menu__item--hover')"
                                     #menuItem
                                 >
-                                    <button class="menu__item-link" type="button" (click)="languageDropdown.close();">
+                                    <button class="menu__item-link" type="button" (click)=" setLanguage(language); languageDropdown.close();">
                                         <span class="menu__item-icon">
-                                            <img [src]="'assets/images/languages/'+language.image+'.png'"
+                                            <img height="24" width="24" [src]="'assets/images/languages/'+language.image+'.png'"
                                                  [srcset]="'assets/images/languages/'+language.image+'.png 1x,' +
                                                            'assets/images/languages/'+language.image+'@2x.png 2x'" alt="">
                                         </span>

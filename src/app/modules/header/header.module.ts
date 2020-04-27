@@ -19,6 +19,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
         TopbarComponent,
     ],
     imports: [
+        TranslateModule,
         // modules (angular)
         CommonModule,
         RouterModule,
