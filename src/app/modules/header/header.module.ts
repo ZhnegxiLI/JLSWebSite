@@ -15,15 +15,17 @@ import { HeaderComponent } from './header.component';
 import { IndicatorComponent } from './components/indicator/indicator.component';
 import { LinksComponent } from './components/links/links.component';
 import { MegamenuComponent } from './components/megamenu/megamenu.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuCategoryComponent } from './components/menuCategory/menuCategory.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
     declarations: [
         // components
+        MenuComponent,
         AccountMenuComponent,
         DepartmentsComponent,
         DropcartComponent,
@@ -31,7 +33,7 @@ import { TranslateModule } from '@ngx-translate/core';
         IndicatorComponent,
         LinksComponent,
         MegamenuComponent,
-        MenuComponent,
+        MenuCategoryComponent,
         NavComponent,
         SearchComponent,
         TopbarComponent,

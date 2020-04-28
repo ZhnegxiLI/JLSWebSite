@@ -31,6 +31,8 @@ export class TopbarComponent {
     }
 
     setLanguage(language): void {
+        localStorage.setItem('lang',language.code);
+        this.translateService.currentLang = language.code;
         this.translateService.setDefaultLang(language.code);
     }
 }

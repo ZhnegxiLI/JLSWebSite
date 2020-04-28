@@ -27,8 +27,9 @@ export class AppComponent implements OnInit {
         private currency: CurrencyService,
         private translate: TranslateService
     ) {
-
-        translate.setDefaultLang('fr');
+        var lang = localStorage.getItem('lang');
+        lang!=null? translate.currentLang = lang : translate.currentLang = 'fr';
+        lang!=null? translate.setDefaultLang(lang) : translate.setDefaultLang('fr');
         if (isPlatformBrowser(this.platformId)) {
             this.zone.runOutsideAngular(() => {
                 this.router.events.pipe(filter(event => event instanceof NavigationEnd), first()).subscribe(() => {

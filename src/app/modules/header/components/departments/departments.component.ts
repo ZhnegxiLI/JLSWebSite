@@ -16,6 +16,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { HeaderService } from '../../../../shared/services/header.service';
 import { fromMatchMedia } from '../../../../shared/functions/rxjs/fromMatchMedia';
 import { fromOutsideTouchClick } from '../../../../shared/functions/rxjs/fromOutsideTouchClick';
+import { ProductService } from 'src/app/shared/api/product.service';
+import { Category } from 'src/app/shared/interfaces/selfDefinedIntefaces/category';
+import { TranslateService } from '@ngx-translate/core';
+import { MainCategory } from 'src/app/shared/interfaces/selfDefinedIntefaces/MainCategory';
 
 @Component({
     selector: 'app-header-departments',
@@ -30,8 +34,10 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
     @ViewChildren('submenuElement') submenuElements: QueryList<ElementRef>;
     @ViewChildren('itemElement') itemElements: QueryList<ElementRef>;
 
-    items: NavigationLink[] = departments;
-    hoveredItem: NavigationLink = null;
+    // items: NavigationLink[] = departments;
+
+    items: MainCategory[];
+    hoveredItem: MainCategory = null;
 
     isOpen = false;
     fixed = false;
@@ -48,9 +54,13 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
         private el: ElementRef,
         private header: HeaderService,
         private zone: NgZone,
+        private productService: ProductService,
+        private translateService: TranslateService
     ) { }
 
     ngOnInit(): void {
+        this.getCategoryList();
+
         const root = this.element.querySelector('.departments') as HTMLElement;
         const content = this.element.querySelector('.departments__links-wrapper') as HTMLElement;
 
@@ -137,6 +147,15 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
                 content.getBoundingClientRect(); // force reflow
             });
         }
+    }
+    //todo place into the behaviour subjet
+    getCategoryList(): void {
+        this.productService.GetCategoryForWebSite({
+            NumberOfCateogry: -1,
+            Lang: this.translateService.currentLang
+        }).subscribe(result => {
+            this.items = result;
+        });
     }
 
     ngOnDestroy(): void {
@@ -239,11 +258,11 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
         this.hoveredItem = null;
     }
 
-    onItemMouseEnter(item: NavigationLink): void {
+    onItemMouseEnter(item: MainCategory): void {
         if (this.hoveredItem !== item) {
             this.hoveredItem = item;
 
-            if (item.menu) {
+            if (item.SecondCategory) {
                 this.reCalcSubmenuPosition = true;
             }
         }
@@ -253,13 +272,13 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
         this.hoveredItem = null;
     }
 
-    onTouchClick(event, item: NavigationLink): void {
+    onTouchClick(event, item: MainCategory): void {
         if (event.cancelable) {
             if (this.hoveredItem && this.hoveredItem === item) {
                 return;
             }
 
-            if (item.menu) {
+            if (item.SecondCategory) {
                 event.preventDefault();
 
                 this.hoveredItem = item;
@@ -290,31 +309,25 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
         const viewportHeight = window.innerHeight;
         const paddingBottom = 20;
 
-        if (this.hoveredItem.menu.type === 'megamenu') {
-            const submenuTop = submenuElement.getBoundingClientRect().top;
 
-            submenuElement.style.maxHeight = `${viewportHeight - submenuTop - paddingBottom}px`;
-        }
+        const bodyElement = this.bodyElementRef.nativeElement as HTMLDivElement;
+        const containerElement = this.containerElementRef.nativeElement as HTMLDivElement;
+        const bodyRect = bodyElement.getBoundingClientRect();
 
-        if (this.hoveredItem.menu.type === 'menu') {
-            const bodyElement = this.bodyElementRef.nativeElement as HTMLDivElement;
-            const containerElement = this.containerElementRef.nativeElement as HTMLDivElement;
-            const bodyRect = bodyElement.getBoundingClientRect();
+        const maxHeight = viewportHeight - paddingBottom - Math.min(
+            paddingBottom,
+            bodyRect.top
+        );
 
-            const maxHeight = viewportHeight - paddingBottom - Math.min(
-                paddingBottom,
-                bodyRect.top
-            );
+        submenuElement.style.maxHeight = `${maxHeight}px`;
 
-            submenuElement.style.maxHeight = `${maxHeight}px`;
+        const submenuRect = submenuElement.getBoundingClientRect();
+        const itemRect = itemElement.getBoundingClientRect();
+        const containerRect = containerElement.getBoundingClientRect();
+        const top = Math.min(itemRect.top, viewportHeight - paddingBottom - submenuRect.height) - containerRect.top;
 
-            const submenuRect = submenuElement.getBoundingClientRect();
-            const itemRect = itemElement.getBoundingClientRect();
-            const containerRect = containerElement.getBoundingClientRect();
-            const top = Math.min(itemRect.top, viewportHeight - paddingBottom - submenuRect.height) - containerRect.top;
+        submenuElement.style.top = `${top}px`;
 
-            submenuElement.style.top = `${top}px`;
-        }
     }
 
     getCurrentItemElement(): HTMLDivElement {
@@ -337,7 +350,7 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
             return null;
         }
 
-        const index = this.items.filter(x => x.menu).indexOf(this.hoveredItem);
+        const index = this.items.filter(x => x.SecondCategory).indexOf(this.hoveredItem);
         const elements = this.submenuElements.toArray();
 
         if (index === -1 || !elements[index]) {
