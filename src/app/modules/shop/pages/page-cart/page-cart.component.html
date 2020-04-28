@@ -6,9 +6,9 @@
 <div class="block block-empty" *ngIf="!items.length">
     <div class="container">
         <div class="block-empty__body">
-            <div class="block-empty__message">Your shopping cart is empty!</div>
+            <div class="block-empty__message">{{'dropcart.Yourshoppingcartisempty' | translate}}!</div>
             <div class="block-empty__actions">
-                <a [routerLink]="root.shop()" class="btn btn-primary btn-sm">Continue</a>
+                <a [routerLink]="root.shop()" class="btn btn-primary btn-sm">{{'page-cart.Continue' | translate}}</a>
             </div>
         </div>
     </div>
@@ -19,11 +19,11 @@
         <table class="cart__table cart-table">
             <thead class="cart-table__head">
             <tr class="cart-table__row">
-                <th class="cart-table__column cart-table__column--image">Image</th>
-                <th class="cart-table__column cart-table__column--product">Product</th>
-                <th class="cart-table__column cart-table__column--price">Price</th>
-                <th class="cart-table__column cart-table__column--quantity">Quantity</th>
-                <th class="cart-table__column cart-table__column--total">Total</th>
+                <th class="cart-table__column cart-table__column--image">{{'page-cart.Image' | translate}}</th>
+                <th class="cart-table__column cart-table__column--product">{{'page-cart.Product' | translate}}</th>
+                <th class="cart-table__column cart-table__column--price">{{'page-cart.Price' | translate}}</th>
+                <th class="cart-table__column cart-table__column--quantity">{{'page-cart.Quantity' | translate}}</th>
+                <th class="cart-table__column cart-table__column--total">{{'page-cart.Total' | translate}}</th>
                 <th class="cart-table__column cart-table__column--remove"></th>
             </tr>
             </thead>
@@ -54,13 +54,13 @@
 
         <div class="cart__actions">
             <form class="cart__coupon-form">
-                <label for="input-coupon-code" class="sr-only">Password</label>
-                <input type="text" class="form-control" id="input-coupon-code" placeholder="Coupon Code">
-                <button type="submit" class="btn btn-primary">Apply Coupon</button>
+                <label for="input-coupon-code" class="sr-only">{{'page-cart.Password' | translate}}</label>
+                <input type="text" class="form-control" id="input-coupon-code" placeholder="{{'page-cart.CouponCode' | translate}}">
+                <button type="submit" class="btn btn-primary">{{'page-cart.ApplyCoupon' | translate}}</button>
             </form>
             <div class="cart__buttons">
-                <a routerLink="/" class="btn btn-light">Continue Shopping</a>
-                <button type="button" class="btn btn-primary cart__update-button" (click)="update()" [ngClass]="{'btn-loading': updating}" [disabled]="!needUpdate()">Update Cart</button>
+                <a routerLink="/" class="btn btn-light">{{'page-cart.ContinueShopping' | translate}}</a>
+                <button type="button" class="btn btn-primary cart__update-button" (click)="update()" [ngClass]="{'btn-loading': updating}" [disabled]="!needUpdate()">{{'page-cart.UpdateCart' | translate}}</button>
             </div>
         </div>
 
@@ -68,12 +68,12 @@
             <div class="col-12 col-md-7 col-lg-6 col-xl-5">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Cart Totals</h3>
+                        <h3 class="card-title">{{'page-cart.CartTotals' | translate}}</h3>
 
                         <table class="cart__totals">
                             <thead *ngIf="(cart.totals$|async).length" class="cart__totals-header">
                             <tr>
-                                <th>Subtotal</th>
+                                <th>{{'page-cart.Subtotal' | translate}}</th>
                                 <td>{{ cart.subtotal$|async|currencyFormat }}</td>
                             </tr>
                             </thead>
@@ -82,18 +82,18 @@
                                 <th>{{ total.title }}</th>
                                 <td>
                                     {{ total.price|currencyFormat }}
-                                    <div *ngIf="total.type === 'shipping'" class="cart__calc-shipping"><a href="" (click)="$event.preventDefault()">Calculate Shipping</a></div>
+                                    <div *ngIf="total.type === 'shipping'" class="cart__calc-shipping"><a href="" (click)="$event.preventDefault()">{{'page-cart.CalculateShipping' | translate}}</a></div>
                                 </td>
                             </tr>
                             </tbody>
                             <tfoot class="cart__totals-footer">
                             <tr>
-                                <th>Total</th>
+                                <th>{{'page-cart.Total' | translate}}</th>
                                 <td>{{ cart.total$|async|currencyFormat }}</td>
                             </tr>
                             </tfoot>
                         </table>
-                        <a class="btn btn-primary btn-xl btn-block cart__checkout-button" routerLink="./checkout">Proceed to checkout</a>
+                        <a class="btn btn-primary btn-xl btn-block cart__checkout-button" routerLink="./checkout">{{'page-cart.Proceedtocheckout' | translate}}</a>
                     </div>
                 </div>
             </div>

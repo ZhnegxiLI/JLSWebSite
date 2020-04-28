@@ -34,276 +34,121 @@
     "Leave":"Leave?",
     "Yes": "Yes",
     "No":"No",
-    "translation": {
-        "Title": "Languages",
-        "InnerTitle": "Choose your language"
+
+
+    "newsletter":{
+        "SubscribeNewsletter":"Subscribe newsletter",
+        "Newsletter":"Newsletter",
+        "EmailAddress":"Email address",
+        "Subscribe":"Subscribe",
+        "FollowUs":"Follow us",
+        "Poweredby":"Powered by",
+        "Designby":"Design by"
     },
-    "myAccount": {
-        "Title": "My account",
-        "ViewAll": "View all",
-        "MyOrder": "My orders",
-        "CanceledOrder": "Canceled orders",
-        "PrepareOrder": "Preparing orders",
-        "OrderArrived": "Validated orders",
-        "Feedbacks": "Give us your feedbacks",
-        "ContactUs": "Contact us",
-        "AboutUs": "About us",
-        "SignOut": "Sign out",
-        "SignIn": "Please sign in for more information",
-        "SignInOrRegister": "Sign in/Register"
+    "contacts":{
+        "ContactUs":"Contact us",
+        "ContactUsMessage":"If you have any qustions, please contact us. We will reply you as soon as possible"
     },
-    "signin": {
-        "Email": "E-mail",
-        "Password": "Password",
-        "ForgetPassword": "Forgot your password?",
-        "SignIn": "Sign in",
-        "Register": "Register",
-        "Return": "Return"
+    "topbar":{
+        "CustomerService":"Customer service",
+        "AboutUs":"About us",
+        "Contacts":"Contacts",
+        "StoreLocation":"Store location",
+        "MyAccount":"My Account",
+        "Currency":"Currency",
+        "Language":"Language",
+        "Search":"Search",
+        "TrackOrder":"Track order"
     },
-    "readorderlist": {
-        "Commande": "Commande",
-        "CommandeNmber": "Commande",
-        "PurchasingDate": "Purchasing date",
-        "Total": "Total",
-        "Address": "Address",
-        "Detail": "Detail"
+    "account-menu":{
+        "LogIn":"LogIn",
+        "Password":"Password",
+        "Forgot":"Forgot",
+        "CreateAnAccount":"Create an account",
+        "OrderHistory":"Order history",
+        "EditProfile":"Edit profile",
+        "Logout":"Logout",
+        "EmailAddress":"Email address",
+        "Addresses":"Adress"
     },
-    "registre": {
-        "Registre": "Registre",
-        "Title": "Registre",
-        "Email": "E-mail",
-        "Warming_PleaseEntreCorrectEmail": "Enter a valid email address",
-        "Password": "Password",
-        "Warming_PasswordsMustMatch": "Passwords must be match",
-        "CompanyInformation": "Company information",
-        "CompanyName": "Company's name",
-        "Warming_CompanyNameCannotEmpty": "Company's name must be filled",
-        "Siret": "SIRET",
-        "Warming_SiretCannotBeEmpty": "SIRET must be filled",
-        "Address": "Adress",
-        "AddressLine1": "Adress line 1",
-        "Warming_MainAddressCannotBeEmpty": "Main address must be filled",
-        "AddressLine2": "Adress line 2",
-        "City": "City",
-        "Warming_CityCannotBeEmpty": "City must be filled",
-        "Country": "Country",
-        "Warming_CountryCannotBeEmpty": "Country must be filled",
-        "ZipCode": "Zip Code",
-        "Warming_ZipCodeCannotBeEmpty": "Zip Code must be filled",
-        "Warming_AtLeast8Characters": "At least 8 characters",
-        "Warming_AtLeast1Number": "At least 1 number",
-        "Warming_AtLeast1Letter": "At least 1 letter",
-        "UseTheSameAddressAsTheShippingAddress": "Use the same address as the shipping address",
-        "PhoneNumber": "Phone number",
-        "Compte": "Account",
-        "Next": "Next",
-        "Entreprise": "Company",
-        "Back": "Back",
-        "Firstname": "Firstname",
-        "Lastname": "Lastname",
-        "Fax": "Fax",
-        "Error_UserAlreadyExists": "User already exist"
+    "departments":{
+        "ShopByCategory":"Category"
     },
-    "registre-succed": {
-        "Confirm": "Your account is well registered, we will send a confirmation email to {email}, please confirm your email address to complete your registration",
-        "Return": "Return to home page",
-        "ForgetPasswordSendEmail": "Your demande of reinitialize the password is send to email: {email}"
+    "dropcart":{
+        "Yourshoppingcartisempty":"Your shopping cart is empty",
+        "Subtotal":"Subtotal",
+        "Total":"Total",
+        "ViewCart":"View cart",
+        "Checkout":"Check out"
     },
-    "contact-us": {
-        "Title": "Contact us",
-        "Submit": "Submit",
-        "OpinionAndAdvice": "Advice",
-        "Question": "Your question",
-        "GiveUsYourAdvice": "You can leave us your precious opinions here so that we can provide better services for you, you can also leave your email so that we can contact you, thank you.",
-        "Subject": "Subject",
-        "Message": "Message:",
-        "Opinion": "Opinion",
-        "Advice": "Advice",
-        "Cancel": "Cancel"
-    },
-    "cart": {
-        "Title": "My basket",
-        "Reference": "Reference",
-        "EachBox": "Quantity/Box",
-        "MinimumPurchase": "Minimum purchase",
-        "Quantity": "Amount",
-        "All": "All",
-        "Somme": "Somme",
-        "Confirm": "Confirm",
-        "YourCartIsEmpty": "Your cart is empty now!"
-    },
-    "newproduct": {
-        "QuantityEachBox": "Quantity/Box",
-        "QuantityMinimum": "Minimum purchase quantity",
-        "Reference": "Reference"
-    },
-    "category-list": {
-        "Title": "Category"
-    },
-    "tabs": {
-        "Home": "Home",
-        "Discover": "Category",
-        "Cart": "Cart",
-        "Notice": "Notice",
-        "Account": "Account"
-    },
-    "order-confirmation": {
-        "Title": "Order Confirmation",
-        "MyOrder": "MY ORDER",
-        "Article": "Article(s)",
-        "Reference": "Reference",
-        "UnitPrice": "Unit Price",
-        "SommeBeforeTaxe": "Somme before taxe",
-        "TVA": "TVA",
-        "ShippingCost": "Shipping cost",
-        "AmountOfOrder": "Amount",
-        "ShippingAddressOrBilling": "Shipping address/Billing address",
-        "Edit": "Edit",
-        "ShippingAddress": "Shipping address",
-        "ChooseAnotherAddress": "Choose another address",
-        "BillingAddress": "Billing address",
-        "Amount": "Amount",
-        "FinalizeTheOrder": "Finalize the order",
-        "NoAddressAvailable": "No address available",
-        "AEstimer": "To be evaluated",
-        "ClientRemark": "Remark"
-    },
-    "OrderConfirmSucced": {
-        "Confirm": "Confirm",
-        "Return": "Return"
-    },
-    "read-order-details": {
-        "Title": "My Order",
-        "OrderNumber": "Order Number",
-        "DateOfPurchase": "Date of purchase",
-        "Status": "Status",
-        "ForEditYourOrder": "If you want to edit your order,",
-        "ContactOurCustomerService": "Please contact our custumer service",
-        "YourOrder": "YOUR ORDER",
-        "Referene": "Reference",
-        "Size": "Size",
-        "Material": "Material",
-        "Color": "Color",
-        "Quantity": "Quantity",
-        "ShippingAddress": "Shipping address",
-        "BillingAddress": "Billing address",
-        "SommeBeforeTaxe": "Amount before Taxe",
-        "TVA": "TVA",
-        "ShippingCost": "Shipping Cost",
-        "AmountOfOrder": "Amount",
-        "Aestimer": "To be evaluated",
-        "MiseAJour": "Date of update",
-        "AdminRemark": "Seller Message",
-        "CustomerRemark":"Customer remark"
-    },
-    "home": {
-        "Title": "Home",
-        "BestSellers": "Best sellers",
-        "Promotion": "Promotion",
-        "New": "New",
-        "Category": "Category",
-        "MyList": "Favorites",
-        "Advice": "Advice",
-        "AdvancedSearch": "Advanced search",
-        "ContactUs": "Contact us"
-    },
-    "product-detail": {
-        "Favorite": "Favorite",
-        "Cart": "Cart",
-        "Avis": "Avis",
-        "Référence": "Reference",
-        "avis": "avis",
-        "QuantitéMinimal": "Quantity minimal",
-        "Quantitéparcolis": "Quantity per box",
-        "Couleur": "Colour",
-        "Taille": "Size",
-        "Material": "Material",
-        "Price": "Price"
-    },
-    "product-evaluation-list": {
-        "Loading": "Loading",
-        "alaisseunavis": "leaved a comment",
-        "Avis": "Comment"
-    },
-    "write-product-evaluation": {
-        "SoumettreUnAvis": "Submit a advice",
-        "Soumettre": "Submit",
-        "Appuyezsurletoilepournoter": "Your evaluation",
-        "Titre": "Titre",
-        "Votrecommentaire(optionel)": "Your comment (optional)"
-    },
-    "forget-password": {
-        "sendEmail": "Resend password",
-        "Email": "Email",
-        "forgetPassword": "Forget password",
-        "AccountNotExists": "Account not exist"
-    },
-    "select-shipping-adress": {
-        "Livraison": "Delivery address",
-        "Ajouter": "Add",
-        "Confirmer": "Confirm",
-        "Modifier": "Edit"
-    },
-    "add-adress": {
-        "addAdress": "Add address",
-        "Entreprise": "Company name",
-        "Nom": "Lastname",
-        "Prenom": "Firstname",
-        "Address": "Address",
-        "Address2": "Supplementary address",
-        "City": "City",
-        "Country": "Country",
-        "PostalCode": "Zipcode",
-        "Telephone": "Telephone",
-        "Fax": "Fax",
-        "Enregistrer": "Save",
-        "modifyAdress": "Modify Address"
-    },
-    "page-order-confirmation-succeess": {
-        "Message": "Thank you for your order. We will reconsider your order in the shortest time and your will receive an order confirmation email( {Email} )."
-    },
-    "modify-user-info": {
-        "modifyUserInfo": "Modify user information",
-        "Siret": "Siret"
-    },
-    "user-info": {
-        "UserInfo": "User information",
-        "Avis": "Avis",
-        "Commandes": "My orders",
-        "Favoris": "Favorites",
-        "Aivssoumis": "Notice submitted ",
-        "ProduitsFavoris": "Wish-list"
-    },
-    "about-us":{
-        "AProposdeNous":"About us",
-        "Version":"Version",
-        "visiternotresite":"Visit our website",
+    "page-contact-us":{
+        "OurAddress":"Our address",
         "Email":"Email",
-        "Adresse":"Address"
+        "Fax":"Fax",
+        "PhoneNumber":"Phone number",
+        "OpeningHours":"Opening Hours",
+        "MondaytoFriday":"Monday to Friday",
+        "Saturday":"Saturday",
+        "Sunday":"Sunday",
+        "LeaveusaMessage":"Leave us a message",
+        "YourName":"Your Name",
+        "Subject":"Subject",
+        "Message":"Message",
+        "SendMessage":"Send"
     },
-    "advanced-search": {
-        "advancedSearch": "Advanced search",
-        "Votrerecherche": "Your search",
-        "Criteresderecherche": "Search condition",
-        "Categories": "Category",
-        "SousCategories": "Second category",
-        "Minquantitedachat": "Minimum quantity purchase",
-        "Prix": "Price",
-        "Trierpar": "Sort by",
-        "Nouveaute": "Newest arrivals",
-        "Popularite": "Popularity",
-        "Search": "Search",
-        "Motcle": "Key words",
-        "Price_Increase": "Price increase",
-        "Price_Decrease": "Price decrease",
-        "PublishDate_Recent": "New product",
-        "Porpularity_More": "Hot sales product"
+    "page-cart":{
+        "Continue":"Continue",
+        "Image":"Image",
+        "Product":"Product",
+        "Price":"Price",
+        "Quantity":"Quantity",
+        "Total":"Total",
+        "Password":"Password",
+        "ApplyCoupon":"Apply Coupon",
+        "ContinueShopping":"Continue Shopping",
+        "UpdateCart":"Update Cart",
+        "CartTotals":"Cart Totals",
+        "Subtotal":"Subtotal",
+        "CalculateShipping":"Calculate Shipping",
+        "Proceedtocheckout":"Proceed to checkout",
+        "CouponCode":"Coupon code"
     },
-    "search": {
-        "search": "Search"
-    },
-    "notification":{
-        "notification":"Notification",
-        "Systemmessage":"System message"
+    "page-checkout":{
+        "Returningcustomer":"Already registered",
+        "Billingdetails":"Billing details",
+        "FirstName":"FirstName",
+        "LastName":"LastName",
+        "CompanyName":"CompanyName",
+        "Country":"Country",
+        "Selectacountry":"Select a country",
+        "Italy":"Italy",
+        "France":"France",
+        "Germany":"Germany",
+        "Espaniol":"Spanish",
+        "Belgique":"Belgium",
+        "StreetAddress":"Street address",
+        "Apartmentsuiteunitetc":"Supplementary address",
+        "TownCity":"City",
+        "StateCounty":"County",
+        "ZIP":"ZIP",
+        "Emailaddress":"Email address",
+        "Phone":"Phone",
+        "Createanaccount":"Create an account",
+        "ShippingDetails":"Shipping details",
+        "Shiptoadifferentaddress":"Ship to a different address",
+        "Ordernotes":"Order notes",
+        "Optional":"Optional",
+        "YourOrder":"Your Order",
+        "Product":"Product",
+        "Total":"Total",
+        "Subtotal":"Subtotal",
+        "Directbanktransfer":"Direct bank transfer",
+        "Checkpayments":"Check payments",
+        "Cashondelivery":"Cash",
+        "PayPal":"PayPal",
+        "Agree":"I have read and agree to the website",
+        "PlaceOrder":"PlaceOrder",
+        "termsandconditions":"terms and conditions",
+        "Clickheretologin":"Click here to login"
     }
 }

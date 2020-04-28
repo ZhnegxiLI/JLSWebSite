@@ -12,6 +12,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { FooterComponent } from './footer.component';
 import { LinksComponent } from './components/links/links.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
         NewsletterComponent
     ],
     imports: [
+        TranslateModule,
         // modules (angular)
         CommonModule,
         RouterModule,

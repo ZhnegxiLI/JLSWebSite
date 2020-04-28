@@ -3,25 +3,25 @@
     <div class="topbar__container container">
         <div class="topbar__row">
             <div class="topbar__item topbar__item--link">
-                <a class="topbar-link" routerLink="/site/about-us"> About Us</a>
+                <a class="topbar-link" routerLink="/site/about-us">{{'topbar.AboutUs' | translate}}</a>
             </div>
             <div class="topbar__item topbar__item--link">
-                <a class="topbar-link" routerLink="/site/contact-us">Contacts</a>
+                <a class="topbar-link" routerLink="/site/contact-us">{{'topbar.Contacts' | translate}}</a>
             </div>
             <div class="topbar__item topbar__item--link">
-                <a class="topbar-link" routerLink="">Store Location</a>
+                <a class="topbar-link" routerLink="">{{'topbar.StoreLocation' | translate}}</a>
             </div>
             <div class="topbar__item topbar__item--link">
-                <a class="topbar-link" routerLink="/shop/track-order">Track Order</a>
+                <a class="topbar-link" routerLink="/shop/track-order">{{'topbar.TrackOrder' | translate}}</a>
             </div>
-            <div class="topbar__item topbar__item--link">
+            <!-- <div class="topbar__item topbar__item--link">
                 <a class="topbar-link" routerLink="/blog">Blog</a>
-            </div>
+            </div> -->
             <div class="topbar__spring"></div>
             <div class="topbar__item">
                 <div class="topbar-dropdown" appDropdown="topbar-dropdown--opened" #accountDropdown="appDropdown">
                     <button class="topbar-dropdown__btn" type="button" (click)="accountDropdown.toggle()">
-                        My Account
+                        {{'topbar.MyAccount' | translate}}
                         <app-icon name="arrow-rounded-down-7x5" size="7x5"></app-icon>
                     </button>
 
@@ -40,7 +40,7 @@
             <div class="topbar__item">
                 <div class="topbar-dropdown" appDropdown="topbar-dropdown--opened" #currencyDropdown="appDropdown">
                     <button class="topbar-dropdown__btn" type="button" (click)="currencyDropdown.toggle()">
-                        Currency: <span class="topbar__item-value">{{ currencyService.options.code }}</span>
+                        {{'topbar.Currency' | translate}}: <span class="topbar__item-value">{{ currencyService.options.code }}</span>
                         <app-icon name="arrow-rounded-down-7x5" size="7x5"></app-icon>
                     </button>
 
@@ -66,7 +66,7 @@
             <div class="topbar__item">
                 <div class="topbar-dropdown" appDropdown="topbar-dropdown--opened" #languageDropdown="appDropdown">
                     <button class="topbar-dropdown__btn" type="button" (click)="languageDropdown.toggle()">
-                        Language: <span class="topbar__item-value">{{ translateService.defaultLang }}</span>
+                        {{'topbar.Language' | translate}}: <span class="topbar__item-value">{{ translateService.defaultLang }}</span>
                         <app-icon name="arrow-rounded-down-7x5" size="7x5"></app-icon>
                     </button>
 

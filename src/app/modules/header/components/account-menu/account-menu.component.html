@@ -1,21 +1,21 @@
 <div class="account-menu">
     <form class="account-menu__form">
-        <div class="account-menu__form-title">Log In to Your Account</div>
+        <div class="account-menu__form-title">{{'account-menu.LogIn' | translate}}</div>
         <div class="form-group">
-            <label for="header-signin-email" class="sr-only">Email address</label>
-            <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="Email address">
+            <label for="header-signin-email" class="sr-only">{{'account-menu.EmailAddress' | translate}}</label>
+            <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="{{'account-menu.EmailAddress' | translate}}">
         </div>
         <div class="form-group">
-            <label for="header-signin-password" class="sr-only">Password</label>
+            <label for="header-signin-password" class="sr-only">{{'account-menu.Password' | translate}}</label>
             <div class="account-menu__form-forgot">
-                <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
-                <a href="" class="account-menu__form-forgot-link">Forgot?</a>
+                <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="{{'account-menu.Password' | translate}}">
+                <a href="" class="account-menu__form-forgot-link">{{'account-menu.Forgot' | translate}}?</a>
             </div>
         </div>
         <div class="form-group account-menu__form-button">
-            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+            <button type="submit" class="btn btn-primary btn-sm">{{'account-menu.LogIn' | translate}}</button>
         </div>
-        <div class="account-menu__form-link"><a routerLink="/account/login" (click)="closeMenu.emit()">Create An Account</a></div>
+        <div class="account-menu__form-link"><a routerLink="/account/login" (click)="closeMenu.emit()">{{'account-menu.CreateAnAccount' | translate}}</a></div>
     </form>
     <div class="account-menu__divider"></div>
     <a routerLink="/account/dashboard" class="account-menu__user" (click)="closeMenu.emit()">
@@ -29,13 +29,13 @@
     </a>
     <div class="account-menu__divider"></div>
     <ul class="account-menu__links">
-        <li><a routerLink="/account/profile" (click)="closeMenu.emit()">Edit Profile</a></li>
-        <li><a routerLink="/account/orders" (click)="closeMenu.emit()">Order History</a></li>
-        <li><a routerLink="/account/addresses" (click)="closeMenu.emit()">Addresses</a></li>
-        <li><a routerLink="/account/password" (click)="closeMenu.emit()">Password</a></li>
+        <li><a routerLink="/account/profile" (click)="closeMenu.emit()">{{'account-menu.EditProfile' | translate}}</a></li>
+        <li><a routerLink="/account/orders" (click)="closeMenu.emit()">{{'account-menu.OrderHistory' | translate}}</a></li>
+        <li><a routerLink="/account/addresses" (click)="closeMenu.emit()">{{'account-menu.Addresses' | translate}}</a></li>
+        <li><a routerLink="/account/password" (click)="closeMenu.emit()">{{'account-menu.Password' | translate}}</a></li>
     </ul>
     <div class="account-menu__divider"></div>
     <ul class="account-menu__links">
-        <li><a routerLink="/account/login" (click)="closeMenu.emit()">Logout</a></li>
+        <li><a routerLink="/account/login" (click)="closeMenu.emit()">{{'account-menu.Logout' | translate}}</a></li>
     </ul>
 </div>

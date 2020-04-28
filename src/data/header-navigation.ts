@@ -1,13 +1,7 @@
 import { NavigationLink } from '../app/shared/interfaces/navigation-link';
 
 export const navigation: NavigationLink[] = [
-    {label: 'Home', url: '/', menu: {
-        type: 'menu',
-        items: [
-            {label: 'Home 1', url: '/'},
-            {label: 'Home 2', url: '/home-two'}
-        ]
-    }},
+    {label: 'Home', url: '/'},
     {label: 'Megamenu', url: '/shop/catalog', menu: {
         type: 'megamenu',
         size: 'nl',
@@ -82,17 +76,6 @@ export const navigation: NavigationLink[] = [
             {label: 'Change Password', url: '/account/password'}
         ]
     }},
-    {label: 'Blog', url: '/blog', menu: {
-        type: 'menu',
-        items: [
-            {label: 'Blog Classic',         url: '/blog/category-classic'},
-            {label: 'Blog Grid',            url: '/blog/category-grid'},
-            {label: 'Blog List',            url: '/blog/category-list'},
-            {label: 'Blog Left Sidebar',    url: '/blog/category-left-sidebar'},
-            {label: 'Post Page',            url: '/blog/post-classic'},
-            {label: 'Post Without Sidebar', url: '/blog/post-full'}
-        ]
-    }},
     {label: 'Pages', url: '/site', menu: {
         type: 'menu',
         items: [
@@ -105,6 +88,5 @@ export const navigation: NavigationLink[] = [
             {label: 'Components',           url: '/site/components'},
             {label: 'Typography',           url: '/site/typography'}
         ]
-    }},
-    {label: 'Buy Theme', url: 'https://themeforest.net/item/stroyka-tools-store-angular-7-template/23523630', external: true}
+    }}
 ];

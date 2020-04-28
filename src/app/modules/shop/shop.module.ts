@@ -28,6 +28,7 @@ import { PageTrackOrderComponent } from './pages/page-track-order/page-track-ord
 import { PageWishlistComponent } from './pages/page-wishlist/page-wishlist.component';
 import { ProductSidebarComponent } from './components/product-sidebar/product-sidebar.component';
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import { PageOrderSuccessComponent } from './pages/page-order-success/page-order
         PageOrderSuccessComponent
     ],
     imports: [
+        TranslateModule,
         // modules (angular)
         CommonModule,
         FormsModule,

@@ -28,7 +28,7 @@
                 </a>
                 <div class="mobile-header__search" appDropdown="mobile-header__search--opened" #search="appDropdown">
                     <form class="mobile-header__search-form" action="">
-                        <input class="mobile-header__search-input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off" (keydown.escape)="search.close()" #searchInput>
+                        <input class="mobile-header__search-input" name="search" placeholder="{{'topbar.Search' | translate}}" aria-label="Site search" type="text" autocomplete="off" (keydown.escape)="search.close()" #searchInput>
                         <button class="mobile-header__search-button mobile-header__search-button--submit" type="submit">
                             <app-icon name="search-20" size="20"></app-icon>
                         </button>
