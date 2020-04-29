@@ -240,5 +240,13 @@
         "NewPassword":"New Password",
         "ReenterNewPassword":"Reenter NewPassword",
         "Change":"Change"
+    },
+    "page-about-us":{
+        "AboutUs":"About Us",
+        "AboutUsMessage":"The whole team of JLS IMPORT created by the old team of the company Fransasia Import will be happy to welcome you in our showroom located at 58 rue du Goulet 93300 Aubervilliers in which you will find a wide choice of products artificial flowers, gifts, dishes, household , and in addition to other miscellaneous product ..",
+        "MeatOurTeam":"Meat Our Team",
+        "joinus":"Want to work in our friendly team",
+        "accept":"and we will consider your candidacy",
+        "Contactus":"Contactus"
     }
 }

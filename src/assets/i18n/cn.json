@@ -243,5 +243,13 @@
             "NewPassword":"新密码",
             "ReenterNewPassword":"再次输入新密码",
             "Change":"更换"
+        },
+        "page-about-us":{
+            "AboutUs":"关于我们",
+            "AboutUsMessage":"由Fransasia Import公司的旧团队创建的JLS IMPORT整个团队将很高兴在我们位于58 rue du Goulet 93300 Aubervilliers的陈列室里欢迎您，在这里您会找到各种各样的产品，包括人造花，礼品，餐具，家用 ，以及其他杂项产品..",
+            "MeatOurTeam":"加入我们",
+            "joinus":"想加入我们",
+            "accept":"我们将会考虑您的候选人资格",
+            "Contactus":"联系我们"
         }
 }
