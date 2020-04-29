@@ -7,12 +7,12 @@
             <div class="profile-card__name">Helena Garcia</div>
             <div class="profile-card__email">stroyka@example.com</div>
             <div class="profile-card__edit">
-                <a routerLink="../profile" class="btn btn-secondary btn-sm">Edit Profile</a>
+                <a routerLink="../profile" class="btn btn-secondary btn-sm">{{'page-dashboard.EditProfile' | translate}}</a>
             </div>
         </div>
     </div>
     <div class="dashboard__address card address-card address-card--featured">
-        <div class="address-card__badge" *ngIf="address.default">Default Address</div>
+        <div class="address-card__badge" *ngIf="address.default">{{'page-dashboard.DefaultAddress' | translate}}</div>
         <div class="address-card__body">
             <div class="address-card__name">{{ address.firstName + ' ' + address.lastName}}</div>
             <div class="address-card__row">
@@ -21,21 +21,21 @@
                 {{ address.address }}
             </div>
             <div class="address-card__row">
-                <div class="address-card__row-title">Phone Number</div>
+                <div class="address-card__row-title">{{'page-dashboard.PhoneNumber' | translate}}</div>
                 <div class="address-card__row-content">{{ address.phone }}</div>
             </div>
             <div class="address-card__row">
-                <div class="address-card__row-title">Email Address</div>
+                <div class="address-card__row-title">{{'page-dashboard.EmailAddress' | translate}}</div>
                 <div class="address-card__row-content">{{ address.email }}</div>
             </div>
             <div class="address-card__footer">
-                <a routerLink="/account/addresses/5">Edit Address</a>
+                <a routerLink="/account/addresses/5">{{'page-dashboard.EditAddress' | translate}}</a>
             </div>
         </div>
     </div>
     <div class="dashboard__orders card">
         <div class="card-header">
-            <h5>Recent Orders</h5>
+            <h5>{{'page-dashboard.RecentOrders' | translate}}</h5>
         </div>
         <div class="card-divider"></div>
         <div class="card-table">
@@ -43,10 +43,10 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>Order</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
+                        <th>{{'page-dashboard.Order' | translate}}</th>
+                        <th>{{'page-dashboard.Date' | translate}}</th>
+                        <th>{{'page-dashboard.Status' | translate}}</th>
+                        <th>{{'page-dashboard.Total' | translate}}</th>
                     </tr>
                     </thead>
                     <tbody>

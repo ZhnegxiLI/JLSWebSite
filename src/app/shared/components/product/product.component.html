@@ -47,7 +47,7 @@
                     <app-rating [value]="product.rating"></app-rating>
                 </div>
                 <div class="product__rating-legend">
-                    <a href="" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href="" appClick>Write A Review</a>
+                    <a href="" appClick>{{ product.reviews }} {{'product.Reviews' | translate}}</a><span>/</span><a href="" appClick>{{'product.WriteAReview' | translate}}</a>
                 </div>
             </div>
             <div class="product__description">
@@ -62,16 +62,18 @@
                 <li>Battery Capacity: 2 Ah</li>
             </ul>
             <ul class="product__meta">
-                <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
-                <li>Brand: <a href="" appClick>Wakita</a></li>
-                <li>SKU: 83690/32</li>
+                <li class="product__meta-availability">{{'product.Availability' | translate}}: <span class="text-success">{{'product.InStock' | translate}}</span></li>
+                <li>{{'product.reference' | translate}}: 83690/32</li>
+                <li>{{'product.QuantityPerBox' | translate}}: <a href="" appClick>20</a></li>
+                <li>{{'product.minimumachats' | translate}}: 5678</li>
+                
             </ul>
         </div>
         <!-- .product__info / end -->
         <!-- .product__sidebar -->
         <div class="product__sidebar">
             <div class="product__availability">
-                Availability: <span class="text-success">In Stock</span>
+                {{'product.Availability' | translate}}: <span class="text-success">{{'product.InStock' | translate}}</span>
             </div>
 
             <div class="product__prices">
@@ -86,7 +88,7 @@
             <!-- .product__options -->
             <form class="product__options">
                 <div class="form-group product__option">
-                    <label class="product__option-label">Color</label>
+                    <label class="product__option-label">{{'product.Color' | translate}}</label>
                     <div class="input-radio-color">
                         <div class="input-radio-color__list">
                             <label class="input-radio-color__item input-radio-color__item--white" style="color: #fff;" data-toggle="tooltip" title="White">
@@ -109,7 +111,7 @@
                     </div>
                 </div>
                 <div class="form-group product__option">
-                    <label class="product__option-label">Material</label>
+                    <label class="product__option-label">{{'product.Material' | translate}}</label>
                     <div class="input-radio-label">
                         <div class="input-radio-label__list">
                             <label>
@@ -128,7 +130,7 @@
                     </div>
                 </div>
                 <div class="form-group product__option">
-                    <label class="product__option-label">Quantity</label>
+                    <label class="product__option-label">{{'product.Quantity' | translate}}</label>
                     <div class="product__actions">
                         <div class="product__actions-item">
                             <app-input-number aria-label="Quantity" class="product__quantity" size="lg" [min]="1" [formControl]="quantity"></app-input-number>
@@ -136,7 +138,7 @@
                         <div class="product__actions-item product__actions-item--addtocart">
                             <button type="button" class="btn btn-primary btn-lg"
                                     [ngClass]="{'btn-loading': addingToCart}"
-                                    appClick (click)="addToCart()">Add to cart</button>
+                                    appClick (click)="addToCart()">{{'product.Addtocart' | translate}}</button>
                         </div>
                         <div class="product__actions-item product__actions-item--wishlist">
                             <button type="button" class="btn btn-secondary btn-svg-icon btn-lg" data-toggle="tooltip" title="Wishlist"
@@ -167,14 +169,6 @@
                 </div>
             </div>
 
-            <div class="product__share-links share-links">
-                <ul class="share-links__list">
-                    <li class="share-links__item share-links__item--type--like"><a href="" appClick>Like</a></li>
-                    <li class="share-links__item share-links__item--type--tweet"><a href="" appClick>Tweet</a></li>
-                    <li class="share-links__item share-links__item--type--pin"><a href="" appClick>Pin It</a></li>
-                    <li class="share-links__item share-links__item--type--counter"><a href="" appClick>4K</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>

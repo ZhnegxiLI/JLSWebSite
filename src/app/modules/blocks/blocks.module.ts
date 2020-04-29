@@ -25,6 +25,7 @@ import { BlockSlideshowComponent } from './block-slideshow/block-slideshow.compo
 
 // components
 import { BlockHeaderComponent } from './components/block-header/block-header.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { BlockHeaderComponent } from './components/block-header/block-header.com
         BlockHeaderComponent
     ],
     imports: [
+        TranslateModule,
         // modules (angular)
         CommonModule,
         RouterModule,

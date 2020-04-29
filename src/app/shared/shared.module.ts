@@ -36,6 +36,7 @@ import { RatingComponent } from './components/rating/rating.component';
 // pipes
 import { ColorTypePipe } from './pipes/color-type.pipe';
 import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
         ColorTypePipe
     ],
     imports: [
+        TranslateModule,
         // modules (angular)
         CommonModule,
         FormsModule,

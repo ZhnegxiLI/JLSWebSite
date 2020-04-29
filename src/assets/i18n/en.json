@@ -150,5 +150,95 @@
         "PlaceOrder":"PlaceOrder",
         "termsandconditions":"terms and conditions",
         "Clickheretologin":"Click here to login"
+    },
+    "components":{
+        "AboutUs":"About Us",
+        "DeliveryInformation":"Delivery Information",
+        "ContactUs":"Contact Us",
+        "StoreLocation":"Store Location",
+        "History":"History",
+        "WishList":"WishList"
+    },
+    "block-features":{
+        "FreeShipping":"Free Shipping",
+        "Forordersfrom50":"From 1500€",
+        "100Safety":"100%Safety",
+        "Support247":"Reply quickly",
+        "Callusanytime":"Please contact us with any questions",
+        "Mulplitmethodepayment":"Multiple payment methods",
+        "HotOffers":"Hot Offers",
+        "Discount":"Special discount"
+    },
+    "product":{
+        "Reviews":"Reviews",
+        "WriteAReview":"Write A Review",
+        "Availability":"Availability",
+        "InStock":"In Stock",
+        "Brand":"Brand",
+        "reference":"Reference",
+        "Color":"Color",
+        "Material":"Material",
+        "Quantity":"Quantity",
+        "Addtocart":"Add to cart",
+        "minimumachats":"Minimum purchase",
+        "QuantityPerBox":"Quantity/Box"
+    },
+    "page-dashboard":{
+        "EditProfile":"Edit Profile",
+        "DefaultAddress":"Default Address",
+        "PhoneNumber":"Phone Number",
+        "EmailAddress":"Email Address",
+        "EditAddress":"Edit Address",
+        "RecentOrders":"RecentOrders",
+        "Order":"Order",
+        "Date":"Date",
+        "Status":"Status",
+        "Total":"Total"
+
+    },
+    "page-addresses-list":{
+        "AddNew":"Add New",
+        "Default":"Default",
+        "Edit":"Edit",
+        "Remove":"Remove"
+    },
+    "page-edit-address":{
+        "EditAddress":"Edit Address",
+        "Save":"Save"
+    },
+    "page-login":{
+        "Login":"Login",
+        "Password":"Password",
+        "ForgottenPassword":"Forgotten Password",
+        "RememberMe":"Remember Me",
+        "Register":"Register",
+        "RepeatPassword":"Repeat Password"
+    },
+    "page-order-details":{
+        "Backtolist":"Back to list",
+        "Order":"Order",
+        "Wasplacedon":"Was placed on",
+        "andiscurrently":"and is currently",
+        "Product":"Product",
+        "Total":"Total",
+        "Subtotal":"Subtotal",
+        "ShippingAddress":"Shipping Address",
+        "PhoneNumber":"Phone Number",
+        "EmailAddress":"Email Address",
+        "BillingAddress":"Billing Address"
+    },
+    "page-orders-list":{
+        "OrderHistory":"Order History",
+        "Order":"Order",
+        "Date":"Date",
+        "Status":"Status",
+        "Total":"Total"
+    },
+    "page-password":{
+        "ChangePassword":"Change Password",
+        "CurrentPassword":"Current Password",
+        "NewPassword":"New Password",
+        "ReenterNewPassword":"Reenter NewPassword",
+        "Change":"Change"
     }
 }

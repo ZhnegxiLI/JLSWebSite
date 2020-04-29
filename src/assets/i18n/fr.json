@@ -154,5 +154,93 @@
             "PlaceOrder":"Passer la commande",
             "termsandconditions":"Termes et conditions",
             "Clickheretologin":"Cliquez ici pour vous identifier"
+        },
+        "components":{
+            "AboutUs":"À propos de nous",
+            "DeliveryInformation":"Information de livraison",
+            "ContactUs":"Contactez Nous",
+            "History":"Mes commandes",
+            "WishList":"Favoris"
+        },
+        "block-features":{
+            "FreeShipping":"Livraison gratuit",
+            "Forordersfrom50":"À partir de 1500 €",
+            "100Safety":"Paiement 100% sécurisé",
+            "Support247":"Répondez rapidement",
+            "Callusanytime":"Veuillez nous contacter pour toute question",
+            "Mulplitmethodepayment":"Plusieurs méthodes de paiement",
+            "HotOffers":"Offres Chaudes",
+            "Discount":"Discount spéciale"
+        },
+        "product":{
+            "Reviews":"Avis",
+            "WriteAReview":"Écrire une commentaire",
+            "Availability":"Statut",
+            "InStock":"En stock",
+            "reference":"Référence",
+            "Color":"Colour",
+            "Material":"Matériel",
+            "Quantity":"Quantité",
+            "Addtocart":"Ajouter au panier",
+            "minimumachats":"Minimum d'achat",
+            "QuantityPerBox":"Quantité/Colis"
+        },
+        "page-dashboard":{
+            "EditProfile":"Editer le profil",
+            "DefaultAddress":"Adresse par défaut",
+            "PhoneNumber":"Numéro de téléphone",
+            "EmailAddress":"Email",
+            "EditAddress":"Editer adresse",
+            "RecentOrders":"Mes commandes",
+            "Order":"Commandes",
+            "Date":"Date",
+            "Status":"Statut",
+            "Total":"Total"
+
+        },
+        "page-addresses-list":{
+            "AddNew":"Ajouter nouveau adresse",
+            "Default":"Défaut",
+            "Edit":"Eiter",
+            "Remove":"Supprimer"
+        },
+        "page-edit-address":{
+            "EditAddress":"Editer l'adresse",
+            "Save":"Enregistrer"
+        },
+        "page-login":{
+            "Login":"Se connecter",
+            "Password":"Mot de passe",
+            "ForgottenPassword":"Mot de passe oublié",
+            "RememberMe":"Se souvenir de mot de passe oublié",
+            "Register":"S'inscrire",
+            "RepeatPassword":"Confirmer mot de passe"
+        },
+        "page-order-details":{
+            "Backtolist":"Revenir",
+            "Order":"Commandes",
+            "Wasplacedon":"Créer à",
+            "andiscurrently":"Statut de commande",
+            "Product":"Produit",
+            "Total":"Total",
+            "Subtotal":"Total(avant TAX)",
+            "ShippingAddress":"Adresse de livraison",
+            "PhoneNumber":"Numéro de téléphone",
+            "EmailAddress":"Email",
+            "BillingAddress":"Adresse de facture"
+        },
+        "page-orders-list":{
+            "OrderHistory":"Mes commandes",
+            "Order":"Commande",
+            "Date":"Date",
+            "Status":"Statut",
+            "Total":"Total"
+        },
+        "page-password":{
+            "ChangePassword":"Changer mot de passe",
+            "CurrentPassword":"Ancien mot de passe",
+            "NewPassword":"Nouveau mot de passe",
+            "ReenterNewPassword":"Confirmer nouveau mot de passe",
+            "Change":"Changer"
         }
 }
