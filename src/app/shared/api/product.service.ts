@@ -15,8 +15,15 @@ export class ProductService {
 
     private apiUrlGetCategoryForWebSite = this.host + 'api/Product/GetCategoryForWebSite';
 
+    private apiUrlGetMainPageForWebSite = this.host + 'api/Product/GetMainPageForWebSite';
+
     GetCategoryForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetCategoryForWebSite, {params});
+    }
+
+    GetMainPageForWebSite(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetMainPageForWebSite, {params});
     }
 }

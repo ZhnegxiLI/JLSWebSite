@@ -4,6 +4,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
+import { RootResolverService } from './components/root/root-resolver.service';
+import { PageHomeOneResolverService } from './pages/page-home-one/page-home-one-resolver.service';
 
 
 const routes: Routes = [
@@ -29,11 +31,17 @@ const routes: Routes = [
             // Header layout. Choose one of ['classic', 'compact'].
             headerLayout: 'classic'
         },
+        resolve: { // 此处使用resolve
+            initInfo: RootResolverService
+        },
         children: [
             {
                 path: '',
                 pathMatch: 'full',
-                component: PageHomeOneComponent
+                component: PageHomeOneComponent,
+                resolve: { // 此处使用resolve
+                    initInfo: PageHomeOneResolverService
+                },
             },
             {
                 path: 'shop',

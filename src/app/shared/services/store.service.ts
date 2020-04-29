@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ReferenceService } from '../api/reference.service'
 import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
@@ -10,16 +11,14 @@ export class StoreService {
     phone = '';
     hours = '';
     fax = '';
-    get primaryPhone(): string | null {
-        return this.phone.length > 0 ? this.phone[0] : null;
-    }
+
+    public categoryList = new BehaviorSubject<any[]>([]);
+    public storeInfo = new BehaviorSubject<any[]>([]);
+    public mainPageProductInfo = new BehaviorSubject<any[]>([]);
 
     constructor(referenceService: ReferenceService, translateService: TranslateService) {
-          //todo place into the behaviour subjet
-        referenceService.GetReferenceItemsByCategoryLabels({
-            ShortLabels: ['StoreInfomation'],
-            Lang: translateService.currentLang
-        }).subscribe(result => {
+        // todo add into a global service, change when we change language
+        this.storeInfo.subscribe(result => {
             if (result != null && result.length > 0) {
                 this.address = result.find(p => p.Code == "StoreInfo_Address").Label;
                 this.email = result.find(p => p.Code == "StoreInfo_Email").Label;
@@ -27,6 +26,8 @@ export class StoreService {
                 this.hours = result.find(p => p.Code == "StoreInfo_Hour").Label;
                 this.fax = result.find(p => p.Code == "StoreInfo_Fax").Label;
             }
-        })
+        });
+    
     }
+
 }

@@ -7,6 +7,7 @@ import { Product } from '../../shared/interfaces/product';
 import { Category } from '../../shared/interfaces/category';
 import { BlockHeaderGroup } from '../../shared/interfaces/block-header-group';
 import { takeUntil, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
@@ -40,8 +41,13 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     latestProducts: ProductsCarouselData;
 
     constructor(
+        public route: ActivatedRoute,
         private shop: ShopService,
-    ) { }
+    ) {
+        this.route.data.subscribe(data => {
+            console.log(data) // todo change
+        });
+    }
 
     ngOnInit(): void {
         this.bestsellers$ = this.shop.getBestsellers(7);

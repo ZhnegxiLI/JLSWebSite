@@ -20,6 +20,7 @@ import { ProductService } from 'src/app/shared/api/product.service';
 import { Category } from 'src/app/shared/interfaces/selfDefinedIntefaces/category';
 import { TranslateService } from '@ngx-translate/core';
 import { MainCategory } from 'src/app/shared/interfaces/selfDefinedIntefaces/MainCategory';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-header-departments',
@@ -55,11 +56,13 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
         private header: HeaderService,
         private zone: NgZone,
         private productService: ProductService,
-        private translateService: TranslateService
+        private translateService: TranslateService,
+        private storeService : StoreService
     ) { }
 
     ngOnInit(): void {
-        this.getCategoryList();
+ 
+        this.items = this.storeService.categoryList.value;
 
         const root = this.element.querySelector('.departments') as HTMLElement;
         const content = this.element.querySelector('.departments__links-wrapper') as HTMLElement;
@@ -148,15 +151,7 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
             });
         }
     }
-    //todo place into the behaviour subjet
-    getCategoryList(): void {
-        this.productService.GetCategoryForWebSite({
-            NumberOfCateogry: -1,
-            Lang: this.translateService.currentLang
-        }).subscribe(result => {
-            this.items = result;
-        });
-    }
+
 
     ngOnDestroy(): void {
         this.destroy$.next();
