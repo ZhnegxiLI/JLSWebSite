@@ -15,6 +15,7 @@ export class StoreService {
     public categoryList = new BehaviorSubject<any[]>([]);
     public storeInfo = new BehaviorSubject<any[]>([]);
     public mainPageProductInfo = new BehaviorSubject<any[]>([]);
+    public slideList = new BehaviorSubject<any[]>([]);
 
     constructor(referenceService: ReferenceService, translateService: TranslateService) {
         // todo add into a global service, change when we change language

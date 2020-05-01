@@ -19,6 +19,7 @@ export class RootComponent {
             this.headerLayout = data.headerLayout
             storeService.storeInfo.next(data.initInfo[0]);
             storeService.categoryList.next(data.initInfo[1]);
+            storeService.slideList.next(data.initInfo[2]);
         });
     }
 }

@@ -8,6 +8,7 @@ import { Category } from '../../shared/interfaces/category';
 import { BlockHeaderGroup } from '../../shared/interfaces/block-header-group';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
@@ -29,7 +30,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     destroy$: Subject<void> = new Subject<void>();
     bestsellers$: Observable<Product[]>;
     brands$: Observable<Brand[]>;
-    popularCategories$: Observable<Category[]>;
+    popularCategories$: any[];
 
     columnTopRated$: Observable<Product[]>;
     columnSpecialOffers$: Observable<Product[]>;
@@ -43,6 +44,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     constructor(
         public route: ActivatedRoute,
         private shop: ShopService,
+        private storeService : StoreService
     ) {
         this.route.data.subscribe(data => {
             console.log(data) // todo change
@@ -52,14 +54,9 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.bestsellers$ = this.shop.getBestsellers(7);
         this.brands$ = this.shop.getPopularBrands();
-        this.popularCategories$ = this.shop.getCategoriesBySlug([
-            'power-tools',
-            'hand-tools',
-            'machine-tools',
-            'power-machinery',
-            'measurement',
-            'clothes-and-ppe',
-        ], 1);
+   
+        this.popularCategories$ = this.formatMegaMenu();
+      
         this.columnTopRated$ = this.shop.getTopRated(3);
         this.columnSpecialOffers$ = this.shop.getSpecialOffers(3);
         this.columnBestsellers$ = this.shop.getBestsellers(3);
@@ -121,6 +118,15 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             ],
         };
         this.groupChange(this.latestProducts, this.latestProducts.groups[0]);
+    }
+
+    formatMegaMenu() : any[]{
+        var array = [];
+        var targetedCategory =   this.storeService.categoryList.value.sort((a,b)=>b.SecondCategory.length-a.SecondCategory.length);
+        targetedCategory.filter(p=>p.SecondCategory.length>0);
+        targetedCategory = targetedCategory.slice(0, 6);
+     
+        return targetedCategory;
     }
 
     ngOnDestroy(): void {

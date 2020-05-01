@@ -15,7 +15,7 @@
 
 <app-block-products header="Bestsellers" layout="large-first" [products]="bestsellers$|async"></app-block-products>
 
-<app-block-categories header="Popular Categories" layout="classic" [categories]="popularCategories$|async"></app-block-categories>
+<app-block-categories header="Popular Categories" layout="classic" [categories]="popularCategories$"></app-block-categories>
 
 <app-block-products-carousel
     header="New Arrivals"
@@ -27,7 +27,6 @@
     (groupChange)="groupChange(latestProducts, $event)"
 ></app-block-products-carousel>
 
-<app-block-posts header="Latest News" layout="list-sm" [posts]="posts"></app-block-posts>
 
 <app-block-brands [brands]="brands$|async"></app-block-brands>
 

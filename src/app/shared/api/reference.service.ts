@@ -14,8 +14,12 @@ export class ReferenceService {
     ) { }
 
     private apiUrlGetReferenceItemsByCategoryLabels = this.host + 'api/Reference/GetReferenceItemsByCategoryLabels';
+    private apiUrlGetWbesiteslides = this.host + 'api/Reference/GetWbesiteslides';
 
     GetReferenceItemsByCategoryLabels(criteria): Observable<any> {
         return this.http.post(this.apiUrlGetReferenceItemsByCategoryLabels, criteria);
+    }
+    GetWbesiteslides(): Observable<any> {
+        return this.http.get(this.apiUrlGetWbesiteslides);
     }
 }
