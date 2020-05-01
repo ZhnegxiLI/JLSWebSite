@@ -250,5 +250,17 @@
             "joinus":"Envie de nous rejoindre",
             "accept":"et nous considérerons votre candidature",
             "Contactus":"Contactez nous"
+        },
+        "page-compare":{
+            "Continue":"Continuer",
+            "Notcompare":"Il n'y a aucun produit à comparer",
+            "Product":"Produit",
+            "Rating":"Évaluation",
+            "Reviews":"Avis",
+            "Availability":"Statut",
+            "Price":"Prix",
+            "InStock":"En Stock",
+            "AddToCart":"Ajouter au panier",
+            "Remove":"Retirer"
         }
 }

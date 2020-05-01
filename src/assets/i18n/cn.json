@@ -251,5 +251,20 @@
             "joinus":"想加入我们",
             "accept":"我们将会考虑您的候选人资格",
             "Contactus":"联系我们"
+        },
+        "page-compare":{
+            "Continue":"继续",
+            "Notcompare":"这里没有任何商品可以对比",
+            "Product":"商品",
+            "Rating":"评分",
+            "Reviews":"评价",
+            "Availability":"商品状态",
+            "Price":"价格",
+            "InStock":"有库存",
+            "AddToCart":"加入购物车",
+            "Remove":"移除"
+        },
+        "page-order-success":{
+ 
         }
 }

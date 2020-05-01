@@ -5,6 +5,7 @@ import { DirectionService } from '../../../../shared/services/direction.service'
 import { merge, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { HeaderService } from '../../../../shared/services/header.service';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-header-links',
@@ -17,7 +18,7 @@ export class LinksComponent implements OnInit, OnDestroy, AfterViewChecked {
 
     destroy$: Subject<void> = new Subject<void>();
 
-    items: NavigationLink[] = navigation;
+    items: any[] = navigation;
     hoveredItem: NavigationLink = null;
 
     reCalcSubmenuPosition = false;
@@ -26,7 +27,8 @@ export class LinksComponent implements OnInit, OnDestroy, AfterViewChecked {
         private direction: DirectionService,
         private header: HeaderService,
         private zone: NgZone,
-    ) {}
+        public storeService: StoreService
+    ) { }
 
     onItemMouseEnter(item: NavigationLink): void {
         if (this.hoveredItem !== item) {
@@ -70,10 +72,34 @@ export class LinksComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
 
     ngOnInit(): void {
+        console.log(this.storeService.categoryList.value )
+        var megaMenu = {
+            label: 'Megamenu', url: '/shop/catalog', menu: {
+                type: 'megamenu',
+                size: 'nl',
+                columns: this.formatMegaMenu()
+            }
+        };
+
+        this.items.splice(1,0,megaMenu);
+
         merge(
             this.header.navPanelPositionState$,
             this.header.navPanelVisibility$,
         ).pipe(takeUntil(this.destroy$)).subscribe(() => this.hoveredItem = null);
+    }
+
+    formatMegaMenu() : any[]{
+        var array = [];
+        var targetedCategory =   this.storeService.categoryList.value.sort((a,b)=>b.SecondCategory.length-a.SecondCategory.length);
+        targetedCategory.filter(p=>p.SecondCategory.length>0);
+        targetedCategory = targetedCategory.slice(0, 4);
+        targetedCategory.forEach(result=>{
+            array.push({
+                size:6, items: [result]
+            });
+        });
+        return array;
     }
 
     ngOnDestroy(): void {

@@ -8,9 +8,16 @@ import { NestedLink } from '../../../../shared/interfaces/nested-link';
     styleUrls: ['./megamenu.component.scss']
 })
 export class MegamenuComponent {
-    @Input() menu: Megamenu;
+    @Input() menu: any;
 
     @Output() itemClick: EventEmitter<NestedLink> = new EventEmitter<NestedLink>();
 
-    constructor() { }
+    constructor() { 
+    }
+
+    ngOnInit(): void {
+
+        console.log(this.menu)
+    }
+    
 }

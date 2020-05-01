@@ -248,5 +248,17 @@
         "joinus":"Want to work in our friendly team",
         "accept":"and we will consider your candidacy",
         "Contactus":"Contactus"
+    },
+    "page-compare":{
+        "Continue":"Continue",
+        "Notcompare":"There are no products to compare",
+        "Product":"Product",
+        "Rating":"Rating",
+        "Reviews":"Reviews",
+        "Availability":"Availability",
+        "Price":"Price",
+        "InStock":"In Stock",
+        "AddToCart":"Add To Cart",
+        "Remove":"Remove"
     }
 }

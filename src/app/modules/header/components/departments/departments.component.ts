@@ -61,8 +61,10 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
     ) { }
 
     ngOnInit(): void {
- 
-        this.items = this.storeService.categoryList.value;
+        //todo place into behavioursubjet
+        this.storeService.categoryList.subscribe(result=>{
+            this.items = result.sort((a,b)=>b.SecondCategory.length-a.SecondCategory.length);
+        }) 
 
         const root = this.element.querySelector('.departments') as HTMLElement;
         const content = this.element.querySelector('.departments__links-wrapper') as HTMLElement;
@@ -313,16 +315,16 @@ export class DepartmentsComponent implements OnInit, OnDestroy, AfterViewInit, A
             paddingBottom,
             bodyRect.top
         );
+        
+        if(submenuElement!=null){
+            submenuElement.style.maxHeight = `${maxHeight}px`;
 
-        submenuElement.style.maxHeight = `${maxHeight}px`;
-
-        const submenuRect = submenuElement.getBoundingClientRect();
-        const itemRect = itemElement.getBoundingClientRect();
-        const containerRect = containerElement.getBoundingClientRect();
-        const top = Math.min(itemRect.top, viewportHeight - paddingBottom - submenuRect.height) - containerRect.top;
-
-        submenuElement.style.top = `${top}px`;
-
+            const submenuRect = submenuElement.getBoundingClientRect();
+            const itemRect = itemElement.getBoundingClientRect();
+            const containerRect = containerElement.getBoundingClientRect();
+            const top = Math.min(itemRect.top, viewportHeight - paddingBottom - submenuRect.height) - containerRect.top;
+            submenuElement.style.top = `${top}px`;
+        }
     }
 
     getCurrentItemElement(): HTMLDivElement {
