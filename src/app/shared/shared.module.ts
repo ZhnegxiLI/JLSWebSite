@@ -37,6 +37,7 @@ import { RatingComponent } from './components/rating/rating.component';
 import { ColorTypePipe } from './pipes/color-type.pipe';
 import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
 import { TranslateModule } from '@ngx-translate/core';
+import { ProductCard1Component } from './components/product-card1/product-card1.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { TranslateModule } from '@ngx-translate/core';
         PaginationComponent,
         PostCardComponent,
         ProductCardComponent,
+        ProductCard1Component,
         ProductComponent,
         QuickviewComponent,
         RatingComponent,
@@ -101,6 +103,7 @@ import { TranslateModule } from '@ngx-translate/core';
         PaginationComponent,
         PostCardComponent,
         ProductCardComponent,
+        ProductCard1Component,
         ProductComponent,
         QuickviewComponent,
         RatingComponent,

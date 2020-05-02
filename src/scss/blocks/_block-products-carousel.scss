@@ -62,7 +62,13 @@
         flex-basis: 100%;
         flex-grow: 1;
     }
-
+    &,
+    app-product-card1 {
+        display: flex;
+        width: 100%;
+        flex-basis: 100%;
+        flex-grow: 1;
+    }
     .product-card {
         width: 100%;
     }

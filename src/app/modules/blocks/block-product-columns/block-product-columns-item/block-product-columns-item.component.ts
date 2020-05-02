@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { Product } from '../../../../shared/interfaces/product';
+import { Product, Product1 } from '../../../../shared/interfaces/product';
 
 @Component({
     selector: 'app-block-product-columns-item',
@@ -10,7 +10,7 @@ export class BlockProductColumnsItemComponent {
     @HostBinding('class.col') classCol = true;
 
     @Input() header: string;
-    @Input() products: Product[] = [];
+    @Input() products: Product1[] = [];
 
     constructor() { }
 }

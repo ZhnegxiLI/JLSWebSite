@@ -26,6 +26,7 @@ import { BlockSlideshowComponent } from './block-slideshow/block-slideshow.compo
 // components
 import { BlockHeaderComponent } from './components/block-header/block-header.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { BlockProductsCarousel1Component } from './block-products-carousel1/block-products-carousel1.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { TranslateModule } from '@ngx-translate/core';
         BlockProductColumnsComponent,
         BlockProductColumnsItemComponent,
         BlockProductsCarouselComponent,
+        BlockProductsCarousel1Component,
         BlockProductsComponent,
         BlockSlideshowComponent,
         // components
@@ -65,6 +67,7 @@ import { TranslateModule } from '@ngx-translate/core';
         BlockProductColumnsComponent,
         BlockProductColumnsItemComponent,
         BlockProductsCarouselComponent,
+        BlockProductsCarousel1Component,
         BlockProductsComponent,
         BlockSlideshowComponent
     ]

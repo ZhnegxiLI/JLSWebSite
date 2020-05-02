@@ -33,14 +33,30 @@ export interface Product {
     slug: string;
     name: string;
     price: number;
-    compareAtPrice: number|null;
+    compareAtPrice: number | null;
     images: string[];
     badges: string[];
     rating: number;
     reviews: number;
     availability: string;
-    brand: Brand|null;
+    brand: Brand | null;
     categories: Category[];
     attributes: ProductAttribute[];
     customFields: CustomFields;
+}
+
+/* todo change */
+export interface Product1 {
+    ProductId: number;
+    ReferenceId: number;
+    QuantityPerBox: number;
+    price: number;
+    Label: string;
+    DefaultPhotoPath: string;
+    badges: string[];
+    MinQuantity: number;
+    NumberOfComment: number;
+    Code: string;
+    ParentId: number;
+
 }

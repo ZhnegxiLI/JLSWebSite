@@ -9,6 +9,8 @@ import { BlockHeaderGroup } from '../../shared/interfaces/block-header-group';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
+import { ProductService } from 'src/app/shared/api/product.service';
+import { TranslateService } from '@ngx-translate/core';
 
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
@@ -44,7 +46,9 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     constructor(
         public route: ActivatedRoute,
         private shop: ShopService,
-        private storeService : StoreService
+        private storeService: StoreService,
+        private productService: ProductService,
+        private translateService: TranslateService
     ) {
         this.route.data.subscribe(data => {
             console.log(data) // todo change
@@ -52,80 +56,100 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.bestsellers$ = this.shop.getBestsellers(7);
+        this.bestsellers$ = this.productService.GetProductListBySalesPerformance({
+            Lang: this.translateService.currentLang,
+            Begin: 0,
+            Step: 6
+        });
+
         this.brands$ = this.shop.getPopularBrands();
-   
+
         this.popularCategories$ = this.formatMegaMenu();
-      
-        this.columnTopRated$ = this.shop.getTopRated(3);
-        this.columnSpecialOffers$ = this.shop.getSpecialOffers(3);
-        this.columnBestsellers$ = this.shop.getBestsellers(3);
+
+        this.columnTopRated$ = this.productService.GetProductListBySalesPerformance({
+            Lang: this.translateService.currentLang,
+            Begin: 0,
+            Step: 3
+        });
+        this.columnSpecialOffers$ = this.productService.GetProductListBySalesPerformance({
+            Lang: this.translateService.currentLang,
+            Begin: 0,
+            Step: 3
+        });
+        this.columnBestsellers$ = this.productService.GetProductListBySalesPerformance({
+            Lang: this.translateService.currentLang,
+            Begin: 0,
+            Step: 3
+        });
+
+
+        var categoryList = this.storeService.categoryList.value.slice(0, 4);
+        var groups = [];
+        groups.push({
+            name: "All",
+            current: true,
+            products$: this.productService.GetProductByPrice({
+                Lang: this.translateService.currentLang,
+                Begin: 0,
+                Step: 8
+            })
+        })
+        categoryList.forEach(element => {
+            groups.push({
+                name: element.Label,
+                current: false,
+                products$: this.productService.GetProductByPrice({
+                    Lang: this.translateService.currentLang,
+                    Begin: 0,
+                    Step: 8
+                }),
+            })
+        });
 
         this.featuredProducts = {
             abort$: new Subject<void>(),
             loading: false,
             products: [],
-            groups: [
-                {
-                    name: 'All',
-                    current: true,
-                    products$: this.shop.getFeaturedProducts(null, 8),
-                },
-                {
-                    name: 'Power Tools',
-                    current: false,
-                    products$: this.shop.getFeaturedProducts('power-tools', 8),
-                },
-                {
-                    name: 'Hand Tools',
-                    current: false,
-                    products$: this.shop.getFeaturedProducts('hand-tools', 8),
-                },
-                {
-                    name: 'Plumbing',
-                    current: false,
-                    products$: this.shop.getFeaturedProducts('plumbing', 8),
-                },
-            ],
+            groups: groups
         };
         this.groupChange(this.featuredProducts, this.featuredProducts.groups[0]);
-
+        var categoryList = this.storeService.categoryList.value.slice(0, 4);
+        var groups = [];
+        groups.push({
+            name: "All",
+            current: true,
+            products$: this.productService.GetProductListByPublishDate({
+                Lang: this.translateService.currentLang,
+                Begin: 0,
+                Step: 8
+            })
+        })
+        categoryList.forEach(element => {
+            groups.push({
+                name: element.Label,
+                current: false,
+                products$: this.productService.GetProductListByPublishDate({
+                    Lang: this.translateService.currentLang,
+                    Begin: 0,
+                    Step: 8
+                }),
+            })
+        });
         this.latestProducts = {
             abort$: new Subject<void>(),
             loading: false,
             products: [],
-            groups: [
-                {
-                    name: 'All',
-                    current: true,
-                    products$: this.shop.getLatestProducts(null, 8),
-                },
-                {
-                    name: 'Power Tools',
-                    current: false,
-                    products$: this.shop.getLatestProducts('power-tools', 8),
-                },
-                {
-                    name: 'Hand Tools',
-                    current: false,
-                    products$: this.shop.getLatestProducts('hand-tools', 8),
-                },
-                {
-                    name: 'Plumbing',
-                    current: false,
-                    products$: this.shop.getLatestProducts('plumbing', 8),
-                },
-            ],
+            groups: groups
         };
-        this.groupChange(this.latestProducts, this.latestProducts.groups[0]);
+        this.groupChange1(this.latestProducts, this.latestProducts.groups[0]);
     }
 
-    formatMegaMenu() : any[]{
+    formatMegaMenu(): any[] {
         var array = [];
-        var targetedCategory =   this.storeService.categoryList.value.sort((a,b)=>b.SecondCategory.length-a.SecondCategory.length);
-        targetedCategory.filter(p=>p.SecondCategory.length>0);
+        var targetedCategory = this.storeService.categoryList.value.sort((a, b) => b.SecondCategory.length - a.SecondCategory.length);
+        targetedCategory.filter(p => p.SecondCategory.length > 0);
         targetedCategory = targetedCategory.slice(0, 6);
-     
+
         return targetedCategory;
     }
 
@@ -141,6 +165,17 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
         (group as ProductsCarouselGroup).products$.pipe(
             tap(() => carousel.loading = false),
             takeUntil(merge(this.destroy$, carousel.abort$)),
-        ).subscribe(x => carousel.products = x);
+        ).subscribe(x => { carousel.products = x });
+    }
+
+
+    groupChange1(carousel: ProductsCarouselData, group: any): void {
+        carousel.loading = true;
+        carousel.abort$.next();
+
+        group.products$.pipe(
+            tap(() => carousel.loading = false),
+            takeUntil(merge(this.destroy$, carousel.abort$)),
+        ).subscribe(x => { carousel.products = x });
     }
 }

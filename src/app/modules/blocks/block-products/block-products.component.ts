@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product1 } from 'src/app/shared/interfaces/product';
 
 @Component({
     selector: 'app-block-products',
@@ -7,25 +8,30 @@ import { Component, Input } from '@angular/core';
 })
 export class BlockProductsComponent {
     @Input() header: string;
-    @Input() layout: 'large-first'|'large-last' = 'large-first';
-    @Input() products: any[] = [];
+    @Input() layout: 'large-first' | 'large-last' = 'large-first';
+    @Input() products: Product1[] = [];
 
     get large(): any {
-        if (this.layout === 'large-first' && this.products.length > 0) {
-            return this.products[0];
-        } else if (this.layout === 'large-last' && this.products.length > 6) {
-            return this.products[6];
+        if (this.products != null) {
+            if (this.layout === 'large-first' && this.products.length > 0) {
+                return this.products[0];
+            } else if (this.layout === 'large-last' && this.products.length > 6) {
+                return this.products[6];
+            }
         }
 
         return null;
     }
 
     get smalls(): any[] {
-        if (this.layout === 'large-first') {
-            return this.products.slice(1, 7);
-        } else  {
-            return this.products.slice(0, 6);
+        if (this.products != null) {
+            if (this.layout === 'large-first') {
+                return this.products.slice(1, 7);
+            } else {
+                return this.products.slice(0, 6);
+            }
         }
+        return [];
     }
 
     constructor() { }

@@ -2,14 +2,14 @@
 
 <app-block-features></app-block-features>
 
-<app-block-products-carousel
+<app-block-products-carousel1
     header="Featured Products"
     layout="grid-4"
     [loading]="featuredProducts.loading"
     [products]="featuredProducts.products"
     [groups]="featuredProducts.groups"
     (groupChange)="groupChange(featuredProducts, $event)"
-></app-block-products-carousel>
+></app-block-products-carousel1>
 
 <app-block-banner></app-block-banner>
 
@@ -17,7 +17,7 @@
 
 <app-block-categories header="Popular Categories" layout="classic" [categories]="popularCategories$"></app-block-categories>
 
-<app-block-products-carousel
+<app-block-products-carousel1
     header="New Arrivals"
     layout="horizontal"
     [rows]="2"
@@ -25,7 +25,7 @@
     [products]="latestProducts.products"
     [groups]="latestProducts.groups"
     (groupChange)="groupChange(latestProducts, $event)"
-></app-block-products-carousel>
+></app-block-products-carousel1>
 
 
 <app-block-brands [brands]="brands$|async"></app-block-brands>

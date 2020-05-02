@@ -4,22 +4,22 @@ import { BlockHeaderGroup } from '../../../shared/interfaces/block-header-group'
 import { DirectionService } from '../../../shared/services/direction.service';
 
 @Component({
-    selector: 'app-block-products-carousel',
-    templateUrl: './block-products-carousel.component.html',
-    styleUrls: ['./block-products-carousel.component.scss']
+    selector: 'app-block-products-carousel1',
+    templateUrl: './block-products-carousel1.component.html',
+    styleUrls: ['./block-products-carousel1.component.scss']
 })
-export class BlockProductsCarouselComponent implements OnChanges {
+export class BlockProductsCarousel1Component implements OnChanges {
     @Input() header: string;
     @Input() layout: 'grid-4'|'grid-4-sm'|'grid-5'|'horizontal' = 'grid-4';
     @Input() rows = 1;
-    @Input() products: Product[] = [];
+    @Input() products: Product1[] = [];
     @Input() groups: BlockHeaderGroup[] = [];
     @Input() withSidebar = false;
     @Input() loading = false;
 
     @Output() groupChange: EventEmitter<BlockHeaderGroup> = new EventEmitter();
 
-    columns: Product[][] = [];
+    columns: Product1[][] = [];
 
     carouselDefaultOptions: any = {
         items: 4,
