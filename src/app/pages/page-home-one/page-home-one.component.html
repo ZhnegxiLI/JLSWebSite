@@ -3,7 +3,7 @@
 <app-block-features></app-block-features>
 
 <app-block-products-carousel1
-    header="Featured Products"
+    header="page-home-one.FeaturedProducts"
     layout="grid-4"
     [loading]="featuredProducts.loading"
     [products]="featuredProducts.products"
@@ -13,12 +13,12 @@
 
 <app-block-banner></app-block-banner>
 
-<app-block-products header="Bestsellers" layout="large-first" [products]="bestsellers$|async"></app-block-products>
+<app-block-products header="page-home-one.Bestsellers" layout="large-first" [products]="bestsellers$|async"></app-block-products>
 
-<app-block-categories header="Popular Categories" layout="classic" [categories]="popularCategories$"></app-block-categories>
+<app-block-categories header="page-home-one.PopularCategories" layout="classic" [categories]="popularCategories$"></app-block-categories>
 
 <app-block-products-carousel1
-    header="New Arrivals"
+    header="page-home-one.NewArrivals"
     layout="horizontal"
     [rows]="2"
     [loading]="latestProducts.loading"
@@ -31,7 +31,7 @@
 <app-block-brands [brands]="brands$|async"></app-block-brands>
 
 <app-block-product-columns>
-    <app-block-product-columns-item header="Top Rated Products" [products]="columnTopRated$|async"></app-block-product-columns-item>
-    <app-block-product-columns-item header="Special Offers" [products]="columnSpecialOffers$|async"></app-block-product-columns-item>
-    <app-block-product-columns-item header="Bestsellers" [products]="columnBestsellers$|async"></app-block-product-columns-item>
+    <app-block-product-columns-item header="page-home-one.TopRatedProducts" [products]="columnTopRated$|async"></app-block-product-columns-item>
+    <app-block-product-columns-item header="page-home-one.SpecialOffers" [products]="columnSpecialOffers$|async"></app-block-product-columns-item>
+    <app-block-product-columns-item header="page-home-one.Bestsellers" [products]="columnBestsellers$|async"></app-block-product-columns-item>
 </app-block-product-columns>

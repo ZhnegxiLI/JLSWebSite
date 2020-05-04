@@ -157,7 +157,12 @@
         "ContactUs":"Contact Us",
         "StoreLocation":"Store Location",
         "History":"History",
-        "WishList":"WishList"
+        "WishList":"WishList",
+        "PrivacyPolicy":"Privacy Policy",
+        "Brands":"Brands",
+        "Newsletter":"Newsletter",
+        "Information":"Information",
+        "MyAccount":"My Account"
     },
     "block-features":{
         "FreeShipping":"Free Shipping",
@@ -260,5 +265,71 @@
         "InStock":"In Stock",
         "AddToCart":"Add To Cart",
         "Remove":"Remove"
+    },
+    "Header.links":{
+        "Megamenu":"Popular category",
+        "Home":"Home",
+        "Shop":"Shop",
+        "ShopGrid":"Shop Grid",
+        "3ColumnsSidebar":"Catalog",
+        "ShopList":"Shop List",
+        "Product":"Product",
+        "Cart":"Cart",
+        "Checkout":"Checkout",
+        "OrderSuccess":"My Orders ",
+        "Wishlist":"Wishlist",
+        "Compare":"Compare",
+        "TrackOrder":"Track Order",
+        "Account":"Account",
+        "Login":"Login",
+        "Dashboard":"Dashboard",
+        "EditProfile":"Edit Profile",
+        "OrderHistory":"Order History",
+        "OrderDetails":"Order Details",
+        "AddressBook":"My Address",
+        "EditAddress":"Edit Address",
+        "ChangePassword":"Change Password"
+    },
+    "page-order-success":{
+        "Thankyou":"Thank you",
+        "Yourorderhasbeenreceived":"Your order has been received",
+        "GoToHomepage":"Go To Homepage",
+        "Ordernumber":"Order number",
+        "Createdat":"Created at",
+        "Total":"Total",
+        "Paymentmethod":"Payment method",
+        "Product":"Product",
+        "Qty":"Quantity",
+        "Subtotal":"Subtotal",
+        "ShippingAddress":"Shipping Address",
+        "PhoneNumber":"Phone Number",
+        "EmailAddress":"Email Address",
+        "BillingAddress":"Billing Address"
+    },
+    "page-track-order":{
+        "TrackOrder":"TrackOrder",
+        "TrackOrderMessage":"You can track your order here",
+        "OrderID":"OrderID",
+        "Emailaddress":"Email",
+        "Track":"Track"
+    },
+    "page-wishlist":{
+        "Yourwishlistisempty":"You wish list is empty",
+        "Continue":"Continue",
+        "Image":"Image",
+        "Product":"Product",
+        "StockStatus":"Stock Status",
+        "Price":"Price",
+        "Reviews":"Reviews",
+        "InStock":"In Stock",
+        "AddToCart":"Add To Cart"
+    },
+    "page-home-one":{
+        "FeaturedProducts":"page-home-one.PopularCategories",
+        "NewArrivals":"New Arrivals",
+        "Bestsellers":"Best sellers",
+        "PopularCategories":"Popular Categories",
+        "TopRatedProducts":"Top Rated Products",
+        "SpecialOffers":"Special Offers"
     }
 }

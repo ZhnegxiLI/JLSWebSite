@@ -34,5 +34,7 @@ export class TopbarComponent {
         localStorage.setItem('lang',language.code);
         this.translateService.currentLang = language.code;
         this.translateService.setDefaultLang(language.code);
+        // todo reload complete page now, reload only data for the futher
+        window.location.reload();
     }
 }

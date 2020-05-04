@@ -160,7 +160,12 @@
             "DeliveryInformation":"Information de livraison",
             "ContactUs":"Contactez Nous",
             "History":"Mes commandes",
-            "WishList":"Favoris"
+            "WishList":"Favoris",
+            "PrivacyPolicy":"Politique de confidentialité",
+            "Brands":"Marques",
+            "Newsletter":"Newsletter",
+            "Information":"Information",
+            "MyAccount":"Mon compte"
         },
         "block-features":{
             "FreeShipping":"Livraison gratuit",
@@ -262,5 +267,71 @@
             "InStock":"En Stock",
             "AddToCart":"Ajouter au panier",
             "Remove":"Retirer"
+        },
+        "Header.links":{
+            "Megamenu":"Catégories populaires",
+            "Home":"Accueil",
+            "Shop":"Achats",
+            "ShopGrid":"Tous les produits",
+            "3ColumnsSidebar":"Annuaire",
+            "ShopList":"Liste de produits",
+            "Product":"Produits",
+            "Cart":"Panier",
+            "Checkout":"Check-out",
+            "OrderSuccess":"Mes commandes",
+            "Wishlist":"Liste de souhaits",
+            "Compare":"Comparer",
+            "TrackOrder":"Suivi mon commande",
+            "Account":"Mon compte",
+            "Login":"S'identifier",
+            "Dashboard":"tableau de bord",
+            "EditProfile":"Editer profil",
+            "OrderHistory":"Mes commandes",
+            "OrderDetails":"Details de commande",
+            "AddressBook":"Mes adresse",
+            "EditAddress":"Gérer mon adresse",
+            "ChangePassword":"Modifier mot de passe"
+        },
+        "page-order-success":{
+            "Thankyou":"Merci",
+            "Yourorderhasbeenreceived":"Nous avons bien reçu votre commande",
+            "GoToHomepage":"Retour à l'accueil",
+            "Ordernumber":"Numéro de commande",
+            "Createdat":"Créé à",
+            "Total":"Total",
+            "Paymentmethod":"Méthode de payment",
+            "Product":"Produit",
+            "Qty":"Quantité",
+            "Subtotal":"Total(Avant TVA)",
+            "ShippingAddress":"Adresse de livraison",
+            "PhoneNumber":"Numéro de Téléphone",
+            "EmailAddress":"Email",
+            "BillingAddress":"Adresse de facture"
+        },
+        "page-track-order":{
+            "TrackOrder":"Suivi votre commande",
+            "TrackOrderMessage":"Vous pouvez suivre votre commande ici",
+            "OrderID":"Numéro de commande",
+            "Emailaddress":"Email",
+            "Track":"Suivre"
+        },
+        "page-wishlist":{
+            "Yourwishlistisempty":"Votre panier de Liste de souhaits est vide",
+            "Continue":"Continuer",
+            "Image":"Image",
+            "Product":"Produit",
+            "StockStatus":"Statut du stock",
+            "Price":"Prix",
+            "Reviews":"Commentaires",
+            "InStock":"En stock",
+            "AddToCart":"Ajouter au panier"
+        },
+        "page-home-one":{
+            "FeaturedProducts":"page-home-one.PopularCategories",
+            "NewArrivals":"Nouvelles Arrivées",
+            "Bestsellers":"Meilleures ventes",
+            "PopularCategories":"Catégories populaires",
+            "TopRatedProducts":"Produits les mieux notés",
+            "SpecialOffers":"Offres spéciales"
         }
 }

@@ -160,7 +160,12 @@
             "ContactUs":"联系我们",
             "StoreLocation":"我们的地址",
             "History":"我的订单",
-            "WishList":"愿望清单"
+            "WishList":"愿望清单",
+            "PrivacyPolicy":"隐私条款",
+            "Brands":"我们的品牌",
+            "Newsletter":"接收最新的消息",
+            "Information":"信息",
+            "MyAccount":"我的账户"
         },
         "block-features":{
             "FreeShipping":"享受免运费",
@@ -265,6 +270,72 @@
             "Remove":"移除"
         },
         "page-order-success":{
+            "Thankyou":"谢谢",
+            "Yourorderhasbeenreceived":"我们已收到您的订单",
+            "GoToHomepage":"返回主页",
+            "Ordernumber":"订单号",
+            "Createdat":"创建于",
+            "Total":"总价",
+            "Paymentmethod":"支付方式",
+            "Product":"商品",
+            "Qty":"数量",
+            "Subtotal":"商品总价",
+            "ShippingAddress":"运送地址",
+            "PhoneNumber":"电话号码",
+            "EmailAddress":"邮箱",
+            "BillingAddress":"账单地址"
  
+        },
+        "Header.links":{
+            "Megamenu":"受欢迎类别",
+            "Home":"主页",
+            "Shop":"商品",
+            "ShopGrid":"全部商品",
+            "3ColumnsSidebar":"目录",
+            "ShopList":"商品列表",
+            "Product":"商品",
+            "Cart":"购物车",
+            "Checkout":"结账",
+            "OrderSuccess":"已成功订单",
+            "Wishlist":"愿望清单",
+            "Compare":"商品比较",
+            "TrackOrder":"追踪订单",
+            "Account":"我的账户",
+            "Login":"登录",
+            "Dashboard":"管理我的账户",
+            "EditProfile":"修改个人信息",
+            "OrderHistory":"历史订单",
+            "OrderDetails":"订单细节",
+            "AddressBook":"我的地址",
+            "EditAddress":"修改地址",
+            "ChangePassword":"更换密码"
+        },
+        "page-track-order":{
+            "TrackOrder":"跟踪快递",
+            "TrackOrderMessage":"在这里追踪您的订单",
+            "OrderID":"订单号",
+            "Emailaddress":"邮箱",
+            "Track":"追踪"
+        },
+        "page-wishlist":{
+            "Yourwishlistisempty":"您的愿望清单是空的哦",
+            "Continue":"继续",
+            "Image":"图片",
+            "Product":"商品",
+            "StockStatus":"库存状态",
+            "Price":"价格",
+            "Reviews":"评价",
+            "InStock":"有库存",
+            "AddToCart":"加入购物车"
+        },
+        "page-home-one":{
+            "FeaturedProducts":"page-home-one.PopularCategories",
+            "NewArrivals":"新到商品",
+            "Bestsellers":"热销商品",
+            "PopularCategories":"热销类别",
+            "TopRatedProducts":"评价最高商品",
+            "SpecialOffers":"特别推荐"
         }
+
+
 }

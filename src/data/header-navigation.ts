@@ -1,41 +1,41 @@
 import { NavigationLink } from '../app/shared/interfaces/navigation-link';
 
 export const navigation: NavigationLink[] = [
-    {label: 'Home', url: '/'},
-    {label: 'Shop', url: '/shop/catalog/power-tools', menu: {
+    {label: 'Header.links.Home', url: '/'},
+    {label: 'Header.links.Shop', url: '/shop/catalog/power-tools', menu: {
         type: 'menu',
         items: [
-            {label: 'Shop Grid', url: '/shop/catalog/power-tools', items: [
-                {label: '3 Columns Sidebar', url: '/shop/catalog/power-tools'},
+            {label: 'Header.links.ShopGrid', url: '/shop/catalog/power-tools', items: [
+                {label: 'Header.links.3ColumnsSidebar', url: '/shop/catalog/power-tools'},
                 {label: '4 Columns Full',    url: '/shop/category-grid-4-columns-full'},
                 {label: '5 Columns Full',    url: '/shop/category-grid-5-columns-full'}
             ]},
-            {label: 'Shop List', url: '/shop/category-list'},
-            {label: 'Shop Right Sidebar', url: '/shop/category-right-sidebar'},
-            {label: 'Product', url: '/shop/product-standard', items: [
+            {label: 'Header.links.ShopList', url: '/shop/category-list'},
+            {label: 'ShopRightSidebar', url: '/shop/category-right-sidebar'},
+            {label: 'Header.links.Product', url: '/shop/product-standard', items: [
                 {label: 'Product', url: '/shop/product-standard'},
                 {label: 'Product Alt', url: '/shop/product-columnar'},
                 {label: 'Product Sidebar', url: '/shop/product-sidebar'}
             ]},
-            {label: 'Cart', url: '/shop/cart'},
-            {label: 'Checkout', url: '/shop/cart/checkout'},
-            {label: 'Order Success', url: '/shop/cart/checkout/success'},
-            {label: 'Wishlist', url: '/shop/wishlist'},
-            {label: 'Compare', url: '/shop/compare'},
-            {label: 'Track Order', url: '/shop/track-order'},
+            {label: 'Header.links.Cart', url: '/shop/cart'},
+            {label: 'Header.links.Checkout', url: '/shop/cart/checkout'},
+            {label: 'Header.links.OrderSuccess', url: '/shop/cart/checkout/success'},
+            {label: 'Header.links.Wishlist', url: '/shop/wishlist'},
+            {label: 'Header.links.Compare', url: '/shop/compare'},
+            {label: 'Header.links.TrackOrder', url: '/shop/track-order'},
         ]
     }},
-    {label: 'Account', url: '/account', menu: {
+    {label: 'Header.links.Account', url: '/account', menu: {
         type: 'menu',
         items: [
-            {label: 'Login',           url: '/account/login'},
-            {label: 'Dashboard',       url: '/account/dashboard'},
-            {label: 'Edit Profile',    url: '/account/profile'},
-            {label: 'Order History',   url: '/account/orders'},
-            {label: 'Order Details',   url: '/account/orders/5'},
-            {label: 'Address Book',    url: '/account/addresses'},
-            {label: 'Edit Address',    url: '/account/addresses/5'},
-            {label: 'Change Password', url: '/account/password'}
+            {label: 'Header.links.Login',           url: '/account/login'},
+            {label: 'Header.links.Dashboard',       url: '/account/dashboard'},
+            {label: 'Header.links.EditProfile',    url: '/account/profile'},
+            {label: 'Header.links.OrderHistory',   url: '/account/orders'},
+            {label: 'Header.links.OrderDetails',   url: '/account/orders/5'},
+            {label: 'Header.links.AddressBook',    url: '/account/addresses'},
+            {label: 'Header.links.EditAddress',    url: '/account/addresses/5'},
+            {label: 'Header.links.ChangePassword', url: '/account/password'}
         ]
     }},
     {label: 'Pages', url: '/site', menu: {

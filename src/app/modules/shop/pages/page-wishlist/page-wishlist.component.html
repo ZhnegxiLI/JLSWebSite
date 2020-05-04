@@ -6,9 +6,9 @@
 <div class="block block-empty" *ngIf="!(wishlist.items$|async).length">
     <div class="container">
         <div class="block-empty__body">
-            <div class="block-empty__message">Your wish list is empty!</div>
+            <div class="block-empty__message">{{'page-wishlist.Yourwishlistisempty' | translate}}!</div>
             <div class="block-empty__actions">
-                <a routerLink="/" class="btn btn-primary btn-sm">Continue</a>
+                <a routerLink="/" class="btn btn-primary btn-sm">{{'page-wishlist.Continue' | translate}}</a>
             </div>
         </div>
     </div>
@@ -19,10 +19,10 @@
         <table class="wishlist">
             <thead class="wishlist__head">
             <tr class="wishlist__row">
-                <th class="wishlist__column wishlist__column--image">Image</th>
-                <th class="wishlist__column wishlist__column--product">Product</th>
-                <th class="wishlist__column wishlist__column--stock">Stock Status</th>
-                <th class="wishlist__column wishlist__column--price">Price</th>
+                <th class="wishlist__column wishlist__column--image">{{'page-wishlist.Image' | translate}}</th>
+                <th class="wishlist__column wishlist__column--product">{{'page-wishlist.Product' | translate}}</th>
+                <th class="wishlist__column wishlist__column--stock">{{'page-wishlist.StockStatus' | translate}}</th>
+                <th class="wishlist__column wishlist__column--price">{{'page-wishlist.Price' | translate}}</th>
                 <th class="wishlist__column wishlist__column--tocart"></th>
                 <th class="wishlist__column wishlist__column--remove"></th>
             </tr>
@@ -36,15 +36,15 @@
                     <a [routerLink]="root.product(product)" class="wishlist__product-name">{{ product.name }}</a>
                     <div class="wishlist__product-rating">
                         <app-rating [value]="product.rating"></app-rating>
-                        <div class="wishlist__product-rating-legend">{{ product.reviews }} Reviews</div>
+                        <div class="wishlist__product-rating-legend">{{ product.reviews }}{{'page-wishlist.Reviews' | translate}}</div>
                     </div>
                 </td>
                 <td class="wishlist__column wishlist__column--stock">
-                    <div class="badge badge-success">In Stock</div>
+                    <div class="badge badge-success">{{'page-wishlist.InStock' | translate}}</div>
                 </td>
                 <td class="wishlist__column wishlist__column--price">{{ product.price|currencyFormat }}</td>
                 <td class="wishlist__column wishlist__column--tocart">
-                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">Add To Cart</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">{{'page-wishlist.AddToCart' | translate}}</button>
                 </td>
                 <td class="wishlist__column wishlist__column--remove">
                     <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(product)" [ngClass]="{'btn-loading': removedProducts.includes(product)}">
