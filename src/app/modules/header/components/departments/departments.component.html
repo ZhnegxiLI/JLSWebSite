@@ -31,7 +31,7 @@
                         <app-icon *ngIf="item.SecondCategory && item.SecondCategory.length>0" class="departments__item-arrow" name="arrow-rounded-right-6x9" size="6x9"></app-icon>
                     </ng-template>
 
-                    <a class="departments__item-link" [routerLink]="['/shop/catalog']" [queryParams]="{CategoryId: item.CategoryId , ReferenceItemId: item.Id}" (click)="onItemClick()" (appTouchClick)="onTouchClick($event, item)">
+                    <a class="departments__item-link" [routerLink]="['/shop/catalog']" [queryParams]="{CategoryId: item.CategoryId ,CategoryLabel :item.CategoryShortLabel, ReferenceItemId: item.Id}" (click)="onItemClick()" (appTouchClick)="onTouchClick($event, item)">
                         <ng-container [ngTemplateOutlet]="link"></ng-container>
                     </a>
 

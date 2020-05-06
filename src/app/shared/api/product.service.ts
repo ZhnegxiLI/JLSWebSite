@@ -24,6 +24,7 @@ export class ProductService {
 
     private apiUrlGetProductListBySalesPerformance = this.host + 'api/Product/GetProductListBySalesPerformance';
 
+    private apiUrlAdvancedProductSearchClient = this.host + 'api/Product/AdvancedProductSearchClient';
     GetCategoryForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetCategoryForWebSite, {params});
@@ -47,6 +48,11 @@ export class ProductService {
     GetProductListBySalesPerformance(criteria):Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetProductListBySalesPerformance, {params}).pipe(map((p:any)=>p.Data.ProductListData));
+    }
+
+
+    AdvancedProductSearchClient(criteria):Observable<any> {
+        return this.http.post(this.apiUrlAdvancedProductSearchClient, criteria);
     }
 
 }

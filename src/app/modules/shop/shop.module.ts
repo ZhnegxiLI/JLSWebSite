@@ -29,6 +29,7 @@ import { PageWishlistComponent } from './pages/page-wishlist/page-wishlist.compo
 import { ProductSidebarComponent } from './components/product-sidebar/product-sidebar.component';
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { PageCategoryService1 } from './services/page-category1.service';
 
 @NgModule({
     declarations: [

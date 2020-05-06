@@ -12,6 +12,7 @@ import { ProductsListResolverService } from './resolvers/products-list-resolver.
 import { CategoryResolverService } from './resolvers/category-resolver.service';
 import { ProductResolverService } from './resolvers/product-resolver.service';
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
+import { PageCategoryService1 } from './services/page-category1.service';
 
 const categoryPageData: Data = {
     // Number of products per row. Possible values: 3, 4, 5.
@@ -25,7 +26,7 @@ const categoryPageData: Data = {
 };
 
 const categoryPageResolvers: ResolveData = {
-    category: CategoryResolverService,
+    categorys: CategoryResolverService,
     products: ProductsListResolverService
 };
 
@@ -180,6 +181,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [PageCategoryService1]
 })
 export class ShopRoutingModule { }

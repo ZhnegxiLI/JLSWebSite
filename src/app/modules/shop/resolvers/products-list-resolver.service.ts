@@ -6,38 +6,8 @@ import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RootService } from '../../../shared/services/root.service';
 import { ListOptions, ShopService } from '../../../shared/api/shop.service';
-
-export function parseProductsListParams(params: Params): ListOptions {
-    const options: ListOptions = {};
-
-    if (params.page) {
-        options.page = parseFloat(params.page);
-    }
-    if (params.limit) {
-        options.limit = parseFloat(params.limit);
-    }
-    if (params.sort) {
-        options.sort = params.sort;
-    }
-
-    for (const param of Object.keys(params)) {
-        const mr = param.match(/^filter_([-_A-Za-z0-9]+)$/);
-
-        if (!mr) {
-            continue;
-        }
-
-        const filterSlug = mr[1];
-
-        if (!('filterValues' in options)) {
-            options.filterValues = {};
-        }
-
-        options.filterValues[filterSlug] = params[param];
-    }
-
-    return options;
-}
+import { ProductService } from 'src/app/shared/api/product.service';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Injectable({
     providedIn: 'root'
@@ -47,12 +17,26 @@ export class ProductsListResolverService implements Resolve<ProductsList> {
         private root: RootService,
         private router: Router,
         private shop: ShopService,
+        private productService: ProductService,
+        public storeService: StoreService,
     ) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ProductsList> {
-        const categorySlug = route.params.categorySlug || route.data.categorySlug || null;
+        var criteria: any = {
+            Begin: 0,
+            Step: 12,
+            Lang: localStorage.getItem('lang')
+        };
 
-        return this.shop.getProductsList(categorySlug, parseProductsListParams(route.queryParams)).pipe(
+        var categoryShortLabel = route.queryParams.CategoryLabel;
+        if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
+            criteria.MainCategory = route.queryParams.ReferenceItemId
+        }
+        else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
+            criteria.SecondCategory = route.queryParams.ReferenceItemId
+        }
+
+        return this.productService.AdvancedProductSearchClient(criteria).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 404) {
                     this.router.navigate([this.root.notFound()]).then();

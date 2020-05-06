@@ -32,7 +32,7 @@
                 <app-icon *ngIf="item.items" class="menu__item-arrow" name="arrow-rounded-right-6x9" size="6x9"></app-icon>
             </ng-template>
             <!-- [routerLink]="item.url" [target]="item.target" -->
-            <a  class="menu__item-link"  [routerLink]="['/shop/catalog']" [queryParams]="{CategoryId: item.CategoryId , ReferenceItemId: item.Id}"  (click)="itemClick.emit(item)" (appTouchClick)="onTouchClick($event, item)">
+            <a  class="menu__item-link"  [routerLink]="['/shop/catalog']" [queryParams]="{CategoryLabel: item.CategoryShortLabel , ReferenceItemId: item.Id}"  (click)="itemClick.emit(item)" (appTouchClick)="onTouchClick($event, item)">
                 <ng-container [ngTemplateOutlet]="link"></ng-container>
             </a>
 

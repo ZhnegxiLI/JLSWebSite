@@ -3,4 +3,5 @@ export interface Category {
     Id: number;
     Code: string;
     CategoryId: number;
+    CategoryShortLabel: string;
 }

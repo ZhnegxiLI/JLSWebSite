@@ -4,6 +4,7 @@ import { PageCategoryService } from '../../services/page-category.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { PageCategoryService1 } from '../../services/page-category1.service';
 
 export type Layout = 'grid'|'grid-with-features'|'list';
 
@@ -26,26 +27,29 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         public sidebar: ShopSidebarService,
         public pageService: PageCategoryService,
+        public pageService1: PageCategoryService1
     ) { }
 
     ngOnInit(): void {
+        /* Bind the form */
         this.listOptionsForm = this.fb.group({
-            page: this.fb.control(this.pageService.page),
-            limit: this.fb.control(this.pageService.limit),
-            sort: this.fb.control(this.pageService.sort),
+            CurrentPage: this.fb.control(this.pageService1.CurrentPage),
+            Step: this.fb.control(this.pageService1.Step),
+            OrderBy: this.fb.control(this.pageService1.OrderBy || 'Default'),
         });
+        /* Bind the change of Begin, Step, OrderBy */
         this.listOptionsForm.valueChanges.subscribe(value => {
-            value.limit = parseFloat(value.limit);
-
-            this.pageService.updateOptions(value);
+            this.pageService1.updateOptions(value);
         });
 
-        this.pageService.list$.pipe(
+        /* Todo when Begin, Step, OrderBy change reset the form */
+        this.pageService1.optionsChange$.pipe(
             takeUntil(this.destroy$)
         ).subscribe(
-            ({page, limit, sort, filterValues}) => {
-                this.filtersCount = Object.keys(filterValues).length;
-                this.listOptionsForm.setValue({page, limit, sort}, {emitEvent: false});
+            (result) => {
+                //this.filtersCount = Object.keys(filterValues).length;
+                this.listOptionsForm.setValue(
+                    {CurrentPage: this.pageService1.CurrentPage, Step:this.pageService1.Step, OrderBy:this.pageService1.OrderBy}, {emitEvent: false});
             }
         );
     }
@@ -60,6 +64,7 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
     }
 
     resetFilters(): void {
-        this.pageService.updateOptions({filterValues: {}});
+        //todo add a function in page-category.service for the reset
+        //this.pageService1.updateOptions({});
     }
 }

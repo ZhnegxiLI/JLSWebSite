@@ -14,6 +14,7 @@ import { RootService } from '../../../shared/services/root.service';
 import { Subject } from 'rxjs';
 import { PageCategoryService } from '../../shop/services/page-category.service';
 import { map, takeUntil } from 'rxjs/operators';
+import { PageCategoryService1 } from '../../shop/services/page-category1.service';
 
 interface FormFilterValues {
     [filterSlug: string]: [number, number] | {[itemSlug: string]: boolean} | string;
@@ -40,24 +41,29 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         public root: RootService,
         public pageCategory: PageCategoryService,
+        public pageCategory1: PageCategoryService1
     ) {
         this.rightToLeft = this.direction.isRTL();
     }
 
     ngOnInit(): void {
-        this.pageCategory.list$.pipe(
-            map(x => x.filters),
-            takeUntil(this.destroy$),
-        ).subscribe(filters => {
-            this.filters = filters;
-            this.filtersForm = this.makeFiltersForm(filters);
+        /* todo Bind the filter change */
+        // this.pageCategory.list$.pipe(
+        //     map(x => x.filters),
+        //     takeUntil(this.destroy$),
+        // ).subscribe(filters => {
+        //     this.filters = filters;
+        //     this.filtersForm = this.makeFiltersForm(filters);
 
-            this.filtersForm.valueChanges.subscribe(formValues => {
-                this.pageCategory.updateOptions({
-                    filterValues: this.convertFormToFilterValues(filters, formValues)
-                });
-            });
-        });
+          
+        // });
+
+        /* TODO Bind the form change*/
+        // this.filtersForm.valueChanges.subscribe(formValues => {
+        //     // this.pageCategory.updateOptions({
+        //     //     filterValues: this.convertFormToFilterValues(filters, formValues)
+        //     // });
+        // });
     }
 
     ngOnDestroy(): void {

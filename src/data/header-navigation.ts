@@ -21,7 +21,6 @@ export const navigation: NavigationLink[] = [
             {label: 'Header.links.Checkout', url: '/shop/cart/checkout'},
             {label: 'Header.links.OrderSuccess', url: '/shop/cart/checkout/success'},
             {label: 'Header.links.Wishlist', url: '/shop/wishlist'},
-            {label: 'Header.links.Compare', url: '/shop/compare'},
             {label: 'Header.links.TrackOrder', url: '/shop/track-order'},
         ]
     }},

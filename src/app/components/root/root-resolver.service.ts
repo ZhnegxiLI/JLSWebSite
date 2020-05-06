@@ -31,7 +31,8 @@ export class RootResolverService implements Resolve<any> {
                 NumberOfCateogry: -1,
                 Lang: localStorage.getItem('lang')
             }),
-            this.referenceService.GetWbesiteslides()
+            this.referenceService.GetWbesiteslides(),
+            this.referenceService.GetAllCategoryList()
         ).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 404) {
