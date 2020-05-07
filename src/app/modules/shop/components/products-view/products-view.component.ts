@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { PageCategoryService1 } from '../../services/page-category1.service';
 
-export type Layout = 'grid'|'grid-with-features'|'list';
+export type Layout = 'grid' | 'grid-with-features' | 'list';
 
 @Component({
     selector: 'app-products-view',
@@ -15,8 +15,8 @@ export type Layout = 'grid'|'grid-with-features'|'list';
 })
 export class ProductsViewComponent implements OnInit, OnDestroy {
     @Input() layout: Layout = 'grid';
-    @Input() grid: 'grid-3-sidebar'|'grid-4-full'|'grid-5-full' = 'grid-3-sidebar';
-    @Input() offcanvas: 'always'|'mobile' = 'mobile';
+    @Input() grid: 'grid-3-sidebar' | 'grid-4-full' | 'grid-5-full' = 'grid-3-sidebar';
+    @Input() offcanvas: 'always' | 'mobile' = 'mobile';
 
     destroy$: Subject<void> = new Subject<void>();
 
@@ -49,7 +49,7 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
             (result) => {
                 //this.filtersCount = Object.keys(filterValues).length;
                 this.listOptionsForm.setValue(
-                    {CurrentPage: this.pageService1.CurrentPage, Step:this.pageService1.Step, OrderBy:this.pageService1.OrderBy}, {emitEvent: false});
+                    { CurrentPage: this.pageService1.CurrentPage, Step: this.pageService1.Step, OrderBy: this.pageService1.OrderBy }, { emitEvent: false });
             }
         );
     }

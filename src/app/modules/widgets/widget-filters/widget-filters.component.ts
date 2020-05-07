@@ -15,9 +15,10 @@ import { Subject } from 'rxjs';
 import { PageCategoryService } from '../../shop/services/page-category.service';
 import { map, takeUntil } from 'rxjs/operators';
 import { PageCategoryService1 } from '../../shop/services/page-category1.service';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 interface FormFilterValues {
-    [filterSlug: string]: [number, number] | {[itemSlug: string]: boolean} | string;
+    [filterSlug: string]: [number, number] | { [itemSlug: string]: boolean } | string;
 }
 
 @Component({
@@ -26,22 +27,30 @@ interface FormFilterValues {
     styleUrls: ['./widget-filters.component.scss']
 })
 export class WidgetFiltersComponent implements OnInit, OnDestroy {
-    @Input() offcanvas: 'always'|'mobile' = 'mobile';
+    @Input() offcanvas: 'always' | 'mobile' = 'mobile';
 
     destroy$: Subject<void> = new Subject<void>();
 
-    filters: Filter[];
+   
+
+    priceInterval = {
+        minValue: 0,
+        maxValue: 2000
+    }
+    minQuantity: number = 200;
+
+    filters: any[] = [];
     filtersForm: FormGroup;
     isPlatformBrowser = isPlatformBrowser(this.platformId);
     rightToLeft = false;
-
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         private direction: DirectionService,
         private fb: FormBuilder,
         public root: RootService,
         public pageCategory: PageCategoryService,
-        public pageCategory1: PageCategoryService1
+        public pageCategory1: PageCategoryService1,
+        public storeService: StoreService
     ) {
         this.rightToLeft = this.direction.isRTL();
     }
@@ -55,8 +64,29 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
         //     this.filters = filters;
         //     this.filtersForm = this.makeFiltersForm(filters);
 
-          
+
         // });
+
+
+        this.storeService.categoryList.subscribe(result => {
+            this.filters.push({
+                name: 'Catégories',
+                type: 'categories',
+                items: result
+            });
+            this.filters.push({
+                name: 'Prix',
+                type: 'doubleRange',
+                min: 0,
+                max: 2000
+            });
+            this.filters.push({
+                name: 'MinQuantity',
+                type: 'singleRange',
+                min: 0,
+                max: 200
+            })
+        });
 
         /* TODO Bind the form change*/
         // this.filtersForm.valueChanges.subscribe(formValues => {
@@ -66,123 +96,37 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
         // });
     }
 
+
+    filterValueChange() {
+        var options = this.pageCategory1.options;
+        options.PriceIntervalLower = this.priceInterval.minValue;
+        options.PriceIntervalUpper = this.priceInterval.maxValue;
+        options.MinQuantity = this.minQuantity;
+
+        this.pageCategory1.setOptions(options);
+    }
     ngOnDestroy(): void {
         this.destroy$.next();
         this.destroy$.complete();
     }
 
-    trackBySlug(index: number, item: {slug: string}): any {
+    trackBySlug(index: number, item: { slug: string }): any {
         return item.slug;
     }
 
-    makeFiltersForm(filters: Filter[]): FormGroup {
-        const filtersFromGroup = {};
-
-        filters.forEach(filter => {
-            switch (filter.type) {
-                case 'range':
-                case 'radio':
-                    filtersFromGroup[filter.slug] = this.fb.control(filter.value);
-                    break;
-                case 'check':
-                case 'color':
-                    filtersFromGroup[filter.slug] = this.makeListFilterForm(filter);
-                    break;
-            }
-        });
-
-        return this.fb.group(filtersFromGroup);
-    }
-
-    makeListFilterForm(filter: CheckFilter|ColorFilter): FormGroup {
-        const group = {};
-
-        filter.items.forEach(item => {
-            const control = this.fb.control(filter.value.includes(item.slug));
-
-            // A timeout is needed because sometimes a state change is ignored if performed immediately.
-            setTimeout(() => {
-                if (this.isItemDisabled(filter, item)) {
-                    control.disable({emitEvent: false});
-                } else {
-                    control.enable({emitEvent: false});
-                }
-            }, 0);
-
-            group[item.slug] = control;
-        });
-
-        return this.fb.group(group);
-    }
-
-    isItemDisabled(filter: CheckFilter|RadioFilter|ColorFilter, item: FilterItem|ColorFilterItem): boolean {
+    isItemDisabled(filter: CheckFilter | RadioFilter | ColorFilter, item: FilterItem | ColorFilterItem): boolean {
         return item.count === 0 && (filter.type === 'radio' || !filter.value.includes(item.slug));
     }
 
-    convertFormToFilterValues(filters: Filter[], formValues: FormFilterValues): SerializedFilterValues {
-        const filterValues: SerializedFilterValues = {};
 
-        filters.forEach(filter => {
-            const formValue = formValues[filter.slug];
-
-            switch (filter.type) {
-                case 'range':
-                    if (formValue && (formValue[0] !== filter.min || formValue[1] !== filter.max)) {
-                        filterValues[filter.slug] = `${formValue[0]}-${formValue[1]}`;
-                    }
-                    break;
-                case 'check':
-                case 'color':
-                    const filterFormValues = formValue as object || {};
-
-                    // Reactive forms do not add a values of disabled checkboxes.
-                    // This code will add them manually.
-                    filter.value.forEach(filterValue => {
-                        if (!(filterValue in filterFormValues)) {
-                            filterFormValues[filterValue] = true;
-                        }
-                    });
-
-                    const values = Object.keys(filterFormValues).filter(x => filterFormValues[x]);
-
-                    if (values.length > 0) {
-                        filterValues[filter.slug] = values.join(',');
-                    }
-                    break;
-                case 'radio':
-                    if (formValue !== filter.items[0].slug) {
-                        filterValues[filter.slug] = formValue as string;
-                    }
-
-                    break;
-            }
-        });
-
-        return filterValues;
-    }
 
     reset(): void {
-        const formValues = {};
+        this.priceInterval = {
+            minValue: 0,
+            maxValue: 2000
+        }
+        this.minQuantity = 200;
 
-        this.filters.forEach(filter => {
-            switch (filter.type) {
-                case 'range':
-                    formValues[filter.slug] = [filter.min, filter.max];
-                    break;
-                case 'check':
-                case 'color':
-                    formValues[filter.slug] = {};
-
-                    filter.items.forEach(item => {
-                        formValues[filter.slug][item.slug] = false;
-                    });
-                    break;
-                case 'radio':
-                    formValues[filter.slug] = filter.items[0].slug;
-                    break;
-            }
-        });
-
-        this.filtersForm.setValue(formValues);
+        this.pageCategory1.resetPartialOptions(true);
     }
 }

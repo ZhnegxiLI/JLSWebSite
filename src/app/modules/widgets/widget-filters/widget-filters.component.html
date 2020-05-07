@@ -3,9 +3,9 @@
     'widget-filters--offcanvas--mobile': offcanvas === 'mobile'
 }" appCollapse>
     <h4 class="widget-filters__title widget__title">Filters</h4>
-
-    <div class="widget-filters__list" [formGroup]="filtersForm" *ngIf="filtersForm">
-        <div *ngFor="let filter of filters; trackBy: trackBySlug" class="widget-filters__item">
+    <!-- [formGroup]="filtersForm" *ngIf="filtersForm" -->
+    <div class="widget-filters__list" >
+        <div *ngFor="let filter of filters" class="widget-filters__item">
             <div class="filter filter--opened" appCollapseItem="filter--opened" #collapse="appCollapseItem">
                 <button type="button" class="filter__title" (click)="collapse.toggle()">
                     {{ filter.name }}
@@ -15,23 +15,19 @@
                     <div class="filter__container">
                         <div *ngIf="filter.type === 'categories'" class="filter-categories" [ngClass]="{'filter-categories--root': filter.root}">
                             <ul class="filter-categories__list">
-                                <li *ngIf="!filter.root" class="filter-categories__item filter-categories__item--parent">
-                                    <app-icon class="filter-categories__arrow"  name="arrow-rounded-left-6x9" size="6x9"></app-icon>
-                                    <a [routerLink]="this.root.shop()">All Products</a>
-                                </li>
                                 <li *ngFor="let item of filter.items; trackBy: trackBySlug" class="filter-categories__item filter-categories__item--{{ item.type }}">
                                     <app-icon *ngIf="item.type == 'parent'" class="filter-categories__arrow"  name="arrow-rounded-left-6x9" size="6x9"></app-icon>
-                                    <a [routerLink]="this.root.category(item.category)">{{ item.name }}</a>
-                                    <div class="filter-categories__counter" *ngIf="item.type === 'child'">{{ item.count }}</div>
+                                     <a [routerLink]="['/shop/catalog']" [queryParams]="{CategoryId: item.CategoryId ,CategoryLabel :item.CategoryShortLabel, ReferenceItemId: item.Id}">{{ item.Label }}</a> <!--[routerLink]="this.root.category(item.category)" -->
+                                    <div class="filter-categories__counter" >{{ item.SecondCategory.length }}</div>
                                 </li>
                             </ul>
                         </div>
 
-                        <div *ngIf="filter.type === 'range' && isPlatformBrowser" class="filter-price">
+                        <div *ngIf="filter.type === 'doubleRange' && isPlatformBrowser" class="filter-price">
                             <div class="filter-price__slider">
                                 <div class="ng5-slider-custom">
-                                    <ng5-slider
-                                        [formControlName]="filter.slug"
+                                    <ng5-slider [(value)]="priceInterval.minValue" [(highValue)]="priceInterval.maxValue"
+                                        (userChangeEnd) = "filterValueChange()"
                                         [options]="{
                                             animate: false,
                                             mouseEventsInterval: 10,
@@ -47,6 +43,31 @@
                             <div class="filter-price__title">
                                 <span class="filter-price__min-value">{{ (rightToLeft ? slider.highValue : slider.value)|currencyFormat }}</span> –
                                 <span class="filter-price__max-value">{{ (rightToLeft ? slider.value : slider.highValue)|currencyFormat }}</span>
+                            </div>
+                        </div>
+
+
+                        
+                        <div *ngIf="filter.type === 'singleRange' && isPlatformBrowser" class="filter-price">
+                            <div class="filter-price__slider">
+                                <div class="ng5-slider-custom">
+                                    <ng5-slider [(value)]="minQuantity" 
+
+                                        (userChangeEnd) = "filterValueChange()"
+                                        [options]="{
+                                            animate: false,
+                                            mouseEventsInterval: 10,
+                                            rightToLeft: rightToLeft,
+                                            floor: filter.min,
+                                            ceil: filter.max,
+                                            step: 1
+                                        }"
+                                        #slider1
+                                    ></ng5-slider>
+                                </div>
+                            </div>
+                            <div class="filter-price__title">
+                                <span class="filter-price__min-value"> Min quantity {{ slider1.value }}</span> 
                             </div>
                         </div>
 
