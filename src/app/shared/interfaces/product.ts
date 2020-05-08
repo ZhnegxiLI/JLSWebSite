@@ -50,7 +50,7 @@ export interface Product1 {
     ProductId: number;
     ReferenceId: number;
     QuantityPerBox: number;
-    price: number;
+    Price: number;
     Label: string;
     DefaultPhotoPath: string;
     badges: string[];
@@ -59,6 +59,7 @@ export interface Product1 {
     Code: string;
     ParentId: number;
     Comments: any[];
+    Quantity?: number;
 }
 
 export interface ProductDetail1 {

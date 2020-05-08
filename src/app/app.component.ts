@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
             }
         });
         this.cart.onAdding$.subscribe(product => {
-            this.toastr.success(`Product "${product.name}" added to cart!`);
+            this.toastr.success(`Product "${product.Label}" added to cart!`);
         });
         this.compare.onAdding$.subscribe(product => {
             this.toastr.success(`Product "${product.name}" added to compare!`);

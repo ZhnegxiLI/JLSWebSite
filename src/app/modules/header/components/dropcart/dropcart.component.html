@@ -13,15 +13,15 @@
                 </div>
                 <div class="dropcart__product-info">
                     <div class="dropcart__product-name">
-                        <a [routerLink]="root.product(item.product)" (click)="closeMenu.emit()">{{ item.product.name }}</a>
+                        <a  (click)="closeMenu.emit()">{{ item.product.Label }}</a>
                     </div>
-
+<!-- 
                     <ul *ngIf="item.options.length" class="dropcart__product-options">
                         <li *ngFor="let option of item.options">{{ option.name }}: {{ option.value }}</li>
-                    </ul>
+                    </ul> -->
                     <div class="dropcart__product-meta">
                         <span class="dropcart__product-quantity">{{ item.quantity }}</span> ×
-                        <span class="dropcart__product-price">{{ item.product.price|currencyFormat }}</span>
+                        <span class="dropcart__product-price">{{ item.product.Price|currencyFormat }}</span>
                     </div>
                 </div>
 

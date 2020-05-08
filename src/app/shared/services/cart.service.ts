@@ -1,5 +1,5 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { Product } from '../interfaces/product';
+import { Product, Product1 } from '../interfaces/product';
 import { CartItem } from '../interfaces/cart-item';
 import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -36,7 +36,7 @@ export class CartService {
     private subtotalSubject$: BehaviorSubject<number> = new BehaviorSubject(this.data.subtotal);
     private totalsSubject$: BehaviorSubject<CartTotal[]> = new BehaviorSubject(this.data.totals);
     private totalSubject$: BehaviorSubject<number> = new BehaviorSubject(this.data.total);
-    private onAddingSubject$: Subject<Product> = new Subject();
+    private onAddingSubject$: Subject<Product1> = new Subject();
 
     get items(): ReadonlyArray<CartItem> {
         return this.data.items;
@@ -52,7 +52,7 @@ export class CartService {
     readonly totals$: Observable<CartTotal[]> = this.totalsSubject$.asObservable();
     readonly total$: Observable<number> = this.totalSubject$.asObservable();
 
-    readonly onAdding$: Observable<Product> = this.onAddingSubject$.asObservable();
+    readonly onAdding$: Observable<Product1> = this.onAddingSubject$.asObservable();
 
     constructor(
         @Inject(PLATFORM_ID)
@@ -64,31 +64,24 @@ export class CartService {
         }
     }
 
-    add(product: Product, quantity: number, options: {name: string; value: string}[] = []): Observable<CartItem> {
+    add(product: Product1, quantity: number, options: {name: string; value: string}[] = []): Observable<CartItem> {
         // timer only for demo
         return timer(1000).pipe(map(() => {
             this.onAddingSubject$.next(product);
 
             let item = this.items.find(eachItem => {
-                if (eachItem.product.id !== product.id || eachItem.options.length !== options.length) {
+                if (eachItem.product.ProductId !== product.ProductId) {
                     return false;
                 }
-
-                if (eachItem.options.length) {
-                    for (const option of options) {
-                        if (!eachItem.options.find(itemOption => itemOption.name === option.name && itemOption.value === option.value)) {
-                            return false;
-                        }
-                    }
-                }
-
                 return true;
             });
 
+            quantity = product.MinQuantity > quantity? product.MinQuantity : quantity;
+
             if (item) {
-                item.quantity += quantity;
+                item.quantity = quantity;
             } else {
-                item = {product, quantity, options};
+                item = {product, quantity };
 
                 this.data.items.push(item);
             }
@@ -132,7 +125,7 @@ export class CartService {
 
         this.data.items.forEach(item => {
             quantity += item.quantity;
-            subtotal += item.product.price * item.quantity;
+            subtotal += item.product.Price * item.quantity;
         });
 
         const totals: CartTotal[] = [];
@@ -142,6 +135,7 @@ export class CartService {
             price: 25,
             type: 'shipping'
         });
+        /* todo get from server side */
         totals.push({
             title: 'Tax',
             price: subtotal * 0.20,

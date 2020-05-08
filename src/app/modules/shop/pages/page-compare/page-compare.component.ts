@@ -64,11 +64,11 @@ export class PageCompareComponent implements OnInit, OnDestroy {
         }
 
         this.addedToCartProducts.push(product);
-        this.cart.add(product, 1).subscribe({
-            complete: () => {
-                this.addedToCartProducts = this.addedToCartProducts.filter(eachProduct => eachProduct !== product);
-            }
-        });
+        // this.cart.add(product, 1).subscribe({
+        //     complete: () => {
+        //         this.addedToCartProducts = this.addedToCartProducts.filter(eachProduct => eachProduct !== product);
+        //     }
+        // });
     }
 
     remove(product: Product): void {
