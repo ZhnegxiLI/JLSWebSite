@@ -8,6 +8,7 @@ import { RootService } from '../../services/root.service';
 import { CurrencyService } from '../../services/currency.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { StoreService } from '../../services/store.service';
 
 @Component({
     selector: 'app-product-card1',
@@ -34,7 +35,8 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
         public wishlist: WishlistService,
         public compare: CompareService,
         public quickview: QuickviewService,
-        public currency: CurrencyService
+        public currency: CurrencyService,
+        public storeService: StoreService
     ) { }
 
     ngOnInit(): void {
@@ -82,31 +84,17 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
         // });
     }
 
-    addToCompare(): void {
-        // if (this.addingToCompare) {
-        //     return;
-        // }
-
-        // this.addingToCompare = true;
-        // this.compare.add(this.product).subscribe({
-        //     complete: () => {
-        //         this.addingToCompare = false;
-        //         this.cd.markForCheck();
-        //     }
-        // });
-    }
-
     showQuickview(): void {
-        // if (this.showingQuickview) {
-        //     return;
-        // }
+        if (this.showingQuickview) {
+            return;
+        }
 
-        // this.showingQuickview = true;
-        // this.quickview.show(this.product).subscribe({
-        //     complete: () => {
-        //         this.showingQuickview = false;
-        //         this.cd.markForCheck();
-        //     }
-        // });
+        this.showingQuickview = true;
+        this.quickview.show(this.product).subscribe({
+            complete: () => {
+                this.showingQuickview = false;
+                this.cd.markForCheck();
+            }
+        });
     }
 }

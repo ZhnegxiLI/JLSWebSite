@@ -1,15 +1,14 @@
 <app-page-header [breadcrumbs]="[
     {label: 'Home',         url: '/'},
-    {label: 'Screwdrivers', url: '/catalog'},
-    {label: product?.name,  url: ''}
+    {label: 'Screwdrivers', url: '/catalog'}
 ]"></app-page-header>
-
+<!-- ,{label: product?.name,  url: ''} -->
 <ng-container *ngIf="layout !== 'sidebar'">
     <div class="block">
         <div class="container">
             <app-product [product]="product" [layout]="layout"></app-product>
 
-            <app-product-tabs></app-product-tabs>
+            <app-product-tabs [product]="product"></app-product-tabs>
         </div>
     </div>
 
@@ -25,9 +24,10 @@
 
             <div class="shop-layout__content">
                 <div class="block">
+        
                     <app-product [product]="product" [layout]="layout"></app-product>
 
-                    <app-product-tabs [withSidebar]="true"></app-product-tabs>
+                    <app-product-tabs [product]="product" [withSidebar]="true"  ></app-product-tabs>
                 </div>
 
                 <app-block-products-carousel header="Related Products" [products]="relatedProducts$|async" [rows]="1" [withSidebar]="true" layout="grid-4-sm"></app-block-products-carousel>

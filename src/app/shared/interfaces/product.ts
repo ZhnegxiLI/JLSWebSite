@@ -58,5 +58,27 @@ export interface Product1 {
     NumberOfComment: number;
     Code: string;
     ParentId: number;
+    Comments: any[];
+}
 
+export interface ProductDetail1 {
+
+    Color: string;
+    DefaultPhotoPath: string;
+    Description: string;
+    HasBought: boolean;
+    ImagesPath: [];
+    IsFavorite: boolean;
+    Label: string;
+    MainCategoryId: number;
+    Material: string;
+    MinQuantity: number;
+    Price: number;
+    ProductId: number;
+    QuantityPerBox: number;
+    ReferenceCode: string;
+    ReferenceId: number;
+    SecondCategoryId: number;
+    Size: string;
+    Comments: any[]
 }

@@ -1,7 +1,7 @@
 import { Component, ElementRef, forwardRef, HostBinding, Input, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-function parseNumber<T>(value: any, def: T): number|T {
+function parseNumber<T>(value: any, def: T): number | T {
     if (typeof value === 'string') {
         value = parseFloat(value);
     } else if (typeof value !== 'number') {
@@ -34,7 +34,7 @@ export class InputNumberComponent implements ControlValueAccessor {
 
     @HostBinding('class.input-number') class = true;
 
-    @Input() size: 'sm'|'lg' = null;
+    @Input() size: 'sm' | 'lg' = null;
 
     @Input() set step(value: number) {
         this.options.step = parseNumber(value, 1);
@@ -62,21 +62,32 @@ export class InputNumberComponent implements ControlValueAccessor {
         return this.inputElementRef.nativeElement;
     }
 
-    get value(): ''|number {
+    get value(): '' | number {
         return this.inputElement.value === '' ? '' : parseFloat(this.inputElement.value);
     }
-    set value(value: ''|number) {
+    set value(value: '' | number) {
+        if (this.min != null) {
+            if (this.min > value) {
+                value = this.min
+            }
+        }
         this.writeValue(value);
     }
 
-    onChange = (_: any) => {};
-    onTouched = () => {};
+    onChange = (_: any) => { };
+
 
     constructor() { }
 
     add(): void {
         this.change(1);
         this.changeByTimer(1);
+    }
+
+    onTouch() {
+        if (this.options.min != null && this.value < this.options.min) {
+            this.value = this.options.min;
+        }
     }
 
     sub(): void {
@@ -93,7 +104,7 @@ export class InputNumberComponent implements ControlValueAccessor {
     }
 
     registerOnTouched(fn: any): void {
-        this.onTouched = fn;
+        // this.onTouched = fn;
     }
 
     setDisabledState(isDisabled: boolean): void {

@@ -31,7 +31,19 @@ export class StoreService {
                 this.fax = result.find(p => p.Code == "StoreInfo_Fax").Label;
             }
         });
-    
+
+    }
+    /* TODO place into share function */
+    calculCommentAverageNote(commentList) {
+        if (commentList != null && commentList.length > 0) {
+            var note = 0;
+            commentList.map(p => note = note + p.Level);
+            note = note / commentList.length;
+            return note;
+        }
+        else {
+            return 5;
+        }
     }
 
 }

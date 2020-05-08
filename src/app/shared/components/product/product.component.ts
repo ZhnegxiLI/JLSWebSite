@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Product } from '../../interfaces/product';
+import { Product, ProductDetail1 } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
@@ -9,6 +9,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { OwlCarouselOConfig } from 'ngx-owl-carousel-o/lib/carousel/owl-carousel-o-config';
 import { PhotoSwipeService } from '../../services/photo-swipe.service';
 import { DirectionService } from '../../services/direction.service';
+import { environment } from 'src/environments/environment';
+import { StoreService } from '../../services/store.service';
 
 interface ProductImage {
     id: string;
@@ -24,11 +26,16 @@ export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-    private dataProduct: Product;
+    public dataProduct: ProductDetail1;
     private dataLayout: Layout = 'standard';
 
+    public host: string = environment.SERVER_API_URL;
+    
     showGallery = true;
     showGalleryTimeout: number;
+
+
+    public quantity: number = 0;
 
     @ViewChild('featuredCarousel', { read: CarouselComponent }) featuredCarousel: CarouselComponent;
     @ViewChild('thumbnailsCarousel', { read: CarouselComponent }) thumbnailsCarousel: CarouselComponent;
@@ -50,17 +57,12 @@ export class ProductComponent implements OnInit {
         return this.dataLayout;
     }
 
-    @Input() set product(value: Product) {
+    @Input() set product(value: ProductDetail1) {
         this.dataProduct = value;
-        this.images = value ? this.dataProduct.images.map((url, index) => {
-            return {
-                id: index.toString(),
-                url,
-                active: index === 0
-            };
-        }) : [];
+        this.images = value ? this.dataProduct.ImagesPath : [];
+        this.quantity = value.MinQuantity;
     }
-    get product(): Product {
+    get product(): ProductDetail1 {
         return this.dataProduct;
     }
 
@@ -88,7 +90,7 @@ export class ProductComponent implements OnInit {
         rtl: this.direction.isRTL()
     };
 
-    quantity: FormControl = new FormControl(1);
+
 
     addingToCart = false;
     addingToWishlist = false;
@@ -100,7 +102,8 @@ export class ProductComponent implements OnInit {
         private wishlist: WishlistService,
         private compare: CompareService,
         private photoSwipe: PhotoSwipeService,
-        private direction: DirectionService
+        private direction: DirectionService,
+        public storeService: StoreService
     ) { }
 
     ngOnInit(): void {
@@ -126,26 +129,26 @@ export class ProductComponent implements OnInit {
     }
 
     addToCart(): void {
-        if (!this.addingToCart && this.product && this.quantity.value > 0) {
+        if (!this.addingToCart && this.product && this.quantity > 0) {
             this.addingToCart = true;
-
-            this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
+            // todo
+            //this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
         }
     }
 
     addToWishlist(): void {
         if (!this.addingToWishlist && this.product) {
             this.addingToWishlist = true;
-
-            this.wishlist.add(this.product).subscribe({complete: () => this.addingToWishlist = false});
+            // todo
+            //this.wishlist.add(this.product).subscribe({complete: () => this.addingToWishlist = false});
         }
     }
 
     addToCompare(): void {
         if (!this.addingToCompare && this.product) {
             this.addingToCompare = true;
-
-            this.compare.add(this.product).subscribe({complete: () => this.addingToCompare = false});
+            //todo
+            //this.compare.add(this.product).subscribe({complete: () => this.addingToCompare = false});
         }
     }
 

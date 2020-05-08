@@ -38,12 +38,30 @@ const routes: Routes = [
         resolve: categoryPageResolvers,
     },
     {
+        // TODO REMOVE
         path: 'catalog/:categorySlug',
         component: PageCategoryComponent,
         data: categoryPageData,
         resolve: categoryPageResolvers,
     },
     {
+        // TODO REMOVE
+        path: 'products',
+        component: PageProductComponent,
+        data: {
+            // Product page layout. Possible values: 'standard', 'columnar', 'sidebar'.
+            layout: 'standard',
+            // Sidebar position. Possible values: 'start', 'end'.
+            // It does not matter if the value of the 'layout' parameter is not 'sidebar'.
+            // For LTR scripts "start" is "left" and "end" is "right".
+            sidebarPosition: 'start'
+        },
+        resolve: {
+            product: ProductResolverService
+        },
+    },
+    {
+        // TODO REMOVE
         path: 'products/:productSlug',
         component: PageProductComponent,
         data: {

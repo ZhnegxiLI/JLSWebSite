@@ -25,8 +25,8 @@
             <a appClick [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }">{{ product.Label }}</a>
         </div>
         <div class="product-card__rating">
-            <app-rating [value]="product.rating"></app-rating>
-            <div class="product-card__rating-legend">{{ product.NumberOfComment }} {{'product.Reviews' | translate}}</div>
+            <app-rating [value]="storeService.calculCommentAverageNote(product.Comments)"></app-rating>
+            <div class="product-card__rating-legend">{{ product.Comments.length }} {{'product.Reviews' | translate}}</div>
         </div>
         <!-- <ul *ngIf="featuredAttributes.length" class="product-card__features-list">
             <li *ngFor="let attribute of featuredAttributes">
@@ -59,10 +59,7 @@
                 <app-icon name="wishlist-16" size="16"></app-icon>
                 <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
             </button>
-            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button" appClick (click)="addToCompare()" [ngClass]="{'btn-loading': addingToCompare}">
-                <app-icon name="compare-16" size="16"></app-icon>
-                <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
-            </button>
+        
         </div>
     </div>
 </div>

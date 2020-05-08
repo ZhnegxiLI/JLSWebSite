@@ -1,12 +1,12 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Params, Router, NavigationEnd, ParamMap } from '@angular/router';
 import { ShopSidebarService } from '../../services/shop-sidebar.service';
 import { PageCategoryService } from '../../services/page-category.service';
 import { PageCategoryService1 } from '../../services/page-category1.service';
 import { Link } from '../../../../shared/interfaces/link';
 import { RootService } from '../../../../shared/services/root.service';
 import { of, Subject, timer, from } from 'rxjs';
-import { debounce, mergeMap, takeUntil, flatMap, tap, switchMap } from 'rxjs/operators';
+import { debounce, mergeMap, takeUntil, flatMap, tap, switchMap, first } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { ShopService } from '../../../../shared/api/shop.service';
 import { parseFilterValue } from '../../../../shared/helpers/filter';
@@ -124,32 +124,21 @@ export class PageCategoryComponent implements OnDestroy {
 
 
     ngOnInit(): void {
-        // todo remove if change the logic of showing product
-        this.router.events
-            .subscribe((event) => {
-                if (event instanceof NavigationEnd) { // 当导航成功结束时执行
+        this.route.queryParamMap.subscribe((params: ParamMap) => {
+            this.pageService1.resetAllOptions(false);
+            var criteria = this.pageService1.options;
 
-                 this.route.queryParams.subscribe(p => {
-                        /* Reset the criteria*/
-                        this.pageService1.resetAllOptions(false);
-                        var criteria = this.pageService1.options;
-                        
-                
-                        var categoryShortLabel = p.CategoryLabel;
-                        if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
-                            criteria.MainCategory = p.ReferenceItemId
-                        }
-                        else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
-                            criteria.SecondCategory = p.ReferenceItemId
-                        }
 
-                        this.pageService1.setOptions(criteria, true);
-                    });
+            var categoryShortLabel = params.get('CategoryLabel');
+            if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
+                criteria.MainCategory = parseInt(params.get('ReferenceItemId'));
+            }
+            else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
+                criteria.SecondCategory = parseInt(params.get('ReferenceItemId'));
+            }
 
-                }
-
-            });
-
+            this.pageService1.setOptions(criteria, true);
+        });
     }
     ngOnDestroy(): void {
         this.destroy$.next();
