@@ -7,7 +7,7 @@
                 <div class="block-slideshow__body">
                     <owl-carousel-o *ngIf="slides?.length" [options]="options" appOwlPreventClick>
                         <ng-template *ngFor="let slide of slides" carouselSlide>
-                            <a class="block-slideshow__slide" href="" appClick>
+                            <a class="block-slideshow__slide" [routerLink]="['/shop/catalog']"  appClick>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" [ngStyle]="{'background-image': 'url('+(withDepartments ? slide.PhotoPath : slide.PhotoPath)+')'}"></div>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" [ngStyle]="{'background-image': 'url('+slide.PhotoPath+')'}"></div>
                                 <div class="block-slideshow__slide-content">

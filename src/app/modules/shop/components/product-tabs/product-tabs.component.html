@@ -33,23 +33,24 @@
             </div>
         </div>
 
-        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}">
+        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}" *ngIf="product.Comments!=null&&product.Comments.length>0">
             <div class="reviews-view">
                 <div class="reviews-view__list">
                     <h3 class="reviews-view__header">Customer Reviews</h3>
 
                     <div class="reviews-list">
                         <ol class="reviews-list__content">
-                            <li *ngFor="let review of reviews" class="reviews-list__item">
+                            <li *ngFor="let review of product.Comments" class="reviews-list__item">
                                 <div class="review">
                                     <div class="review__avatar"><img [src]="review.avatar" alt=""></div>
                                     <div class="review__content">
-                                        <div class="review__author">{{ review.author }}</div>
+                                        <div class="review__author">{{ review.Email }}</div>
                                         <div class="review__rating">
-                                            <app-rating [value]="review.rating"></app-rating>
+                                            <app-rating [value]="review.Level"></app-rating>
                                         </div>
-                                        <div class="review__text">{{ review.text }}</div>
-                                        <div class="review__date">{{ review.date }}</div>
+                                        <div class="review__text">{{ review.Title }}</div>
+                                        <div class="review__text">{{ review.Body }}</div>
+                                        <div class="review__date">{{ review.CreatedOn }}</div>
                                     </div>
                                 </div>
                             </li>

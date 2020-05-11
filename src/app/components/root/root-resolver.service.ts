@@ -25,7 +25,7 @@ export class RootResolverService implements Resolve<any> {
         return forkJoin(
             this.referenceService.GetReferenceItemsByCategoryLabels({
                 Lang: localStorage.getItem('lang'),
-                ShortLabels: ['StoreInfomation']
+                ShortLabels: ['StoreInfomation','TaxRate']
             }),
             this.productService.GetCategoryForWebSite({
                 NumberOfCateogry: -1,

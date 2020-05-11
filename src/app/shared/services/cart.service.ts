@@ -4,11 +4,12 @@ import { CartItem } from '../interfaces/cart-item';
 import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
+import { StoreService } from './store.service';
 
 interface CartTotal {
     title: string;
     price: number;
-    type: 'shipping'|'fee'|'tax'|'other';
+    type: 'shipping' | 'fee' | 'tax' | 'other';
 }
 
 interface CartData {
@@ -56,7 +57,8 @@ export class CartService {
 
     constructor(
         @Inject(PLATFORM_ID)
-        private platformId: any
+        private platformId: any,
+        private storeService: StoreService
     ) {
         if (isPlatformBrowser(this.platformId)) {
             this.load();
@@ -64,7 +66,7 @@ export class CartService {
         }
     }
 
-    add(product: Product1, quantity: number, options: {name: string; value: string}[] = []): Observable<CartItem> {
+    add(product: Product1, quantity: number, options: { name: string; value: string }[] = []): Observable<CartItem> {
         // timer only for demo
         return timer(1000).pipe(map(() => {
             this.onAddingSubject$.next(product);
@@ -76,12 +78,12 @@ export class CartService {
                 return true;
             });
 
-            quantity = product.MinQuantity > quantity? product.MinQuantity : quantity;
+            quantity = product.MinQuantity > quantity ? product.MinQuantity : quantity;
 
             if (item) {
                 item.quantity = quantity;
             } else {
-                item = {product, quantity };
+                item = { product, quantity };
 
                 this.data.items.push(item);
             }
@@ -93,7 +95,7 @@ export class CartService {
         }));
     }
 
-    update(updates: {item: CartItem, quantity: number}[]): Observable<void> {
+    update(updates: { item: CartItem, quantity: number }[]): Observable<void> {
         // timer only for demo
         return timer(1000).pipe(map(() => {
             updates.forEach(update => {
@@ -120,40 +122,46 @@ export class CartService {
     }
 
     private calc(): void {
-        let quantity = 0;
-        let subtotal = 0;
 
-        this.data.items.forEach(item => {
-            quantity += item.quantity;
-            subtotal += item.product.Price * item.quantity;
+
+        this.storeService.taxRate.subscribe(result => {
+            let quantity = 0;
+            let subtotal = 0;
+    
+            this.data.items.forEach(item => {
+                quantity += item.quantity;
+                subtotal += item.product.Price * item.quantity;
+            });
+    
+            const totals: CartTotal[] = [];
+
+            
+            totals.push({
+                title: 'Shipping',
+                price: 0,
+                type: 'shipping'
+            });
+            /* todo get from server side */
+            totals.push({
+                title: 'Tax',
+                price: subtotal * result * 0.01,
+                type: 'tax'
+            });
+
+            const total = subtotal + totals.reduce((acc, eachTotal) => acc + eachTotal.price, 0);
+
+            this.data.quantity = quantity;
+            this.data.subtotal = subtotal;
+            this.data.totals = totals;
+            this.data.total = total;
+
+            this.itemsSubject$.next(this.data.items);
+            this.quantitySubject$.next(this.data.quantity);
+            this.subtotalSubject$.next(this.data.subtotal);
+            this.totalsSubject$.next(this.data.totals);
+            this.totalSubject$.next(this.data.total);
         });
 
-        const totals: CartTotal[] = [];
-
-        totals.push({
-            title: 'Shipping',
-            price: 25,
-            type: 'shipping'
-        });
-        /* todo get from server side */
-        totals.push({
-            title: 'Tax',
-            price: subtotal * 0.20,
-            type: 'tax'
-        });
-
-        const total = subtotal + totals.reduce((acc, eachTotal) => acc + eachTotal.price, 0);
-
-        this.data.quantity = quantity;
-        this.data.subtotal = subtotal;
-        this.data.totals = totals;
-        this.data.total = total;
-
-        this.itemsSubject$.next(this.data.items);
-        this.quantitySubject$.next(this.data.quantity);
-        this.subtotalSubject$.next(this.data.subtotal);
-        this.totalsSubject$.next(this.data.totals);
-        this.totalSubject$.next(this.data.total);
     }
 
     private save(): void {

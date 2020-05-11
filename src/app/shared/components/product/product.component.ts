@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Product, ProductDetail1 } from '../../interfaces/product';
+import { Product, ProductDetail1, Product1 } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
@@ -18,7 +18,7 @@ interface ProductImage {
     active: boolean;
 }
 
-export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
+export type Layout = 'standard' | 'sidebar' | 'columnar' | 'quickview';
 
 @Component({
     selector: 'app-product',
@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
     private dataLayout: Layout = 'standard';
 
     public host: string = environment.SERVER_API_URL;
-    
+
     showGallery = true;
     showGalleryTimeout: number;
 
@@ -39,7 +39,7 @@ export class ProductComponent implements OnInit {
 
     @ViewChild('featuredCarousel', { read: CarouselComponent }) featuredCarousel: CarouselComponent;
     @ViewChild('thumbnailsCarousel', { read: CarouselComponent }) thumbnailsCarousel: CarouselComponent;
-    @ViewChildren('imageElement', {read: ElementRef}) imageElements: QueryList<ElementRef>;
+    @ViewChildren('imageElement', { read: ElementRef }) imageElements: QueryList<ElementRef>;
 
     @Input() set layout(value: Layout) {
         this.dataLayout = value;
@@ -72,7 +72,7 @@ export class ProductComponent implements OnInit {
         dots: false,
         autoplay: false,
         responsive: {
-            0: {items: 1}
+            0: { items: 1 }
         },
         rtl: this.direction.isRTL()
     };
@@ -83,9 +83,9 @@ export class ProductComponent implements OnInit {
         margin: 10,
         items: 5,
         responsive: {
-            480: {items: 5},
-            380: {items: 4},
-              0: {items: 3}
+            480: { items: 5 },
+            380: { items: 4 },
+            0: { items: 3 }
         },
         rtl: this.direction.isRTL()
     };
@@ -131,8 +131,8 @@ export class ProductComponent implements OnInit {
     addToCart(): void {
         if (!this.addingToCart && this.product && this.quantity > 0) {
             this.addingToCart = true;
-            // todo
-            //this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
+            const product = this.product as unknown as Product1
+            this.cart.add(product, this.quantity).subscribe({ complete: () => this.addingToCart = false });
         }
     }
 
@@ -191,7 +191,7 @@ export class ProductComponent implements OnInit {
                     const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
                     const rect = imageElement.getBoundingClientRect();
 
-                    return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
+                    return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                 },
                 index: this.getIndexDependOnDir(this.images.indexOf(image)),
                 bgOpacity: .9,

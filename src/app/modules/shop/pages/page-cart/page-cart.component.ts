@@ -53,7 +53,7 @@ export class PageCartComponent implements OnInit, OnDestroy {
         }
 
         this.removedItems.push(item);
-        this.cart.remove(item).subscribe({complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item)});
+        this.cart.remove(item).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
     }
 
     update(): void {
@@ -63,9 +63,9 @@ export class PageCartComponent implements OnInit, OnDestroy {
                 .filter(item => item.quantityControl.value !== item.quantity)
                 .map(item => ({
                     item: item.cartItem,
-                    quantity: item.quantityControl.value
+                    quantity: item.cartItem.product.MinQuantity > item.quantityControl.value ? item.cartItem.product.MinQuantity : item.quantityControl.value
                 }))
-        ).subscribe({complete: () => this.updating = false});
+        ).subscribe({ complete: () => this.updating = false });
     }
 
     needUpdate(): boolean {

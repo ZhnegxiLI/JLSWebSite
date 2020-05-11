@@ -20,8 +20,7 @@ export class ProductTabsComponent implements OnInit {
     @Input() product;
 
     specification: ProductFeaturesSection[] = specification;
-    reviews: Review[] = reviews;
-
+   
     constructor(public translateService: TranslateService) {
     }
 

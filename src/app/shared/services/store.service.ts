@@ -14,6 +14,7 @@ export class StoreService {
 
     public categoryList = new BehaviorSubject<any[]>([]);
     public storeInfo = new BehaviorSubject<any[]>([]);
+    public taxRate = new BehaviorSubject<number>(0);
     public mainPageProductInfo = new BehaviorSubject<any[]>([]);
     public slideList = new BehaviorSubject<any[]>([]);
 
