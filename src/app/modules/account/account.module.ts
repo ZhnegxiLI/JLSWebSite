@@ -20,6 +20,7 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PageOrderDetailsComponent } from './pages/page-order-details/page-order-details.component';
 import { PageEditAddressComponent } from './pages/page-edit-address/page-edit-address.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TranslateModule } from '@ngx-translate/core';
         CommonModule,
         // modules
         AccountRoutingModule,
-        SharedModule
+        SharedModule,
+        FormsModule
     ]
 })
 export class AccountModule { }

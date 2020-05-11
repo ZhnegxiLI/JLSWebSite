@@ -18,10 +18,15 @@ export class RootResolverService implements Resolve<any> {
         private root: RootService,
         private router: Router,
         private referenceService: ReferenceService,
-        private productService: ProductService
+        private productService: ProductService,
+        private translateService: TranslateService
     ) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+        var lang = localStorage.getItem('lang');
+        if(lang==null){
+            localStorage.setItem('lang',this.translateService.defaultLang);
+        }
         return forkJoin(
             this.referenceService.GetReferenceItemsByCategoryLabels({
                 Lang: localStorage.getItem('lang'),

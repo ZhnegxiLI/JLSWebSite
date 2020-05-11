@@ -127,15 +127,14 @@ export class CartService {
         this.storeService.taxRate.subscribe(result => {
             let quantity = 0;
             let subtotal = 0;
-    
+
             this.data.items.forEach(item => {
                 quantity += item.quantity;
                 subtotal += item.product.Price * item.quantity;
             });
-    
+
             const totals: CartTotal[] = [];
 
-            
             totals.push({
                 title: 'Shipping',
                 price: 0,

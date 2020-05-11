@@ -21,6 +21,7 @@ import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuComponent } from './components/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { MenuComponent } from './components/menu/menu.component';
         CommonModule,
         RouterModule,
         // modules
-        SharedModule
+        SharedModule,
+        FormsModule
     ],
     exports: [
         // components

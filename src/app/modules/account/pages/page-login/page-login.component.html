@@ -10,14 +10,14 @@
                 <div class="card flex-grow-1 mb-md-0">
                     <div class="card-body">
                         <h3 class="card-title">{{'page-login.Login' | translate}}</h3>
-                        <form>
+                        <div>
                             <div class="form-group">
                                 <label>{{'page-checkout.Emailaddress' | translate}}</label>
-                                <input type="email" class="form-control" placeholder="{{'page-checkout.Emailaddress' | translate}}">
+                                <input type="email" class="form-control" [(ngModel)]="email" placeholder="{{'page-checkout.Emailaddress' | translate}}">
                             </div>
                             <div class="form-group">
                                 <label>{{'page-login.Password' | translate}}</label>
-                                <input type="password" class="form-control" placeholder="{{'page-login.Password' | translate}}">
+                                <input type="password" class="form-control" [(ngModel)]="password" placeholder="{{'page-login.Password' | translate}}">
                                 <small class="form-text text-muted">
                                     <a href="">{{'page-login.ForgottenPassword' | translate}}</a>
                                 </small>
@@ -34,8 +34,8 @@
                                     <label class="form-check-label" for="login-remember">{{'page-login.RememberMe' | translate}}</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-2 mt-md-3 mt-lg-4">{{'page-login.Login' | translate}}</button>
-                        </form>
+                            <button (click)="login()" class="btn btn-primary mt-2 mt-md-3 mt-lg-4">{{'page-login.Login' | translate}}</button>
+                        </div>
                     </div>
                 </div>
             </div>
