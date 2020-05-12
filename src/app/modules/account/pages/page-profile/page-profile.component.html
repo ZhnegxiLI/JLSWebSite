@@ -5,28 +5,26 @@
     <div class="card-divider"></div>
     <div class="card-body">
         <div class="row no-gutters">
-            <div class="col-12 col-lg-7 col-xl-6">
+            <form class="col-12 col-lg-7 col-xl-6" [formGroup]="userForm">
+          
                 <div class="form-group">
-                    <label for="profile-first-name">{{'page-checkout.FirstName' | translate}}</label>
-                    <input type="text" class="form-control" id="profile-first-name" placeholder="{{'page-checkout.FirstName' | translate}}">
+                    <label for="profile-last-name">{{'page-checkout.EntrepriseName' | translate}} <span style="color: red;">*</span> </label>
+                    <input type="text" formControlName="EntrepriseName" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="profile-last-name">{{'page-checkout.LastName' | translate}}</label>
-                    <input type="text" class="form-control" id="profile-last-name" placeholder="{{'page-checkout.LastName' | translate}}">
+                    <label for="profile-email">{{'page-checkout.Siret' | translate}} <span style="color: red;">*</span></label>
+                    <input type="email"  formControlName="Siret" class="form-control"  >
                 </div>
                 <div class="form-group">
-                    <label for="profile-email">{{'page-checkout.Emailaddress' | translate}}</label>
-                    <input type="email" class="form-control" id="profile-email" placeholder="Email Address">
+                    <label for="profile-phone">{{'page-checkout.Phone' | translate}} <span style="color: red;">*</span></label>
+                    <input type="text"  formControlName="PhoneNumber" class="form-control"  >
                 </div>
-                <div class="form-group">
-                    <label for="profile-phone">{{'page-checkout.Phone' | translate}}</label>
-                    <input type="text" class="form-control" id="profile-phone" placeholder="Phone Number">
-                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="userForm.invalid">信息不完整请重新填写</div>
 
                 <div class="form-group mt-5 mb-0">
-                    <button class="btn btn-primary">{{'page-edit-address.Save' | translate}}</button>
+                    <button class="btn btn-primary" (click)= "saveUserInfo()" [disabled]="userForm.invalid">{{'page-edit-address.Save' | translate}}</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

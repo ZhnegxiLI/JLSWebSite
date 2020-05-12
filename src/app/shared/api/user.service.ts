@@ -16,8 +16,20 @@ export class UserService {
 
     private apiUrlGetUserDefaultShippingAdress = this.host + 'api/Adress/GetUserDefaultShippingAdress';
 
+    private apiUrlGetUserById = this.host +'api/User/GetUserById';
+
+    private apiUrlUpdateUserInfo = this.host +'api/User/UpdateUserInfo';
+
     GetOrdersListByUserId(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetUserDefaultShippingAdress, { params }).pipe(map((p: any) => p.Data));
+    }
+
+    GetUserById(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetUserById, { params });
+    }
+    UpdateUserInfo(criteria): Observable<any> {
+        return this.http.post(this.apiUrlUpdateUserInfo, criteria);
     }
 }
