@@ -3,6 +3,8 @@ import { Order } from '../../../../shared/interfaces/order';
 import { orders } from '../../../../../data/account-orders';
 import { Address } from '../../../../shared/interfaces/address';
 import { addresses } from '../../../../../data/account-addresses';
+import { ActivatedRoute } from '@angular/router';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-page-dashboard',
@@ -11,7 +13,29 @@ import { addresses } from '../../../../../data/account-addresses';
 })
 export class PageDashboardComponent {
     address: Address = addresses[0];
-    orders: Partial<Order>[] = orders.slice(0, 3);
+   
+    public username: string;
+    public entrepriseName: string;
+    public orders: any [];
+    public defaultAdress : any;
+    constructor(public route: ActivatedRoute, public storeService: StoreService) {
 
-    constructor() { }
+        this.route.data.subscribe(data => {
+
+            this.orders = data.initInfo[0];
+
+            this.defaultAdress = data.initInfo[1];
+        });
+     }
+
+    ngOnInit(): void {
+       
+        this.username = localStorage.getItem('username');
+        this.entrepriseName = localStorage.getItem('entrepriseName');
+
+    }
+
+    findCountry(CountryId: number){
+        return  this.storeService.countryList.find(p=>p.Id == CountryId).Country;
+    }
 }

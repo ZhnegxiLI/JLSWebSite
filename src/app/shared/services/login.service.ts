@@ -66,6 +66,7 @@ export class LoginService {
                     localStorage.setItem('expiration', result.authToken.expiration);
                     localStorage.setItem('userRole', result.authToken.roles);
                     localStorage.setItem('refreshToken', result.authToken.refresh_token);
+                    localStorage.setItem('entrepriseName', result.authToken.entrepriseName);
                 }
                 return <any>result;
 

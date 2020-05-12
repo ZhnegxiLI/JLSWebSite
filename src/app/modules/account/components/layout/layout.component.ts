@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
     selector: 'app-layout',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./layout.component.sass']
 })
 export class LayoutComponent {
-    links: {label: string; url: string}[] = [
+    links: {label: string; url: string, type?: string}[] = [
         {label: 'Dashboard', url: './dashboard'},
         {label: 'Edit Profile', url: './profile'},
         {label: 'Order History', url: './orders'},
@@ -14,8 +15,12 @@ export class LayoutComponent {
         {label: 'Addresses', url: './addresses'},
         {label: 'Edit Address', url: './addresses/5'},
         {label: 'Password', url: './password'},
-        {label: 'Logout', url: './login'}
+        {label: 'Logout', url: './login', type:'logout'}
     ];
 
-    constructor() { }
+    constructor(private loginService: LoginService) { }
+
+    logout(){
+        this.loginService.logout();
+    }
 }

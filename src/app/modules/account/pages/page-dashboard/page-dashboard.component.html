@@ -2,31 +2,32 @@
     <div class="dashboard__profile card profile-card">
         <div class="card-body profile-card__body">
             <div class="profile-card__avatar">
-                <img src="./assets/images/avatars/avatar-3.jpg" alt="">
+                <img src="./assets/images/avatars/client.png" alt="">
             </div>
-            <div class="profile-card__name">Helena Garcia</div>
-            <div class="profile-card__email">stroyka@example.com</div>
+            <div class="profile-card__name">{{entrepriseName}} </div>
+            <div class="profile-card__email">{{username}} </div>
             <div class="profile-card__edit">
                 <a routerLink="../profile" class="btn btn-secondary btn-sm">{{'page-dashboard.EditProfile' | translate}}</a>
             </div>
         </div>
     </div>
     <div class="dashboard__address card address-card address-card--featured">
-        <div class="address-card__badge" *ngIf="address.default">{{'page-dashboard.DefaultAddress' | translate}}</div>
+        <div class="address-card__badge" *ngIf="defaultAdress">{{'page-dashboard.DefaultAddress' | translate}}</div>
         <div class="address-card__body">
-            <div class="address-card__name">{{ address.firstName + ' ' + address.lastName}}</div>
+            <div class="address-card__name">{{ defaultAdress.ContactFirstName + ' ' + defaultAdress.ContactLastName}}</div>
             <div class="address-card__row">
-                {{ address.country }}<br>
-                {{ address.postcode }}, {{ address.city }}<br>
-                {{ address.address }}
+                {{  findCountry(defaultAdress.CountryId) }}<br>
+                {{ defaultAdress.ZipCode }}, {{ defaultAdress.City }}<br>
+                {{ defaultAdress.FirstLineAddress }}<br>
+                {{ defaultAdress.SecondLineAddress }}
             </div>
             <div class="address-card__row">
                 <div class="address-card__row-title">{{'page-dashboard.PhoneNumber' | translate}}</div>
-                <div class="address-card__row-content">{{ address.phone }}</div>
+                <div class="address-card__row-content">{{ defaultAdress.ContactTelephone }}</div>
             </div>
             <div class="address-card__row">
-                <div class="address-card__row-title">{{'page-dashboard.EmailAddress' | translate}}</div>
-                <div class="address-card__row-content">{{ address.email }}</div>
+                <div class="address-card__row-title">{{'page-dashboard.EntrepriseName' | translate}}</div>
+                <div class="address-card__row-content">{{ defaultAdress.EntrepriseName }}</div>
             </div>
             <div class="address-card__footer">
                 <a routerLink="/account/addresses/5">{{'page-dashboard.EditAddress' | translate}}</a>
@@ -51,10 +52,10 @@
                     </thead>
                     <tbody>
                     <tr *ngFor="let order of orders">
-                        <td><a href="">#{{ order.id }}</a></td>
-                        <td>{{ order.date }}</td>
-                        <td>{{ order.status }}</td>
-                        <td>{{ order.total|currencyFormat }} for {{ order.quantity }} item(s)</td>
+                        <td><a href="">#{{ order.Id }}</a></td>
+                        <td>{{ order.CreatedOn  }}</td>
+                        <td>{{ order.StatusLabel }}</td>
+                        <td>{{ order.TotalPrice|currencyFormat }} for {{ order.NumberOfProduct }} item(s)</td>
                     </tr>
                     </tbody>
                 </table>

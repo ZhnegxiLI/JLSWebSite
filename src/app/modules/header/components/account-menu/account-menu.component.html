@@ -23,12 +23,9 @@
     <div *ngIf="isLogined">
         <div class="account-menu__divider"></div>
         <a routerLink="/account/dashboard" class="account-menu__user" (click)="closeMenu.emit()">
-            <div class="account-menu__user-avatar">
-                <img src="assets/images/avatars/avatar-3.jpg" alt="">
-            </div>
             <div class="account-menu__user-info">
-                <div class="account-menu__user-name">Helena Garcia</div>
-                <div class="account-menu__user-email">stroyka@example.com</div>
+                <div class="account-menu__user-name">{{entrepriseName}} </div>
+                <div class="account-menu__user-email">{{username}} </div>
             </div>
         </a>
         <div class="account-menu__divider"></div>

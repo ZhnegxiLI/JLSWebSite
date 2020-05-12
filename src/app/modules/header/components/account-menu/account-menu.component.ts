@@ -10,6 +10,8 @@ export class AccountMenuComponent {
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
     public isLogined: boolean = false;
+    public username: string;
+    public entrepriseName: string;
     public email: string;
     public password: string;
     constructor(
@@ -18,7 +20,8 @@ export class AccountMenuComponent {
 
     ngOnInit(): void {
         this.loginService.loginStatus.subscribe(p => this.isLogined = p);
-
+        this.username = localStorage.getItem('username');
+        this.entrepriseName = localStorage.getItem('entrepriseName');
     }
 
     login() {
@@ -31,6 +34,7 @@ export class AccountMenuComponent {
                 localStorage.setItem('expiration', result.authToken.expiration);
                 localStorage.setItem('userRole', result.authToken.roles);
                 localStorage.setItem('refreshToken', result.authToken.refresh_token);
+                localStorage.setItem('entrepriseName', result.authToken.entrepriseName);
                 this.loginService.loginStatus.next(true);
             }
             else {
