@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Order } from '../../../../shared/interfaces/order';
 import { orders } from '../../../../../data/account-orders';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-page-orders-list',
@@ -8,7 +9,11 @@ import { orders } from '../../../../../data/account-orders';
     styleUrls: ['./page-orders-list.component.sass']
 })
 export class PageOrdersListComponent {
-    orders: Partial<Order>[] = orders;
+    public orders: any[] = [];
 
-    constructor() { }
+    constructor(public route: ActivatedRoute) {
+        this.route.data.subscribe(data => {
+            this.orders = data.initInfo;
+        });
+    }
 }

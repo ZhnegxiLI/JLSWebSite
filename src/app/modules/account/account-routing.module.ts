@@ -11,6 +11,10 @@ import { PageOrderDetailsComponent } from './pages/page-order-details/page-order
 import { PageEditAddressComponent } from './pages/page-edit-address/page-edit-address.component';
 import { PageDashboardResolverService } from './pages/page-dashboard/page-dashboard.component-resolver.service';
 import { PageProfileResolverService } from './pages/page-profile/page-profile.component-resolver.service';
+import { PageOrderListResolverService } from './pages/page-orders-list/page-orders-list.component-resolver.service';
+import { PageOrderDetailsResolverService } from './pages/page-order-details/page-orders-details.component-resolver.service';
+import { PageAddressesListResolverService } from './pages/page-addresses-list/page-addresses-list.component-resolver.service';
+import { PageEditAddressResolverService } from './pages/page-edit-address/page-edit-address.component-resolver.service';
 
 const routes: Routes = [
     {
@@ -38,19 +42,31 @@ const routes: Routes = [
             },
             {
                 path: 'addresses',
-                component: PageAddressesListComponent
+                component: PageAddressesListComponent,
+                resolve: {
+                    initInfo: PageAddressesListResolverService
+                }
             },
             {
-                path: 'addresses/:addressId',
-                component: PageEditAddressComponent
+                path: 'address',
+                component: PageEditAddressComponent,
+                resolve: {
+                    initInfo: PageEditAddressResolverService
+                }
             },
             {
                 path: 'orders',
-                component: PageOrdersListComponent
+                component: PageOrdersListComponent,
+                resolve: {
+                    initInfo: PageOrderListResolverService
+                }
             },
             {
-                path: 'orders/:orderId',
-                component: PageOrderDetailsComponent
+                path: 'order',
+                component: PageOrderDetailsComponent,
+                resolve: {
+                    initInfo: PageOrderDetailsResolverService
+                }
             },
             {
                 path: 'password',

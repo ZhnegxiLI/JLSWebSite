@@ -11,22 +11,18 @@
                     <th>{{'page-orders-list.Order' | translate}}</th>
                     <th>{{'page-orders-list.Date' | translate}}</th>
                     <th>{{'page-orders-list.Order' | translate}}</th>
-                    <th>Total{{'page-orders-list.Order' | translate}}</th>
+                    <th>{{'page-orders-list.Order' | translate}}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let order of orders">
-                    <td><a [routerLink]="'/account/orders/' + order.id">#{{ order.id }}</a></td>
-                    <td>{{ order.date }}</td>
-                    <td>{{ order.status }}</td>
-                    <td>{{ order.total|currencyFormat }} for {{ order.quantity }} item(s)</td>
+                    <td><a [routerLink]="['/account/order']" [queryParams]="{OrderId: order.Id }">#{{ order.Id }}</a></td>
+                    <td>{{ order.CreatedOn  }}</td>
+                    <td>{{ order.StatusLabel }}</td>
+                    <td>{{ order.TotalPrice|currencyFormat }} for {{ order.NumberOfProduct }} item(s)</td>
                 </tr>
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="card-divider"></div>
-    <div class="card-footer">
-        <app-pagination [total]="3"></app-pagination>
     </div>
 </div>

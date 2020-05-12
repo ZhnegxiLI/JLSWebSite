@@ -5,69 +5,63 @@
     <div class="card-divider"></div>
     <div class="card-body">
         <div class="row no-gutters">
-            <div class="col-12 col-lg-10 col-xl-8">
+            <form class="col-12 col-lg-10 col-xl-8" [formGroup]="adressForm">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="checkout-first-name">{{'page-checkout.FirstName' | translate}}</label>
-                        <input type="text" class="form-control" id="checkout-first-name" placeholder="{{'page-checkout.FirstName' | translate}}">
+                        <label for="checkout-first-name">{{'page-checkout.FirstName' | translate}}  <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="checkout-first-name" formControlName="ContactFirstName">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="checkout-last-name">{{'page-checkout.LastName' | translate}}</label>
-                        <input type="text" class="form-control" id="checkout-last-name" placeholder="{{'page-checkout.LastName' | translate}}">
+                        <label for="checkout-last-name">{{'page-checkout.LastName' | translate}}  <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="checkout-last-name" formControlName="ContactLastName">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="checkout-company-name">{{'page-checkout.CompanyName' | translate}} <span class="text-muted">({{'page-checkout.Optional' | translate}})</span></label>
-                    <input type="text" class="form-control" id="checkout-company-name" placeholder="{{'page-checkout.CompanyName' | translate}}">
+                    <label for="checkout-company-name">{{'page-checkout.CompanyName' | translate}}  <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="checkout-company-name" formControlName="EntrepriseName">
                 </div>
                 <div class="form-group">
-                    <label for="checkout-country">{{'page-checkout.Country' | translate}}</label>
-                    <select id="checkout-country" class="form-control">
-                        <option>{{'page-checkout.Selectacountry' | translate}}...</option>
-                        <option>{{'page-checkout.Italy' | translate}}</option>
-                        <option>{{'page-checkout.France' | translate}}</option>
-                        <option>{{'page-checkout.Germany' | translate}}</option>
-                        <option>{{'page-checkout.Espaniol' | translate}}</option>
-                        <option>{{'page-checkout.Belgique' | translate}}</option>
+                    <label for="checkout-country">{{'page-checkout.Country' | translate}}  <span style="color: red;">*</span></label>
+                    <select id="checkout-country" class="form-control" formControlName="CountryId">
+                        <option [value]=1>{{'page-checkout.France' | translate}}</option>
+                        <option [value]=2>{{'page-checkout.Belgique' | translate}}</option>
+                        <option [value]=3>{{'page-checkout.Espaniol' | translate}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="checkout-street-address">{{'page-checkout.StreetAddress' | translate}}</label>
-                    <input type="text" class="form-control" id="checkout-street-address" placeholder="{{'page-checkout.StreetAddress' | translate}}">
+                    <label for="checkout-street-address">{{'page-checkout.StreetAddress' | translate}}  <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="checkout-street-address" formControlName="FirstLineAddress">
                 </div>
                 <div class="form-group">
                     <label for="checkout-address">{{'page-checkout.Apartmentsuiteunitetc' | translate}} <span class="text-muted">({{'page-checkout.Optional' | translate}})</span></label>
-                    <input type="text" class="form-control" id="checkout-address">
+                    <input type="text" class="form-control" id="checkout-address" formControlName="SecondLineAddress">
                 </div>
                 <div class="form-group">
-                    <label for="checkout-city">{{'page-checkout.TownCity' | translate}}</label>
-                    <input type="text" class="form-control" id="checkout-city">
+                    <label for="checkout-city">{{'page-checkout.TownCity' | translate}}  <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="checkout-city" formControlName="City">
                 </div>
+  
                 <div class="form-group">
-                    <label for="checkout-state">{{'page-checkout.StateCounty' | translate}}</label>
-                    <input type="text" class="form-control" id="checkout-state">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-postcode">{{'page-checkout.ZIP' | translate}}</label>
-                    <input type="text" class="form-control" id="checkout-postcode">
+                    <label for="checkout-postcode">{{'page-checkout.ZIP' | translate}}  <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="checkout-postcode" formControlName="ZipCode">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="checkout-email">{{'page-checkout.Emailaddress' | translate}}</label>
-                        <input type="email" class="form-control" id="checkout-email" placeholder="{{'page-checkout.Emailaddress' | translate}}">
+                        <label for="checkout-phone">{{'page-checkout.Phone' | translate}}  <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="checkout-phone" formControlName="ContactTelephone" placeholder="{{'page-checkout.Phone' | translate}}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="checkout-phone">{{'page-checkout.Phone' | translate}}</label>
-                        <input type="text" class="form-control" id="checkout-phone" placeholder="{{'page-checkout.Phone' | translate}}">
+                        <label for="checkout-phone">{{'page-checkout.Fax' | translate}}</label>
+                        <input type="text" class="form-control" id="checkout-phone" formControlName="ContactFax" placeholder="{{'page-checkout.Phone' | translate}}">
                     </div>
                 </div>
-
+                <div class="alert alert-danger" role="alert" *ngIf="adressForm.invalid">信息不完整请重新填写</div>
                 <div class="form-group mt-3 mb-0">
-                    <button class="btn btn-primary">{{'page-edit-address.Save' | translate}}</button>
+                    <button class="btn btn-primary" (click)="save()" [disabled]="adressForm.invalid">{{'page-edit-address.Save' | translate}}</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

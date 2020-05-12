@@ -30,7 +30,7 @@
                 <div class="address-card__row-content">{{ defaultAdress.EntrepriseName }}</div>
             </div>
             <div class="address-card__footer">
-                <a routerLink="/account/addresses/5">{{'page-dashboard.EditAddress' | translate}}</a>
+                <a [routerLink]="['/account/address']" [queryParams]="{AddressId: defaultAdress.Id, Type: 'ShippingAddress' }">{{'page-dashboard.EditAddress' | translate}}</a>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                     </thead>
                     <tbody>
                     <tr *ngFor="let order of orders">
-                        <td><a href="">#{{ order.Id }}</a></td>
+                        <td><a [routerLink]="['/account/order']" [queryParams]="{OrderId: order.Id }">#{{ order.Id }}</a></td>
                         <td>{{ order.CreatedOn  }}</td>
                         <td>{{ order.StatusLabel }}</td>
                         <td>{{ order.TotalPrice|currencyFormat }} for {{ order.NumberOfProduct }} item(s)</td>

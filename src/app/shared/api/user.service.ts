@@ -16,19 +16,48 @@ export class UserService {
 
     private apiUrlGetUserDefaultShippingAdress = this.host + 'api/Adress/GetUserDefaultShippingAdress';
 
-    private apiUrlGetUserById = this.host +'api/User/GetUserById';
+    private apiUrlGetUserShippingAdress = this.host + 'api/Adress/GetUserShippingAdress';
 
-    private apiUrlUpdateUserInfo = this.host +'api/User/UpdateUserInfo';
+    private apiUrlGetUserFacturationAdress = this.host + 'api/Adress/GetUserFacturationAdress';
 
-    GetOrdersListByUserId(criteria): Observable<any> {
+    private apiUrlCreateOrUpdateAdress = this.host + 'api/Adress/CreateOrUpdateAdress';
+
+    private apiUrlGetAddressById = this.host + 'api/Adress/GetAddressById';
+
+    private apiUrlGetUserById = this.host + 'api/User/GetUserById';
+
+    private apiUrlUpdateUserInfo = this.host + 'api/User/UpdateUserInfo';
+
+    GetUserDefaultShippingAdress(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetUserDefaultShippingAdress, { params }).pipe(map((p: any) => p.Data));
     }
+
+    GetUserShippingAdress(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetUserShippingAdress, { params }).pipe(map((p: any) => p.Data));
+    }
+
+    GetUserFacturationAdress(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetUserFacturationAdress, { params }).pipe(map((p: any) => p.Data));
+    }
+
+    CreateOrUpdateAdress(criteria): Observable<any> {
+        return this.http.post(this.apiUrlCreateOrUpdateAdress, criteria);
+    }
+
+    GetAddressById(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetAddressById, { params }).pipe(map((p: any) => p.Data));
+    }
+
 
     GetUserById(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetUserById, { params });
     }
+
     UpdateUserInfo(criteria): Observable<any> {
         return this.http.post(this.apiUrlUpdateUserInfo, criteria);
     }

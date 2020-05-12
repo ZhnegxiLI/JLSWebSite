@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Order } from '../../../../shared/interfaces/order';
 import { order } from '../../../../../data/account-order-details';
+import { ActivatedRoute } from '@angular/router';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-page-order-details',
@@ -8,7 +10,19 @@ import { order } from '../../../../../data/account-order-details';
     styleUrls: ['./page-order-details.component.scss']
 })
 export class PageOrderDetailsComponent {
-    order: Order = order;
+    order: any = {};
+    taxRate : number = 0;
+    constructor(public route: ActivatedRoute, public storeService: StoreService) {
+        this.route.data.subscribe(data => {
+            this.order = data.initInfo;
+        });
+    }
+    ngOnInit(): void {
+       this.storeService.taxRate.subscribe(p=>this.taxRate = p);
+    }
 
-    constructor() { }
+
+    findCountry(CountryId: number) {
+        return this.storeService.countryList.find(p => p.Id == CountryId).Country;
+    }
 }
