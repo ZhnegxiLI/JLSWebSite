@@ -52,7 +52,8 @@ const routes: Routes = [
                 component: PageEditAddressComponent,
                 resolve: {
                     initInfo: PageEditAddressResolverService
-                }
+                },
+                runGuardsAndResolvers: 'always'
             },
             {
                 path: 'orders',

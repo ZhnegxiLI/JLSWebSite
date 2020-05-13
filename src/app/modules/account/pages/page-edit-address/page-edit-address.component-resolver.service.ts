@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { EMPTY, Observable, forkJoin } from 'rxjs';
+import { EMPTY, Observable, forkJoin, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -28,21 +28,27 @@ export class PageEditAddressResolverService implements Resolve<any> {
             this.router.navigate([this.root.notFound()]).then();
         }
         else {
-            if (type == "ShippingAddress") {
-                var criteria = {
-                    AddressId: route.queryParams.AddressId
-                }
-                return this.userService.GetAddressById(criteria).pipe(
-                    catchError(error => {
-                        if (error instanceof HttpErrorResponse && error.status === 404) {
-                            this.router.navigate([this.root.notFound()]).then();
-                        }
+            if (type == "shippingAdress") {
+                if (route.queryParams.AddressId > 0) {
+                    var criteria = {
+                        AddressId: route.queryParams.AddressId
+                    }
+                    return this.userService.GetAddressById(criteria).pipe(
+                        catchError(error => {
+                            if (error instanceof HttpErrorResponse && error.status === 404) {
+                                this.router.navigate([this.root.notFound()]).then();
+                            }
 
-                        return EMPTY;
-                    })
-                );
+                            return EMPTY;
+                        })
+                    );
+                }
+                else {
+                    return of({ Id: 0 });
+                }
+
             }
-            else if (type == "FacturationAddress") {
+            else if (type == "facturationAdress") {
 
                 return this.userService.GetUserFacturationAdress({ UserId: localStorage.getItem('userId') }).pipe(
                     catchError(error => {

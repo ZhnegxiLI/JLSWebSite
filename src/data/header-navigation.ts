@@ -31,9 +31,8 @@ export const navigation: NavigationLink[] = [
             {label: 'Header.links.Dashboard',       url: '/account/dashboard'},
             {label: 'Header.links.EditProfile',    url: '/account/profile'},
             {label: 'Header.links.OrderHistory',   url: '/account/orders'},
-            {label: 'Header.links.OrderDetails',   url: '/account/orders/5'},
             {label: 'Header.links.AddressBook',    url: '/account/addresses'},
-            {label: 'Header.links.EditAddress',    url: '/account/addresses/5'},
+            {label: 'Header.links.EditAddress', url: '/account/address', params:{Type:'facturationAdress'}},
             {label: 'Header.links.ChangePassword', url: '/account/password'}
         ]
     }},

@@ -314,7 +314,7 @@
             "OrderHistory":"Mes commandes",
             "OrderDetails":"Details de commande",
             "AddressBook":"Mes adresse",
-            "EditAddress":"Gérer mon adresse",
+            "EditAddress":"Gérer mon adresse de facturation",
             "ChangePassword":"Modifier mot de passe"
         },
         "page-order-success":{

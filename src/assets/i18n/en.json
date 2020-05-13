@@ -209,7 +209,7 @@
         "DefaultAddress":"Default Address",
         "PhoneNumber":"Phone Number",
         "EmailAddress":"Email Address",
-        "EditAddress":"Edit Address",
+        "EditAddress":"Edit billing Address",
         "RecentOrders":"RecentOrders",
         "Order":"Order",
         "Date":"Date",

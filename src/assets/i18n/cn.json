@@ -331,7 +331,7 @@
             "OrderHistory":"历史订单",
             "OrderDetails":"订单细节",
             "AddressBook":"我的地址",
-            "EditAddress":"修改地址",
+            "EditAddress":"修改账单地址",
             "ChangePassword":"更换密码"
         },
         "page-track-order":{

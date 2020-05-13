@@ -28,9 +28,18 @@ export class UserService {
 
     private apiUrlUpdateUserInfo = this.host + 'api/User/UpdateUserInfo';
 
+    private apiUrlRemoveShippingAddress = this.host + 'api/Adress/RemoveShippingAddress';
+
+    private apiUrlUpdatePassword = this.host + 'api/User/UpdatePassword';
+
     GetUserDefaultShippingAdress(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetUserDefaultShippingAdress, { params }).pipe(map((p: any) => p.Data));
+    }
+
+    RemoveShippingAddress(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlRemoveShippingAddress, { params });
     }
 
     GetUserShippingAdress(criteria): Observable<any> {
@@ -61,4 +70,9 @@ export class UserService {
     UpdateUserInfo(criteria): Observable<any> {
         return this.http.post(this.apiUrlUpdateUserInfo, criteria);
     }
+
+    UpdatePassword(criteria): Observable<any> {
+        return this.http.post(this.apiUrlUpdatePassword, criteria);
+    }
+    
 }

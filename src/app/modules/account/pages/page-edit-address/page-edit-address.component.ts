@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/api/user.service';
 import { ToastrService } from 'ngx-toastr';
@@ -13,6 +13,9 @@ export class PageEditAddressComponent {
     public adressForm: FormGroup;
     constructor(public route: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService,
         private toastr: ToastrService) {
+
+
+;
 
         this.adressForm = this.formBuilder.group({
             Id: [''],
@@ -36,7 +39,11 @@ export class PageEditAddressComponent {
 
         this.route.data.subscribe(data => {
             // data.initInfo;
-            this.adressForm.patchValue(data.initInfo);
+            var address = data.initInfo;
+            if(address.EntrepriseName==null || address.EntrepriseName ==''){
+                address.EntrepriseName = localStorage.getItem('entrepriseName');
+            }
+            this.adressForm.patchValue(address);
         });
     }
 
@@ -44,18 +51,20 @@ export class PageEditAddressComponent {
         if (this.adressForm.invalid) {
             return;
         }
+        this.route.queryParams.subscribe(p=>{
+            var criteria = {
+                adress: this.adressForm.value,
+                userId: localStorage.getItem('userId'),
+                type: p.Type
+            }
+            this.userService.CreateOrUpdateAdress(criteria).subscribe(result => {
+                this.toastr.success('Save successfully') // todo translate
+            },
+                error => {
+    
+            });
 
-        var criteria = {
-            adress: this.adressForm.value,
-            userId: localStorage.getItem('userId'),
-            type: 'shippingAdress'
-        }
-        this.userService.CreateOrUpdateAdress(criteria).subscribe(result => {
-            this.toastr.success('Save successfully') // todo translate
-        },
-            error => {
-
-            })
+        });
 
     }
 }
