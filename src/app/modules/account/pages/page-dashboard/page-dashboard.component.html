@@ -55,7 +55,7 @@
                         <td><a [routerLink]="['/account/order']" [queryParams]="{OrderId: order.Id }">#{{ order.Id }}</a></td>
                         <td>{{ order.CreatedOn  }}</td>
                         <td>{{ order.StatusLabel }}</td>
-                        <td>{{ order.TotalPrice|currencyFormat }}{{'page-dashboard.For' | translate}} {{ order.NumberOfProduct }} {{'page-dashboard.item' | translate}}</td>
+                        <td>{{ order.TotalPrice|currencyFormat }} {{'page-dashboard.for' | translate}} {{ order.NumberOfProduct }} {{'page-dashboard.item' | translate}}</td>
                     </tr>
                     </tbody>
                 </table>

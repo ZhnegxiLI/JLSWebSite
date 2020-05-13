@@ -1,7 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Product } from '../interfaces/product';
+import { Product, Product1 } from '../interfaces/product';
 import { Observable, Subject, timer } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
+import { ProductService } from '../api/product.service';
 
 @Injectable({
     providedIn: 'root'
@@ -12,12 +13,16 @@ export class QuickviewService implements OnDestroy {
 
     show$: Observable<Product> = this.showSubject$.pipe(takeUntil(this.destroy$));
 
-    constructor() { }
+    constructor(public productService: ProductService) { }
 
-    show(product: Product): Observable<void> {
-        // timer only for demo
-        return timer(1000).pipe(map(() => {
-            this.showSubject$.next(product);
+    show(product: Product1): Observable<void> {
+
+        return this.productService.GetProductById({
+            ProductId: product.ProductId,
+            Lang: localStorage.getItem('lang'),
+            UserId: localStorage.getItem('userId')
+        }).pipe(map((result) => {
+            this.showSubject$.next(result);
         }));
     }
 

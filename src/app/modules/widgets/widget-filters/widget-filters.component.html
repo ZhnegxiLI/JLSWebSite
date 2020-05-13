@@ -8,7 +8,7 @@
         <div *ngFor="let filter of filters" class="widget-filters__item">
             <div class="filter filter--opened" appCollapseItem="filter--opened" #collapse="appCollapseItem">
                 <button type="button" class="filter__title" (click)="collapse.toggle()">
-                    {{ filter.name }}
+                    {{ filter.name | translate }}
                     <app-icon class="filter__arrow" name="arrow-rounded-down-12x7" size="12x7"></app-icon>
                 </button>
                 <div class="filter__body" appCollapseContent>

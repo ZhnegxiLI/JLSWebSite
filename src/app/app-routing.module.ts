@@ -34,6 +34,7 @@ const routes: Routes = [
         resolve: { // 此处使用resolve
             initInfo: RootResolverService
         },
+
         children: [
             {
                 path: '',

@@ -8,12 +8,12 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class LayoutComponent {
     links: {label: string; url: string, type?: string}[] = [
-        {label: 'Dashboard', url: './dashboard'},
-        {label: 'Edit Profile', url: './profile'},
-        {label: 'Order History', url: './orders'},
-        {label: 'Addresses', url: './addresses'},
-        {label: 'Edit Address', url: './addresses/5'},
-        {label: 'Password', url: './password'},
+        {label: 'Header.links.Dashboard', url: './dashboard'},
+        {label: 'Header.links.EditProfile', url: './profile'},
+        {label: 'Header.links.OrderHistory', url: './orders'},
+        {label: 'Header.links.AddressBook', url: './addresses'},
+        {label: 'Header.links.EditAddress', url: './addresses/5'},
+        {label: 'Header.links.ChangePassword', url: './password'},
         {label: 'Logout', url: './login', type:'logout'}
     ];
 
