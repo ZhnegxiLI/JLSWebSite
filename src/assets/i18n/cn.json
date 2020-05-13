@@ -34,6 +34,8 @@
     "Msg_EmailNotValide":"邮箱尚未验证",
     "Msg_PasswordNotCorrect":"用户密码不正确",
     "Msg_ReLogin":"您已退出登录，请尝试重新登录",
+    "imcomplete":"信息不完整请重新填写",
+    "ShowAll":"显示全部",
 
         
         "newsletter":{
@@ -152,7 +154,8 @@
             "Agree":"我已阅读并同意网站",
             "PlaceOrder":"下订单",
             "termsandconditions":"条款和条件",
-            "Clickheretologin":"点击这里登录"
+            "Clickheretologin":"点击这里登录",
+            "Fax":"传真"
         },
         "components":{
             "AboutUs":"关于我们",
@@ -189,7 +192,9 @@
             "Quantity":"数量",
             "Addtocart":"加入购物车",
             "minimumachats":"最小购买量",
-            "QuantityPerBox":"件/箱"
+            "QuantityPerBox":"件/箱",
+            "Size":"尺寸",
+            "RelatedProducts":"相关产品"
         },
         "page-dashboard":{
             "EditProfile":"修改个人资料",
@@ -212,7 +217,8 @@
         },
         "page-edit-address":{
             "EditAddress":"修改地址",
-            "Save":"保存"
+            "Save":"保存",
+            "Siret":"Siret"
         },
         "page-login":{
             "Login":"登录",
@@ -329,12 +335,20 @@
             "AddToCart":"加入购物车"
         },
         "page-home-one":{
-            "FeaturedProducts":"page-home-one.PopularCategories",
             "NewArrivals":"新到商品",
             "Bestsellers":"热销商品",
             "PopularCategories":"热销类别",
             "TopRatedProducts":"评价最高商品",
             "SpecialOffers":"特别推荐"
+        },
+        "product-tabs":{
+            "Description":"商品描述",
+            "Reviews":"评价",
+            "ProductFullDescription":"商品完整描述",
+            "Specification":"详情",
+            "Generalinformation":"参数",
+            "Information":"如果您想了解更多产品信息，请联系我们的客服",
+            "CustomerReviews":"顾客评价"
         }
 
 

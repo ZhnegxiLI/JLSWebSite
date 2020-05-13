@@ -44,7 +44,7 @@ export class ProductTabsComponent implements OnInit {
                     break;
                 case 'MinQuantity':
                     list.push({
-                        Label : this.translateService.instant('product.MinQuantity'),
+                        Label : this.translateService.instant('product.minimumachats'),
                         Value: this.product[key]
                     });
                     break;

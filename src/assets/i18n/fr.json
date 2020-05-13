@@ -37,7 +37,8 @@
     "Leave":"Quitter?",
     "Yes": "Oui",
     "No":"Non",
-
+    "imcomplete":"Les informations sont incomplètes, veuillez les remplir à nouveau",
+    "ShowAll":"Afficher tout",
 
 
         "newsletter":{
@@ -153,7 +154,8 @@
             "Agree":"Vous acceptez les conditions d'utilisation et la notice Protection de vos informations personnelles.",
             "PlaceOrder":"Passer la commande",
             "termsandconditions":"Termes et conditions",
-            "Clickheretologin":"Cliquez ici pour vous identifier"
+            "Clickheretologin":"Cliquez ici pour vous identifier",
+            "Fax":"Fax"
         },
         "components":{
             "AboutUs":"À propos de nous",
@@ -188,7 +190,10 @@
             "Quantity":"Quantité",
             "Addtocart":"Ajouter au panier",
             "minimumachats":"Minimum d'achat",
-            "QuantityPerBox":"Quantité/Colis"
+            "QuantityPerBox":"Quantité/Colis",
+            "Size":"Taille",
+            "RelatedProducts":"Produits connexes"
+
         },
         "page-dashboard":{
             "EditProfile":"Editer le profil",
@@ -211,7 +216,8 @@
         },
         "page-edit-address":{
             "EditAddress":"Editer l'adresse",
-            "Save":"Enregistrer"
+            "Save":"Enregistrer",
+            "Siret":"Siret"
         },
         "page-login":{
             "Login":"Se connecter",
@@ -327,11 +333,19 @@
             "AddToCart":"Ajouter au panier"
         },
         "page-home-one":{
-            "FeaturedProducts":"page-home-one.PopularCategories",
             "NewArrivals":"Nouvelles Arrivées",
             "Bestsellers":"Meilleures ventes",
             "PopularCategories":"Catégories populaires",
             "TopRatedProducts":"Produits les mieux notés",
             "SpecialOffers":"Offres spéciales"
+        },
+        "product-tabs":{
+            "Description":"Description",
+            "Reviews":"Commentaires",
+            "ProductFullDescription":"Description complète du produit",
+            "Specification":"Spécification",
+            "Generalinformation":"Informations générales",
+            "Information":"Si vous souhaitez en savoir plus sur les produits, veuillez contacter notre service client",
+            "CustomerReviews":"Avis des clients"
         }
 }

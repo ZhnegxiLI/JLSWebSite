@@ -20,7 +20,7 @@
                             </li>
                         </ul>
                         <div class="category-card__all" >
-                            <a [routerLink]="['/shop/catalog']" [queryParams]="{CategoryId: category.CategoryId , ReferenceItemId: category.Id}">Show All</a>
+                            <a [routerLink]="['/shop/catalog']" [queryParams]="{CategoryId: category.CategoryId , ReferenceItemId: category.Id}">{{'ShowAll' | translate}}</a>
                         </div>
                         <div class="category-card__products">
                             {{ category.items }} Products

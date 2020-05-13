@@ -34,6 +34,8 @@
     "Leave":"Leave?",
     "Yes": "Yes",
     "No":"No",
+    "imcomplete":"Information is incomplete, please fill in again",
+    "ShowAll":"Show All",
 
 
     "newsletter":{
@@ -149,7 +151,8 @@
         "Agree":"I have read and agree to the website",
         "PlaceOrder":"PlaceOrder",
         "termsandconditions":"terms and conditions",
-        "Clickheretologin":"Click here to login"
+        "Clickheretologin":"Click here to login",
+        "Fax":"Fax"
     },
     "components":{
         "AboutUs":"About Us",
@@ -186,7 +189,9 @@
         "Quantity":"Quantity",
         "Addtocart":"Add to cart",
         "minimumachats":"Minimum purchase",
-        "QuantityPerBox":"Quantity/Box"
+        "QuantityPerBox":"Quantity/Box",
+        "Size":"Size",
+        "RelatedProducts":"Related Products"
     },
     "page-dashboard":{
         "EditProfile":"Edit Profile",
@@ -209,7 +214,8 @@
     },
     "page-edit-address":{
         "EditAddress":"Edit Address",
-        "Save":"Save"
+        "Save":"Save",
+        "Siret":"Siret"
     },
     "page-login":{
         "Login":"Login",
@@ -325,11 +331,19 @@
         "AddToCart":"Add To Cart"
     },
     "page-home-one":{
-        "FeaturedProducts":"page-home-one.PopularCategories",
         "NewArrivals":"New Arrivals",
         "Bestsellers":"Best sellers",
         "PopularCategories":"Popular Categories",
         "TopRatedProducts":"Top Rated Products",
         "SpecialOffers":"Special Offers"
+    },
+    "product-tabs":{
+        "Description":"Description",
+        "Reviews":"Reviews",
+        "ProductFullDescription":"Product Full Description",
+        "Specification":"Specification",
+        "Generalinformation":"General information",
+        "Information":"If you want to know more product information, please contact our customer service",
+        "CustomerReviews":"Customer Reviews"
     }
 }

@@ -57,7 +57,7 @@
                         <input type="text" class="form-control" id="checkout-phone" formControlName="ContactFax" placeholder="{{'page-checkout.Phone' | translate}}">
                     </div>
                 </div>
-                <div class="alert alert-danger" role="alert" *ngIf="adressForm.invalid">信息不完整请重新填写</div>
+                <div class="alert alert-danger" role="alert" *ngIf="adressForm.invalid">{{'imcomplete' | translate}}</div>
                 <div class="form-group mt-3 mb-0">
                     <button class="btn btn-primary" (click)="save()" [disabled]="adressForm.invalid">{{'page-edit-address.Save' | translate}}</button>
                 </div>

@@ -2,33 +2,30 @@
     <div class="product-tabs__list">
         <a href="#tab-description" class="product-tabs__item"
             [ngClass]="{'product-tabs__item--active': tab === 'description'}"
-            (click)="$event.preventDefault(); tab = 'description'">Description</a>
+            (click)="$event.preventDefault(); tab = 'description'">{{'product-tabs.Description' | translate}}</a>
 
         <a href="#tab-reviews" class="product-tabs__item" [ngClass]="{'product-tabs__item--active': tab === 'reviews'}"
-            (click)="$event.preventDefault(); tab = 'reviews'">Reviews</a>
+            (click)="$event.preventDefault(); tab = 'reviews'">{{'product-tabs.Reviews' | translate}}</a>
     </div>
     <div class="product-tabs__content">
 
         <div class="product-tabs__pane" id="tab-description"
             [ngClass]="{'product-tabs__pane--active': tab === 'description'}">
             <div class="typography">
-                <h3>Product Full Description</h3>
+                <h3>{{'product-tabs.ProductFullDescription' | translate}}</h3>
                 <p> {{product.Description}} </p>
 
 
-                <h3 class="spec__header">Specification</h3>
+                <h3 class="spec__header">{{'product-tabs.Specification' | translate}}</h3>
            
-                    <h4 class="spec__section-title">General information</h4>
+                    <h4 class="spec__section-title">{{'product-tabs.Generalinformation' | translate}}</h4>
                     <div *ngFor="let info of getInformationList()" class="spec__row">
                         <div class="spec__name">{{ info.Label }}</div>
                         <div class="spec__value">{{ info.Value }}</div>
                     </div>
                
                 <div class="spec__disclaimer">
-                    Information on technical characteristics, the delivery set, the country of manufacture and the
-                    appearance
-                    of the goods is for reference only and is based on the latest information available at the time of
-                    publication.
+                  {{'product-tabs.Information' | translate}}
                 </div>
             </div>
         </div>
@@ -36,7 +33,7 @@
         <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}" *ngIf="product.Comments!=null&&product.Comments.length>0">
             <div class="reviews-view">
                 <div class="reviews-view__list">
-                    <h3 class="reviews-view__header">Customer Reviews</h3>
+                    <h3 class="reviews-view__header">{{'product-tabs.CustomerReviews' | translate}}</h3>
 
                     <div class="reviews-list">
                         <ol class="reviews-list__content">
