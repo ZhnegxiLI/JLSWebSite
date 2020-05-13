@@ -11,11 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PageEditAddressComponent {
     public adressForm: FormGroup;
+    public loading: boolean = false;
+
     constructor(public route: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService,
         private toastr: ToastrService) {
-
-
-;
 
         this.adressForm = this.formBuilder.group({
             Id: [''],
@@ -40,7 +39,7 @@ export class PageEditAddressComponent {
         this.route.data.subscribe(data => {
             // data.initInfo;
             var address = data.initInfo;
-            if(address.EntrepriseName==null || address.EntrepriseName ==''){
+            if (address.EntrepriseName == null || address.EntrepriseName == '') {
                 address.EntrepriseName = localStorage.getItem('entrepriseName');
             }
             this.adressForm.patchValue(address);
@@ -51,18 +50,20 @@ export class PageEditAddressComponent {
         if (this.adressForm.invalid) {
             return;
         }
-        this.route.queryParams.subscribe(p=>{
+        this.route.queryParams.subscribe(p => {
             var criteria = {
                 adress: this.adressForm.value,
                 userId: localStorage.getItem('userId'),
                 type: p.Type
             }
+            this.loading = true;
             this.userService.CreateOrUpdateAdress(criteria).subscribe(result => {
                 this.toastr.success('Save successfully') // todo translate
+                this.loading = false;
             },
                 error => {
-    
-            });
+
+                });
 
         });
 

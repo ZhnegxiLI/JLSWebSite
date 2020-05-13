@@ -36,6 +36,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RootResolverService } from './components/root/root-resolver.service';
 import { PageHomeOneResolverService } from './pages/page-home-one/page-home-one-resolver.service';
+import { NgxLoadingModule } from 'ngx-loading';
 
 export function createTranslateLoader(http: HttpClient) {
     //此出的路径需要和第二步新建的文件夹保持一致
@@ -52,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
         PageHomeTwoComponent
     ],
     imports: [
+        NgxLoadingModule.forRoot({}),
         TranslateModule.forRoot({
             defaultLanguage: 'fr',
             loader: {

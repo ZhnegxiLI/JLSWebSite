@@ -21,6 +21,7 @@ import { PageOrderDetailsComponent } from './pages/page-order-details/page-order
 import { PageEditAddressComponent } from './pages/page-edit-address/page-edit-address.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxLoadingModule } from 'ngx-loading';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         AccountRoutingModule,
         SharedModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxLoadingModule.forRoot({}),
     ]
 })
 export class AccountModule { }

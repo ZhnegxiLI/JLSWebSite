@@ -102,11 +102,11 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
         }
 
         this.showingQuickview = true;
-        this.quickview.show(this.product).subscribe({
-            complete: () => {
-                this.showingQuickview = false;
-                this.cd.markForCheck();
-            }
-        });
+        // this.quickview.show(this.product).subscribe({
+        //     complete: () => {
+        //         this.showingQuickview = false;
+        //         this.cd.markForCheck();
+        //     }
+        // });
     }
 }

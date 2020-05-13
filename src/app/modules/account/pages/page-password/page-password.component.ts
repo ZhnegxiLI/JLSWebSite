@@ -8,31 +8,35 @@ import { ToastrService } from 'ngx-toastr';
     styleUrls: ['./page-password.component.sass']
 })
 export class PagePasswordComponent {
-    public criteria : any = {
-        PreviousPassword: '',
-        NewPassword:'',
-        RepeateNewPassword:''
-    }
-    constructor(public userService: UserService,private toastr: ToastrService) { }
+    public loading: boolean = false;
 
-    public checkValidity(){
-        if(this.criteria.PreviousPassword!="" && this.criteria.NewPassword!="" && this.criteria.RepeateNewPassword!=""){
+    public criteria: any = {
+        PreviousPassword: '',
+        NewPassword: '',
+        RepeateNewPassword: ''
+    }
+    constructor(public userService: UserService, private toastr: ToastrService) { }
+
+    public checkValidity() {
+        if (this.criteria.PreviousPassword != "" && this.criteria.NewPassword != "" && this.criteria.RepeateNewPassword != "") {
             return true;
         }
         return false;
     }
 
-    public save(){
-        if(this.checkValidity() && this.criteria.NewPassword == this.criteria.RepeateNewPassword && this.criteria.NewPassword.length>=8){
+    public save() {
+        if (this.checkValidity() && this.criteria.NewPassword == this.criteria.RepeateNewPassword && this.criteria.NewPassword.length >= 8) {
+            this.loading = true;
             this.userService.UpdatePassword({
                 UserId: localStorage.getItem('userId'),
                 NewPassword: this.criteria.NewPassword,
                 PreviousPassword: this.criteria.PreviousPassword
-            }).subscribe(result=>{
-                if(result>0){
+            }).subscribe(result => {
+                this.loading = false;
+                if (result > 0) {
                     this.toastr.success("Successfully modified")
                 }
-                else{
+                else {
 
                 }
             })

@@ -11,8 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PageProfileComponent {
     public userForm: FormGroup;
+    public loading: boolean = false;
 
-    constructor(public formBuilder: FormBuilder, public route: ActivatedRoute, public userService: UserService, 
+    constructor(public formBuilder: FormBuilder, public route: ActivatedRoute, public userService: UserService,
         private toastr: ToastrService) {
 
 
@@ -32,17 +33,20 @@ export class PageProfileComponent {
         });
     }
 
-    saveUserInfo(){
+    saveUserInfo() {
         if (this.userForm.invalid) {
             return;
-          }
-          var criteria = this.userForm.value;
-          criteria.UserId = localStorage.getItem('userId');
-          this.userService.UpdateUserInfo(criteria).subscribe(result=>{
+        }
+        var criteria = this.userForm.value;
+        criteria.UserId = localStorage.getItem('userId');
+        this.loading = true;
+        this.userService.UpdateUserInfo(criteria).subscribe(result => {
             this.toastr.success('Save successfully') // todo translate
-          },
-          error=>{
 
-          });
+            this.loading = false;
+        },
+        error => {
+
+        });
     }
 }
