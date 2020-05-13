@@ -70,18 +70,18 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
 
         this.storeService.categoryList.subscribe(result => {
             this.filters.push({
-                name: 'Catégories',
+                name: 'widget-filters.Categories',
                 type: 'categories',
                 items: result
             });
             this.filters.push({
-                name: 'Prix',
+                name: 'widget-filters.Prix',
                 type: 'doubleRange',
                 min: 0,
                 max: 2000
             });
             this.filters.push({
-                name: 'MinQuantity',
+                name: 'widget-filters.MinQuantity',
                 type: 'singleRange',
                 min: 0,
                 max: 200

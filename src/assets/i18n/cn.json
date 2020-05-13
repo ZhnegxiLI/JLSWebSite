@@ -36,6 +36,14 @@
     "Msg_ReLogin":"您已退出登录，请尝试重新登录",
     "imcomplete":"信息不完整请重新填写",
     "ShowAll":"显示全部",
+    "Navigation":"导览",
+    "Dashboard":"管理我的账户",
+    "Editprofile":"修改个人信息",
+    "Orderhistory":"我的订单",
+    "Address":"地址",
+    "EditAdress":"管理地址",
+    "Password":"密码",
+    "Logout":"退出登录",
 
         
         "newsletter":{
@@ -78,10 +86,13 @@
         },
         "dropcart":{
             "Yourshoppingcartisempty":"您的购物车是空的",
-            "Subtotal":"共计",
+            "Subtotal":"小计",
             "Total":"总数",
             "ViewCart":"查看我的购物车",
-            "Checkout":"下一步"
+            "Checkout":"下一步",
+            "Aestimer":"待定",
+            "Tax":"税",
+            "Shipping":"运费"
         },
         "page-contact-us":{
             "OurAddress":"我们的地址",
@@ -110,7 +121,7 @@
             "ContinueShopping":"继续购物",
             "UpdateCart":"更新购物车",
             "CartTotals":"总价",
-            "Subtotal":"总价",
+            "Subtotal":"小计",
             "CalculateShipping":"运费",
             "Proceedtocheckout":"下一步",
             "CouponCode":"折扣卷码"
@@ -143,7 +154,7 @@
             "YourOrder":"您的订单",
             "Product":"商品",
             "Total":"总价",
-            "Subtotal":"商品总价",
+            "Subtotal":"小计",
             "Directbanktransfer":"直接转去我们银行账户",
             "BankMessage":"将款项直接转入我们的银行帐户。请使用您的订单ID作为付款订单留言。在资金未到我们账户之前，将不会发货您的订单。",
             "Checkpayments":"支票支付",
@@ -206,7 +217,11 @@
             "Order":"订单",
             "Date":"日期",
             "Status":"状态",
-            "Total":"总价"
+            "Total":"总价",
+            "EntrepriseName":"公司名称",
+            "for":"有",
+            "item":"样商品"
+
 
         },
         "page-addresses-list":{
@@ -235,11 +250,14 @@
             "andiscurrently":"订单状态",
             "Product":"商品",
             "Total":"总价",
-            "Subtotal":"商品总价",
+            "Subtotal":"小计",
             "ShippingAddress":"运送地址",
             "PhoneNumber":"电话号码",
             "EmailAddress":"邮箱",
-            "BillingAddress":"账单地址"
+            "BillingAddress":"账单地址",
+            "UnitPrice":"单价",
+            "Tax":"税",
+            "EntrepriseName":"公司名称"
         },
         "page-orders-list":{
             "OrderHistory":"历史订单",
@@ -285,7 +303,7 @@
             "Paymentmethod":"支付方式",
             "Product":"商品",
             "Qty":"数量",
-            "Subtotal":"商品总价",
+            "Subtotal":"小计",
             "ShippingAddress":"运送地址",
             "PhoneNumber":"电话号码",
             "EmailAddress":"邮箱",
@@ -349,6 +367,53 @@
             "Generalinformation":"参数",
             "Information":"如果您想了解更多产品信息，请联系我们的客服",
             "CustomerReviews":"顾客评价"
+        },
+        "products-view":{
+            "Filters":"筛选",
+            "Showing":"显示",
+            "of":"之",
+            "SortBy":"排序方式",
+            "Default":"默认",
+            "Priceincrease":"价格由低到高",
+            "Pricedecrease":"价格由高到低",
+            "Recently":"最近的",
+            "Popularity":"最受欢迎的",
+            "Show":"显示",
+            "Nomatchingitems":"没有符合的商品",
+            "Tryresettingthefilters":"尝试重置筛选",
+            "Resetfilters":"重置",
+            "results":"结果",
+            "Sale":"折扣",
+            "Hot":"热门",
+            "New":"新品"
+        },
+        "page-not-found":{
+            "Error404":"Oops!错误 404",
+            "PageNotFound":"网页查找不到",
+            "research":"试试使用搜索功能.",
+            "notfouns":"我们看来找不到您要的页面",
+            "Search":"搜索",
+            "gohomeover":"或者回到主页重新开始.",
+            "gohome":"返回主页",
+            "SearchQuery":"搜索查询"
+        },
+        "widget-filters":{
+            "Filters":"筛选",
+            "Minquantity":"最小购买量",
+            "Reset":"重置",
+            "Categories":"类别",
+            "Prix":"价格",
+            "MinQuantity":"最小购买量"
+        },
+        "widget-comments":{
+            "LatestComments":"最后一个评论",
+            "On":"于",
+            "Categories":"类别",
+            "OurNewsletter":"订阅我们",
+            "information":"订阅我们获得更多优惠信息",
+            "EmailAddress":"邮箱地址",
+            "Subscribe":"订阅",
+            "LatestPosts":"最新帖子"
         }
 
 

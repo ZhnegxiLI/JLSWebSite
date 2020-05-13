@@ -2,7 +2,7 @@
     'widget-filters--offcanvas--always': offcanvas === 'always',
     'widget-filters--offcanvas--mobile': offcanvas === 'mobile'
 }" appCollapse>
-    <h4 class="widget-filters__title widget__title">Filters</h4>
+    <h4 class="widget-filters__title widget__title">{{'widget-filters.Filters' | translate}}</h4>
     <!-- [formGroup]="filtersForm" *ngIf="filtersForm" -->
     <div class="widget-filters__list" >
         <div *ngFor="let filter of filters" class="widget-filters__item">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="filter-price__title">
-                                <span class="filter-price__min-value"> Min quantity {{ slider1.value }}</span> 
+                                <span class="filter-price__min-value">  {{'widget-filters.Minquantity' | translate}}{{ slider1.value }}</span> 
                             </div>
                         </div>
 
@@ -77,6 +77,6 @@
         </div>
     </div>
     <div class="widget-filters__actions d-flex">
-        <button class="btn btn-secondary btn-sm" (click)="reset()">Reset</button>
+        <button class="btn btn-secondary btn-sm" (click)="reset()">{{'widget-filters.Reset' | translate}}</button>
     </div>
 </div>

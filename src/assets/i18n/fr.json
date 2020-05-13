@@ -39,6 +39,15 @@
     "No":"Non",
     "imcomplete":"Les informations sont incomplètes, veuillez les remplir à nouveau",
     "ShowAll":"Afficher tout",
+    "Dashboard":"Tableau de bord",
+    "Navigation":"Navigation",
+    "Editprofile":"Editer le profil",
+    "Orderhistory":"Mes commandes",
+    "Address":"Adresse",
+    "EditAdress":"Editer Addresse",
+    "Password":"Mot de passe",
+    "Logout":"Se déconnecter",
+
 
 
         "newsletter":{
@@ -81,10 +90,13 @@
         },
         "dropcart":{
             "Yourshoppingcartisempty":"Votre pqnier est vide",
-            "Subtotal":"Total（avant TAX）",
+            "Subtotal":"Sous-Totale",
             "Total":"Total",
             "ViewCart":"Votre panier",
-            "Checkout":"Payer"
+            "Checkout":"Payer",
+            "Aestimer":"A estimer",
+            "Tax":"Taxe",
+            "Shipping":"Frais de livraison"
         },
         "page-contact-us":{
             "OurAddress":"Notre adresse",
@@ -113,7 +125,7 @@
             "ContinueShopping":"Continuer Shopping",
             "UpdateCart":"Mise à jour panier",
             "CartTotals":"Totaux du panier",
-            "Subtotal":"Total",
+            "Subtotal":"Sous-Totale",
             "CalculateShipping":"Frais de livraison",
             "Proceedtocheckout":"Passer au paiement",
             "CouponCode":"Code de coupon"
@@ -146,7 +158,7 @@
             "YourOrder":"Votre commande",
             "Product":"Produit",
             "Total":"Total",
-            "Subtotal":"Total(avant TAX)",
+            "Subtotal":"Sous-Totale",
             "Directbanktransfer":"Virement bancaire",
             "Checkpayments":"Chèque",
             "Cashondelivery":"En espèces",
@@ -167,7 +179,8 @@
             "Brands":"Marques",
             "Newsletter":"Newsletter",
             "Information":"Information",
-            "MyAccount":"Mon compte"
+            "MyAccount":"Mon compte",
+            "StoreLocation":"Location"
         },
         "block-features":{
             "FreeShipping":"Livraison gratuit",
@@ -185,7 +198,7 @@
             "Availability":"Statut",
             "InStock":"En stock",
             "reference":"Référence",
-            "Color":"Colour",
+            "Color":"Couleur",
             "Material":"Matériel",
             "Quantity":"Quantité",
             "Addtocart":"Ajouter au panier",
@@ -205,7 +218,10 @@
             "Order":"Commandes",
             "Date":"Date",
             "Status":"Statut",
-            "Total":"Total"
+            "Total":"Total",
+            "EntrepriseName":"Nom de la société",
+            "for":"pour",
+            "item":"produit(s)"
 
         },
         "page-addresses-list":{
@@ -234,11 +250,14 @@
             "andiscurrently":"Statut de commande",
             "Product":"Produit",
             "Total":"Total",
-            "Subtotal":"Total(avant TAX)",
+            "Subtotal":"Sous-Totale",
             "ShippingAddress":"Adresse de livraison",
             "PhoneNumber":"Numéro de téléphone",
             "EmailAddress":"Email",
-            "BillingAddress":"Adresse de facture"
+            "BillingAddress":"Adresse de facture",
+            "UnitPrice":"Prix ​​unitaire",
+            "Tax":"Taxe",
+            "EntrepriseName":"Nom de l'entreprise"
         },
         "page-orders-list":{
             "OrderHistory":"Mes commandes",
@@ -308,7 +327,7 @@
             "Paymentmethod":"Méthode de payment",
             "Product":"Produit",
             "Qty":"Quantité",
-            "Subtotal":"Total(Avant TVA)",
+            "Subtotal":"Sous-Totale",
             "ShippingAddress":"Adresse de livraison",
             "PhoneNumber":"Numéro de Téléphone",
             "EmailAddress":"Email",
@@ -347,5 +366,53 @@
             "Generalinformation":"Informations générales",
             "Information":"Si vous souhaitez en savoir plus sur les produits, veuillez contacter notre service client",
             "CustomerReviews":"Avis des clients"
+        },
+        "products-view":{
+            "Filters":"Filtrer",
+            "Showing":"Afficher",
+            "of":"sur",
+            "SortBy":"Trier par",
+            "Default":"Défaut",
+            "Priceincrease":"Prix croissant",
+            "Pricedecrease":"Prix décroissant",
+            "Recently":"Récemment",
+            "Popularity":"Popularité",
+            "Show":"Afficher",
+            "Nomatchingitems":"Aucun produit correspondant",
+            "Tryresettingthefilters":"Essayez de réinitialiser les filtres",
+            "Resetfilters":"Réinitialiser les filtres",
+            "results":"résultats",
+            "Sale":"Sale",
+            "Hot":"Populaire",
+            "New":"Nouveau"
+        },
+        "page-not-found":{
+            "Error404":"Oops!Erreur  404",
+            "PageNotFound":"Page non trouvée",
+            "research":"Essayez d'utiliser la recherche.",
+            "notfouns":"Impossible de trouver la page que vous recherchez.",
+            "Search":"Recherche",
+            "gohomeover":"Ou allez sur la page d'accueil pour recommencer.",
+            "gohome":"Aller à la page d'accueil",
+            "SearchQuery":"Requête de recherche"
+        },
+        "widget-filters":{
+            "Filters":"Filtrer",
+            "Minquantity":"Minimum quantité",
+            "Reset":"Réinitialiser",
+            "Categories":"Catégories",
+            "Prix":"Prix",
+            "MinQuantity":"Minimum Quantité"
+        },
+        "widget-comments":{
+            "LatestComments":"Dernier commentaire",
+            "On":"à",
+            "Categories":"Catégories",
+            "OurNewsletter":"Abonnez-nous",
+            "information":"Abonnez-vous pour plus d'informations sur les remises",
+            "EmailAddress":"Email",
+            "Subscribe":"Souscrire",
+            "LatestPosts":"Dernières publications"
         }
+
 }

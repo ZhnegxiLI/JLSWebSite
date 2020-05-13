@@ -11,9 +11,9 @@
     </button>
 
     <div *ngIf="product.badges.length" class="product-card__badges-list">
-        <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">Sale</div>
-        <div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">Hot</div>
-        <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">New</div>
+        <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">{{'products-view.Sale' | translate}}</div>
+        <div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">{{'products-view.Hot' | translate}}</div>
+        <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">{{'products-view.New' | translate}}</div>
     </div>
 
     <div class="product-card__image">

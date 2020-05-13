@@ -43,7 +43,7 @@
                 <tr *ngFor="let total of cart.totals$|async">
                     <th>{{ total.title }}</th>
                     <td *ngIf="total.type!='shipping'">{{ total.price|currencyFormat  }}</td>
-                    <td *ngIf="total.type =='shipping'">A estimer </td>
+                    <td *ngIf="total.type =='shipping'">{{'dropcart.Aestimer' | translate}} </td>
                 </tr>
                 <tr>
                     <th>{{'dropcart.Total' | translate}}</th>

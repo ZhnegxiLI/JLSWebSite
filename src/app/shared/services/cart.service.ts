@@ -136,13 +136,13 @@ export class CartService {
             const totals: CartTotal[] = [];
 
             totals.push({
-                title: 'Shipping',
+                title: 'dropcart.Shipping',
                 price: 0,
                 type: 'shipping'
             });
             /* todo get from server side */
             totals.push({
-                title: 'Tax',
+                title: 'dropcart.Tax',
                 price: subtotal * result * 0.01,
                 type: 'tax'
             });

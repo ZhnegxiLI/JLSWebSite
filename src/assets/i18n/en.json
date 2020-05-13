@@ -36,6 +36,14 @@
     "No":"No",
     "imcomplete":"Information is incomplete, please fill in again",
     "ShowAll":"Show All",
+    "Navigation":"Navigation",
+    "Dashboard":"Dashboard",
+    "Editprofile":"Edit profile",
+    "Orderhistory":"Order history",
+    "Address":"Address",
+    "EditAdress":"Edit Adress",
+    "Password":"Password",
+    "Logout":"Logout",
 
 
     "newsletter":{
@@ -81,7 +89,10 @@
         "Subtotal":"Subtotal",
         "Total":"Total",
         "ViewCart":"View cart",
-        "Checkout":"Check out"
+        "Checkout":"Check out",
+        "Aestimer":"To estimate",
+        "Tax":"Tax",
+        "Shipping":"Shipping"
     },
     "page-contact-us":{
         "OurAddress":"Our address",
@@ -203,7 +214,10 @@
         "Order":"Order",
         "Date":"Date",
         "Status":"Status",
-        "Total":"Total"
+        "Total":"Total",
+        "EntrepriseName":"Entreprise Name",
+        "for":"for",
+        "item":"item(s)"
 
     },
     "page-addresses-list":{
@@ -236,7 +250,10 @@
         "ShippingAddress":"Shipping Address",
         "PhoneNumber":"Phone Number",
         "EmailAddress":"Email Address",
-        "BillingAddress":"Billing Address"
+        "BillingAddress":"Billing Address",
+        "UnitPrice":"Unit Price",
+        "Tax":"Tax",
+        "EntrepriseName":"Entreprise Name"
     },
     "page-orders-list":{
         "OrderHistory":"Order History",
@@ -345,5 +362,53 @@
         "Generalinformation":"General information",
         "Information":"If you want to know more product information, please contact our customer service",
         "CustomerReviews":"Customer Reviews"
+    },
+    "products-view":{
+        "Filters":"Filters",
+        "Showing":"Showing",
+        "of":"of",
+        "SortBy":"Sort By",
+        "Default":"Default",
+        "Priceincrease":"Price increase",
+        "Pricedecrease":"Price decrease",
+        "Recently":"Recently",
+        "Popularity":"Popularity",
+        "Show":"Show",
+        "Nomatchingitems":"No matching items",
+        "Tryresettingthefilters":"Try resetting the filters",
+        "Resetfilters":"Reset filters",
+        "results":"results",
+        "Sale":"Sale",
+        "Hot":"Hot",
+        "New":"New"
+    },
+    "page-not-found":{
+        "Error404":"Oops!Error 404",
+        "PageNotFound":"Page Not Found",
+        "research":"Try to use the search.",
+        "notfouns":"We can't seem to find the page you're looking for.",
+        "Search":"Search",
+        "gohomeover":"Or go to the home page to start over.",
+        "gohome":"Go To Home Page",
+        "SearchQuery":"Search Query"
+    },
+    "widget-filters":{
+        "Filters":"Filters",
+        "Minquantity":"Minimum quantity",
+        "Reset":"Reset",
+        "Categories":"Categories",
+        "Prix":"Price",
+        "MinQuantity":"Minimum Quantity"
+    },
+    "widget-comments":{
+        "LatestComments":"Latest Comments",
+        "On":"On",
+        "Categories":"Categories",
+        "OurNewsletter":"Our Newsletter",
+        "information":"Subscribe to us for more discount information",
+        "EmailAddress":"Email Address",
+        "Subscribe":"Subscribe",
+        "LatestPosts":"Latest Posts"
     }
+
 }
