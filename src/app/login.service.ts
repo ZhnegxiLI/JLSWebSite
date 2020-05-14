@@ -2,10 +2,11 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, timer, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
-import { StoreService } from './store.service';
+
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -19,9 +20,9 @@ export class LoginService {
     constructor(
         @Inject(PLATFORM_ID)
         private platformId: any,
-        private storeService: StoreService,
         protected router: Router,
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
+        private toastr: ToastrService
     ) {
         if (isPlatformBrowser(this.platformId)) {
 
@@ -45,6 +46,7 @@ export class LoginService {
         localStorage.setItem('lang',lang);
         this.router.navigate(['']);
         console.log("Logged Out Successfully");
+        this.toastr.success('Logged Out Successfully')//todo translate
         return;
 
     }

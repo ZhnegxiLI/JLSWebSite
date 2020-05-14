@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { LoginService } from 'src/app/shared/services/login.service';
+
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
     selector: 'app-account-menu',

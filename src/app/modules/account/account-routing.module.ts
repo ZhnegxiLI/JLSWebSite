@@ -15,10 +15,12 @@ import { PageOrderListResolverService } from './pages/page-orders-list/page-orde
 import { PageOrderDetailsResolverService } from './pages/page-order-details/page-orders-details.component-resolver.service';
 import { PageAddressesListResolverService } from './pages/page-addresses-list/page-addresses-list.component-resolver.service';
 import { PageEditAddressResolverService } from './pages/page-edit-address/page-edit-address.component-resolver.service';
+import { AuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
     {
         path: '',
+        canActivate: [AuthGuard],
         component: LayoutComponent,
         children: [
             {

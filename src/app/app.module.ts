@@ -30,13 +30,16 @@ import { RootComponent } from './components/root/root.component';
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RootResolverService } from './components/root/root-resolver.service';
 import { PageHomeOneResolverService } from './pages/page-home-one/page-home-one-resolver.service';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AppInterceptor } from './app.interceptor';
+import { LoginService } from './login.service';
+
 
 export function createTranslateLoader(http: HttpClient) {
     //此出的路径需要和第二步新建的文件夹保持一致
@@ -77,9 +80,12 @@ export function createTranslateLoader(http: HttpClient) {
         HeaderModule,
         MobileModule,
         SharedModule,
-        WidgetsModule
+        WidgetsModule,
+        
     ],
     providers: [
+        LoginService,
+        {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
         // { provide: LOCALE_ID, useValue: 'it' }
         RootResolverService,
         PageHomeOneResolverService
