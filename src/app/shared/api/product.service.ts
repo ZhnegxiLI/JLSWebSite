@@ -28,39 +28,53 @@ export class ProductService {
 
     private apiUrlGetProductById = this.host + 'api/Product/GetProductById';
 
+    private apiUrlAddIntoProductFavoriteList = this.host + 'api/Product/AddIntoProductFavoriteList';
+
+    private apiUrlGetFavoriteListByUserId = this.host + 'api/Product/GetFavoriteListByUserId';
+
     GetCategoryForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetCategoryForWebSite, {params});
+        return this.http.get(this.apiUrlGetCategoryForWebSite, { params });
+    }
+
+    AddIntoProductFavoriteList(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlAddIntoProductFavoriteList, { params });
+    }
+
+    GetFavoriteListByUserId(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetFavoriteListByUserId, { params }).pipe(map((p: any)=> p.List));
     }
 
     GetMainPageForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetMainPageForWebSite, {params});
+        return this.http.get(this.apiUrlGetMainPageForWebSite, { params });
     }
 
-    GetProductListByPublishDate(criteria):Observable<any> {
+    GetProductListByPublishDate(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetProductListByPublishDate, {params}).pipe(map((p:any)=>p.Data.ProductListData));
+        return this.http.get(this.apiUrlGetProductListByPublishDate, { params }).pipe(map((p: any) => p.Data.ProductListData));
     }
 
-    GetProductByPrice(criteria):Observable<any> {
+    GetProductByPrice(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetProductByPrice, {params}).pipe(map((p:any)=>p.List));
+        return this.http.get(this.apiUrlGetProductByPrice, { params }).pipe(map((p: any) => p.List));
     }
 
-    GetProductListBySalesPerformance(criteria):Observable<any> {
+    GetProductListBySalesPerformance(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetProductListBySalesPerformance, {params}).pipe(map((p:any)=>p.Data.ProductListData));
+        return this.http.get(this.apiUrlGetProductListBySalesPerformance, { params }).pipe(map((p: any) => p.Data.ProductListData));
     }
 
 
-    AdvancedProductSearchClient(criteria):Observable<any> {
+    AdvancedProductSearchClient(criteria): Observable<any> {
         return this.http.post(this.apiUrlAdvancedProductSearchClient, criteria);
     }
-    
+
 
     GetProductById(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetProductById, {params});
+        return this.http.get(this.apiUrlGetProductById, { params });
     }
 }

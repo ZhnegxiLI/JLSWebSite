@@ -140,7 +140,7 @@ export class ProductComponent implements OnInit {
         if (!this.addingToWishlist && this.product) {
             this.addingToWishlist = true;
             // todo
-            //this.wishlist.add(this.product).subscribe({complete: () => this.addingToWishlist = false});
+            this.wishlist.addOrRemove(this.product.ProductId,true).subscribe({complete: () => this.addingToWishlist = false});
         }
     }
 

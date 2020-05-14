@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
-import { Product } from '../../../../shared/interfaces/product';
+import { Product, Product1 } from '../../../../shared/interfaces/product';
 import { CartService } from '../../../../shared/services/cart.service';
 import { RootService } from '../../../../shared/services/root.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/shared/api/product.service';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-wishlist',
@@ -10,38 +13,57 @@ import { RootService } from '../../../../shared/services/root.service';
     styleUrls: ['./page-wishlist.component.scss']
 })
 export class PageWishlistComponent {
+    public favoirteList : Product1[];
+
+    addingToCart: boolean = false;
+    removingFromWishList : boolean = false;
     constructor(
+        private route: ActivatedRoute,
         public root: RootService,
         public wishlist: WishlistService,
-        public cart: CartService
-    ) { }
+        public cart: CartService,
+        public productService: ProductService,
+        public storeService: StoreService
+    ) {
+        this.route.data.subscribe(data => {
+            this.favoirteList = data.favoriteList;
 
-    addedToCartProducts: Product[] = [];
-    removedProducts: Product[] = [];
+        });
 
-    addToCart(product: Product): void {
-        if (this.addedToCartProducts.includes(product)) {
-            return;
-        }
-
-        this.addedToCartProducts.push(product);
-        // this.cart.add(product, 1).subscribe({
-        //     complete: () => {
-        //         this.addedToCartProducts = this.addedToCartProducts.filter(eachProduct => eachProduct !== product);
-        //     }
-        // });
     }
 
-    remove(product: Product): void {
-        if (this.removedProducts.includes(product)) {
+    addToCart(product: Product1): void {
+
+        if (this.addingToCart) {
             return;
         }
 
-        this.removedProducts.push(product);
-        this.wishlist.remove(product).subscribe({
+        this.addingToCart = true;
+        this.cart.add(product, 1).subscribe({
             complete: () => {
-                this.removedProducts = this.removedProducts.filter(eachProduct => eachProduct !== product);
+                this.addingToCart = false;
             }
         });
+    }
+
+    remove(product: Product1): void {
+        if (this.removingFromWishList) {
+            return;
+        }
+
+        this.removingFromWishList = true;
+        this.wishlist.addOrRemove(product.ProductId,false ).subscribe({
+            complete: () => {
+                this.removingFromWishList = false;
+                this.refreshData();
+            }
+        });
+    }
+
+    refreshData(): void {
+        this.productService.GetFavoriteListByUserId({
+            UserId: localStorage.getItem('userId'),
+            Lang: localStorage.getItem('lang')
+        }).subscribe(p=>this.favoirteList = p);
     }
 }

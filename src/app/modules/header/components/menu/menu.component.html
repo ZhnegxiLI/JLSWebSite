@@ -36,7 +36,7 @@
             <a *ngIf="!item.external" class="menu__item-link" [routerLink]="item.url" [queryParams]="item.params" [target]="item.target" (click)="itemClick.emit(item)" (appTouchClick)="onTouchClick($event, item)">
                 <ng-container [ngTemplateOutlet]="link"></ng-container>
             </a>
-            <a *ngIf="item.external" class="menu__item-link" [href]="item.url"  [queryParams]="item.params" [target]="item.target" (click)="itemClick.emit(item)" (appTouchClick)="onTouchClick($event, item)">
+            <a *ngIf="item.external" class="menu__item-link" [href]="item.url"   [target]="item.target" (click)="itemClick.emit(item)" (appTouchClick)="onTouchClick($event, item)">
                 <ng-container [ngTemplateOutlet]="link"></ng-container>
             </a>
         </li>

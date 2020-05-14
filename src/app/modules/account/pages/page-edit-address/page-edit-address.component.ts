@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/api/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-page-edit-address',
@@ -14,7 +15,7 @@ export class PageEditAddressComponent {
     public loading: boolean = false;
 
     constructor(public route: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService,
-        private toastr: ToastrService) {
+        private toastr: ToastrService, private translateService: TranslateService) {
 
         this.adressForm = this.formBuilder.group({
             Id: [''],
@@ -58,12 +59,12 @@ export class PageEditAddressComponent {
             }
             this.loading = true;
             this.userService.CreateOrUpdateAdress(criteria).subscribe(result => {
-                this.toastr.success('Save successfully') // todo translate
+                this.toastr.success(this.translateService.instant("Msg_SaveSuccess")); 
                 this.loading = false;
             },
-                error => {
-
-                });
+            error => {
+                this.toastr.error(this.translateService.instant("Msg_Error"));
+            });
 
         });
 

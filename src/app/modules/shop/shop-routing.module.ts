@@ -13,6 +13,7 @@ import { CategoryResolverService } from './resolvers/category-resolver.service';
 import { ProductResolverService } from './resolvers/product-resolver.service';
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
 import { PageCategoryService1 } from './services/page-category1.service';
+import { WishListResolverService } from './resolvers/wish-list-resolver.service';
 
 const categoryPageData: Data = {
     // Number of products per row. Possible values: 3, 4, 5.
@@ -92,7 +93,10 @@ const routes: Routes = [
     },
     {
         path: 'wishlist',
-        component: PageWishlistComponent
+        component: PageWishlistComponent,
+        resolve:{
+            favoriteList: WishListResolverService
+        }
     },
     {
         path: 'compare',

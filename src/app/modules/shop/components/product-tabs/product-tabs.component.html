@@ -30,13 +30,13 @@
             </div>
         </div>
 
-        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}" *ngIf="product.Comments!=null&&product.Comments.length>0">
+        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}" >
             <div class="reviews-view">
                 <div class="reviews-view__list">
                     <h3 class="reviews-view__header">{{'product-tabs.CustomerReviews' | translate}}</h3>
 
                     <div class="reviews-list">
-                        <ol class="reviews-list__content">
+                        <ol class="reviews-list__content" *ngIf="product.Comments.length>0">
                             <li *ngFor="let review of product.Comments" class="reviews-list__item">
                                 <div class="review">
                                     <div class="review__avatar"><img [src]="review.avatar" alt=""></div>
@@ -52,9 +52,10 @@
                                 </div>
                             </li>
                         </ol>
-                        <div class="reviews-list__pagination">
+                        <p *ngIf="product.Comments.length<=0">{{'NoDataToDisplay' | translate}} </p>
+                        <!-- <div class="reviews-list__pagination">
                             <app-pagination [current]="1" [siblings]="2" [total]="10"></app-pagination>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

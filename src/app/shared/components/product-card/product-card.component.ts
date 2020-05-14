@@ -69,17 +69,17 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     addToWishlist(): void {
-        if (this.addingToWishlist) {
-            return;
-        }
+        // if (this.addingToWishlist) {
+        //     return;
+        // }
 
-        this.addingToWishlist = true;
-        this.wishlist.add(this.product).subscribe({
-            complete: () => {
-                this.addingToWishlist = false;
-                this.cd.markForCheck();
-            }
-        });
+        // this.addingToWishlist = true;
+        // this.wishlist.add(this.product).subscribe({
+        //     complete: () => {
+        //         this.addingToWishlist = false;
+        //         this.cd.markForCheck();
+        //     }
+        // });
     }
 
     addToCompare(): void {

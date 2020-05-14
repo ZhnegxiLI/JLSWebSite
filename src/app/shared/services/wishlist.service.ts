@@ -1,8 +1,9 @@
 import { Inject, Injectable, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
-import { Product } from '../interfaces/product';
-import { map, takeUntil } from 'rxjs/operators';
+import { Product, Product1 } from '../interfaces/product';
+import { map, takeUntil, retry } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
+import { ProductService } from '../api/product.service';
 
 interface WishlistData {
     items: Product[];
@@ -26,25 +27,20 @@ export class WishlistService implements OnDestroy {
 
     constructor(
         @Inject(PLATFORM_ID)
-        private platformId: any
+        private platformId: any,
+        private productService: ProductService
     ) {
         if (isPlatformBrowser(this.platformId)) {
             this.load();
         }
     }
 
-    add(product: Product): Observable<void> {
-        // timer only for demo
-        return timer(1000).pipe(map(() => {
-            this.onAddingSubject$.next(product);
-
-            const index = this.data.items.findIndex(item => item.id === product.id);
-
-            if (index === -1) {
-                this.data.items.push(product);
-                this.save();
-            }
-        }));
+    addOrRemove(productId: number, IsFavorite: boolean): Observable<void> {
+        return this.productService.AddIntoProductFavoriteList({
+            UserId: localStorage.getItem('userId'),
+            ProductId: productId,
+            IsFavorite: IsFavorite
+        });
     }
 
     remove(product: Product): Observable<void> {

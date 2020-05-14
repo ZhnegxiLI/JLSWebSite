@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/shared/api/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-page-password',
@@ -15,7 +16,7 @@ export class PagePasswordComponent {
         NewPassword: '',
         RepeateNewPassword: ''
     }
-    constructor(public userService: UserService, private toastr: ToastrService) { }
+    constructor(public userService: UserService, private toastr: ToastrService, private translateService: TranslateService) { }
 
     public checkValidity() {
         if (this.criteria.PreviousPassword != "" && this.criteria.NewPassword != "" && this.criteria.RepeateNewPassword != "") {
@@ -34,10 +35,10 @@ export class PagePasswordComponent {
             }).subscribe(result => {
                 this.loading = false;
                 if (result > 0) {
-                    this.toastr.success("Successfully modified")
+                    this.toastr.success(this.translateService.instant("Msg_SaveSuccess")); 
                 }
                 else {
-
+                    this.toastr.error(this.translateService.instant("Msg_Error"));
                 }
             })
         }

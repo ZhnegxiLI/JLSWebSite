@@ -63,7 +63,7 @@
                     </div>
                 </app-indicator>
 
-                <app-indicator [link]="root.wishlist()" icon="heart-20" [counter]="wishlist.count$|async"></app-indicator>
+                <app-indicator [link]="root.wishlist()" icon="heart-20" ></app-indicator>
 
                 <app-indicator link="./shop/cart" icon="cart-20" trigger="click" [counter]="cart.quantity$|async" #indicator="appIndicator">
                     <app-header-dropcart (closeMenu)="indicator.close(true)"></app-header-dropcart>

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-account-menu',
@@ -15,7 +17,9 @@ export class AccountMenuComponent {
     public email: string;
     public password: string;
     constructor(
-        private loginService: LoginService
+        private loginService: LoginService,
+        private toastr: ToastrService,
+        private translateService: TranslateService
     ) { }
 
     ngOnInit(): void {
@@ -38,22 +42,17 @@ export class AccountMenuComponent {
                 this.loginService.loginStatus.next(true);
             }
             else {
-                // todo show error message
+                this.toastr.error(this.translateService.instant("Msg_Error"));
             }
         },
             error => {
-                // todo
-                if (error.Body != null && error.Body.LoginError != null) {
-                    // todo show error message
-                    // this.matSnackBar.open( this._translateService.instant(err.Body.LoginError), 'OK', { 
-                    //     duration: 2000
-                    // });
+                var message = error.error;
+                if (message.LoginError != null) {
+
+                    this.toastr.error(this.translateService.instant(message.LoginError));
                 }
                 else {
-                    // todo show error message
-                    // // this.matSnackBar.open(this._translateService.instant("Msg_Error") , 'OK', { 
-                    // //     duration: 2000
-                    // // });
+                    this.toastr.error(this.translateService.instant("Msg_Error"));
                 }
             });
     }

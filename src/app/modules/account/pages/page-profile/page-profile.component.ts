@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/api/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-page-profile',
@@ -13,7 +14,7 @@ export class PageProfileComponent {
     public userForm: FormGroup;
     public loading: boolean = false;
 
-    constructor(public formBuilder: FormBuilder, public route: ActivatedRoute, public userService: UserService,
+    constructor(public formBuilder: FormBuilder, public route: ActivatedRoute, public userService: UserService, private translateService: TranslateService,
         private toastr: ToastrService) {
 
 
@@ -41,12 +42,12 @@ export class PageProfileComponent {
         criteria.UserId = localStorage.getItem('userId');
         this.loading = true;
         this.userService.UpdateUserInfo(criteria).subscribe(result => {
-            this.toastr.success('Save successfully') // todo translate
+            this.toastr.success(this.translateService.instant("Msg_SaveSuccess")); 
 
             this.loading = false;
         },
         error => {
-
+            this.toastr.error(this.translateService.instant("Msg_Error"));
         });
     }
 }

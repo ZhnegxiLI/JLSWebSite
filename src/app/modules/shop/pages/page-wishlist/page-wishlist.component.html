@@ -3,7 +3,7 @@
     {label: 'Wish List', url: ''}
 ]"></app-page-header>
 
-<div class="block block-empty" *ngIf="!(wishlist.items$|async).length">
+<div class="block block-empty" *ngIf="!favoirteList.length">
     <div class="container">
         <div class="block-empty__body">
             <div class="block-empty__message">{{'page-wishlist.Yourwishlistisempty' | translate}}!</div>
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="block" *ngIf="(wishlist.items$|async).length">
+<div class="block" *ngIf="favoirteList.length">
     <div class="container">
         <table class="wishlist">
             <thead class="wishlist__head">
@@ -28,26 +28,28 @@
             </tr>
             </thead>
             <tbody class="wishlist__body">
-            <tr *ngFor="let product of wishlist.items$|async" class="wishlist__row">
+            <tr *ngFor="let product of favoirteList" class="wishlist__row">
                 <td class="wishlist__column wishlist__column--image">
-                    <a [routerLink]="root.product(product)" *ngIf="product.images?.length"><img [src]="product.images[0]" alt=""></a>
+                    <a  *ngIf="product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img [src]="product.DefaultPhotoPath" alt=""></a>
                 </td>
                 <td class="wishlist__column wishlist__column--product">
-                    <a [routerLink]="root.product(product)" class="wishlist__product-name">{{ product.name }}</a>
+                    <a  class="wishlist__product-name" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }">{{ product.Label }}</a>
                     <div class="wishlist__product-rating">
-                        <app-rating [value]="product.rating"></app-rating>
-                        <div class="wishlist__product-rating-legend">{{ product.reviews }}{{'page-wishlist.Reviews' | translate}}</div>
+                        <app-rating [value]="storeService.calculCommentAverageNote(product.Comments)"></app-rating>
+                        <div class="wishlist__product-rating-legend">{{ product.Comments.length }} {{'page-wishlist.Reviews' | translate}}</div>
                     </div>
                 </td>
                 <td class="wishlist__column wishlist__column--stock">
                     <div class="badge badge-success">{{'page-wishlist.InStock' | translate}}</div>
                 </td>
-                <td class="wishlist__column wishlist__column--price">{{ product.price|currencyFormat }}</td>
+                <td class="wishlist__column wishlist__column--price">{{ product.Price|currencyFormat }}</td>
                 <td class="wishlist__column wishlist__column--tocart">
-                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">{{'page-wishlist.AddToCart' | translate}}</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addingToCart}" >{{'page-wishlist.AddToCart' | translate}}</button>
                 </td>
                 <td class="wishlist__column wishlist__column--remove">
-                    <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(product)" [ngClass]="{'btn-loading': removedProducts.includes(product)}">
+                    <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(product)" [ngClass]="{'btn-loading': removingFromWishList}" > 
+                        <!-- [ngClass]="{'btn-loading': removedProducts.includes(product)}"
+                        [ngClass]="{'btn-loading': addedToCartProducts.includes(product)} -->
                         <app-icon name="cross-12" size="12"></app-icon>
                     </button>
                 </td>
