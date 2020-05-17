@@ -32,9 +32,15 @@ export class ProductService {
 
     private apiUrlGetFavoriteListByUserId = this.host + 'api/Product/GetFavoriteListByUserId';
 
+    private apiUrlGetProductInfoByReferenceIds = this.host + 'api/Product/GetProductInfoByReferenceIds';
+
     GetCategoryForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetCategoryForWebSite, { params });
+    }
+
+    GetProductInfoByReferenceIds(criteria): Observable<any> {
+        return this.http.post(this.apiUrlGetProductInfoByReferenceIds, criteria);
     }
 
     AddIntoProductFavoriteList(criteria): Observable<any> {

@@ -29,11 +29,16 @@ export class ProductsListResolverService implements Resolve<ProductsList> {
         };
 
         var categoryShortLabel = route.queryParams.CategoryLabel;
+        var searchText = route.queryParams.SearchText;
         if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
             criteria.MainCategory = route.queryParams.ReferenceItemId
         }
         else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
             criteria.SecondCategory = route.queryParams.ReferenceItemId
+        }
+
+        if(searchText!=null){
+            criteria.SearchText = searchText;
         }
 
         return this.productService.AdvancedProductSearchClient(criteria).pipe(

@@ -3,6 +3,9 @@ import { Product, ProductDetail1 } from '../../../../shared/interfaces/product';
 import { ActivatedRoute } from '@angular/router';
 import { ShopService } from '../../../../shared/api/shop.service';
 import { Observable } from 'rxjs';
+import { ProductService } from 'src/app/shared/api/product.service';
+import { map } from 'rxjs/operators';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-page-product',
@@ -17,8 +20,9 @@ export class PageProductComponent implements OnInit {
     sidebarPosition: 'start'|'end' = 'start'; // For LTR scripts "start" is "left" and "end" is "right"
 
     constructor(
-        private shop: ShopService,
         private route: ActivatedRoute,
+        private productService: ProductService,
+        public storeService: StoreService
     ) { }
 
     ngOnInit(): void {
@@ -27,7 +31,15 @@ export class PageProductComponent implements OnInit {
             this.sidebarPosition = data.sidebarPosition || this.sidebarPosition;
             this.product = data.product;
 
-            this.relatedProducts$ = this.shop.getRelatedProducts(data.product);
+            this.storeService.addVisitedReferenceIds(this.product.ReferenceId);
+            
+            
+            this.relatedProducts$ = this.productService.AdvancedProductSearchClient({
+                SecondCategory: this.product.SecondCategoryId,
+                Lang: localStorage.getItem('lang'),
+                Begin: 0,
+                Step: 10
+            }).pipe(map((p: any) => p.List));
         });
     }
 }

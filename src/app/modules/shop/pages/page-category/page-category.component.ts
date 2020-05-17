@@ -76,6 +76,11 @@ export class PageCategoryComponent implements OnDestroy {
                     criteria.SecondCategory = param.ReferenceItemId
                 }
 
+                var searchText = param.SearchText;
+                if(searchText!=null){
+                    criteria.SearchText = searchText;
+                }
+
                 this.pageService1.setOptions(criteria, false);
             });
 
@@ -135,6 +140,10 @@ export class PageCategoryComponent implements OnDestroy {
             }
             else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
                 criteria.SecondCategory = parseInt(params.get('ReferenceItemId'));
+            }
+            var searchText = params.get('SearchText');
+            if(searchText!=null){
+                criteria.SearchText = searchText;
             }
 
             this.pageService1.setOptions(criteria, true);

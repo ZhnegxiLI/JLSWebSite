@@ -6,6 +6,8 @@ import { map, takeUntil } from 'rxjs/operators';
 import { fromMatchMedia } from '../../../../shared/functions/rxjs/fromMatchMedia';
 import { isPlatformBrowser } from '@angular/common';
 import { ShopService } from '../../../../shared/api/shop.service';
+import { ProductService } from 'src/app/shared/api/product.service';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-shop-sidebar',
@@ -18,7 +20,7 @@ export class ShopSidebarComponent implements OnInit, OnDestroy {
      * - always: https://stroyka.angular.themeforest.scompiler.ru/themes/default-ltr/classic/shop/category-grid-4-columns-full
      * - mobile: https://stroyka.angular.themeforest.scompiler.ru/themes/default-ltr/classic/shop/category-grid-3-columns-sidebar
      */
-    @Input() offcanvas: 'always'|'mobile' = 'mobile';
+    @Input() offcanvas: 'always' | 'mobile' = 'mobile';
 
     destroy$: Subject<void> = new Subject<void>();
     bestsellers$: Observable<Product[]>;
@@ -26,13 +28,25 @@ export class ShopSidebarComponent implements OnInit, OnDestroy {
 
     constructor(
         private shop: ShopService,
+        private productService: ProductService,
         public sidebar: ShopSidebarService,
+        public storeService: StoreService,
         @Inject(PLATFORM_ID)
         private platformId: any
     ) { }
 
     ngOnInit(): void {
-        this.bestsellers$ = this.shop.getBestsellers().pipe(map(x => x.slice(0, 5)));
+        this.storeService.visitedReferenceIds.subscribe(result => {
+            if (result.length > 0) {
+                this.bestsellers$ = this.productService.GetProductInfoByReferenceIds({
+                    Lang: localStorage.getItem('lang'),
+                    ReferenceIds: result
+                });
+            }
+
+        });
+
+        //this.bestsellers$ = this.shop.getBestsellers().pipe(map(x => x.slice(0, 5)));
 
         this.sidebar.isOpen$.pipe(
             takeUntil(this.destroy$)

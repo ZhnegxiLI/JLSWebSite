@@ -6,6 +6,7 @@
         'block-products-carousel--has-items': !!columns?.length
     }"
     [attr.data-layout]="layout"
+    *ngIf="columns.length>3"
 >
     <div [ngClass]="{'container': !withSidebar}">
         <app-block-header [header]="header" [groups]="groups" [arrows]="true" (next)="carousel.next()" (prev)="carousel.prev()" (groupChange)="groupChange.emit($event)"></app-block-header>

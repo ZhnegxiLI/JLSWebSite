@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../../shared/interfaces/product';
+import { Product, Product1 } from '../../../shared/interfaces/product';
 import { RootService } from '../../../shared/services/root.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { RootService } from '../../../shared/services/root.service';
 })
 export class WidgetProductsComponent {
     @Input() header = '';
-    @Input() products: Product[] = [];
+    @Input() products: Product1[] = [];
 
     constructor(public root: RootService) { }
 }
