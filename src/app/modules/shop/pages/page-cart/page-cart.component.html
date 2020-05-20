@@ -77,7 +77,7 @@
                             </thead>
                             <tbody *ngIf="(cart.totals$|async).length" class="cart__totals-body">
                                 <tr *ngFor="let total of cart.totals$|async">
-                                    <th>{{ total.title }}</th>
+                                    <th>{{ total.title | translate }}</th>
                                     <td *ngIf="total.type!='shipping'">{{ total.price|currencyFormat  }}</td>
                                     <td *ngIf="total.type =='shipping'">{{'dropcart.Aestimer' | translate}} </td>
                                 </tr>
