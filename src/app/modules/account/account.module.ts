@@ -22,6 +22,7 @@ import { PageEditAddressComponent } from './pages/page-edit-address/page-edit-ad
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AddressesListComponent } from './components/address-list/addresses-list.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NgxLoadingModule } from 'ngx-loading';
         PagePasswordComponent,
         PageProfileComponent,
         PageOrderDetailsComponent,
-        PageEditAddressComponent
+        PageEditAddressComponent,
+        AddressesListComponent
     ],
     imports: [
         TranslateModule,
@@ -48,6 +50,9 @@ import { NgxLoadingModule } from 'ngx-loading';
         FormsModule,
         ReactiveFormsModule,
         NgxLoadingModule.forRoot({}),
+    ],
+    exports: [
+        AddressesListComponent
     ]
 })
 export class AccountModule { }

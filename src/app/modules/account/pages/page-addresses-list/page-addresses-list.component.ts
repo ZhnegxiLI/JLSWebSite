@@ -22,33 +22,4 @@ export class PageAddressesListComponent {
 
         });
     }
-
-
-    remove(Id: number) {
-        if (this.addresses.length > 1) {
-            this.addressService.RemoveShippingAddress({ AddressId: Id }).subscribe(result => {
-                if (result > 0) {
-                    this.toastr.success('Save successfully') // todo translate
-                    this.refreshData();
-                }
-                else {
-                    this.toastr.error("Some error is occured");
-                }
-            },
-                error => {
-
-                });
-        }
-    }
-
-    refreshData(){
-        this.userService.GetUserShippingAdress({
-            UserId: localStorage.getItem('userId')
-        }).subscribe(p=>this.addresses =p);
-    }
-
-
-    findCountry(CountryId: number) {
-        return this.storeService.countryList.find(p => p.Id == CountryId).Country;
-    }
 }

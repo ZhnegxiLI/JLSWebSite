@@ -14,6 +14,7 @@ import { ProductResolverService } from './resolvers/product-resolver.service';
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
 import { PageCategoryService1 } from './services/page-category1.service';
 import { WishListResolverService } from './resolvers/wish-list-resolver.service';
+import { PageCheckoutResolverService } from './pages/page-checkout/page-checkout.component-resolver.service';
 
 const categoryPageData: Data = {
     // Number of products per row. Possible values: 3, 4, 5.
@@ -86,6 +87,9 @@ const routes: Routes = [
         path: 'cart/checkout',
         component: PageCheckoutComponent,
         canActivate: [CheckoutGuard],
+        resolve: { // 此处使用resolve
+            initInfo: PageCheckoutResolverService
+        },
     },
     {
         path: 'cart/checkout/success',

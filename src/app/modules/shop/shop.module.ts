@@ -30,6 +30,7 @@ import { ProductSidebarComponent } from './components/product-sidebar/product-si
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { PageCategoryService1 } from './services/page-category1.service';
+import { AccountModule } from '../account/account.module';
 
 @NgModule({
     declarations: [
@@ -60,7 +61,8 @@ import { PageCategoryService1 } from './services/page-category1.service';
         BlocksModule,
         SharedModule,
         ShopRoutingModule,
-        WidgetsModule
+        WidgetsModule,
+        AccountModule
     ]
 })
 export class ShopModule { }

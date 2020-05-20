@@ -24,9 +24,12 @@ export class AccountMenuComponent {
     ) { }
 
     ngOnInit(): void {
-        this.loginService.loginStatus.subscribe(p => this.isLogined = p);
-        this.username = localStorage.getItem('username');
-        this.entrepriseName = localStorage.getItem('entrepriseName');
+        this.loginService.loginStatus.subscribe(p => {
+            this.isLogined = p
+            this.username = localStorage.getItem('username');
+            this.entrepriseName = localStorage.getItem('entrepriseName');
+        });
+
     }
 
     login() {
