@@ -14,19 +14,15 @@
                 <ul class="order-success__meta-list">
                     <li class="order-success__meta-item">
                         <span class="order-success__meta-title">{{'page-order-success.Ordernumber' | translate}}:</span>
-                        <span class="order-success__meta-value">#{{ order.id }}</span>
+                        <span class="order-success__meta-value">#{{ order.OrderInfo.Id  }}</span>
                     </li>
                     <li class="order-success__meta-item">
                         <span class="order-success__meta-title">{{'page-order-success.Createdat' | translate}}:</span>
-                        <span class="order-success__meta-value">{{ order.date }}</span>
+                        <span class="order-success__meta-value">{{ order.OrderInfo.CreatedOn }}</span>
                     </li>
                     <li class="order-success__meta-item">
                         <span class="order-success__meta-title">{{'page-order-success.Total' | translate}}:</span>
-                        <span class="order-success__meta-value">{{ order.total|currencyFormat }}</span>
-                    </li>
-                    <li class="order-success__meta-item">
-                        <span class="order-success__meta-title">{{'page-order-success.Paymentmethod' | translate}}:</span>
-                        <span class="order-success__meta-value">{{ order.paymentMethod }}</span>
+                        <span class="order-success__meta-value">{{ (order.OrderInfo.TotalPrice*(1+taxRate*0.01)) |currencyFormat }}</span>
                     </li>
                 </ul>
             </div>
@@ -42,41 +38,33 @@
                         </tr>
                         </thead>
                         <tbody class="order-list__products">
-                        <tr *ngFor="let item of order.items">
+                        <tr *ngFor="let item of order.ProductList">
                             <td class="order-list__column-image">
-                                <a [routerLink]="root.product(item)">
-                                    <img [src]="item.image" alt="">
-                                </a>
+                                <a appClick  *ngIf="item.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: item.ProductId }"><img [src]="item.DefaultPhotoPath" alt="" ></a>
+                                <a appClick  *ngIf="!item.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: item.ProductId }"><img src="assets/images/products/product-7.jpg" alt=""></a> 
                             </td>
                             <td class="order-list__column-product">
-                                <a [routerLink]="root.product(item)">{{ item.name }}</a>
-                                <div *ngIf="item.options?.length > 0" class="order-list__options">
-                                    <ul class="order-list__options-list">
-                                        <li *ngFor="let option of item.options" class="order-list__options-item">
-                                            <span class="order-list__options-label">{{ option.label + ': ' }}</span>
-                                            <span class="order-list__options-value">{{ option.value }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                {{item.Label}}
                             </td>
-                            <td class="order-list__column-quantity" data-title="Qty:">{{ item.quantity }}</td>
-                            <td class="order-list__column-total">{{ item.total|currencyFormat }}</td>
+                            <td class="order-list__column-quantity" data-title="Qty:">{{ item.Quantity }}</td>
+                            <td class="order-list__column-total">{{ (item.Price*item.Quantity) |currencyFormat }} </td>
                         </tr>
                         </tbody>
-                        <tbody *ngIf="order.additionalLines.length > 0" class="order-list__subtotals">
+                        <tbody class="order-list__subtotals">
                         <tr>
                             <th class="order-list__column-label" colspan="3">{{'page-order-success.Subtotal' | translate}}</th>
-                            <td class="order-list__column-total">{{ order.subtotal|currencyFormat }}</td>
+                            <td class="order-list__column-total">{{ order.OrderInfo.TotalPrice|currencyFormat }}</td>
                         </tr>
-                        <tr *ngFor="let line of order.additionalLines">
-                            <th class="order-list__column-label" colspan="3">{{ line.label }}</th>
-                            <td class="order-list__column-total">{{ line.total|currencyFormat }}</td>
+                        <tr>
+                            <th class="order-list__column-label" colspan="3">{{'page-order-details.Tax' | translate}}</th>
+                            <td class="order-list__column-total">{{ 0.01* taxRate *order.OrderInfo.TotalPrice |currencyFormat }}</td>
                         </tr>
                         </tbody>
                         <tfoot class="order-list__footer">
+            
                         <tr>
-                            <th class="order-list__column-label" colspan="3">{{'page-order-success.Total' | translate}}</th>
-                            <td class="order-list__column-total">{{ order.total|currencyFormat }}</td>
+                            <th class="order-list__column-label" colspan="3">{{'page-order-details.Total' | translate}}</th>
+                            <td class="order-list__column-total">{{ (order.OrderInfo.TotalPrice*(1+taxRate*0.01)) |currencyFormat }}</td>
                         </tr>
                         </tfoot>
                     </table>
@@ -88,19 +76,20 @@
                     <div class="card address-card">
                         <div class="address-card__body">
                             <div class="address-card__badge address-card__badge--muted">{{'page-order-success.ShippingAddress' | translate}}</div>
-                            <div class="address-card__name">{{ order.shippingAddress.firstName + ' ' + order.shippingAddress.lastName}}</div>
+                            <div class="address-card__name">{{ order.ShippingAdress.ContactFirstName + ' ' + order.ShippingAdress.ContactLastName}}</div>
                             <div class="address-card__row">
-                                {{ order.shippingAddress.country }}<br>
-                                {{ order.shippingAddress.postcode }}, {{ order.shippingAddress.city }}<br>
-                                {{ order.shippingAddress.address }}
+                                {{  findCountry(order.ShippingAdress.CountryId) }}<br>
+                                {{ order.ShippingAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
+                                {{ order.ShippingAdress.FirstLineAddress }}<br>
+                                {{ order.ShippingAdress.SecondLineAddress }}
                             </div>
                             <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-order-success.PhoneNumber' | translate}}</div>
-                                <div class="address-card__row-content">{{ order.shippingAddress.phone }}</div>
+                                <div class="address-card__row-content">{{ order.ShippingAdress.ContactTelephone }}</div>
                             </div>
                             <div class="address-card__row">
-                                <div class="address-card__row-title">{{'page-order-success.EmailAddress' | translate}}</div>
-                                <div class="address-card__row-content">{{ order.shippingAddress.email }}</div>
+                                <div class="address-card__row-title">{{'page-order-details.EntrepriseName' | translate}}</div>
+                                <div class="address-card__row-content">{{ order.ShippingAdress.EntrepriseName }}</div>
                             </div>
                         </div>
                     </div>
@@ -109,19 +98,20 @@
                     <div class="card address-card">
                         <div class="address-card__body">
                             <div class="address-card__badge address-card__badge--muted">{{'page-order-success.BillingAddress' | translate}}</div>
-                            <div class="address-card__name">{{ order.billingAddress.firstName + ' ' + order.billingAddress.lastName}}</div>
+                            <div class="address-card__name">{{ order.FacturationAdress.ContactFirstName + ' ' + order.FacturationAdress.ContactLastName}}</div>
                             <div class="address-card__row">
-                                {{ order.billingAddress.country }}<br>
-                                {{ order.billingAddress.postcode }}, {{ order.billingAddress.city }}<br>
-                                {{ order.billingAddress.address }}
+                                {{  findCountry(order.FacturationAdress.CountryId) }}<br>
+                                {{ order.FacturationAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
+                                {{ order.FacturationAdress.FirstLineAddress }}<br>
+                                {{ order.FacturationAdress.SecondLineAddress }}
                             </div>
                             <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-order-success.PhoneNumber' | translate}}</div>
-                                <div class="address-card__row-content">{{ order.billingAddress.phone }}</div>
+                                <div class="address-card__row-content">{{ order.FacturationAdress.ContactTelephone }}</div>
                             </div>
                             <div class="address-card__row">
-                                <div class="address-card__row-title">{{'page-order-success.EmailAddress' | translate}}</div>
-                                <div class="address-card__row-content">{{ order.billingAddress.email }}</div>
+                                <div class="address-card__row-title">{{'page-order-details.EntrepriseName' | translate}}</div>
+                                <div class="address-card__row-content">{{ order.FacturationAdress.EntrepriseName }}</div>
                             </div>
                         </div>
                     </div>

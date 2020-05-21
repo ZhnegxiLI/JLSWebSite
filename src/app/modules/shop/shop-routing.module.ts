@@ -15,6 +15,7 @@ import { PageOrderSuccessComponent } from './pages/page-order-success/page-order
 import { PageCategoryService1 } from './services/page-category1.service';
 import { WishListResolverService } from './resolvers/wish-list-resolver.service';
 import { PageCheckoutResolverService } from './pages/page-checkout/page-checkout.component-resolver.service';
+import { PageOrderSuccessResolverService } from './pages/page-order-success/page-order-success.component-resolver.service';
 
 const categoryPageData: Data = {
     // Number of products per row. Possible values: 3, 4, 5.
@@ -92,8 +93,11 @@ const routes: Routes = [
         },
     },
     {
-        path: 'cart/checkout/success',
+        path: 'cart/checkout/success/:id',
         component: PageOrderSuccessComponent,
+        resolve:{
+            initInfo: PageOrderSuccessResolverService
+        }
     },
     {
         path: 'wishlist',

@@ -16,7 +16,7 @@ import { OrderService } from 'src/app/shared/api/order.service';
 })
 export class PageCheckoutComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
-    private loading: boolean = false;
+    public loading: boolean = false;
 
     public orderCriteria: any = {
         ShippingAdressId: 0,
@@ -88,18 +88,20 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
             && this.orderCriteria.UserId != null && this.orderCriteria.UserId > 0
             && this.orderCriteria.References != null && this.orderCriteria.References.length > 0
             && this.orderCriteria.AcceptCondition != null && this.orderCriteria.AcceptCondition == true) {
-                this.loading = true;
-                this.orderService.SaveOrder(this.orderCriteria).subscribe(result=>{
-                    if(result>0){
-                        this.toastr.success(this.translateService.instant('Msg_OrdePassedSuccess'));
-                        this.cart.clear();
-                    }
-                    else{
-                        this.toastr.error(this.translateService.instant('Msg_Error'));
-                    }
-                    this.loading = false;
-                },
-                error=>{
+            this.loading = true;
+            this.orderService.SaveOrder(this.orderCriteria).subscribe(result => {
+                if (result > 0) {
+                    this.toastr.success(this.translateService.instant('Msg_OrdePassedSuccess'));
+
+                    this.cart.clear();
+                    this.router.navigate(['../shop/cart/checkout/success', result]);
+                }
+                else {
+                    this.toastr.error(this.translateService.instant('Msg_Error'));
+                }
+                this.loading = false;
+            },
+                error => {
                     this.toastr.error(this.translateService.instant('Msg_Error'));
                 })
         }
