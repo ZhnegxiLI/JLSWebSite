@@ -121,6 +121,13 @@ export class CartService {
         }));
     }
 
+    clear() {
+        this.data.items = this.data.items.filter(p=>p.quantity<=0);
+
+        this.save();
+        this.calc();
+    }
+
     private calc(): void {
 
 

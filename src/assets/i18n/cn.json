@@ -127,6 +127,9 @@
             "CouponCode":"折扣卷码"
         },
         "page-checkout":{
+            "ShippingAddress":"运送地址",
+            "ChooseAnotherAddress":"选择另一个地址",
+            "NoAddressAvailable":"无可用发货地址",
             "Returningcustomer":"已经是我们的顾客",
             "Billingdetails":"账单地址",
             "FirstName":"名",

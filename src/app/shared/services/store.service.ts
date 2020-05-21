@@ -17,6 +17,7 @@ export class StoreService {
     public taxRate = new BehaviorSubject<number>(0);
     public mainPageProductInfo = new BehaviorSubject<any[]>([]);
     public slideList = new BehaviorSubject<any[]>([]);
+    public shippingInfo = new BehaviorSubject<string>('');
 
     public visitedReferenceIds = new BehaviorSubject<number[]>([]);
 

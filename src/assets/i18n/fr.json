@@ -131,6 +131,9 @@
             "CouponCode":"Code de coupon"
         },
         "page-checkout":{
+            "ShippingAddress":"Adresse de livraison",
+            "ChooseAnotherAddress":"Choisir une autre adresse",
+            "NoAddressAvailable":"Adresse invalide",
             "Returningcustomer":"Déjà membre",
             "Billingdetails":"Adresse de facture",
             "FirstName":"Prénom",

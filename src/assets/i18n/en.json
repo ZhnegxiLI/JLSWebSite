@@ -127,6 +127,9 @@
         "CouponCode":"Coupon code"
     },
     "page-checkout":{
+        "ChooseAnotherAddress": "Choose another address",
+        "ShippingAddress": "Shipping address",
+        "NoAddressAvailable": "No address available",
         "Returningcustomer":"Already registered",
         "Billingdetails":"Billing details",
         "FirstName":"FirstName",

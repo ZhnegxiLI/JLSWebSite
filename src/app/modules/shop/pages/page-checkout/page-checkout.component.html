@@ -3,13 +3,13 @@
     {label: 'Shopping Cart', url: root.cart()},
     {label: 'Checkout',      url: ''}
 ]"></app-page-header>
+<ngx-loading [show]="loading"></ngx-loading>
 
 <div class="checkout block">
     <div class="container">
         <div class="row">
             <div class="col-12 mb-3">
-                <app-alert type="primary" size="lg">{{'page-checkout.Returningcustomer' | translate}}?<a
-                        [routerLink]="root.login()">{{'page-checkout.Clickheretologin' | translate}}</a></app-alert>
+                <app-alert type="primary" size="lg">{{storeService.shippingInfo|async}} </app-alert>
             </div>
            
             <div class="col-12 col-lg-12 col-xl-12">
@@ -52,7 +52,7 @@
             <div class="col-12 col-lg-12 col-xl-12" style="margin-top: 20px!important;">
                 <div class="card mb-lg-0">
                     <div class="card-body">
-                        <h3 class="card-title">{{'page-checkout.shippingAddress' | translate}}</h3>
+                        <h3 class="card-title">{{'page-checkout.ShippingAddress' | translate}}</h3>
                         <app--addresses-list (change)="selectedAddressChange($event)" [addresses] = "shippingAddress" [disableRemove]="true" [selectAddress]="true"></app--addresses-list>
                     </div>
                 </div>

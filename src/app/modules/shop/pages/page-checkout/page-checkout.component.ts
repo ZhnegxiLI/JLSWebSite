@@ -5,6 +5,9 @@ import { takeUntil } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RootService } from '../../../../shared/services/root.service';
 import { StoreService } from 'src/app/shared/services/store.service';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
+import { OrderService } from 'src/app/shared/api/order.service';
 
 @Component({
     selector: 'app-checkout',
@@ -13,6 +16,7 @@ import { StoreService } from 'src/app/shared/services/store.service';
 })
 export class PageCheckoutComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
+    private loading: boolean = false;
 
     public orderCriteria: any = {
         ShippingAdressId: 0,
@@ -30,7 +34,10 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         public cart: CartService,
         private route: ActivatedRoute,
         private router: Router,
-        public storeService: StoreService
+        public storeService: StoreService,
+        private toastr: ToastrService,
+        private translateService: TranslateService,
+        private orderService: OrderService
     ) {
 
         this.route.data.subscribe(data => {
@@ -74,7 +81,47 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         return this.storeService.countryList.find(p => p.Id == CountryId).Country;
     }
 
-    ValideOrder(){
+    ValideOrder() {
         console.log(this.orderCriteria)
+        if (this.orderCriteria.ShippingAdressId != null && this.orderCriteria.ShippingAdressId > 0
+            && this.orderCriteria.FacturationAdressId != null && this.orderCriteria.FacturationAdressId > 0
+            && this.orderCriteria.UserId != null && this.orderCriteria.UserId > 0
+            && this.orderCriteria.References != null && this.orderCriteria.References.length > 0
+            && this.orderCriteria.AcceptCondition != null && this.orderCriteria.AcceptCondition == true) {
+                this.loading = true;
+                this.orderService.SaveOrder(this.orderCriteria).subscribe(result=>{
+                    if(result>0){
+                        this.toastr.success(this.translateService.instant('Msg_OrdePassedSuccess'));
+                        this.cart.clear();
+                    }
+                    else{
+                        this.toastr.error(this.translateService.instant('Msg_Error'));
+                    }
+                    this.loading = false;
+                },
+                error=>{
+                    this.toastr.error(this.translateService.instant('Msg_Error'));
+                })
+        }
+        else {
+            if (this.orderCriteria.ShippingAdressId == null || this.orderCriteria.ShippingAdressId <= 0) {
+                this.toastr.error(this.translateService.instant('page-checkout.NoAddressAvailable'));
+            }
+            else if (this.orderCriteria.References == null || this.orderCriteria.References.length <= 0) {
+                this.toastr.error(this.translateService.instant('Msg_Error'));
+                this.router.navigate(['/']);
+            }
+            else if (this.orderCriteria.AcceptCondition == null || this.orderCriteria.AcceptCondition == false) {
+                this.toastr.error(this.translateService.instant('page-checkout.CheckCondition'));
+            }
+            else if (this.orderCriteria.FacturationAdressId == null || this.orderCriteria.FacturationAdressId <= 0) {
+                this.toastr.error(this.translateService.instant('Msg_Error'));
+                this.router.navigate(['/']);
+            }
+            else if (this.orderCriteria.UserId == null || this.orderCriteria.UserId <= 0) {
+                this.toastr.error(this.translateService.instant('Msg_Error'));
+                this.router.navigate(['/']);
+            }
+        }
     }
 }

@@ -31,6 +31,7 @@ import { PageOrderSuccessComponent } from './pages/page-order-success/page-order
 import { TranslateModule } from '@ngx-translate/core';
 import { PageCategoryService1 } from './services/page-category1.service';
 import { AccountModule } from '../account/account.module';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
     declarations: [
@@ -62,7 +63,8 @@ import { AccountModule } from '../account/account.module';
         SharedModule,
         ShopRoutingModule,
         WidgetsModule,
-        AccountModule
+        AccountModule,
+        NgxLoadingModule.forRoot({}),
     ]
 })
 export class ShopModule { }

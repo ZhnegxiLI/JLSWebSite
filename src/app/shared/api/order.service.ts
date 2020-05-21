@@ -16,14 +16,19 @@ export class OrderService {
 
     private apiUrlGetOrdersListByUserId = this.host + 'api/Order/GetOrdersListByUserId';
     private apiUrlGetOrdersListByOrderId = this.host + 'api/Order/GetOrdersListByOrderId';
-    
+    private apiUrlSaveOrder = this.host + 'api/Order/SaveOrder';
+
     GetOrdersListByUserId(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetOrdersListByUserId, {params}).pipe(map((p:any)=>p.Data));
+        return this.http.get(this.apiUrlGetOrdersListByUserId, { params }).pipe(map((p: any) => p.Data));
     }
 
     GetOrdersListByOrderId(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetOrdersListByOrderId, {params}).pipe(map((p:any)=>p.Data));
+        return this.http.get(this.apiUrlGetOrdersListByOrderId, { params }).pipe(map((p: any) => p.Data));
+    }
+
+    SaveOrder(criteria): Observable<any> {
+        return this.http.post(this.apiUrlSaveOrder, criteria).pipe(map((p: any) => p.Data));
     }
 }

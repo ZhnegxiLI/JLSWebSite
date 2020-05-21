@@ -23,6 +23,11 @@ export class RootComponent {
                 storeService.taxRate.next(taxRate.Value);
             }
 
+            var shippingMessage = data.initInfo[0].find(p => p.ReferenceCategoryLabel == 'InAppMessage' && p.Code == 'ShippingMessage');
+            if (shippingMessage != null && shippingMessage.Label != null) {
+                this.storeService.shippingInfo.next(shippingMessage.Label);
+            }
+
             storeService.categoryList.next(data.initInfo[1]);
             storeService.slideList.next(data.initInfo[2]);
             storeService.referenceCategoryList.next(data.initInfo[3].ReferenceCategoryList);
