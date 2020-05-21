@@ -16,7 +16,7 @@ import { OrderService } from 'src/app/shared/api/order.service';
 })
 export class PageCheckoutComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
-    public loading: boolean = false;
+    public loading = false;
 
     public orderCriteria: any = {
         ShippingAdressId: 0,
@@ -81,7 +81,8 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         return this.storeService.countryList.find(p => p.Id == CountryId).Country;
     }
 
-    ValideOrder() {
+    ValideOrder():void {
+      
         console.log(this.orderCriteria)
         if (this.orderCriteria.ShippingAdressId != null && this.orderCriteria.ShippingAdressId > 0
             && this.orderCriteria.FacturationAdressId != null && this.orderCriteria.FacturationAdressId > 0

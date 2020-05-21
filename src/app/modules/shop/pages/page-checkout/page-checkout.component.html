@@ -3,9 +3,9 @@
     {label: 'Shopping Cart', url: root.cart()},
     {label: 'Checkout',      url: ''}
 ]"></app-page-header>
-
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px',fullScreenBackdrop:true }"></ngx-loading>
 <div class="checkout block">
-    <ngx-loading [show]="loading"></ngx-loading>
+
     <div class="container">
         <div class="row">
             <div class="col-12 mb-3">

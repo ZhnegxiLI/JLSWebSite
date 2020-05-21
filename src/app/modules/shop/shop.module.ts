@@ -64,6 +64,8 @@ import { NgxLoadingModule } from 'ngx-loading';
         ShopRoutingModule,
         WidgetsModule,
         AccountModule,
+        FormsModule,
+        ReactiveFormsModule,
         NgxLoadingModule.forRoot({}),
     ]
 })
