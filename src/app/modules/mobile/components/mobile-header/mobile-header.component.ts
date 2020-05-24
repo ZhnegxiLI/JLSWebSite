@@ -6,6 +6,7 @@ import { fromEvent, merge, Observable, Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { fromMatchMedia } from '../../../../shared/functions/rxjs/fromMatchMedia';
 import { filter, first, shareReplay, takeUntil } from 'rxjs/operators';
+import { LoginService } from 'src/app/login.service';
 
 export type MobileHeaderMode = 'alwaysOnTop' | 'pullToShow';
 
@@ -19,6 +20,7 @@ export type MobileHeaderVisibility = 'hidden' | 'shown';
     styleUrls: ['./mobile-header.component.scss']
 })
 export class MobileHeaderComponent implements OnDestroy, AfterViewInit {
+
     @Input() stickyMode: MobileHeaderMode | false = false;
 
     @ViewChild('element') elementRef: ElementRef;
@@ -44,12 +46,15 @@ export class MobileHeaderComponent implements OnDestroy, AfterViewInit {
         return this.panelElementRef?.nativeElement;
     }
 
+    public searchText: string;
+    
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         public menu: MobileMenuService,
         public wishlist: WishlistService,
         public cart: CartService,
         public zone: NgZone,
+        public loginService: LoginService
     ) { }
 
     ngOnDestroy(): void {

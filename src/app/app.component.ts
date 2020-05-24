@@ -1,7 +1,6 @@
 import { Component, Inject, NgZone, OnInit, PLATFORM_ID } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from './shared/services/cart.service';
-import { CompareService } from './shared/services/compare.service';
 import { WishlistService } from './shared/services/wishlist.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit {
         private router: Router,
         private toastr: ToastrService,
         private cart: CartService,
-        private compare: CompareService,
         private wishlist: WishlistService,
         private zone: NgZone,
         private scroller: ViewportScroller,
@@ -64,9 +62,6 @@ export class AppComponent implements OnInit {
         });
         this.cart.onAdding$.subscribe(product => {
             this.toastr.success(`Product "${product.Label}" added to cart!`);
-        });
-        this.compare.onAdding$.subscribe(product => {
-            this.toastr.success(`Product "${product.name}" added to compare!`);
         });
         this.wishlist.onAdding$.subscribe(product => {
             this.toastr.success(`Product "${product.name}" added to wish list!`);

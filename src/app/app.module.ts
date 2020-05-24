@@ -29,7 +29,6 @@ import { RootComponent } from './components/root/root.component';
 // pages
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -53,7 +52,6 @@ export function createTranslateLoader(http: HttpClient) {
         // pages
         PageHomeOneComponent,
         PageNotFoundComponent,
-        PageHomeTwoComponent
     ],
     imports: [
         NgxLoadingModule.forRoot({}),

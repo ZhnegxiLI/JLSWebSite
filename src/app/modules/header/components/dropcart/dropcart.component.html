@@ -23,7 +23,7 @@
                     </ul> -->
                     <div class="dropcart__product-meta">
                         <span class="dropcart__product-quantity">{{ item.quantity }}</span> ×
-                        <span class="dropcart__product-price">{{ item.product.Price|currencyFormat }}</span>
+                        <span *ngIf="loginService.loginStatus|async" class="dropcart__product-price">{{ item.product.Price|currencyFormat }}</span>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="dropcart__totals">
+        <div class="dropcart__totals" *ngIf="loginService.loginStatus|async">
             <table>
                 <tr *ngIf="(cart.totals$|async).length">
                     <th>{{'dropcart.Subtotal' | translate}}</th>

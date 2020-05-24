@@ -31,18 +31,24 @@
             <tbody class="cart-table__body">
                 <tr *ngFor="let item of items" class="cart-table__row">
                     <td class="cart-table__column cart-table__column--image">
-                        <a *ngIf="item.cartItem.product.DefaultPhotoPath"><img [src]="item.cartItem.product.DefaultPhotoPath" alt=""></a>
+                        <a *ngIf="item.cartItem.product.DefaultPhotoPath"><img
+                                [src]="item.cartItem.product.DefaultPhotoPath" alt=""></a>
                     </td>
                     <td class="cart-table__column cart-table__column--product">
                         <a class="cart-table__product-name">{{ item.cartItem.product.Label }}</a>
                     </td>
                     <td class="cart-table__column cart-table__column--price" data-title="Price">
-                        {{ item.cartItem.product.Price|currencyFormat }}</td>
+                        <span *ngIf="loginService.loginStatus|async">
+                            {{ item.cartItem.product.Price|currencyFormat }}</span>
+                    </td>
                     <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
-                        <app-input-number [formControl]="item.quantityControl" [min]="item.cartItem.product.MinQuantity"></app-input-number>
+                        <app-input-number [formControl]="item.quantityControl"
+                            [min]="item.cartItem.product.MinQuantity"></app-input-number>
                     </td>
                     <td class="cart-table__column cart-table__column--total" data-title="Total">
-                        {{ item.cartItem.product.Price * item.quantity|currencyFormat }}</td>
+                        <span *ngIf="loginService.loginStatus|async">
+                            {{ item.cartItem.product.Price * item.quantity|currencyFormat }}</span>
+                    </td>
                     <td class="cart-table__column cart-table__column--remove">
                         <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(item.cartItem)"
                             [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">
@@ -62,7 +68,7 @@
             </div>
         </div>
 
-        <div class="row justify-content-end pt-5">
+        <div class="row justify-content-end pt-5" *ngIf="loginService.loginStatus|async">
             <div class="col-12 col-md-7 col-lg-6 col-xl-5">
                 <div class="card">
                     <div class="card-body">

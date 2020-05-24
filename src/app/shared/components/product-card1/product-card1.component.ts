@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges
 import { CartService } from '../../services/cart.service';
 import { Product, ProductAttribute, Product1 } from '../../interfaces/product';
 import { WishlistService } from '../../services/wishlist.service';
-import { CompareService } from '../../services/compare.service';
 import { QuickviewService } from '../../services/quickview.service';
 import { RootService } from '../../services/root.service';
 import { CurrencyService } from '../../services/currency.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { StoreService } from '../../services/store.service';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
     selector: 'app-product-card1',
@@ -33,11 +33,13 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
         public root: RootService,
         public cart: CartService,
         public wishlist: WishlistService,
-        public compare: CompareService,
         public quickview: QuickviewService,
         public currency: CurrencyService,
-        public storeService: StoreService
-    ) { }
+        public storeService: StoreService,
+        public loginService: LoginService
+    ) { 
+       
+    }
 
     ngOnInit(): void {
         this.currency.changes$.pipe(takeUntil(this.destroy$)).subscribe(() => {

@@ -75,7 +75,7 @@
                     <span class="product__new-price">{{ product.Price|currencyFormat }}</span>{{ ' ' }}
                     <span class="product__old-price">{{ product.compareAtPrice|currencyFormat }}</span>
                 </ng-container> -->
-                <ng-container>
+                <ng-container *ngIf="loginService.loginStatus|async">
                     {{ product.Price|currencyFormat }}
                 </ng-container>
             </div>

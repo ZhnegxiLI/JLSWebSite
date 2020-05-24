@@ -7,6 +7,7 @@ import { fromEvent, merge, Observable, Subject } from 'rxjs';
 import { filter, first, shareReplay, takeUntil } from 'rxjs/operators';
 import { fromMatchMedia } from '../../../../shared/functions/rxjs/fromMatchMedia';
 import { isPlatformBrowser } from '@angular/common';
+import { LoginService } from 'src/app/login.service';
 
 export type NavStickyMode = 'alwaysOnTop' | 'pullToShow';
 
@@ -30,6 +31,8 @@ export class NavComponent implements OnDestroy, AfterViewInit {
     scrollPosition = 0;
     scrollDistance = 0;
 
+    public logined: boolean = false;
+
     media: Observable<MediaQueryList>;
 
     get element(): HTMLDivElement {
@@ -43,7 +46,11 @@ export class NavComponent implements OnDestroy, AfterViewInit {
         public wishlist: WishlistService,
         public zone: NgZone,
         public header: HeaderService,
-    ) { }
+        public loginService: LoginService
+    ) { 
+        loginService.loginStatus.subscribe(p=>this.logined = p);
+
+    }
 
     ngOnDestroy(): void {
         this.destroy$.next();

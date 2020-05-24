@@ -18,7 +18,7 @@
                 <a class="topbar-link" routerLink="/blog">Blog</a>
             </div> -->
             <div class="topbar__spring"></div>
-            <div class="topbar__item">
+            <div class="topbar__item" *ngIf="logined">
                 <div class="topbar-dropdown" appDropdown="topbar-dropdown--opened" #accountDropdown="appDropdown">
                     <button class="topbar-dropdown__btn" type="button" (click)="accountDropdown.toggle()">
                         {{'topbar.MyAccount' | translate}}

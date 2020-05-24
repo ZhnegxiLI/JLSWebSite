@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CartService } from '../../../../shared/services/cart.service';
 import { CartItem } from '../../../../shared/interfaces/cart-item';
 import { RootService } from '../../../../shared/services/root.service';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
     selector: 'app-header-dropcart',
@@ -15,7 +16,8 @@ export class DropcartComponent {
 
     constructor(
         public cart: CartService,
-        public root: RootService
+        public root: RootService,
+        public loginService: LoginService
     ) { }
 
     remove(item: CartItem): void {

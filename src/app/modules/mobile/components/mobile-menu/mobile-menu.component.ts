@@ -4,6 +4,9 @@ import { Subject } from 'rxjs';
 import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
 import { mobileMenu } from '../../../../../data/mobile-menu';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
+import { TranslateService } from '@ngx-translate/core';
+import { StoreService } from 'src/app/shared/services/store.service';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
     selector: 'app-mobile-menu',
@@ -16,10 +19,40 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
     isOpen = false;
     links: MobileMenuItem[] = mobileMenu;
 
-    constructor(public mobilemenu: MobileMenuService) { }
+    public categories: any[] = [];
+    constructor(public mobilemenu: MobileMenuService,
+        public translateService: TranslateService,
+        public loginService: LoginService,
+        public storeService: StoreService) { }
 
     ngOnInit(): void {
         this.mobilemenu.isOpen$.pipe(takeUntil(this.destroy$)).subscribe(isOpen => this.isOpen = isOpen);
+        this.storeService.categoryList.subscribe(result => {
+            this.categories = result.sort((a, b) => b.SecondCategory.length - a.SecondCategory.length);
+            if (this.links != null && this.links.length > 0) {
+                this.links.map(p => {
+                    if (p.code != null && p.code == "catalog" && this.categories != null && this.categories.length > 0) {
+                        p.children = [];
+                        this.categories.map(x => p.children.push({
+                            type: 'link',
+                            label: x.Label,
+                            url: '/shop/catalog',
+                            params: { CategoryLabel: x.CategoryShortLabel, ReferenceItemId: x.Id }
+                        }));
+                    }
+                });
+            }
+        });
+
+        this.loginService.loginStatus.subscribe(p => {
+            if (p == true) {
+                this.links.map(x => {
+                    if (x.code != null && x.code == 'shop') {
+                        x.children.push({ type: 'link', label: 'Wishlist', url: '/shop/wishlist', code: 'wishlist' });
+                    }
+                })
+            }
+        })
     }
 
     ngOnDestroy(): void {
@@ -32,8 +65,14 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
             this.mobilemenu.close();
         }
 
-        // if (event.data && event.data.language) {
-        //     console.log(event.data.language); // change language
-        // }
+        if (event.data && event.data.language) {
+            console.log(event.data.language); // change language
+
+            localStorage.setItem('lang', event.data.language);
+            this.translateService.currentLang = event.data.language;
+            this.translateService.setDefaultLang(event.data.language);
+            // todo reload complete page now, reload only data for the futher
+            window.location.reload();
+        }
     }
 }

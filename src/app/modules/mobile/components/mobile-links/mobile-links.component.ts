@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-mobile-links',
@@ -12,7 +13,10 @@ export class MobileLinksComponent {
 
     @Output() itemClick: EventEmitter<MobileMenuItem> = new EventEmitter();
 
-    constructor() { }
+    constructor() {
+
+    }
+
 
     onItemClick(item: MobileMenuItem): void {
         this.itemClick.emit(item);

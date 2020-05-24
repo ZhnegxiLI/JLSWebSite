@@ -16,12 +16,14 @@ export class QuickviewService implements OnDestroy {
     constructor(public productService: ProductService) { }
 
     show(product: Product1): Observable<void> {
-
-        return this.productService.GetProductById({
+        var criteria:any = {
             ProductId: product.ProductId,
-            Lang: localStorage.getItem('lang'),
-            UserId: localStorage.getItem('userId')
-        }).pipe(map((result) => {
+            Lang: localStorage.getItem('lang')
+        };
+        if(localStorage.getItem('userId')!=null){
+            criteria.UserId = localStorage.getItem('userId');
+        }
+        return this.productService.GetProductById(criteria).pipe(map((result) => {
             this.showSubject$.next(result);
         }));
     }

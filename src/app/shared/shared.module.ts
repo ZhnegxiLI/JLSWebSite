@@ -28,7 +28,6 @@ import { LoadingBarComponent } from './components/loading-bar/loading-bar.compon
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductComponent } from './components/product/product.component';
 import { QuickviewComponent } from './components/quickview/quickview.component';
 import { RatingComponent } from './components/rating/rating.component';
@@ -61,7 +60,6 @@ import { ProductCard1Component } from './components/product-card1/product-card1.
         PageHeaderComponent,
         PaginationComponent,
         PostCardComponent,
-        ProductCardComponent,
         ProductCard1Component,
         ProductComponent,
         QuickviewComponent,
@@ -102,7 +100,6 @@ import { ProductCard1Component } from './components/product-card1/product-card1.
         PageHeaderComponent,
         PaginationComponent,
         PostCardComponent,
-        ProductCardComponent,
         ProductCard1Component,
         ProductComponent,
         QuickviewComponent,

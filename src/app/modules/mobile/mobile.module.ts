@@ -12,6 +12,7 @@ import { MobileHeaderComponent } from './components/mobile-header/mobile-header.
 import { MobileLinksComponent } from './components/mobile-links/mobile-links.component';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,9 @@ import { TranslateModule } from '@ngx-translate/core';
         CommonModule,
         RouterModule,
         // modules
-        SharedModule
+        SharedModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         // components

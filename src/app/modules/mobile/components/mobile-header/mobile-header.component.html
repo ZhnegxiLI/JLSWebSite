@@ -27,9 +27,9 @@
                     </svg>
                 </a>
                 <div class="mobile-header__search" appDropdown="mobile-header__search--opened" #search="appDropdown">
-                    <form class="mobile-header__search-form" action="">
-                        <input class="mobile-header__search-input" name="search" placeholder="{{'topbar.Search' | translate}}" aria-label="Site search" type="text" autocomplete="off" (keydown.escape)="search.close()" #searchInput>
-                        <button class="mobile-header__search-button mobile-header__search-button--submit" type="submit">
+                    <form class="mobile-header__search-form">
+                        <input [(ngModel)]="searchText" class="mobile-header__search-input" name="search" placeholder="{{'topbar.Search' | translate}}" aria-label="Site search" type="text" autocomplete="off" (keydown.escape)="search.close()" #searchInput>
+                        <button class="mobile-header__search-button mobile-header__search-button--submit" [routerLink]="['/shop/catalog']" [queryParams]="{SearchText: searchText}">
                             <app-icon name="search-20" size="20"></app-icon>
                         </button>
                         <button class="mobile-header__search-button mobile-header__search-button--close" type="button" (click)="search.close()">
@@ -48,17 +48,16 @@
                         </button>
                     </div>
 
-                    <div class="indicator indicator--mobile d-sm-flex d-none">
-                        <a routerLink="/wishlist" class="indicator__button">
+                    <div *ngIf="loginService.loginStatus|async" class="indicator indicator--mobile d-sm-flex d-none">
+                        <a routerLink="shop/wishlist" class="indicator__button">
                             <span class="indicator__area">
                                 <app-icon name="heart-20" size="20"></app-icon>
-                                <span class="indicator__value">{{ wishlist.count$|async }}</span>
                             </span>
                         </a>
                     </div>
 
                     <div class="indicator indicator--mobile">
-                        <a routerLink="/cart" class="indicator__button">
+                        <a routerLink="shop/cart" class="indicator__button">
                             <span class="indicator__area">
                                 <app-icon name="cart-20" size="20"></app-icon>
                                 <span class="indicator__value">{{ cart.quantity$|async }}</span>

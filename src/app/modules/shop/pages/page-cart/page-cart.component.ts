@@ -5,6 +5,7 @@ import { CartItem } from '../../../../shared/interfaces/cart-item';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { RootService } from '../../../../shared/services/root.service';
+import { LoginService } from 'src/app/login.service';
 
 interface Item {
     cartItem: CartItem;
@@ -26,7 +27,8 @@ export class PageCartComponent implements OnInit, OnDestroy {
 
     constructor(
         public root: RootService,
-        public cart: CartService
+        public cart: CartService,
+        public loginService: LoginService
     ) { }
 
     ngOnInit(): void {

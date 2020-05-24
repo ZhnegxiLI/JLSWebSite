@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CurrencyService } from '../../../../shared/services/currency.service';
 import { TranslateService } from '@ngx-translate/core';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
     selector: 'app-header-topbar',
@@ -18,10 +19,15 @@ export class TopbarComponent {
         {name: '€ Euro',           url: '', code: 'EUR', symbol: '€'}
     ];
 
+    public logined : boolean = false;
     constructor(
         public currencyService: CurrencyService,
-        public translateService: TranslateService
-    ) { }
+        public translateService: TranslateService,
+        public loginService: LoginService
+    ) {
+
+        loginService.loginStatus.subscribe(p=>this.logined = p);
+     }
 
     setCurrency(currency): void {
         this.currencyService.options = {
