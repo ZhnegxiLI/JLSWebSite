@@ -30,7 +30,7 @@
             <tbody class="wishlist__body">
             <tr *ngFor="let product of favoirteList" class="wishlist__row">
                 <td class="wishlist__column wishlist__column--image">
-                    <a  *ngIf="product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img [src]="product.DefaultPhotoPath" alt=""></a>
+                    <a  *ngIf="product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img [src]="host+product.DefaultPhotoPath" alt=""></a>
                 </td>
                 <td class="wishlist__column wishlist__column--product">
                     <a  class="wishlist__product-name" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }">{{ product.Label }}</a>

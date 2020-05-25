@@ -14,11 +14,11 @@
                 </div>
                 <div class="product-gallery__carousel">
                     <owl-carousel-o [options]="thumbnailsCarouselOptions" [appFakeSlides]="images.length" #fakeSlides="appFakeSlides" appOwlPreventClick #thumbnailsCarousel>
-                        <ng-template *ngFor="let image of images" carouselSlide [id]="image.id">
+                        <ng-template *ngFor="let image of images" carouselSlide [id]="image.Id">
                             <span class="product-gallery__carousel-item"
                                [ngClass]="{'product-gallery__carousel-item--active': image.active}"
-                               appClick (click)="featuredCarousel.to(image.id); setActiveImage(image)">
-                                <img class="product-gallery__carousel-image" [src]="image.url" alt="">
+                               appClick (click)="featuredCarousel.to(image.Id.toString()); setActiveImage(image)">
+                                <img class="product-gallery__carousel-image" [src]="host + image.Path" alt="">
                             </span>
                         </ng-template>
                         <ng-template *ngFor="let i of fakeSlides.slides" carouselSlide [id]="'fake-slide-'+i"></ng-template>

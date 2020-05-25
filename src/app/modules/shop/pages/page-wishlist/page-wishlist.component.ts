@@ -6,6 +6,7 @@ import { RootService } from '../../../../shared/services/root.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/api/product.service';
 import { StoreService } from 'src/app/shared/services/store.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-wishlist',
@@ -15,6 +16,8 @@ import { StoreService } from 'src/app/shared/services/store.service';
 export class PageWishlistComponent {
     public favoirteList : Product1[];
 
+    public host: string = environment.SERVER_API_URL;
+    
     addingToCart: boolean = false;
     removingFromWishList : boolean = false;
     constructor(

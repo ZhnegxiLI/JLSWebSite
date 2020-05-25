@@ -9,7 +9,7 @@
                 <div class="dropcart__product-image">
                     <a [routerLink]="['/shop/products']" [queryParams]="{ProductId: item.product.ProductId }"
                         *ngIf="item.product.DefaultPhotoPath" (click)="closeMenu.emit()">
-                        <img [src]="item.product.DefaultPhotoPath" alt="">
+                        <img [src]="host+item.product.DefaultPhotoPath" alt="">
                     </a>
                 </div>
                 <div class="dropcart__product-info">

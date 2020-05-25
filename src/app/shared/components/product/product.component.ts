@@ -13,8 +13,8 @@ import { StoreService } from '../../services/store.service';
 import { LoginService } from 'src/app/login.service';
 
 interface ProductImage {
-    id: string;
-    url: string;
+    Id: string;
+    Path: string;
     active: boolean;
 }
 
@@ -120,7 +120,7 @@ export class ProductComponent implements OnInit {
         if (event.slides.length) {
             const activeImageId = event.slides[0].id;
 
-            this.images.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
+            this.images.forEach(eachImage => eachImage.active = eachImage.Id === activeImageId);
 
             if (!this.thumbnailsCarousel.slidesData.find(slide => slide.id === event.slides[0].id && slide.isActive)) {
                 this.thumbnailsCarousel.to(event.slides[0].id);
@@ -167,8 +167,8 @@ export class ProductComponent implements OnInit {
 
             const images = this.images.map(eachImage => {
                 return {
-                    src: eachImage.url,
-                    msrc: eachImage.url,
+                    src:  this.host + eachImage.Path,
+                    msrc: this.host + eachImage.Path,
                     w: 700,
                     h: 700
                 };
@@ -200,7 +200,7 @@ export class ProductComponent implements OnInit {
 
             this.photoSwipe.open(images, options).subscribe(galleryRef => {
                 galleryRef.listen('beforeChange', () => {
-                    this.featuredCarousel.to(this.images[this.getIndexDependOnDir(galleryRef.getCurrentIndex())].id);
+                    this.featuredCarousel.to(this.images[this.getIndexDependOnDir(galleryRef.getCurrentIndex())].Id);
                 });
             });
         }

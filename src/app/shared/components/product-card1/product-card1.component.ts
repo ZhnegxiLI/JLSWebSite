@@ -9,6 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { StoreService } from '../../services/store.service';
 import { LoginService } from 'src/app/login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-product-card1',
@@ -19,6 +20,8 @@ import { LoginService } from 'src/app/login.service';
 export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
     private destroy$: Subject<void> = new Subject();
 
+    public host: string = environment.SERVER_API_URL;
+    
     @Input() product: any;
     @Input() layout: 'grid-sm'|'grid-nl'|'grid-lg'|'list'|'horizontal'|null = null;
 
