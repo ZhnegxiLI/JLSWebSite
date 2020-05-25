@@ -231,7 +231,9 @@
             "AddNew":"添加新地址",
             "Default":"默认",
             "Edit":"修改",
-            "Remove":"删除"
+            "Remove":"删除",
+            "Selected":"选择这个地址",
+            "SelectedAddress":"已选择这个地址"
         },
         "page-edit-address":{
             "EditAddress":"修改地址",
@@ -417,7 +419,38 @@
             "EmailAddress":"邮箱地址",
             "Subscribe":"订阅",
             "LatestPosts":"最新帖子"
-        }
+        },
+        "component":{
+            "AddedToWishList":"已加入愿望清单!",
+            "AddedToCart":"已加入购物车!"
+        },
+        "mobileMenu":{
+            "Home":"主页",
+            "Categories":"类别",
+            "Shop":"商品",
+            "ShopList":"商品列表",
+            "Cart":"购物车",
+            "TrackOrder":"跟踪快递",
+            "Account":"我的账户",
+            "Login":"登录",
+            "Dashboard":"管理我的账户",
+            "EditProfile":"修改个人信息",
+            "OrderHistory":"我的订单",
+            "AddressBook":"我的地址",
+            "ChangePassword":"更换密码",
+            "Pages":"页面",
+            "AboutUs":"关于我们",
+            "ContactUs":"联系我们",
+            "TermsAndConditions":"条款与守则",
+            "FAQ":"FAQ",
+            "Currency":"货币",
+            "Euro":"欧元",
+            "Language":"语言",
+            "English":"英语",
+            "French":"法语",
+            "Chinois":"中文",
+            "Wishlist":"愿望清单"
 
+        }
 
 }

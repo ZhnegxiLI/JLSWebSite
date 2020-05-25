@@ -15,6 +15,7 @@ import { PageCategoryService1 } from './services/page-category1.service';
 import { WishListResolverService } from './resolvers/wish-list-resolver.service';
 import { PageCheckoutResolverService } from './pages/page-checkout/page-checkout.component-resolver.service';
 import { PageOrderSuccessResolverService } from './pages/page-order-success/page-order-success.component-resolver.service';
+import { AuthGuard } from 'src/app/auth.guard';
 
 const categoryPageData: Data = {
     // Number of products per row. Possible values: 3, 4, 5.
@@ -103,7 +104,8 @@ const routes: Routes = [
         component: PageWishlistComponent,
         resolve:{
             favoriteList: WishListResolverService
-        }
+        },
+        canActivate: [AuthGuard],
     },
     {
         path: 'track-order',

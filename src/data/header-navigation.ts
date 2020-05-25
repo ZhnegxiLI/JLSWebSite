@@ -23,13 +23,13 @@ export const navigation: NavigationLink[] = [
             {label: 'Header.links.ChangePassword', url: '/account/password'}
         ]
     }},
-    {label: 'Pages', url: '/site', menu: {
+    {label: 'mobileMenu.Pages', url: '/site', menu: {
         type: 'menu',
         items: [
-            {label: 'About Us',             url: '/site/about-us'},
-            {label: 'Contact Us',           url: '/site/contact-us'},
-            {label: 'Terms And Conditions', url: '/site/terms'},
-            {label: 'FAQ',                  url: '/site/faq'},
+            {label: 'mobileMenu.AboutUs',             url: '/site/about-us'},
+            {label: 'mobileMenu.ContactUs',           url: '/site/contact-us'},
+            {label: 'mobileMenu.TermsAndConditions', url: '/site/terms'},
+            {label: 'mobileMenu.FAQ',                  url: '/site/faq'},
         ]
     }}
 ];

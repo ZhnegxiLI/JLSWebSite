@@ -231,7 +231,9 @@
             "AddNew":"Ajouter nouveau adresse",
             "Default":"Défaut",
             "Edit":"Eiter",
-            "Remove":"Supprimer"
+            "Remove":"Supprimer",
+            "Selected":"Sélectionné",
+            "SelectedAddress":"Adresse sélectionné"
         },
         "page-edit-address":{
             "EditAddress":"Editer l'adresse",
@@ -416,6 +418,38 @@
             "EmailAddress":"Email",
             "Subscribe":"Souscrire",
             "LatestPosts":"Dernières publications"
+        },
+        "component":{
+            "AddedToWishList":"a ajouté à la liste de souhaits!",
+            "AddedToCart":"a ajouté au panier!"
+        },
+        "mobileMenu":{
+            "Home":"Acceuille",
+            "Categories":"Catégories",
+            "Shop":"Product",
+            "ShopList":"List de product",
+            "Cart":"Panier",
+            "TrackOrder":"Suivre mes commandes",
+            "Account":"Mon compte",
+            "Login":"S'identifier",
+            "Dashboard":"Gérer mon compte",
+            "EditProfile":"Editer le profil",
+            "OrderHistory":"Mes Commandes",
+            "AddressBook":"Mes Adresses",
+            "ChangePassword":"Modifier mot de passe",
+            "Pages":"Pages",
+            "AboutUs":"A propos de nous",
+            "ContactUs":"Contactez-nous",
+            "TermsAndConditions":"Termes et conditions",
+            "FAQ":"FAQ",
+            "Currency":"Devise",
+            "Euro":"Euro",
+            "Language":"Langue",
+            "English":"Anglais",
+            "French":"Français",
+            "Chinois":"Chinois",
+            "Wishlist":"Liste de souhaits"
         }
+
 
 }

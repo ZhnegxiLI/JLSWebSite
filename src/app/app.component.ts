@@ -61,10 +61,10 @@ export class AppComponent implements OnInit {
             }
         });
         this.cart.onAdding$.subscribe(product => {
-            this.toastr.success(`Product "${product.Label}" added to cart!`);
+            this.toastr.success(`Product.Product "${product.Label}" component.AddedToCart!`);
         });
         this.wishlist.onAdding$.subscribe(product => {
-            this.toastr.success(`Product "${product.name}" added to wish list!`);
+            this.toastr.success(`Product.Product "${product.name}" component.AddedToWishList!`);
         });
     }
 }

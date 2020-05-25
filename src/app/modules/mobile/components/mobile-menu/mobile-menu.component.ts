@@ -48,7 +48,7 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
             if (p == true) {
                 this.links.map(x => {
                     if (x.code != null && x.code == 'shop') {
-                        x.children.push({ type: 'link', label: 'Wishlist', url: '/shop/wishlist', code: 'wishlist' });
+                        x.children.push({ type: 'link', label: 'mobileMenu.Wishlist', url: '/shop/wishlist', code: 'wishlist' });
                     }
                 })
             }

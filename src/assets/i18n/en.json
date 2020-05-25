@@ -227,7 +227,9 @@
         "AddNew":"Add New",
         "Default":"Default",
         "Edit":"Edit",
-        "Remove":"Remove"
+        "Remove":"Remove",
+        "Selected":"Selected",
+        "SelectedAddress":"Address Selected"
     },
     "page-edit-address":{
         "EditAddress":"Edit Address",
@@ -412,6 +414,38 @@
         "EmailAddress":"Email Address",
         "Subscribe":"Subscribe",
         "LatestPosts":"Latest Posts"
+    },
+    "component":{
+        "AddedToWishList":"added to wish list!",
+        "AddedToCart":"added to cart!"
+    },
+    "mobileMenu":{
+        "Home":"Home",
+        "Categories":"Category",
+        "Shop":"Shop",
+        "ShopList":"Shop List",
+        "Cart":"Cart",
+        "TrackOrder":"Track Order",
+        "Account":"Account",
+        "Login":"Login",
+        "Dashboard":"Dashboard",
+        "EditProfile":"Edit Profile",
+        "OrderHistory":"Order History",
+        "AddressBook":"Address Book",
+        "ChangePassword":"ChangePassword",
+        "Pages":"Pages",
+        "AboutUs":"About Us",
+        "ContactUs":"Contact Us",
+        "TermsAndConditions":"Terms And Conditions",
+        "FAQ":"FAQ",
+        "Currency":"Currency",
+        "Euro":"Euro",
+        "Language":"Language",
+        "English":"English",
+        "French":"French",
+        "Chinois":"Chinese",
+        "Wishlist":"Wishlist"
     }
+
 
 }
