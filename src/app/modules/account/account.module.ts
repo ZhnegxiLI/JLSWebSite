@@ -23,6 +23,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AddressesListComponent } from './components/address-list/addresses-list.component';
+import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
+import { PageEmailSendedComponent } from './pages/page-email-sended/page-email-sended.component';
 
 
 @NgModule({
@@ -33,12 +35,14 @@ import { AddressesListComponent } from './components/address-list/addresses-list
         PageAddressesListComponent,
         PageDashboardComponent,
         PageLoginComponent,
+        PageForgotPasswordComponent,
         PageOrdersListComponent,
         PagePasswordComponent,
         PageProfileComponent,
         PageOrderDetailsComponent,
         PageEditAddressComponent,
-        AddressesListComponent
+        AddressesListComponent,
+        PageEmailSendedComponent
     ],
     imports: [
         TranslateModule,

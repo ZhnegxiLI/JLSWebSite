@@ -1,0 +1,20 @@
+<app-page-header [header]="'My Account'" [breadcrumbs]="[
+    {label: 'Home',       url: '/'},
+    {label: 'My Account', url: ''}
+]"></app-page-header>
+
+<div class="block order-success">
+    <div class="container">
+        <div class="order-success__body">
+            <div class="order-success__header">
+                <app-icon class="order-success__icon" name="check-100" size="100"></app-icon>
+                <h1 class="order-success__title">{{'page-order-success.EmailIsSended' | translate}}</h1>
+                <div class="order-success__subtitle">{{Message}} </div>
+                <div class="order-success__actions">
+                    <a routerLink="/"
+                        class="btn btn-xs btn-secondary">{{'page-order-success.GoToHomepage' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

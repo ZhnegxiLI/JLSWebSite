@@ -32,9 +32,16 @@ export class UserService {
 
     private apiUrlUpdatePassword = this.host + 'api/User/UpdatePassword';
 
+    private apiUrlSendPasswordResetLink = this.host + 'api/Account/SendPasswordResetLink';
+
     GetUserDefaultShippingAdress(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetUserDefaultShippingAdress, { params }).pipe(map((p: any) => p.Data));
+    }
+
+    SendPasswordResetLink(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlSendPasswordResetLink, { params });
     }
 
     RemoveShippingAddress(criteria): Observable<any> {

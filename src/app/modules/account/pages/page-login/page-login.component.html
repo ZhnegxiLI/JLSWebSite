@@ -19,7 +19,7 @@
                                 <label>{{'page-login.Password' | translate}}</label>
                                 <input type="password" class="form-control" [(ngModel)]="password" placeholder="{{'page-login.Password' | translate}}">
                                 <small class="form-text text-muted">
-                                    <a href="">{{'page-login.ForgottenPassword' | translate}}</a>
+                                    <a [routerLink]="['/account/forgot']">{{'page-login.ForgottenPassword' | translate}}</a>
                                 </small>
                             </div>
                             <div class="form-group">
