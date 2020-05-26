@@ -43,9 +43,8 @@ export class LoginService {
         this.loginStatus.next(false);
         var lang = localStorage.getItem('lang');
         localStorage.clear();
-        localStorage.setItem('lang',lang);
+        localStorage.setItem('lang', lang);
         this.router.navigate(['']);
-        console.log("Logged Out Successfully");
         this.toastr.success('Logged Out Successfully')//todo translate
         return;
 

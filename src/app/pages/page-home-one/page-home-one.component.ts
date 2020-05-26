@@ -66,12 +66,12 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
 
         this.popularCategories$ = this.formatMegaMenu();
 
-        this.columnTopRated$ = this.productService.GetProductListBySalesPerformance({
+        this.columnTopRated$ = this.productService.GetProductListByNote({
             Lang: this.translateService.currentLang,
             Begin: 0,
             Step: 3
         });
-        this.columnSpecialOffers$ = this.productService.GetProductListBySalesPerformance({
+        this.columnSpecialOffers$ = this.productService.GetProductByPrice({
             Lang: this.translateService.currentLang,
             Begin: 0,
             Step: 3
@@ -99,6 +99,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
                 name: element.Label,
                 current: false,
                 products$: this.productService.GetProductByPrice({
+                    MainCategoryId: element.Id,
                     Lang: this.translateService.currentLang,
                     Begin: 0,
                     Step: 8
@@ -129,6 +130,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
                 name: element.Label,
                 current: false,
                 products$: this.productService.GetProductListByPublishDate({
+                    MainCategoryId: element.Id,
                     Lang: this.translateService.currentLang,
                     Begin: 0,
                     Step: 8

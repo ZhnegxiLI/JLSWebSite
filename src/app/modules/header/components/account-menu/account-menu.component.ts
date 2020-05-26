@@ -44,6 +44,7 @@ export class AccountMenuComponent {
                 localStorage.setItem('refreshToken', result.authToken.refresh_token);
                 localStorage.setItem('entrepriseName', result.authToken.entrepriseName);
                 this.loginService.loginStatus.next(true);
+                this.toastr.success(this.translateService.instant("Msg_LoginSuccess"));// todo translate
             }
             else {
                 this.toastr.error(this.translateService.instant("Msg_Error"));
