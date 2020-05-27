@@ -16,8 +16,9 @@ import { PageOrderDetailsResolverService } from './pages/page-order-details/page
 import { PageAddressesListResolverService } from './pages/page-addresses-list/page-addresses-list.component-resolver.service';
 import { PageEditAddressResolverService } from './pages/page-edit-address/page-edit-address.component-resolver.service';
 import { AuthGuard } from 'src/app/auth.guard';
-import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
 import { PageEmailSendedComponent } from './pages/page-email-sended/page-email-sended.component';
+import { PageRegistreComponent } from './pages/page-registre/page-registre.component';
+import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
 
 const routes: Routes = [
     {
@@ -84,13 +85,17 @@ const routes: Routes = [
         component: PageLoginComponent
     },
     {
-        path: 'forgot',
-        component: PageForgotPasswordComponent
+        path: 'registre',
+        component: PageRegistreComponent
     },
     {
-        path: 'emailreset',
+        path: 'email',
         component: PageEmailSendedComponent
     },
+    {
+        path: 'reset',
+        component: PageResetPasswordComponent
+    }
 ];
 
 @NgModule({

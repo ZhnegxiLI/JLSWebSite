@@ -23,10 +23,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AddressesListComponent } from './components/address-list/addresses-list.component';
-import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-forgot-password.component';
 import { PageEmailSendedComponent } from './pages/page-email-sended/page-email-sended.component';
 
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
+import { PageRegistreComponent } from './pages/page-registre/page-registre.component';
+import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
 @NgModule({
     declarations: [
         // components
@@ -35,14 +42,15 @@ import { PageEmailSendedComponent } from './pages/page-email-sended/page-email-s
         PageAddressesListComponent,
         PageDashboardComponent,
         PageLoginComponent,
-        PageForgotPasswordComponent,
+        PageRegistreComponent,
         PageOrdersListComponent,
         PagePasswordComponent,
         PageProfileComponent,
         PageOrderDetailsComponent,
         PageEditAddressComponent,
         AddressesListComponent,
-        PageEmailSendedComponent
+        PageEmailSendedComponent,
+        PageResetPasswordComponent
     ],
     imports: [
         TranslateModule,
@@ -54,6 +62,12 @@ import { PageEmailSendedComponent } from './pages/page-email-sended/page-email-s
         FormsModule,
         ReactiveFormsModule,
         NgxLoadingModule.forRoot({}),
+        MatStepperModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSelectModule
     ],
     exports: [
         AddressesListComponent

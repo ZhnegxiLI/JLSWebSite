@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { UserService } from 'src/app/shared/api/user.service';
 
 @Component({
     selector: 'app-login',
@@ -14,8 +15,14 @@ export class PageLoginComponent {
     public email: string;
     public password: string;
 
-    constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService,
-        private translateService: TranslateService) { }
+
+    public emailToReset: string;
+    public loading: boolean = false;
+
+    constructor(private loginService: LoginService, private router: Router,
+        private toastr: ToastrService,
+        private translateService: TranslateService,
+        private userService: UserService) { }
 
     login() {
         this.loginService.login(this.email, this.password).subscribe(result => {
@@ -35,28 +42,49 @@ export class PageLoginComponent {
                 this.router.navigate(['/account/dashboard']);
             }
             else {
-                // todo show error message
+                this.toastr.error(this.translateService.instant("Msg_Error"));
             }
         },
             error => {
-                // todo
-                if (error.Body != null && error.Body.LoginError != null) {
-                    // todo show error message
-                    // this.matSnackBar.open( this._translateService.instant(err.Body.LoginError), 'OK', { 
-                    //     duration: 2000
-                    // });
+                var message = error.error;
+                if (message.LoginError != null) {
+
+                    this.toastr.error(this.translateService.instant(message.LoginError));
                 }
                 else {
-                    // todo show error message
-                    // // this.matSnackBar.open(this._translateService.instant("Msg_Error") , 'OK', { 
-                    // //     duration: 2000
-                    // // });
+                    this.toastr.error(this.translateService.instant("Msg_Error"));
                 }
             });
     }
 
     ngOnInit(): void {
         this.loginService.loginStatus.subscribe(p => p ? this.router.navigate(['/account/dashboard']) : null);
+
+    }
+
+    sendEmail() {
+        if (this.emailToReset != null && this.emailToReset != '') {
+
+            this.loading = true;
+            // this.navCtrl.parent.select(0); // 跳转tabs
+            this.userService.SendPasswordResetLink({ username: this.emailToReset }) // 填写url的参数
+                .subscribe(
+                    f => {
+                        if (f != null && f.Success == true) {
+                            // todo redirecte to page
+                            this.toastr.success(this.translateService.instant("forget-password.EmailSendSuccessfully"));
+                            this.router.navigate(['account/email'], { queryParams: { Email: f.Data, Type: 'ResetPassword' } });
+                        }
+                        else {
+                            this.toastr.error(this.translateService.instant("forget-password.AccountNotExists"));
+                        }
+
+                        this.loading = false;
+                    },
+                    error => {
+                        this.toastr.error(this.translateService.instant("Msg_Error"));
+                    });
+        }
 
     }
 }

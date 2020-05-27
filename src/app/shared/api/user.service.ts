@@ -34,6 +34,20 @@ export class UserService {
 
     private apiUrlSendPasswordResetLink = this.host + 'api/Account/SendPasswordResetLink';
 
+    private apiUrlRegistre = this.host + 'api/Account/Register';
+
+    private apiUrlCheckUserIsAlreadyExistAsync = this.host + 'api/User/CheckUserIsAlreadyExistAsync';
+
+    Register(criteria): Observable<any> {
+        return this.http.post(this.apiUrlRegistre, criteria);
+    }
+
+
+    CheckUserIsAlreadyExistAsync(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlCheckUserIsAlreadyExistAsync, { params });
+    }
+
     GetUserDefaultShippingAdress(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetUserDefaultShippingAdress, { params }).pipe(map((p: any) => p.Data));
@@ -81,5 +95,5 @@ export class UserService {
     UpdatePassword(criteria): Observable<any> {
         return this.http.post(this.apiUrlUpdatePassword, criteria);
     }
-    
+
 }

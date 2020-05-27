@@ -17,6 +17,8 @@ import { PageContactUsComponent } from './pages/page-contact-us/page-contact-us.
 import { PageFaqComponent } from './pages/page-faq/page-faq.component';
 import { PageTermsComponent } from './pages/page-terms/page-terms.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,10 @@ import { TranslateModule } from '@ngx-translate/core';
         // modules
         BlocksModule,
         SharedModule,
-        SiteRoutingModule
+        SiteRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NgxLoadingModule.forRoot({}),
     ]
 })
 export class SiteModule { }

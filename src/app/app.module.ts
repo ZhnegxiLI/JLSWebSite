@@ -39,7 +39,6 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { AppInterceptor } from './app.interceptor';
 import { LoginService } from './login.service';
 
-
 export function createTranslateLoader(http: HttpClient) {
     //此出的路径需要和第二步新建的文件夹保持一致
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
