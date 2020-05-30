@@ -38,6 +38,8 @@ export class UserService {
 
     private apiUrlCheckUserIsAlreadyExistAsync = this.host + 'api/User/CheckUserIsAlreadyExistAsync';
 
+    private apiUrlInsertSubscribeEmail = this.host + 'api/User/InsertSubscribeEmail';
+
     Register(criteria): Observable<any> {
         return this.http.post(this.apiUrlRegistre, criteria);
     }
@@ -46,6 +48,11 @@ export class UserService {
     CheckUserIsAlreadyExistAsync(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlCheckUserIsAlreadyExistAsync, { params });
+    }
+
+    InsertSubscribeEmail(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlInsertSubscribeEmail, { params });
     }
 
     GetUserDefaultShippingAdress(criteria): Observable<any> {

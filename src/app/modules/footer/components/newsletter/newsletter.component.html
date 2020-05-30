@@ -4,11 +4,11 @@
         {{'newsletter.SubscribeNewsletter' | translate}}
     </div>
 
-    <form action="" class="footer-newsletter__form">
+    <form  class="footer-newsletter__form" [formGroup]="basicInfoForm">
         <label class="sr-only" for="footer-newsletter-address">{{'newsletter.EmailAddress' | translate}}</label>
-        <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="{{'newsletter.EmailAddress' | translate}}...">
+        <input type="text" class="footer-newsletter__form-input form-control"  formControlName="email" id="footer-newsletter-address" placeholder="{{'newsletter.EmailAddress' | translate}}...">
 
-        <button class="footer-newsletter__form-button btn btn-primary" style="width: 100px;">{{'newsletter.Subscribe' | translate}}</button>
+        <button class="footer-newsletter__form-button btn btn-primary" style="width: 100px;" (click)="save()">{{'newsletter.Subscribe' | translate}}</button>
     </form>
 
     <div class="footer-newsletter__text footer-newsletter__text--social">

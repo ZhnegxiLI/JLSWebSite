@@ -13,6 +13,7 @@ import { FooterComponent } from './footer.component';
 import { LinksComponent } from './components/links/links.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,9 @@ import { TranslateModule } from '@ngx-translate/core';
         CommonModule,
         RouterModule,
         // modules
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     exports: [
         FooterComponent
