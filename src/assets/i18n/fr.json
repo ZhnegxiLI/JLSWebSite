@@ -279,7 +279,8 @@
         "ForgottenPassword": "Mot de passe oublié",
         "RememberMe": "Se souvenir de mot de passe oublié",
         "Register": "S'inscrire",
-        "RepeatPassword": "Confirmer mot de passe"
+        "RepeatPassword": "Confirmer mot de passe",
+        "ResetPassword":"Réinitialiser le mot de passe"
     },
     "page-order-details": {
         "Backtolist": "Revenir",
@@ -369,7 +370,8 @@
         "ShippingAddress": "Adresse de livraison",
         "PhoneNumber": "Numéro de Téléphone",
         "EmailAddress": "Email",
-        "BillingAddress": "Adresse de facture"
+        "BillingAddress": "Adresse de facture",
+        "EmailIsSended":"L'email a été envoyé avec succès"
     },
     "page-track-order": {
         "TrackOrder": "Suivi votre commande",
@@ -482,5 +484,11 @@
         "French": "Français",
         "Chinois": "Chinois",
         "Wishlist": "Liste de souhaits"
+    },
+    "forget-password":{
+        "EmailSendSuccessfully":"L'email a été envoyé avec succès",
+        "AccountNotExists":"Le compte n'existe pas",
+        "SendMessageTo":"Le lien de réinitialisation est envoyé à {Email}",
+        "registersuccessed":"Enregistré avec succès, veuillez activer le lien dans votre e-mail({Email})."
     }
 }

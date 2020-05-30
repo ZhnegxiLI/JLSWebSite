@@ -280,7 +280,8 @@
         "ForgottenPassword": "Forgotten Password",
         "RememberMe": "Remember Me",
         "Register": "Register",
-        "RepeatPassword": "Repeat Password"
+        "RepeatPassword": "Repeat Password",
+        "ResetPassword":"Reset Password"
     },
     "page-order-details": {
         "Backtolist": "Back to list",
@@ -370,7 +371,8 @@
         "ShippingAddress": "Shipping Address",
         "PhoneNumber": "Phone Number",
         "EmailAddress": "Email Address",
-        "BillingAddress": "Billing Address"
+        "BillingAddress": "Billing Address",
+        "EmailIsSended":"The email has been successfully sent"
     },
     "page-track-order": {
         "TrackOrder": "TrackOrder",
@@ -483,5 +485,11 @@
         "French": "French",
         "Chinois": "Chinese",
         "Wishlist": "Wishlist"
+    },
+    "forget-password":{
+        "EmailSendSuccessfully":"Email Send Successfully",
+        "AccountNotExists":"Account Not Exists",
+        "SendMessageTo":"Reset link sended To {Email}",
+        "registersuccessed":"Registered successfully, please activate the link in your email({Email})."
     }
 }
