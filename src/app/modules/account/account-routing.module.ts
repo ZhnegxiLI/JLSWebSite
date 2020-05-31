@@ -93,7 +93,7 @@ const routes: Routes = [
         component: PageEmailSendedComponent
     },
     {
-        path: 'reset',
+        path: 'resetPassword',
         component: PageResetPasswordComponent
     }
 ];

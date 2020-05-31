@@ -40,8 +40,14 @@ export class UserService {
 
     private apiUrlInsertSubscribeEmail = this.host + 'api/User/InsertSubscribeEmail';
 
+    private apiUrlResetPassword = this.host + 'api/Account/ResetPassword';
+
     Register(criteria): Observable<any> {
         return this.http.post(this.apiUrlRegistre, criteria);
+    }
+
+    ResetPassword(criteria): Observable<any> {
+        return this.http.post(this.apiUrlResetPassword, criteria);
     }
 
 
