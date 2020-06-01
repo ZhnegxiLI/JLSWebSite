@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DatePipe } from '@angular/common';
 import { DirectionService } from '../../../shared/services/direction.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {
@@ -16,6 +16,9 @@ import { PageCategoryService } from '../../shop/services/page-category.service';
 import { map, takeUntil } from 'rxjs/operators';
 import { PageCategoryService1 } from '../../shop/services/page-category1.service';
 import { StoreService } from 'src/app/shared/services/store.service';
+import { ExportService } from 'src/app/shared/api/export.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 interface FormFilterValues {
     [filterSlug: string]: [number, number] | { [itemSlug: string]: boolean } | string;
@@ -31,7 +34,6 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
 
     destroy$: Subject<void> = new Subject<void>();
 
-   
 
     priceInterval = {
         minValue: 0,
@@ -43,6 +45,16 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
     filtersForm: FormGroup;
     isPlatformBrowser = isPlatformBrowser(this.platformId);
     rightToLeft = false;
+
+    private searchCriteria = {
+        MainCategoryReferenceId: 0,
+        SecondCategoryReferenceId: [],
+        Validity: true,
+        ProductLabel: '',
+        begin: 0,
+        step: 10,
+        Lang: ''
+    };
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         private direction: DirectionService,
@@ -50,7 +62,11 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
         public root: RootService,
         public pageCategory: PageCategoryService,
         public pageCategory1: PageCategoryService1,
-        public storeService: StoreService
+        public storeService: StoreService,
+        public exportService: ExportService,
+        private datePipe: DatePipe,
+        private translateService: TranslateService,
+        private toastr: ToastrService,
     ) {
         this.rightToLeft = this.direction.isRTL();
     }
@@ -128,5 +144,34 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
         this.minQuantity = 200;
 
         this.pageCategory1.resetPartialOptions(true);
+    }
+
+
+    export() {
+        var criteria = this.searchCriteria;
+        criteria.Lang = localStorage.getItem('lang');
+        this.exportService.ExportAction(
+            {
+                ExportType: "AdvancedProductSearchByCriteria",
+                Criteria: criteria,
+                Lang: localStorage.getItem('lang')
+            }
+        ).subscribe(result => {
+            var DatetimeFormat = this.datePipe.transform(Date.now(), 'yyyy-MM-dd_HHmmss');
+            this.SaveExcel(result, 'Products_' + DatetimeFormat);
+        },
+            error => {
+                this.toastr.error(this.translateService.instant("Msg_Error"));
+            });
+    }
+
+    SaveExcel(data: Blob, name: string) {
+        const a = document.createElement('a');
+        // tslint:disable-next-line: quotemark
+        // tslint:disable-next-line: object-literal-key-quotes
+        const blob = new Blob([data], { 'type': 'application/vnd.ms-excel' });
+        a.href = URL.createObjectURL(blob);
+        a.download = name + '.xlsx';
+        a.click();
     }
 }

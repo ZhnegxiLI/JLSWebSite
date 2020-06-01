@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 // modules (angular)
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -59,6 +59,9 @@ import { TranslateModule } from '@ngx-translate/core';
         WidgetProductsComponent,
         WidgetSearchComponent,
         WidgetTagsComponent
+    ],
+    providers:[
+        DatePipe
     ]
 })
 export class WidgetsModule { }
