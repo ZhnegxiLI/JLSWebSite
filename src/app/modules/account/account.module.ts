@@ -34,6 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { PageRegistreComponent } from './pages/page-registre/page-registre.component';
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
+import { PageChatComponent } from './pages/page-chat/page-chat.component';
+import { ChatService } from 'src/app/shared/api/chat.service';
 @NgModule({
     declarations: [
         // components
@@ -50,7 +52,8 @@ import { PageResetPasswordComponent } from './pages/page-reset-password/page-res
         PageEditAddressComponent,
         AddressesListComponent,
         PageEmailSendedComponent,
-        PageResetPasswordComponent
+        PageResetPasswordComponent,
+        PageChatComponent
     ],
     imports: [
         TranslateModule,
@@ -71,6 +74,9 @@ import { PageResetPasswordComponent } from './pages/page-reset-password/page-res
     ],
     exports: [
         AddressesListComponent
+    ],
+    providers:[
+        ChatService
     ]
 })
 export class AccountModule { }

@@ -19,6 +19,7 @@ import { AuthGuard } from 'src/app/auth.guard';
 import { PageEmailSendedComponent } from './pages/page-email-sended/page-email-sended.component';
 import { PageRegistreComponent } from './pages/page-registre/page-registre.component';
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
+import { PageChatComponent } from './pages/page-chat/page-chat.component';
 
 const routes: Routes = [
     {
@@ -95,6 +96,10 @@ const routes: Routes = [
     {
         path: 'resetPassword',
         component: PageResetPasswordComponent
+    },
+    {
+        path:'chat',
+        component:PageChatComponent
     }
 ];
 
