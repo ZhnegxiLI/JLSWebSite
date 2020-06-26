@@ -1,7 +1,9 @@
 
 export class Message {
-    clientuniqueid: string;
+    clientuniqueid: number;
     type: string;
     message: string;
     date: Date;
+    fromUser?: number;
+    toUser?: number;
   }
