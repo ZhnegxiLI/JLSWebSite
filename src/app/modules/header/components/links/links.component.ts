@@ -72,7 +72,6 @@ export class LinksComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
 
     ngOnInit(): void {
-        console.log(this.storeService.categoryList.value )
         var megaMenu = {
             label: 'Header.links.Megamenu', url: '/shop/catalog', menu: {
                 type: 'megamenu',

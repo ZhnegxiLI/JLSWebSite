@@ -17,7 +17,6 @@ export class MegamenuComponent {
 
     ngOnInit(): void {
 
-        console.log(this.menu)
     }
     
 }
