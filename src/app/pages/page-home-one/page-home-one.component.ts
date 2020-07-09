@@ -51,7 +51,6 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
         private translateService: TranslateService
     ) {
         this.route.data.subscribe(data => {
-            console.log(data) // todo change
         });
     }
 

@@ -66,8 +66,6 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
         }
 
         if (event.data && event.data.language) {
-            console.log(event.data.language); // change language
-
             localStorage.setItem('lang', event.data.language);
             this.translateService.currentLang = event.data.language;
             this.translateService.setDefaultLang(event.data.language);

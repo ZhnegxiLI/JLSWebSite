@@ -82,8 +82,7 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
     }
 
     ValideOrder():void {
-      
-        console.log(this.orderCriteria)
+ 
         if (this.orderCriteria.ShippingAdressId != null && this.orderCriteria.ShippingAdressId > 0
             && this.orderCriteria.FacturationAdressId != null && this.orderCriteria.FacturationAdressId > 0
             && this.orderCriteria.UserId != null && this.orderCriteria.UserId > 0
