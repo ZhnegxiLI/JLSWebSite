@@ -108,6 +108,7 @@ export class PageCategoryComponent implements OnDestroy {
 
                 var criteria = this.pageService1.options;
                 criteria.Lang = this.translateService.currentLang || localStorage.getItem('lang');
+
                 return this.productService.AdvancedProductSearchClient(
                     criteria
                 ).pipe(

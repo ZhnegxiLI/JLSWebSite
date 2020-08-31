@@ -399,5 +399,8 @@
       }
     }
   },
-  "defaultProject": "stroyka"
+  "defaultProject": "stroyka",
+  "cli": {
+    "analytics": "d10c4436-4291-493b-b4db-ef8aea348ea1"
+  }
 }

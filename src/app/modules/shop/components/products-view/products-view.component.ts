@@ -34,24 +34,26 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         /* Bind the form */
         this.listOptionsForm = this.fb.group({
             CurrentPage: this.fb.control(this.pageService1.CurrentPage),
+            Begin: this.fb.control(this.pageService1.CurrentPage-1), 
             Step: this.fb.control(this.pageService1.Step),
             OrderBy: this.fb.control(this.pageService1.OrderBy || 'Default'),
         });
         /* Bind the change of Begin, Step, OrderBy */
         this.listOptionsForm.valueChanges.subscribe(value => {
+            value.Begin = value.CurrentPage - 1;
             this.pageService1.updateOptions(value);
         });
 
         /* Todo when Begin, Step, OrderBy change reset the form */
-        this.pageService1.optionsChange$.pipe(
-            takeUntil(this.destroy$)
-        ).subscribe(
-            (result) => {
-                //this.filtersCount = Object.keys(filterValues).length;
-                this.listOptionsForm.setValue(
-                    { CurrentPage: this.pageService1.CurrentPage, Step: this.pageService1.Step, OrderBy: this.pageService1.OrderBy }, { emitEvent: false });
-            }
-        );
+        // this.pageService1.optionsChange$.pipe(
+        //     takeUntil(this.destroy$)
+        // ).subscribe(
+        //     (result) => {
+        //         //this.filtersCount = Object.keys(filterValues).length;
+        //         this.listOptionsForm.setValue(
+        //             { CurrentPage: this.pageService1.CurrentPage, Begin: this.pageService1.CurrentPage-1,   Step: this.pageService1.Step, OrderBy: this.pageService1.OrderBy }, { emitEvent: false, onlySelf:false });
+        //     }
+        // );
     }
 
     ngOnDestroy(): void {

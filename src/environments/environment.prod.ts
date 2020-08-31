@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    SERVER_API_URL: "https://prod.jlswebsite.europetechs.com/"
+    SERVER_API_URL: "https://jlsprod.europetechs.com/"
 };
