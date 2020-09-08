@@ -3,7 +3,7 @@
   "version": "1.10.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port=4201  --servePath / --baseHref /JLSMobileApplication/",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

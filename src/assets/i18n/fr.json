@@ -118,7 +118,8 @@
         "EditProfile": "Editer le profil",
         "Logout": "Déconnecter",
         "EmailAddress": "Email Adresse",
-        "Addresses": "Adresse"
+        "Addresses": "Adresse",
+        "Chat": "Contacter notre service client en temps réel"
     },
     "departments": {
         "ShopByCategory": "Catégories"
@@ -442,7 +443,9 @@
         "Reset": "Réinitialiser",
         "Categories": "Catégories",
         "Prix": "Prix",
-        "MinQuantity": "Minimum Quantité"
+        "MinQuantity": "Minimum Quantité",
+        "Export":"Exporter",
+        "LatestProducts": "Produits vous avez consultés"
     },
     "widget-comments": {
         "LatestComments": "Dernier commentaire",

@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
         private translate: TranslateService
     ) {
         var lang = localStorage.getItem('lang');
-        lang!=null? translate.currentLang = lang : translate.currentLang = 'fr';
-        lang!=null? translate.setDefaultLang(lang) : translate.setDefaultLang('fr');
+        lang != null ? translate.currentLang = lang : translate.currentLang = 'fr';
+        lang != null ? translate.setDefaultLang(lang) : translate.setDefaultLang('fr');
         if (isPlatformBrowser(this.platformId)) {
             this.zone.runOutsideAngular(() => {
                 this.router.events.pipe(filter(event => event instanceof NavigationEnd), first()).subscribe(() => {
@@ -61,10 +61,10 @@ export class AppComponent implements OnInit {
             }
         });
         this.cart.onAdding$.subscribe(product => {
-            this.toastr.success(`Product.Product "${product.Label}" component.AddedToCart!`);
+            this.toastr.success(this.translate.instant("page-cart.Product") + " " + product.Label + " " + this.translate.instant("component.AddedToCart"));
         });
         this.wishlist.onAdding$.subscribe(product => {
-            this.toastr.success(`Product.Product "${product.name}" component.AddedToWishList!`);
+            this.toastr.success(this.translate.instant("page-cart.Product") + " " + product.name + " " + this.translate.instant("component.AddedToCart"));
         });
     }
 }

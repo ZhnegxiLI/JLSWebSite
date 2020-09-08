@@ -118,7 +118,8 @@
         "EditProfile": "修改我的账号",
         "Logout": "退出登录",
         "EmailAddress": "邮箱",
-        "Addresses": "地址"
+        "Addresses": "地址",
+        "Chat": "联系客服"
     },
     "departments": {
         "ShopByCategory": "类别"
@@ -446,7 +447,9 @@
         "Reset": "重置",
         "Categories": "类别",
         "Prix": "价格",
-        "MinQuantity": "最小购买量"
+        "MinQuantity": "最小购买量",
+        "Export":"导出",
+        "LatestProducts": "最近浏览"
     },
     "widget-comments": {
         "LatestComments": "最后一个评论",

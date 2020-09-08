@@ -118,7 +118,8 @@
         "EditProfile": "Edit profile",
         "Logout": "Logout",
         "EmailAddress": "Email address",
-        "Addresses": "Adress"
+        "Addresses": "Adress",
+        "Chat": "Contact client service online"
     },
     "departments": {
         "ShopByCategory": "Category"
@@ -443,7 +444,10 @@
         "Reset": "Reset",
         "Categories": "Categories",
         "Prix": "Price",
-        "MinQuantity": "Minimum Quantity"
+        "MinQuantity": "Minimum Quantity",
+        "Export":"Export",
+        
+        "LatestProducts": "Latest Products"
     },
     "widget-comments": {
         "LatestComments": "Latest Comments",
