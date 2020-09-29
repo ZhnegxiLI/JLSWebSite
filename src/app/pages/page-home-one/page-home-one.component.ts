@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { ProductService } from 'src/app/shared/api/product.service';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
@@ -29,6 +30,9 @@ interface ProductsCarouselData {
     styleUrls: ['./page-home-one.component.scss']
 })
 export class PageHomeOneComponent implements OnInit, OnDestroy {
+
+    simplifyHomePage =  environment.simplifyHomePage;
+    
     destroy$: Subject<void> = new Subject<void>();
     bestsellers$: Observable<Product[]>;
     brands$: Observable<Brand[]>;

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-block-features',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class BlockFeaturesComponent {
     @Input() layout: 'classic'|'boxed' = 'classic';
-
+    simplifyHomePage =  environment.simplifyHomePage;
     constructor() { }
 }

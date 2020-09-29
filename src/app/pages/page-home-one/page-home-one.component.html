@@ -3,6 +3,7 @@
 <app-block-features></app-block-features>
 
 <app-block-products-carousel1
+    *ngIf="!simplifyHomePage"
     header="page-home-one.PopularCategories"
     layout="grid-4"
     [loading]="featuredProducts.loading"
@@ -11,13 +12,14 @@
     (groupChange)="groupChange(featuredProducts, $event)"
 ></app-block-products-carousel1>
 
-<app-block-banner></app-block-banner>
+<app-block-banner *ngIf="!simplifyHomePage"></app-block-banner>
 
-<app-block-products header="page-home-one.Bestsellers" layout="large-first" [products]="bestsellers$|async"></app-block-products>
+<app-block-products header="Promotionproduit" layout="large-first" [products]="bestsellers$|async"></app-block-products>
 
-<app-block-categories header="page-home-one.PopularCategories" layout="classic" [categories]="popularCategories$"></app-block-categories>
+<app-block-categories header="page-home-one.PopularCategories" layout="classic" [categories]="popularCategories$" *ngIf="!simplifyHomePage"></app-block-categories>
 
 <app-block-products-carousel1
+    *ngIf="!simplifyHomePage"
     header="page-home-one.NewArrivals"
     layout="horizontal"
     [rows]="2"
@@ -28,9 +30,9 @@
 ></app-block-products-carousel1>
 
 
-<app-block-brands [brands]="brands$|async"></app-block-brands>
+<app-block-brands [brands]="brands$|async" *ngIf="!simplifyHomePage"></app-block-brands>
 
-<app-block-product-columns>
+<app-block-product-columns *ngIf="!simplifyHomePage">
     <app-block-product-columns-item header="page-home-one.TopRatedProducts" [products]="columnTopRated$|async"></app-block-product-columns-item>
     <app-block-product-columns-item header="page-home-one.SpecialOffers" [products]="columnSpecialOffers$|async"></app-block-product-columns-item>
     <app-block-product-columns-item header="page-home-one.Bestsellers" [products]="columnBestsellers$|async"></app-block-product-columns-item>

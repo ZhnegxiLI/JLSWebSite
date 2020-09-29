@@ -90,7 +90,7 @@
         "Newsletter": "Newsletter",
         "EmailAddress": "Email",
         "Subscribe": "Abonnez",
-        "FollowUs": "Suivez nous",
+        "FollowUs": "Télécharger notre application",
         "Poweredby": "Powered by",
         "Designby": "Designby"
     },
@@ -223,7 +223,7 @@
     },
     "block-features": {
         "FreeShipping": "Livraison gratuit",
-        "Forordersfrom50": "À partir de 1500 €",
+        "Forordersfrom50": "À partir de 1500 €HT",
         "100Safety": "Paiement 100% sécurisé",
         "Support247": "Répondez rapidement",
         "Callusanytime": "Veuillez nous contacter pour toute question",

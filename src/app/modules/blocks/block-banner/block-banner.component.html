@@ -1,5 +1,5 @@
 <!-- .block-banner -->
-<div class="block block-banner">
+<div class="block block-banner" *ngIf="!simplifyHomePage">
     <div class="container">
         <a href="" class="block-banner__body" [routerLink]="['/shop/catalog']">
             <div class="block-banner__image block-banner__image--desktop" style="background-image: url('assets/images/slider3.jpg');background-size:cover;"></div>

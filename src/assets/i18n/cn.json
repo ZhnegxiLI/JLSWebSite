@@ -90,7 +90,7 @@
         "Newsletter": "接收我们最新的消息",
         "EmailAddress": "邮箱地址",
         "Subscribe": "订阅",
-        "FollowUs": "追踪我们",
+        "FollowUs": "下载我们的软件",
         "Poweredby": "提供者",
         "Designby": "设计者"
     },
@@ -226,7 +226,7 @@
     },
     "block-features": {
         "FreeShipping": "享受免运费",
-        "Forordersfrom50": "买满1500€起",
+        "Forordersfrom50": "买满1500€HT起",
         "100Safety": "100%安全支付",
         "Support247": "回复迅速",
         "Callusanytime": "任何问题都可以联系我们",

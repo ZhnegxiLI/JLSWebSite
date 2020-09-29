@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/shared/api/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-footer-newsletter',
@@ -12,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NewsletterComponent {
     theme = theme;
-
+    simplifyHomePage =  environment.simplifyHomePage;
     public basicInfoForm: FormGroup
     constructor(
         private formBuilder: FormBuilder,
