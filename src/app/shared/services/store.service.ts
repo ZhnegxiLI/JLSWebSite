@@ -23,21 +23,6 @@ export class StoreService {
 
     public referenceCategoryList = new BehaviorSubject<any[]>([]);
 
-    public countryList = [{
-        Country: 'France',
-        Id: 1
-    },
-    {
-        Country: 'Belgique',
-        Id: 2,
-    },
-    {
-        Country: 'Espagnol',
-        Id: 3,
-    }
-    ];
-
-
     constructor(referenceService: ReferenceService, translateService: TranslateService) {
 
         this.loadVisitedReferenceIds();

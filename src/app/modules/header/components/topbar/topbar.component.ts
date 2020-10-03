@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CurrencyService } from '../../../../shared/services/currency.service';
 import { TranslateService } from '@ngx-translate/core';
 import { LoginService } from 'src/app/login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-header-topbar',
@@ -9,6 +10,8 @@ import { LoginService } from 'src/app/login.service';
     styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent {
+
+    simplifyHomePage =  environment.simplifyHomePage;
     languages = [
         {name: 'English', image: 'united-states', code:'en'},
         {name: 'Français',  image: 'france', code:'fr'},

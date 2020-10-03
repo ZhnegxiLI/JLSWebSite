@@ -77,7 +77,7 @@ export function createTranslateLoader(http: HttpClient) {
         HeaderModule,
         MobileModule,
         SharedModule,
-        WidgetsModule,
+        WidgetsModule
         
     ],
     providers: [

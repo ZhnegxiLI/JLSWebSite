@@ -78,7 +78,7 @@
                             <div class="address-card__badge address-card__badge--muted">{{'page-order-success.ShippingAddress' | translate}}</div>
                             <div class="address-card__name">{{ order.ShippingAdress.ContactFirstName + ' ' + order.ShippingAdress.ContactLastName}}</div>
                             <div class="address-card__row">
-                                {{  findCountry(order.ShippingAdress.CountryId) }}<br>
+                                {{  order.ShippingAdress.Country }}<br>
                                 {{ order.ShippingAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
                                 {{ order.ShippingAdress.FirstLineAddress }}<br>
                                 {{ order.ShippingAdress.SecondLineAddress }}
@@ -100,7 +100,7 @@
                             <div class="address-card__badge address-card__badge--muted">{{'page-order-success.BillingAddress' | translate}}</div>
                             <div class="address-card__name">{{ order.FacturationAdress.ContactFirstName + ' ' + order.FacturationAdress.ContactLastName}}</div>
                             <div class="address-card__row">
-                                {{  findCountry(order.FacturationAdress.CountryId) }}<br>
+                                {{ order.FacturationAdress.Country }}<br>
                                 {{ order.FacturationAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
                                 {{ order.FacturationAdress.FirstLineAddress }}<br>
                                 {{ order.FacturationAdress.SecondLineAddress }}

@@ -21,14 +21,12 @@
                     <label for="checkout-company-name">{{'page-checkout.CompanyName' | translate}}  <span style="color: red;">*</span></label>
                     <input type="text" class="form-control" id="checkout-company-name" formControlName="EntrepriseName">
                 </div>
+     
                 <div class="form-group">
-                    <label for="checkout-country">{{'page-checkout.Country' | translate}}  <span style="color: red;">*</span></label>
-                    <select id="checkout-country" class="form-control" formControlName="CountryId">
-                        <option [value]=1>{{'page-checkout.France' | translate}}</option>
-                        <option [value]=2>{{'page-checkout.Belgique' | translate}}</option>
-                        <option [value]=3>{{'page-checkout.Espaniol' | translate}}</option>
-                    </select>
+                    <label for="checkout-street-address">{{'page-checkout.Country' | translate}}  <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="checkout-country" formControlName="Country">
                 </div>
+
                 <div class="form-group">
                     <label for="checkout-street-address">{{'page-checkout.StreetAddress' | translate}}  <span style="color: red;">*</span></label>
                     <input type="text" class="form-control" id="checkout-street-address" formControlName="FirstLineAddress">

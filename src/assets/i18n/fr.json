@@ -14,6 +14,9 @@
     "NewProduit": "Nouveauté",
     "Promotionproduit": "Promotion",
     "Meslistes": "Favoris",
+    "Confirmation":"Confirmation",
+    "Cancel":"Non",
+    "Msg_LogoutConfirm":"Vous voulez vraiment déconnecter?",
     "Msg_Offline": "Votre réseau n'est pas stable",
     "Msg_Error": "Une error s'est produit, veuillez réessayer plus tard",
     "Msg_NotConnected": "Non connecté, connectez-vous pour découvrir.",
@@ -43,6 +46,7 @@
     "Address": "Adresse",
     "EditAdress": "Editer Addresse",
     "Password": "Mot de passe",
+    "LogoutSuccess": "Déconnecter!",
     "Logout": "Se déconnecter",
     "registre": {
         "Registre": "Enregistrer",

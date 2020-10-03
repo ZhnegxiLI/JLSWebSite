@@ -5,7 +5,7 @@
 export const environment = {
     production: false,
     SERVER_API_URL: "http://localhost/JLSMobileApplication/", //"http://localhost/JLSMobileApplication/" //; "http://jlsmobile.europetechs.com/"
-    simplifyHomePage: true
+    simplifyHomePage: true // jls request, remove some unused module
 };
 
 /*

@@ -22,7 +22,7 @@
                                 {{ facturationAddress.ContactFirstName + ' ' + facturationAddress.ContactLastName}}
                             </div>
                             <div class="address-card__row">
-                                {{  findCountry(facturationAddress.CountryId) }}<br>
+                                {{  facturationAddress.Country }}<br>
                                 {{ facturationAddress.ZipCode }}, {{ facturationAddress.City }}<br>
                                 {{ facturationAddress.FirstLineAddress }}<br>
                                 {{ facturationAddress.SecondLineAddress }}

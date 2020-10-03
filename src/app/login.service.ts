@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -22,7 +23,8 @@ export class LoginService {
         private platformId: any,
         protected router: Router,
         private httpClient: HttpClient,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        public translateService: TranslateService
     ) {
         if (isPlatformBrowser(this.platformId)) {
 
@@ -45,7 +47,7 @@ export class LoginService {
         localStorage.clear();
         localStorage.setItem('lang', lang);
         this.router.navigate(['']);
-        this.toastr.success('Logged Out Successfully')//todo translate
+        this.toastr.success(this.translateService.instant('LogoutSuccess'))
         return;
 
     }

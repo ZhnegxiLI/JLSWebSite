@@ -14,6 +14,10 @@
     "NewProduit": "New",
     "Promotionproduit": "Promotion",
     "Meslistes": "Favorite",
+    
+    "Confirmation":"Confirmation",
+    "Cancel":"No",
+    "Msg_LogoutConfirm":"Are your really want to logout?",
     "Msg_Offline": "Currently offlin",
     "Msg_Error": "There is an error, please try again later.",
     "Msg_NotConnected": "Not logged in yet, please log in for more feature",
@@ -43,6 +47,7 @@
     "Address": "Address",
     "EditAdress": "Edit Adress",
     "Password": "Password",
+    "LogoutSuccess": "Logout successfully",
     "Logout": "Logout",
     "registre": {
         "Registre": "Registre",

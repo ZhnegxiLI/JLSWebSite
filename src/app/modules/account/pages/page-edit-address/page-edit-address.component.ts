@@ -25,7 +25,7 @@ export class PageEditAddressComponent {
             FirstLineAddress: ['', Validators.required],
             SecondLineAddress: [''],
             City: ['', Validators.required],
-            CountryId: [''],
+            Country: [''],
             ZipCode: ['', Validators.required],
             ContactTelephone: ['', Validators.required],
             ContactFax: [''],

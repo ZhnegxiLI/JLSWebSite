@@ -37,7 +37,12 @@ import { ColorTypePipe } from './pipes/color-type.pipe';
 import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProductCard1Component } from './components/product-card1/product-card1.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
     declarations: [
@@ -66,9 +71,14 @@ import { ProductCard1Component } from './components/product-card1/product-card1.
         RatingComponent,
         // pipes
         CurrencyFormatPipe,
-        ColorTypePipe
+        ColorTypePipe,
+        ConfirmDialogComponent
     ],
     imports: [
+        MatDialogModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        
         TranslateModule,
         // modules (angular)
         CommonModule,

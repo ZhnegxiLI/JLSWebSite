@@ -16,7 +16,7 @@
         <div class="address-card__body">
             <div class="address-card__name">{{ defaultAdress.ContactFirstName + ' ' + defaultAdress.ContactLastName}}</div>
             <div class="address-card__row">
-                {{  findCountry(defaultAdress.CountryId) }}<br>
+                {{ defaultAdress.Country }}<br>
                 {{ defaultAdress.ZipCode }}, {{ defaultAdress.City }}<br>
                 {{ defaultAdress.FirstLineAddress }}<br>
                 {{ defaultAdress.SecondLineAddress }}

@@ -21,6 +21,9 @@
     "Leave": "离开?",
     "Yes": "是",
     "No": "否",
+    "Cancel":"取消",
+    "Confirmation":"确认",
+    "Msg_LogoutConfirm":"是否要退出登录?",
     "Msg_ConfirmLeave": "确认离开?",
     "Msg_OrdePassedSuccess": "您的订单已成功下单，我们将会在尽快联系您",
     "Msg_AddInCart": "成功加入购物车",
@@ -43,6 +46,7 @@
     "Address": "地址",
     "EditAdress": "管理地址",
     "Password": "密码",
+    "LogoutSuccess": "退出登录成功",
     "Logout": "退出登录",
     "registre": {
         "Registre": "注册",

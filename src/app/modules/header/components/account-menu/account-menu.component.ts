@@ -3,6 +3,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { LoginService } from 'src/app/login.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'app-account-menu',
@@ -20,7 +22,8 @@ export class AccountMenuComponent {
     constructor(
         private loginService: LoginService,
         private toastr: ToastrService,
-        private translateService: TranslateService
+        private translateService: TranslateService,
+        public dialog: MatDialog
     ) { }
 
     ngOnInit(): void {
@@ -63,6 +66,20 @@ export class AccountMenuComponent {
     }
 
     logout() {
-        this.loginService.logout();
+
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '300px',
+            data: {
+                Title: this.translateService.instant('Confirmation'), 
+                Body: this.translateService.instant('Msg_LogoutConfirm')
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.loginService.logout();
+            }
+        });
     }
+
 }

@@ -28,8 +28,4 @@ export class PageOrderSuccessComponent {
     ngOnInit(): void {
         this.storeService.taxRate.subscribe(p => this.taxRate = p);
     }
-
-    findCountry(CountryId: number) {
-        return this.storeService.countryList.find(p => p.Id == CountryId).Country;
-    }
 }

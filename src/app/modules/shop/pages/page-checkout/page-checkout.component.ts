@@ -76,11 +76,6 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         this.destroy$.complete();
     }
 
-
-    findCountry(CountryId: number) {
-        return this.storeService.countryList.find(p => p.Id == CountryId).Country;
-    }
-
     ValideOrder():void {
  
         if (this.orderCriteria.ShippingAdressId != null && this.orderCriteria.ShippingAdressId > 0

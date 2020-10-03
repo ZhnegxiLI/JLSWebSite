@@ -46,6 +46,8 @@ export class AppInterceptor implements HttpInterceptor {
 
                         case 400:
                             return throwError(err); //<any>this.acct.logout();
+                        default :
+                            return throwError(err);
 
                     }
                 } else {

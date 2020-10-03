@@ -34,8 +34,4 @@ export class PageDashboardComponent {
         this.entrepriseName = localStorage.getItem('entrepriseName');
 
     }
-
-    findCountry(CountryId: number){
-        return  this.storeService.countryList.find(p=>p.Id == CountryId).Country;
-    }
 }

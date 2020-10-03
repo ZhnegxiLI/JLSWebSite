@@ -22,8 +22,7 @@ export const mobileMenu: MobileMenuItem[] = [
     {type: 'link', label: 'mobileMenu.Pages', url: '/site', children: [
         {type: 'link', label: 'mobileMenu.AboutUs',             url: '/site/about-us'},
         {type: 'link', label: 'mobileMenu.ContactUs',           url: '/site/contact-us'},
-        {type: 'link', label: 'mobileMenu.TermsAndConditions', url: '/site/terms'},
-        {type: 'link', label: 'mobileMenu.FAQ',                  url: '/site/faq'}
+        {type: 'link', label: 'mobileMenu.TermsAndConditions', url: '/site/terms'}
     ]},
 
     {type: 'button', label: 'mobileMenu.Currency', children: [

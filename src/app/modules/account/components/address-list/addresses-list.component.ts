@@ -18,7 +18,7 @@ export class AddressesListComponent {
     @Output() change: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(public route: ActivatedRoute, public storeService: StoreService, public addressService: UserService,
-        private toastr: ToastrService, private router: Router, public userService: UserService) {
+        private toastr: ToastrService, public userService: UserService) {
 
     }
 
@@ -51,10 +51,5 @@ export class AddressesListComponent {
         this.userService.GetUserShippingAdress({
             UserId: localStorage.getItem('userId')
         }).subscribe(p => this.addresses = p);
-    }
-
-
-    findCountry(CountryId: number) {
-        return this.storeService.countryList.find(p => p.Id == CountryId).Country;
     }
 }

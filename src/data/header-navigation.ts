@@ -28,8 +28,7 @@ export const navigation: NavigationLink[] = [
         items: [
             {label: 'mobileMenu.AboutUs',             url: '/site/about-us'},
             {label: 'mobileMenu.ContactUs',           url: '/site/contact-us'},
-            {label: 'mobileMenu.TermsAndConditions', url: '/site/terms'},
-            {label: 'mobileMenu.FAQ',                  url: '/site/faq'},
+            {label: 'mobileMenu.TermsAndConditions', url: '/site/terms'}
         ]
     }}
 ];
