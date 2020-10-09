@@ -24,7 +24,7 @@ export class LoginService {
         protected router: Router,
         private httpClient: HttpClient,
         private toastr: ToastrService,
-        public translateService: TranslateService
+       // public translateService: TranslateService
     ) {
         if (isPlatformBrowser(this.platformId)) {
 
@@ -47,7 +47,7 @@ export class LoginService {
         localStorage.clear();
         localStorage.setItem('lang', lang);
         this.router.navigate(['']);
-        this.toastr.success(this.translateService.instant('LogoutSuccess'))
+        this.toastr.success('ok'))
         return;
 
     }
