@@ -47,7 +47,7 @@ export class LoginService {
         localStorage.clear();
         localStorage.setItem('lang', lang);
         this.router.navigate(['']);
-        this.toastr.success('ok'))
+        this.toastr.success('ok');
         return;
 
     }
