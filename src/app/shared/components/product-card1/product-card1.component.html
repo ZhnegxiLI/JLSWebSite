@@ -10,11 +10,14 @@
         <span class="fake-svg-icon"></span>
     </button>
 
-    <!-- <div *ngIf="product.badges.length" class="product-card__badges-list">
-        <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">Sale</div>
+    <div class="product-card__badges-list">
+        <!-- <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">Sale</div>
         <div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">Hot</div>
-        <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">New</div>
-    </div> -->
+        <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">New</div> -->
+        <div  *ngIf="loginService.loginStatus|async&& storeService.formatProductPromotionInfo(product)!=null" class="product-card__badge promotion">
+            {{storeService.formatProductPromotionInfo(product).discountPerCent}}%
+          </div>
+    </div> 
 
     <div class="product-card__image">
         <a appClick  *ngIf="product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img [src]="host+product.DefaultPhotoPath" alt="" style="max-height: 220px;"></a>
