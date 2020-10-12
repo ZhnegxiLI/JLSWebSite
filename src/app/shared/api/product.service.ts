@@ -45,7 +45,7 @@ export class ProductService {
 
     GetPromotionProduct(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
-        return this.http.get(this.apiUrlGetPromotionProduct, { params }).pipe(map((p: any)=> p.ProductListData));
+        return this.http.get(this.apiUrlGetPromotionProduct, { params }).pipe(map((p: any)=> p.ProductList));
     }
 
 
