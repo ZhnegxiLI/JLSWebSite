@@ -81,7 +81,7 @@ export function createTranslateLoader(http: HttpClient) {
         
     ],
     providers: [
-        LoginService, // todo remove
+        LoginService,
         {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
         // { provide: LOCALE_ID, useValue: 'it' }
         RootResolverService,
