@@ -35,6 +35,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     
     destroy$: Subject<void> = new Subject<void>();
     bestsellers$: Observable<Product[]>;
+    promotionProduct$: Observable<Product[]>;
     brands$: Observable<Brand[]>;
     popularCategories$: any[];
 
@@ -64,6 +65,12 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             Begin: 0,
             Step: 6
         });
+
+        this.promotionProduct$ = this.productService.GetPromotionProduct({
+            Lang: this.translateService.currentLang,
+            Begin: 0,
+            Step: 20
+        })
 
         this.brands$ = this.shop.getPopularBrands();
 

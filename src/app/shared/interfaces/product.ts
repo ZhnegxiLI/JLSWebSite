@@ -50,6 +50,7 @@ export interface Product1 {
     ProductId: number;
     ReferenceId: number;
     QuantityPerBox: number;
+    PreviousPrice?: number;
     Price: number;
     Label: string;
     DefaultPhotoPath: string;
@@ -75,11 +76,12 @@ export interface ProductDetail1 {
     Material: string;
     MinQuantity: number;
     Price: number;
+    PreviousPrice?: number;
     ProductId: number;
     QuantityPerBox: number;
     ReferenceCode: string;
     ReferenceId: number;
     SecondCategoryId: number;
     Size: string;
-    Comments: any[]
+    Comments: any[];
 }

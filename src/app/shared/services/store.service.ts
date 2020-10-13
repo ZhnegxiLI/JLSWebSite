@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ReferenceService } from '../api/reference.service'
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
+import { Product1 } from '../interfaces/product';
 @Injectable({
     providedIn: 'root'
 })
@@ -50,7 +51,18 @@ export class StoreService {
             return 5;
         }
     }
-
+    /* Format product discount information */
+    formatProductPromotionInfo(product: Product1){
+        if(product.PreviousPrice!=null && product.PreviousPrice> product.Price){
+          return {
+            previousPrice : product.PreviousPrice,
+            discountPerCent: -Math.ceil((1 - product.Price/product.PreviousPrice) * 100)
+          };
+        }
+        else {
+          return null;
+        }
+    }
 
     private loadVisitedReferenceIds(): void {
         const items = localStorage.getItem('visitedReferenceIds');

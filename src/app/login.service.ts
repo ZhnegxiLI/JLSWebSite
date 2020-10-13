@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
-import { TranslateService } from '@ngx-translate/core';
-
 
 
 @Injectable({
@@ -23,8 +21,8 @@ export class LoginService {
         private platformId: any,
         protected router: Router,
         private httpClient: HttpClient,
-        private toastr: ToastrService,
-       // public translateService: TranslateService
+        private toastr: ToastrService
+        // public translateService: TranslateService
     ) {
         if (isPlatformBrowser(this.platformId)) {
 

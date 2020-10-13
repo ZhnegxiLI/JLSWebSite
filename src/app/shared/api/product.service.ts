@@ -36,9 +36,16 @@ export class ProductService {
 
     private apiUrlGetProductListByNote = this.host +'api/Product/GetProductListByNote';
 
+    private apiUrlGetPromotionProduct = this.host + "api/Product/GetPromotionProduct";
+
     GetCategoryForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });
         return this.http.get(this.apiUrlGetCategoryForWebSite, { params });
+    }
+
+    GetPromotionProduct(criteria): Observable<any> {
+        let params = new HttpParams({ fromObject: criteria });
+        return this.http.get(this.apiUrlGetPromotionProduct, { params }).pipe(map((p: any)=> p.ProductList));
     }
 
 
