@@ -4,8 +4,9 @@
 
 export const environment = {
     production: false,
-    SERVER_API_URL: "http://localhost/JLSMobileApplication/", //"http://localhost/JLSMobileApplication/" //; "http://jlsmobile.europetechs.com/"
-    simplifyHomePage: true // jls request, remove some unused module
+    SERVER_API_URL: "https://localhost:44304/", //"http://localhost/JLSMobileApplication/" //https://localhost:44304/
+    simplifyHomePage: true, // jls request, remove some unused module
+    hideRatingModule: true // jls request, remove some unused module
 };
 
 /*

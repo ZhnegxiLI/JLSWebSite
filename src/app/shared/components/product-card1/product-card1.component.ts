@@ -22,6 +22,8 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
 
     public host: string = environment.SERVER_API_URL;
     
+    hideRatingModule = environment.hideRatingModule;
+    
     @Input() product: any;
     @Input() layout: 'grid-sm'|'grid-nl'|'grid-lg'|'list'|'horizontal'|null = null;
 

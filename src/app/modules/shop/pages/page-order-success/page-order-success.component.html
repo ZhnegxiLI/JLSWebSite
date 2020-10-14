@@ -33,7 +33,9 @@
                         <thead class="order-list__header">
                         <tr>
                             <th class="order-list__column-label" colspan="2">{{'page-order-success.Product' | translate}}</th>
+                            <th class="order-list__column-quantity">{{'product.QuantityPerBox' | translate}}</th>
                             <th class="order-list__column-quantity">{{'page-order-success.Qty' | translate}}</th>
+                            <th class="order-list__column-total">{{'page-order-details.UnitPrice' | translate}}</th>
                             <th class="order-list__column-total">{{'page-order-success.Total' | translate}}</th>
                         </tr>
                         </thead>
@@ -46,24 +48,26 @@
                             <td class="order-list__column-product">
                                 {{item.Label}}
                             </td>
+                            <td class="order-list__column-quantity" >{{ item.QuantityPerBox }}</td>
                             <td class="order-list__column-quantity" data-title="Qty:">{{ item.Quantity }}</td>
-                            <td class="order-list__column-total">{{ (item.Price*item.Quantity) |currencyFormat }} </td>
+                            <td class="order-list__column-quantity" >{{ item.Price |currencyFormat}}</td>
+                            <td class="order-list__column-total">{{ (item.Price*item.Quantity*item.QuantityPerBox) |currencyFormat }} </td>
                         </tr>
                         </tbody>
                         <tbody class="order-list__subtotals">
                         <tr>
-                            <th class="order-list__column-label" colspan="3">{{'page-order-success.Subtotal' | translate}}</th>
+                            <th class="order-list__column-label" colspan="5">{{'page-order-success.Subtotal' | translate}}</th>
                             <td class="order-list__column-total">{{ order.OrderInfo.TotalPrice|currencyFormat }}</td>
                         </tr>
                         <tr>
-                            <th class="order-list__column-label" colspan="3">{{'page-order-details.Tax' | translate}}</th>
+                            <th class="order-list__column-label" colspan="5">{{'page-order-details.Tax' | translate}}</th>
                             <td class="order-list__column-total">{{ 0.01* taxRate *order.OrderInfo.TotalPrice |currencyFormat }}</td>
                         </tr>
                         </tbody>
                         <tfoot class="order-list__footer">
             
                         <tr>
-                            <th class="order-list__column-label" colspan="3">{{'page-order-details.Total' | translate}}</th>
+                            <th class="order-list__column-label" colspan="5">{{'page-order-details.Total' | translate}}</th>
                             <td class="order-list__column-total">{{ (order.OrderInfo.TotalPrice*(1+taxRate*0.01)) |currencyFormat }}</td>
                         </tr>
                         </tfoot>
@@ -76,7 +80,8 @@
                     <div class="card address-card">
                         <div class="address-card__body">
                             <div class="address-card__badge address-card__badge--muted">{{'page-order-success.ShippingAddress' | translate}}</div>
-                            <div class="address-card__name">{{ order.ShippingAdress.ContactFirstName + ' ' + order.ShippingAdress.ContactLastName}}</div>
+                            <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}: </div>
+                            <div class="address-card__name">{{ order.ShippingAdress.EntrepriseName }}</div>
                             <div class="address-card__row">
                                 {{  order.ShippingAdress.Country }}<br>
                                 {{ order.ShippingAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
@@ -87,10 +92,10 @@
                                 <div class="address-card__row-title">{{'page-order-success.PhoneNumber' | translate}}</div>
                                 <div class="address-card__row-content">{{ order.ShippingAdress.ContactTelephone }}</div>
                             </div>
-                            <div class="address-card__row">
+                            <!-- <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-order-details.EntrepriseName' | translate}}</div>
                                 <div class="address-card__row-content">{{ order.ShippingAdress.EntrepriseName }}</div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -98,7 +103,8 @@
                     <div class="card address-card">
                         <div class="address-card__body">
                             <div class="address-card__badge address-card__badge--muted">{{'page-order-success.BillingAddress' | translate}}</div>
-                            <div class="address-card__name">{{ order.FacturationAdress.ContactFirstName + ' ' + order.FacturationAdress.ContactLastName}}</div>
+                            <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}:</div>
+                            <div class="address-card__name">{{ order.FacturationAdress.EntrepriseName }}</div>
                             <div class="address-card__row">
                                 {{ order.FacturationAdress.Country }}<br>
                                 {{ order.FacturationAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
@@ -109,10 +115,10 @@
                                 <div class="address-card__row-title">{{'page-order-success.PhoneNumber' | translate}}</div>
                                 <div class="address-card__row-content">{{ order.FacturationAdress.ContactTelephone }}</div>
                             </div>
-                            <div class="address-card__row">
+                            <!-- <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-order-details.EntrepriseName' | translate}}</div>
                                 <div class="address-card__row-content">{{ order.FacturationAdress.EntrepriseName }}</div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

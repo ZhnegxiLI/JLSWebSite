@@ -137,7 +137,7 @@ export class CartService {
 
             this.data.items.forEach(item => {
                 quantity += item.quantity;
-                subtotal += item.product.Price * item.quantity;
+                subtotal += item.product.Price * item.quantity * item.product.QuantityPerBox;
             });
 
             const totals: CartTotal[] = [];

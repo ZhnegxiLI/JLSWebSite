@@ -29,6 +29,8 @@ export class ProductComponent implements OnInit {
     public dataProduct: ProductDetail1;
     private dataLayout: Layout = 'standard';
 
+    hideRatingModule = environment.hideRatingModule;
+
     public host: string = environment.SERVER_API_URL;
 
     showGallery = true;

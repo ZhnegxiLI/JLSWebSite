@@ -3,6 +3,7 @@ import { ProductFeaturesSection, ProductDetail1 } from '../../../../shared/inter
 import { specification } from '../../../../../data/shop-product-spec';
 import { Review } from '../../../../shared/interfaces/review';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-product-tabs',
@@ -11,6 +12,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ProductTabsComponent implements OnInit {
 
+    hideRatingModule = environment.hideRatingModule;
+    
     private dataProduct: ProductDetail1;
 
     @Input() withSidebar = false;
@@ -42,12 +45,12 @@ export class ProductTabsComponent implements OnInit {
                         Value: this.product[key]
                     });
                     break;
-                case 'MinQuantity':
-                    list.push({
-                        Label : this.translateService.instant('product.minimumachats'),
-                        Value: this.product[key]
-                    });
-                    break;
+                // case 'MinQuantity':
+                //     list.push({
+                //         Label : this.translateService.instant('product.minimumachats'),
+                //         Value: this.product[key]
+                //     });
+                //     break;
                 case 'QuantityPerBox':
                     list.push({
                         Label : this.translateService.instant('product.QuantityPerBox'),

@@ -26,9 +26,9 @@ export class BlockProductsComponent {
     get smalls(): any[] {
         if (this.products != null) {
             if (this.layout === 'large-first') {
-                return this.products.slice(1, 7);
+                return this.products.slice(1, 10);
             } else {
-                return this.products.slice(0, 6);
+                return this.products.slice(0, 10);
             }
         }
         return [];

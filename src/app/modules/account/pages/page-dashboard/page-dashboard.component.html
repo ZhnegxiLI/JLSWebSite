@@ -14,7 +14,8 @@
     <div class="dashboard__address card address-card address-card--featured">
         <div class="address-card__badge" *ngIf="defaultAdress">{{'page-dashboard.DefaultAddress' | translate}}</div>
         <div class="address-card__body">
-            <div class="address-card__name">{{ defaultAdress.ContactFirstName + ' ' + defaultAdress.ContactLastName}}</div>
+            <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}:</div>
+            <div class="address-card__name">{{ defaultAdress.EntrepriseName }}</div>
             <div class="address-card__row">
                 {{ defaultAdress.Country }}<br>
                 {{ defaultAdress.ZipCode }}, {{ defaultAdress.City }}<br>
@@ -25,10 +26,10 @@
                 <div class="address-card__row-title">{{'page-dashboard.PhoneNumber' | translate}}</div>
                 <div class="address-card__row-content">{{ defaultAdress.ContactTelephone }}</div>
             </div>
-            <div class="address-card__row">
+            <!-- <div class="address-card__row">
                 <div class="address-card__row-title">{{'page-dashboard.EntrepriseName' | translate}}</div>
                 <div class="address-card__row-content">{{ defaultAdress.EntrepriseName }}</div>
-            </div>
+            </div> -->
             <div class="address-card__footer">
                 <a [routerLink]="['/account/address']" [queryParams]="{AddressId: defaultAdress.Id, Type: 'shippingAdress' }">{{'page-dashboard.EditAddress' | translate}}</a>
             </div>

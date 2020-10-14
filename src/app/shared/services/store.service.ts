@@ -52,7 +52,7 @@ export class StoreService {
         }
     }
     /* Format product discount information */
-    formatProductPromotionInfo(product: Product1){
+    formatProductPromotionInfo(product: any){
         if(product.PreviousPrice!=null && product.PreviousPrice> product.Price){
           return {
             previousPrice : product.PreviousPrice,

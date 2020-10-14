@@ -34,7 +34,7 @@
                 </td>
                 <td class="wishlist__column wishlist__column--product">
                     <a  class="wishlist__product-name" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }">{{ product.Label }}</a>
-                    <div class="wishlist__product-rating">
+                    <div class="wishlist__product-rating" *ngIf="!hideRatingModule">
                         <app-rating [value]="storeService.calculCommentAverageNote(product.Comments)"></app-rating>
                         <div class="wishlist__product-rating-legend">{{ product.Comments.length }} {{'page-wishlist.Reviews' | translate}}</div>
                     </div>

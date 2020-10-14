@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-3">
-                <app-alert type="primary" size="lg">{{storeService.shippingInfo|async}} </app-alert>
+                <app-alert type="primary" size="lg" [innerHTML] = "storeService.shippingInfo|async"></app-alert>
             </div>
            
             <div class="col-12 col-lg-12 col-xl-12">
@@ -62,7 +62,7 @@
             <div class="col-12 col-lg-6 col-xl-6 mt-6 mt-lg-6" style="margin-top: 20px!important;">
                 <div class="card mb-0">
                     <div class="card-body">
-                        <h3 class="card-title">{{'page-checkout.ShippingDetails' | translate}}</h3>
+                        <h3 class="card-title">{{'page-wishlist.Reviews' | translate}}</h3>
                         <div class="form-group">
                             <label for="checkout-comment">{{'page-checkout.Ordernotes' | translate}} <span
                                     class="text-muted">({{'page-checkout.Optional' | translate}})</span></label>
@@ -86,8 +86,8 @@
                             </thead>
                             <tbody class="checkout__totals-products">
                                 <tr *ngFor="let item of cart.items$|async">
-                                    <td>{{ item.product.Label }} × {{ item.quantity }}</td>
-                                    <td>{{ item.product.Price * item.quantity|currencyFormat }}</td>
+                                    <td>{{ item.product.Label }} × {{ item.quantity }} x {{ item.product.QuantityPerBox }}</td>
+                                    <td>{{ item.product.Price * item.quantity * item.product.QuantityPerBox |currencyFormat }}</td>
                                 </tr>
                             </tbody>
                             <tbody *ngIf="(cart.totals$|async).length" class="checkout__totals-subtotals">

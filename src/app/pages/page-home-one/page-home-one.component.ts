@@ -31,11 +31,12 @@ interface ProductsCarouselData {
 })
 export class PageHomeOneComponent implements OnInit, OnDestroy {
 
-    simplifyHomePage =  environment.simplifyHomePage;
-    
+    simplifyHomePage = environment.simplifyHomePage;
+
     destroy$: Subject<void> = new Subject<void>();
     bestsellers$: Observable<Product[]>;
     promotionProduct$: Observable<Product[]>;
+    latestProduct$: Observable<Product[]>;
     brands$: Observable<Brand[]>;
     popularCategories$: any[];
 
@@ -63,14 +64,20 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
         this.bestsellers$ = this.productService.GetProductListBySalesPerformance({
             Lang: this.translateService.currentLang,
             Begin: 0,
-            Step: 6
+            Step: 11
         });
 
         this.promotionProduct$ = this.productService.GetPromotionProduct({
             Lang: this.translateService.currentLang,
             Begin: 0,
-            Step: 20
-        })
+            Step: 11
+        });
+
+        this.latestProduct$ = this.productService.GetProductListByPublishDate({
+            Lang: this.translateService.currentLang,
+            Begin: 0,
+            Step: 11
+        });
 
         this.brands$ = this.shop.getPopularBrands();
 
@@ -91,7 +98,6 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             Begin: 0,
             Step: 3
         });
-
 
         var categoryList = this.storeService.categoryList.value.slice(0, 4);
         var groups = [];

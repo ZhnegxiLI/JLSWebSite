@@ -2,7 +2,7 @@
 <div class="megamenu">
     <div class="megamenu__body" [style.background-image]="menu.image ? 'url('+menu.image+')' : ''">
         <div class="row">
-            <div *ngFor="let column of menu.columns" class="col-6">
+            <div *ngFor="let column of menu.columns" class="col-4">
                 <ul class="megamenu__links megamenu__links--level--0">
                     <li *ngFor="let item of column.items" class="megamenu__item" [ngClass]="{'megamenu__item--with-submenu': item.SecondCategory}">
 

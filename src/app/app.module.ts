@@ -1,4 +1,4 @@
-import { /*LOCALE_ID, */NgModule } from '@angular/core';
+import { /*LOCALE_ID, */LOCALE_ID, NgModule } from '@angular/core';
 // import { registerLocaleData } from '@angular/common';
 // import localeIt from '@angular/common/locales/it';
 //
@@ -38,6 +38,9 @@ import { PageHomeOneResolverService } from './pages/page-home-one/page-home-one-
 import { NgxLoadingModule } from 'ngx-loading';
 import { AppInterceptor } from './app.interceptor';
 import { LoginService } from './login.service';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr); 
 
 export function createTranslateLoader(http: HttpClient) {
     //此出的路径需要和第二步新建的文件夹保持一致
@@ -82,6 +85,7 @@ export function createTranslateLoader(http: HttpClient) {
     ],
     providers: [
         LoginService,
+        { provide: LOCALE_ID, useValue: 'fr-FR'}, 
         {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
         // { provide: LOCALE_ID, useValue: 'it' }
         RootResolverService,

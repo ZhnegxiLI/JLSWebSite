@@ -130,12 +130,12 @@
     },
     "dropcart": {
         "Yourshoppingcartisempty": "Votre pqnier est vide",
-        "Subtotal": "Sous-Totale",
-        "Total": "Total",
+        "Subtotal": "Total HT",
+        "Total": "Net a payer",
         "ViewCart": "Votre panier",
         "Checkout": "Payer",
         "Aestimer": "A estimer",
-        "Tax": "Taxe",
+        "Tax": "Total TVA",
         "Shipping": "Frais de livraison"
     },
     "page-contact-us": {
@@ -159,13 +159,13 @@
         "Product": "Produit",
         "Price": "Prix",
         "Quantity": "Quantité",
-        "Total": "Total",
+        "Total": "Net a payer",
         "Password": "Mot de passe",
         "ApplyCoupon": "Appliquer Coupon",
         "ContinueShopping": "Continuer Shopping",
         "UpdateCart": "Mise à jour panier",
         "CartTotals": "Totaux du panier",
-        "Subtotal": "Sous-Totale",
+        "Subtotal": "Total HT",
         "CalculateShipping": "Frais de livraison",
         "Proceedtocheckout": "Passer au paiement",
         "CouponCode": "Code de coupon"
@@ -200,8 +200,8 @@
         "Optional": "Optionnel",
         "YourOrder": "Votre commande",
         "Product": "Produit",
-        "Total": "Total",
-        "Subtotal": "Sous-Totale",
+        "Total": "Net a payer",
+        "Subtotal": "Total HT",
         "Directbanktransfer": "Virement bancaire",
         "Checkpayments": "Chèque",
         "Cashondelivery": "En espèces",
@@ -246,9 +246,9 @@
         "Quantity": "Quantité",
         "Addtocart": "Ajouter au panier",
         "minimumachats": "Minimum d'achat",
-        "QuantityPerBox": "Quantité/Colis",
+        "QuantityPerBox": "Colis",
         "Size": "Taille",
-        "RelatedProducts": "Produits connexes"
+        "RelatedProducts": "Nos produits similaires"
     },
     "page-dashboard": {
         "EditProfile": "Editer le profil",
@@ -260,7 +260,7 @@
         "Order": "Commandes",
         "Date": "Date",
         "Status": "Statut",
-        "Total": "Total",
+        "Total": "Net a payer",
         "EntrepriseName": "Nom de la société",
         "for": "pour",
         "item": "produit(s)"
@@ -293,14 +293,14 @@
         "Wasplacedon": "Créer à",
         "andiscurrently": "Statut de commande",
         "Product": "Produit",
-        "Total": "Total",
-        "Subtotal": "Sous-Totale",
+        "Total": "Net a payer",
+        "Subtotal": "Total HT",
         "ShippingAddress": "Adresse de livraison",
         "PhoneNumber": "Numéro de téléphone",
         "EmailAddress": "Email",
         "BillingAddress": "Adresse de facture",
         "UnitPrice": "Prix ​​unitaire",
-        "Tax": "Taxe",
+        "Tax": "Total TVA",
         "EntrepriseName": "Nom de l'entreprise"
     },
     "page-orders-list": {
@@ -308,7 +308,7 @@
         "Order": "Commande",
         "Date": "Date",
         "Status": "Statut",
-        "Total": "Total"
+        "Total": "Net a payer"
     },
     "page-password": {
         "ChangePassword": "Changer mot de passe",
@@ -367,11 +367,11 @@
         "GoToHomepage": "Retour à l'accueil",
         "Ordernumber": "Numéro de commande",
         "Createdat": "Créé à",
-        "Total": "Total",
+        "Total": "Net a payer",
         "Paymentmethod": "Méthode de payment",
         "Product": "Produit",
         "Qty": "Quantité",
-        "Subtotal": "Sous-Totale",
+        "Subtotal": "Total HT",
         "ShippingAddress": "Adresse de livraison",
         "PhoneNumber": "Numéro de Téléphone",
         "EmailAddress": "Email",

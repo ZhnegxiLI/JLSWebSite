@@ -14,7 +14,7 @@
         <!-- <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">Sale</div>
         <div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">Hot</div>
         <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">New</div> -->
-        <div  *ngIf="(loginService.loginStatus|async)&& storeService.formatProductPromotionInfo(product)!=null" class="product-card__badge promotion">
+        <div  *ngIf="(loginService.loginStatus|async)&& storeService.formatProductPromotionInfo(product)!=null" class="product-card__badge product-card__badge--sale">
             {{storeService.formatProductPromotionInfo(product).discountPerCent}}%
           </div>
     </div> 
@@ -27,7 +27,7 @@
         <div class="product-card__name">
             <a appClick [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }">{{ product.Label }}</a>
         </div>
-        <div class="product-card__rating">
+        <div class="product-card__rating" *ngIf="!hideRatingModule">
             <app-rating [value]="storeService.calculCommentAverageNote(product.Comments)"></app-rating>
             <div class="product-card__rating-legend">{{ product.Comments.length }} {{'product.Reviews' | translate}}</div>
         </div>
@@ -45,14 +45,19 @@
             {{'product.Availability' | translate}}:
             <span  class="text-success">{{'product.InStock' | translate}}</span>
         </div>
-        <div class="product-card__prices">
-            <!-- <ng-container *ngIf="product.compareAtPrice">
-                <span class="product-card__new-price">{{ product.Price|currencyFormat }}</span>{{ ' ' }}
-                <!-- <span class="product-card__old-price">{{ product.compareAtPrice|currencyFormat }}</span> 
-            </ng-container> -->
 
-            <ng-container *ngIf="loginService.loginStatus|async">
-                {{ product.Price|currencyFormat }}
+        <ng-container>
+            {{'product.QuantityPerBox'| translate}}: {{ product.QuantityPerBox}}
+         </ng-container>
+        <div class="product-card__prices" *ngIf="loginService.loginStatus|async">
+
+           <ng-container *ngIf="storeService.formatProductPromotionInfo(product)!=null">
+                <span class="product-card__new-price">{{ product.Price|currencyFormat }}(HT)</span>{{ ' ' }}
+                 <span class="product-card__old-price">{{ product.PreviousPrice|currencyFormat }}(HT)</span> 
+            </ng-container> 
+         
+            <ng-container *ngIf="storeService.formatProductPromotionInfo(product)==null">
+                {{ product.Price|currencyFormat }}(HT)
             </ng-container>
         </div>
         <div class="product-card__buttons">

@@ -92,7 +92,7 @@ export class LinksComponent implements OnInit, OnDestroy, AfterViewChecked {
         var array = [];
         var targetedCategory =   this.storeService.categoryList.value.sort((a,b)=>b.SecondCategory.length-a.SecondCategory.length);
         targetedCategory.filter(p=>p.SecondCategory.length>0);
-        targetedCategory = targetedCategory.slice(0, 4);
+        // targetedCategory = targetedCategory.slice(0, 4);
         targetedCategory.forEach(result=>{
             array.push({
                 size:6, items: [result]

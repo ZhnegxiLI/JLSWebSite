@@ -15,7 +15,8 @@ import { environment } from 'src/environments/environment';
 })
 export class PageWishlistComponent {
     public favoirteList : Product1[];
-
+    hideRatingModule = environment.hideRatingModule;
+    
     public host: string = environment.SERVER_API_URL;
     
     addingToCart: boolean = false;

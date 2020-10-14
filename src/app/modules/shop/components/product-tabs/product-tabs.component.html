@@ -4,7 +4,7 @@
             [ngClass]="{'product-tabs__item--active': tab === 'description'}"
             (click)="$event.preventDefault(); tab = 'description'">{{'product-tabs.Description' | translate}}</a>
 
-        <a href="#tab-reviews" class="product-tabs__item" [ngClass]="{'product-tabs__item--active': tab === 'reviews'}"
+        <a *ngIf="!hideRatingModule" href="#tab-reviews" class="product-tabs__item" [ngClass]="{'product-tabs__item--active': tab === 'reviews'}"
             (click)="$event.preventDefault(); tab = 'reviews'">{{'product-tabs.Reviews' | translate}}</a>
     </div>
     <div class="product-tabs__content">
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}" >
+        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}" *ngIf="!hideRatingModule">
             <div class="reviews-view">
                 <div class="reviews-view__list">
                     <h3 class="reviews-view__header">{{'product-tabs.CustomerReviews' | translate}}</h3>
