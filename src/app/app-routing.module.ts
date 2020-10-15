@@ -4,7 +4,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { RootComponent } from './components/root/root.component';
 import { RootResolverService } from './components/root/root-resolver.service';
-import { PageHomeOneResolverService } from './pages/page-home-one/page-home-one-resolver.service';
 
 
 const routes: Routes = [
@@ -23,10 +22,7 @@ const routes: Routes = [
             {
                 path: '',
                 pathMatch: 'full',
-                component: PageHomeOneComponent,
-                resolve: { // 此处使用resolve
-                    initInfo: PageHomeOneResolverService
-                },
+                component: PageHomeOneComponent
             },
             {
                 path: 'shop',

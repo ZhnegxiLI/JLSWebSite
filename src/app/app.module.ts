@@ -34,7 +34,6 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RootResolverService } from './components/root/root-resolver.service';
-import { PageHomeOneResolverService } from './pages/page-home-one/page-home-one-resolver.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AppInterceptor } from './app.interceptor';
 import { LoginService } from './login.service';
@@ -88,8 +87,7 @@ export function createTranslateLoader(http: HttpClient) {
         { provide: LOCALE_ID, useValue: 'fr-FR'}, 
         {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
         // { provide: LOCALE_ID, useValue: 'it' }
-        RootResolverService,
-        PageHomeOneResolverService
+        RootResolverService
     ],
     bootstrap: [AppComponent]
 })
