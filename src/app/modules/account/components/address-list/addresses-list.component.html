@@ -9,20 +9,18 @@
         <div class="addresses-list__item card address-card">
             <div class="address-card__badge" *ngIf="address.selected">{{'page-addresses-list.SelectedAddress' | translate}}</div>
             <div class="address-card__body">
-                <div class="address-card__name">{{ address.ContactFirstName + ' ' + address.ContactLastName}}</div>
+                <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}:</div>
+                <div class="address-card__name">{{ address.EntrepriseName }}</div>
                 <div class="address-card__row">
-                    {{ address.Country }}<br>
-                    {{ address.ZipCode }}, {{ address.City }}<br>
                     {{ address.FirstLineAddress }}<br>
-                    {{ address.SecondLineAddress }}
+                    {{ address.SecondLineAddress }}<br>
+              
+                    {{ address.ZipCode }}, {{ address.City }}<br>
+                    {{ address.Country }}
                 </div>
                 <div class="address-card__row">
                     <div class="address-card__row-title">{{'page-dashboard.PhoneNumber' | translate}}</div>
                     <div class="address-card__row-content">{{ address.ContactTelephone }}</div>
-                </div>
-                <div class="address-card__row">
-                    <div class="address-card__row-title">{{'page-dashboard.EntrepriseName' | translate}}</div>
-                    <div class="address-card__row-content">{{ address.EntrepriseName }}</div>
                 </div>
                 <div class="address-card__footer">
                     <a [routerLink]="['/account/address']" [queryParams]="{AddressId: address.Id, Type: 'shippingAdress' }" style="cursor: pointer; color: #cc3333;">{{'page-addresses-list.Edit' | translate}}</a>&nbsp;&nbsp;

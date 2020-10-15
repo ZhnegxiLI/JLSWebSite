@@ -17,10 +17,11 @@
             <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}:</div>
             <div class="address-card__name">{{ defaultAdress.EntrepriseName }}</div>
             <div class="address-card__row">
-                {{ defaultAdress.Country }}<br>
-                {{ defaultAdress.ZipCode }}, {{ defaultAdress.City }}<br>
                 {{ defaultAdress.FirstLineAddress }}<br>
-                {{ defaultAdress.SecondLineAddress }}
+                {{ defaultAdress.SecondLineAddress }}<br>
+               
+                {{ defaultAdress.ZipCode }}, {{ defaultAdress.City }}<br>
+                {{ defaultAdress.Country }}
             </div>
             <div class="address-card__row">
                 <div class="address-card__row-title">{{'page-dashboard.PhoneNumber' | translate}}</div>

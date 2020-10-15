@@ -268,9 +268,9 @@
     "page-addresses-list": {
         "AddNew": "Ajouter nouveau adresse",
         "Default": "Défaut",
-        "Edit": "Eiter",
+        "Edit": "Editer",
         "Remove": "Supprimer",
-        "Selected": "Sélectionné",
+        "Selected": "Sélectionner",
         "SelectedAddress": "Adresse sélectionné"
     },
     "page-edit-address": {

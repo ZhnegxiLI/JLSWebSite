@@ -18,14 +18,14 @@
 
                         <div class="address-card__body">
                             <h3 class="card-title">{{'page-checkout.Billingdetails' | translate}}</h3>
-                            <div class="address-card__name">
-                                {{ facturationAddress.ContactFirstName + ' ' + facturationAddress.ContactLastName}}
-                            </div>
+                            <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}:</div>
+                            <div class="address-card__name">{{ facturationAddress.EntrepriseName }}</div>
                             <div class="address-card__row">
-                                {{  facturationAddress.Country }}<br>
-                                {{ facturationAddress.ZipCode }}, {{ facturationAddress.City }}<br>
                                 {{ facturationAddress.FirstLineAddress }}<br>
-                                {{ facturationAddress.SecondLineAddress }}
+                                {{ facturationAddress.SecondLineAddress }}<br>
+                           
+                                {{ facturationAddress.ZipCode }}, {{ facturationAddress.City }}<br>
+                                {{  facturationAddress.Country }}
                             </div>
                             <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-dashboard.PhoneNumber' | translate}}

@@ -22,6 +22,16 @@ export class AddressesListComponent {
 
     }
 
+    ngOnInit(){
+        if(this.addresses.length>0){
+            let defaultAddress = this.addresses.find(p=>p.IsDefaultAdress);
+            if(defaultAddress == null){
+                defaultAddress = this.addresses[0];
+            }
+            this.selectAddressEvent(defaultAddress);
+        }
+    }
+
     selectAddressEvent(address: any) {
         this.addresses.map(p => p.selected = null);
         address.selected = true;

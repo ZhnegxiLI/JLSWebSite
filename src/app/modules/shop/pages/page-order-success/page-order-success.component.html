@@ -83,10 +83,10 @@
                             <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}: </div>
                             <div class="address-card__name">{{ order.ShippingAdress.EntrepriseName }}</div>
                             <div class="address-card__row">
-                                {{  order.ShippingAdress.Country }}<br>
-                                {{ order.ShippingAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
                                 {{ order.ShippingAdress.FirstLineAddress }}<br>
-                                {{ order.ShippingAdress.SecondLineAddress }}
+                                {{ order.ShippingAdress.SecondLineAddress }}<br>
+                                {{ order.ShippingAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
+                                {{  order.ShippingAdress.Country }}
                             </div>
                             <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-order-success.PhoneNumber' | translate}}</div>
@@ -106,10 +106,10 @@
                             <div class="address-card__name" style="margin-bottom:0">{{'page-order-details.EntrepriseName' | translate}}:</div>
                             <div class="address-card__name">{{ order.FacturationAdress.EntrepriseName }}</div>
                             <div class="address-card__row">
-                                {{ order.FacturationAdress.Country }}<br>
-                                {{ order.FacturationAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
                                 {{ order.FacturationAdress.FirstLineAddress }}<br>
-                                {{ order.FacturationAdress.SecondLineAddress }}
+                                {{ order.FacturationAdress.SecondLineAddress }}<br>
+                                {{ order.FacturationAdress.ZipCode }}, {{ order.ShippingAdress.City }}<br>
+                                {{ order.FacturationAdress.Country }}
                             </div>
                             <div class="address-card__row">
                                 <div class="address-card__row-title">{{'page-order-success.PhoneNumber' | translate}}</div>

@@ -20,8 +20,8 @@ export class PageEditAddressComponent {
         this.adressForm = this.formBuilder.group({
             Id: [''],
             EntrepriseName: ['', Validators.required],
-            ContactFirstName: ['', Validators.required],
-            ContactLastName: ['', Validators.required],
+            ContactFirstName: [''],
+            ContactLastName: [''],
             FirstLineAddress: ['', Validators.required],
             SecondLineAddress: [''],
             City: ['', Validators.required],
