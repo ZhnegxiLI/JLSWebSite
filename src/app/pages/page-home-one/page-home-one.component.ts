@@ -6,7 +6,7 @@ import { ShopService } from '../../shared/api/shop.service';
 import { Product } from '../../shared/interfaces/product';
 import { Category } from '../../shared/interfaces/category';
 import { BlockHeaderGroup } from '../../shared/interfaces/block-header-group';
-import { takeUntil, tap } from 'rxjs/operators';
+import { shareReplay, takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { ProductService } from 'src/app/shared/api/product.service';
@@ -56,33 +56,11 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
         private productService: ProductService,
         private translateService: TranslateService
     ) {
-        this.route.data.subscribe(data => {
-        });
+
     }
 
     ngOnInit(): void {
-        this.bestsellers$ = this.productService.GetProductListBySalesPerformance({
-            Lang: this.translateService.currentLang,
-            Begin: 0,
-            Step: 11
-        });
-
-        this.promotionProduct$ = this.productService.GetPromotionProduct({
-            Lang: this.translateService.currentLang,
-            Begin: 0,
-            Step: 11
-        });
-
-        this.latestProduct$ = this.productService.GetProductListByPublishDate({
-            Lang: this.translateService.currentLang,
-            Begin: 0,
-            Step: 11
-        });
-
-        this.brands$ = this.shop.getPopularBrands();
-
-        this.popularCategories$ = this.formatMegaMenu();
-
+        // Load short data
         this.columnTopRated$ = this.productService.GetProductListByNote({
             Lang: this.translateService.currentLang,
             Begin: 0,
@@ -99,81 +77,134 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             Step: 3
         });
 
-        var categoryList = this.storeService.categoryList.value.slice(0, 4);
-        var groups = [];
-        groups.push({
-            name: "All",
-            current: true,
-            products$: this.productService.GetProductByPrice({
-                Lang: this.translateService.currentLang,
-                Begin: 0,
-                Step: 8
-            })
-        })
-        categoryList.forEach(element => {
-            groups.push({
-                name: element.Label,
-                current: false,
-                products$: this.productService.GetProductByPrice({
-                    MainCategoryId: element.Id,
-                    Lang: this.translateService.currentLang,
-                    Begin: 0,
-                    Step: 8
-                }),
-            })
-        });
 
-        this.featuredProducts = {
-            abort$: new Subject<void>(),
-            loading: false,
-            products: [],
-            groups: groups
-        };
-        this.groupChange(this.featuredProducts, this.featuredProducts.groups[0]);
-        var categoryList = this.storeService.categoryList.value.slice(0, 4);
-        var groups = [];
-        groups.push({
-            name: "All",
-            current: true,
-            products$: this.productService.GetProductListByPublishDate({
-                Lang: this.translateService.currentLang,
-                Begin: 0,
-                Step: 8
-            })
-        })
-        categoryList.forEach(element => {
+        
+        this.brands$ = this.shop.getPopularBrands();
+
+        this.popularCategories$ = this.formatMegaMenu();
+
+        /* Not needed for jls version */
+        if (!this.simplifyHomePage) {
+            var categoryList = this.storeService.categoryList.value.slice(0, 4);
+            var groups = [];
             groups.push({
-                name: element.Label,
-                current: false,
-                products$: this.productService.GetProductListByPublishDate({
-                    MainCategoryId: element.Id,
+                name: "All",
+                current: true,
+                products$: this.productService.GetProductByPrice({
                     Lang: this.translateService.currentLang,
                     Begin: 0,
                     Step: 8
-                }),
+                })
             })
-        });
-        this.latestProducts = {
-            abort$: new Subject<void>(),
-            loading: false,
-            products: [],
-            groups: groups
-        };
-        this.groupChange1(this.latestProducts, this.latestProducts.groups[0]);
+            categoryList.forEach(element => {
+                groups.push({
+                    name: element.Label,
+                    current: false,
+                    products$: this.productService.GetProductByPrice({
+                        MainCategoryId: element.Id,
+                        Lang: this.translateService.currentLang,
+                        Begin: 0,
+                        Step: 8
+                    }),
+                })
+            });
+
+            this.featuredProducts = {
+                abort$: new Subject<void>(),
+                loading: false,
+                products: [],
+                groups: groups
+            };
+            this.groupChange(this.featuredProducts, this.featuredProducts.groups[0]);
+            var categoryList = this.storeService.categoryList.value.slice(0, 4);
+            var groups = [];
+            groups.push({
+                name: "All",
+                current: true,
+                products$: this.productService.GetProductListByPublishDate({
+                    Lang: this.translateService.currentLang,
+                    Begin: 0,
+                    Step: 8
+                })
+            })
+            categoryList.forEach(element => {
+                groups.push({
+                    name: element.Label,
+                    current: false,
+                    products$: this.productService.GetProductListByPublishDate({
+                        MainCategoryId: element.Id,
+                        Lang: this.translateService.currentLang,
+                        Begin: 0,
+                        Step: 8
+                    }),
+                })
+            });
+            this.latestProducts = {
+                abort$: new Subject<void>(),
+                loading: false,
+                products: [],
+                groups: groups
+            };
+            this.groupChange1(this.latestProducts, this.latestProducts.groups[0]);
+        }
+
     }
 
+    get bestsellers() {
+        if(!this.bestsellers$){
+            this.bestsellers$ = this.productService.GetProductListBySalesPerformance({
+                Lang: this.translateService.currentLang,
+                Begin: 0,
+                Step: 11
+            })
+            .pipe(
+                shareReplay()
+            );
+        }
+       return this.bestsellers$;
+    }
+
+    get latestProduct() {
+        if(!this.latestProduct$){
+            this.latestProduct$ = this.productService.GetProductListByPublishDate({
+                Lang: this.translateService.currentLang,
+                Begin: 0,
+                Step: 11
+            })
+            .pipe(
+                shareReplay()
+            );
+        }
+       return this.latestProduct$;
+    }
+
+    get promotionProduct() {
+        if(!this.promotionProduct$){
+            this.promotionProduct$ = this.productService.GetPromotionProduct({
+                Lang: this.translateService.currentLang,
+                Begin: 0,
+                Step: 11
+            })
+            .pipe(
+                shareReplay()
+            );
+        }
+       return this.promotionProduct$;
+    }
+
+
     formatMegaMenu(): any[] {
-        var array = [];
         var targetedCategory = this.storeService.categoryList.value.sort((a, b) => b.SecondCategory.length - a.SecondCategory.length);
         targetedCategory.filter(p => p.SecondCategory.length > 0);
-        targetedCategory = targetedCategory.slice(0, 6);
+        // Show all category for jls 
+        //targetedCategory = targetedCategory.slice(0, 6);
 
         return targetedCategory;
     }
 
     ngOnDestroy(): void {
-        this.destroy$.next();
-        this.destroy$.complete();
+       // this.destroy$.next();
+       // this.destroy$.complete();
     }
 
     groupChange(carousel: ProductsCarouselData, group: BlockHeaderGroup): void {
