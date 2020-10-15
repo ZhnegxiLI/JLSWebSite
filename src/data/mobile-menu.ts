@@ -7,8 +7,7 @@ export const mobileMenu: MobileMenuItem[] = [
 
     {type: 'link', label: 'mobileMenu.Shop', url: '/shop/catalog', code:'shop', children: [
         {type: 'link', label: 'mobileMenu.ShopList',          url: '/shop/category-list'},
-        {type: 'link', label: 'mobileMenu.Cart',        url: '/shop/cart'},
-        {type: 'link', label: 'mobileMenu.TrackOrder', url: '/shop/track-order'}
+        {type: 'link', label: 'mobileMenu.Cart',        url: '/shop/cart'}
     ]},
 
     {type: 'link', label: 'mobileMenu.Account', url: '/account', children: [

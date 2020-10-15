@@ -8,7 +8,6 @@ export const navigation: NavigationLink[] = [
             {label: 'Header.links.ShopList', url: '/shop/category-list'},
             {label: 'Header.links.Cart', url: '/shop/cart'},
             {label: 'Header.links.Wishlist', url: '/shop/wishlist'},
-            {label: 'Header.links.TrackOrder', url: '/shop/track-order'},
         ]
     }},
     {label: 'Header.links.Account', url: '/account', menu: {

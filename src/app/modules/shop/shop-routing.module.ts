@@ -4,7 +4,6 @@ import { PageCategoryComponent } from './pages/page-category/page-category.compo
 import { PageCartComponent } from './pages/page-cart/page-cart.component';
 import { PageWishlistComponent } from './pages/page-wishlist/page-wishlist.component';
 import { PageCheckoutComponent } from './pages/page-checkout/page-checkout.component';
-import { PageTrackOrderComponent } from './pages/page-track-order/page-track-order.component';
 import { CheckoutGuard } from './guards/checkout.guard';
 import { PageProductComponent } from './pages/page-product/page-product.component';
 import { ProductsListResolverService } from './resolvers/products-list-resolver.service';
@@ -106,10 +105,6 @@ const routes: Routes = [
             favoriteList: WishListResolverService
         },
         canActivate: [AuthGuard],
-    },
-    {
-        path: 'track-order',
-        component: PageTrackOrderComponent
     },
 
     // --- START ---

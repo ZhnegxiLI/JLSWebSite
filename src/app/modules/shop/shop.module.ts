@@ -23,12 +23,10 @@ import { PageCartComponent } from './pages/page-cart/page-cart.component';
 import { PageCategoryComponent } from './pages/page-category/page-category.component';
 import { PageCheckoutComponent } from './pages/page-checkout/page-checkout.component';
 import { PageProductComponent } from './pages/page-product/page-product.component';
-import { PageTrackOrderComponent } from './pages/page-track-order/page-track-order.component';
 import { PageWishlistComponent } from './pages/page-wishlist/page-wishlist.component';
 import { ProductSidebarComponent } from './components/product-sidebar/product-sidebar.component';
 import { PageOrderSuccessComponent } from './pages/page-order-success/page-order-success.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageCategoryService1 } from './services/page-category1.service';
 import { AccountModule } from '../account/account.module';
 import { NgxLoadingModule } from 'ngx-loading';
 
@@ -43,7 +41,6 @@ import { NgxLoadingModule } from 'ngx-loading';
         PageCategoryComponent,
         PageCheckoutComponent,
         PageProductComponent,
-        PageTrackOrderComponent,
         PageWishlistComponent,
         ProductSidebarComponent,
         PageOrderSuccessComponent
