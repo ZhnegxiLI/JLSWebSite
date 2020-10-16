@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Address } from '../../../../shared/interfaces/address';
-import { addresses } from '../../../../../data/account-addresses';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { UserService } from 'src/app/shared/api/user.service';

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Order } from '../../../../shared/interfaces/order';
-import { orders } from '../../../../../data/account-orders';
 import { Address } from '../../../../shared/interfaces/address';
-import { addresses } from '../../../../../data/account-addresses';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
 
@@ -12,8 +10,6 @@ import { StoreService } from 'src/app/shared/services/store.service';
     styleUrls: ['./page-dashboard.component.sass']
 })
 export class PageDashboardComponent {
-    address: Address = addresses[0];
-   
     public username: string;
     public entrepriseName: string;
     public orders: any [];

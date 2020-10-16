@@ -1,6 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { posts } from '../../../data/blog-posts';
-import { Brand } from '../../shared/interfaces/brand';
 import { Observable, Subject, merge } from 'rxjs';
 import { ShopService } from '../../shared/api/shop.service';
 import { Product } from '../../shared/interfaces/product';
@@ -34,27 +32,21 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     simplifyHomePage = environment.simplifyHomePage;
 
     destroy$: Subject<void> = new Subject<void>();
-    bestsellers$: Observable<Product[]>;
-    promotionProduct$: Observable<Product[]>;
-    latestProduct$: Observable<Product[]>;
-    brands$: Observable<Brand[]>;
+
     popularCategories$: any[];
 
     columnTopRated$: Observable<Product[]>;
     columnSpecialOffers$: Observable<Product[]>;
     columnBestsellers$: Observable<Product[]>;
 
-    posts = posts;
-
     featuredProducts: ProductsCarouselData;
     latestProducts: ProductsCarouselData;
 
     constructor(
         public route: ActivatedRoute,
-        private shop: ShopService,
-        private storeService: StoreService,
-        private productService: ProductService,
-        private translateService: TranslateService
+        public storeService: StoreService,
+        public productService: ProductService,
+        public translateService: TranslateService
     ) {
 
     }
@@ -76,10 +68,6 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             Begin: 0,
             Step: 3
         });
-
-
-        
-        this.brands$ = this.shop.getPopularBrands();
 
         this.popularCategories$ = this.formatMegaMenu();
 
@@ -150,61 +138,18 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
 
     }
 
-    get bestsellers() {
-        if(!this.bestsellers$){
-            this.bestsellers$ = this.productService.GetProductListBySalesPerformance({
-                Lang: this.translateService.currentLang,
-                Begin: 0,
-                Step: 11
-            })
-            .pipe(
-                shareReplay()
-            );
-        }
-       return this.bestsellers$;
-    }
-
-    get latestProduct() {
-        if(!this.latestProduct$){
-            this.latestProduct$ = this.productService.GetProductListByPublishDate({
-                Lang: this.translateService.currentLang,
-                Begin: 0,
-                Step: 11
-            })
-            .pipe(
-                shareReplay()
-            );
-        }
-       return this.latestProduct$;
-    }
-
-    get promotionProduct() {
-        if(!this.promotionProduct$){
-            this.promotionProduct$ = this.productService.GetPromotionProduct({
-                Lang: this.translateService.currentLang,
-                Begin: 0,
-                Step: 11
-            })
-            .pipe(
-                shareReplay()
-            );
-        }
-       return this.promotionProduct$;
-    }
-
 
     formatMegaMenu(): any[] {
         var targetedCategory = this.storeService.categoryList.value.sort((a, b) => b.SecondCategory.length - a.SecondCategory.length);
         targetedCategory.filter(p => p.SecondCategory.length > 0);
         // Show all category for jls 
         //targetedCategory = targetedCategory.slice(0, 6);
-
         return targetedCategory;
     }
 
     ngOnDestroy(): void {
-       // this.destroy$.next();
-       // this.destroy$.complete();
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 
     groupChange(carousel: ProductsCarouselData, group: BlockHeaderGroup): void {

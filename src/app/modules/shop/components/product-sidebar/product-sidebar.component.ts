@@ -19,7 +19,5 @@ export class ProductSidebarComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.categories$ = this.shop.getCategories(null, 1);
-        this.bestsellers$ = this.shop.getBestsellers().pipe(map(x => x.slice(0, 5)));
     }
 }

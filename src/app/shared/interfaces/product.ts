@@ -1,4 +1,4 @@
-import { Brand } from './brand';
+
 import { Category } from './category';
 import { CustomFields } from './custom-fields';
 
@@ -39,7 +39,6 @@ export interface Product {
     rating: number;
     reviews: number;
     availability: string;
-    brand: Brand | null;
     categories: Category[];
     attributes: ProductAttribute[];
     customFields: CustomFields;

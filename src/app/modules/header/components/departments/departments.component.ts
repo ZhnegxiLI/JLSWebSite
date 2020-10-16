@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { departments } from '../../../../../data/header-departments';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
 import { isPlatformBrowser } from '@angular/common';
 import { HeaderService } from '../../../../shared/services/header.service';

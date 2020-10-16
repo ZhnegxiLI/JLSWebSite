@@ -14,11 +14,11 @@
 
 <app-block-banner *ngIf="!simplifyHomePage"></app-block-banner>
 
-<app-block-products header="Promotionproduit" layout="large-first" [products]="promotionProduct|async"></app-block-products>
-<app-block-products header="products-view.New" layout="large-first" [products]="latestProduct|async"></app-block-products>
+<app-block-products header="Promotionproduit" layout="large-first" [products]="productService.promotionProductHomePage|async"></app-block-products>
+<app-block-products header="products-view.New" layout="large-first" [products]="productService.latestProductHomePage|async"></app-block-products>
 
 
-<app-block-products *ngIf="!simplifyHomePage" header="page-home-one.Bestsellers" layout="large-first" [products]="bestsellers$|async"></app-block-products>
+<app-block-products *ngIf="!simplifyHomePage" header="page-home-one.Bestsellers" layout="large-first" [products]="productService.latestProductHomePage|async"></app-block-products>
 
 <app-block-categories header="page-home-one.PopularCategories" layout="classic" [categories]="popularCategories$" *ngIf="!simplifyHomePage"></app-block-categories>
 
@@ -33,8 +33,6 @@
     (groupChange)="groupChange(latestProducts, $event)"
 ></app-block-products-carousel1>
 
-
-<app-block-brands [brands]="brands$|async" *ngIf="!simplifyHomePage"></app-block-brands>
 
 <app-block-product-columns *ngIf="!simplifyHomePage">
     <app-block-product-columns-item header="page-home-one.TopRatedProducts" [products]="columnTopRated$|async"></app-block-product-columns-item>

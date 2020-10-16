@@ -12,7 +12,6 @@ import { SharedModule } from '../../shared/shared.module';
 
 // blocks
 import { BlockBannerComponent } from './block-banner/block-banner.component';
-import { BlockBrandsComponent } from './block-brands/block-brands.component';
 import { BlockCategoriesComponent } from './block-categories/block-categories.component';
 import { BlockFeaturesComponent } from './block-features/block-features.component';
 import { BlockMapComponent } from './block-map/block-map.component';
@@ -31,7 +30,6 @@ import { BlockProductsCarousel1Component } from './block-products-carousel1/bloc
     declarations: [
         // blocks
         BlockBannerComponent,
-        BlockBrandsComponent,
         BlockCategoriesComponent,
         BlockFeaturesComponent,
         BlockMapComponent,
@@ -57,7 +55,6 @@ import { BlockProductsCarousel1Component } from './block-products-carousel1/bloc
     exports: [
         // blocks
         BlockBannerComponent,
-        BlockBrandsComponent,
         BlockCategoriesComponent,
         BlockFeaturesComponent,
         BlockMapComponent,

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { Category } from '../interfaces/category';
-import { Brand } from '../interfaces/brand';
 
 @Injectable({
     providedIn: 'root'
@@ -48,10 +47,6 @@ export class RootService {
         }
 
         throw Error('Provide product with "slug" or "id".');
-    }
-
-    brand(brand: Partial<Brand>): string {
-        return '/';
     }
 
     cart(): string {

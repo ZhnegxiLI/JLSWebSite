@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Order } from '../../../../shared/interfaces/order';
-import { orders } from '../../../../../data/account-orders';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

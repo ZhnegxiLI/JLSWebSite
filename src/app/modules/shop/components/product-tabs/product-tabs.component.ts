@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductFeaturesSection, ProductDetail1 } from '../../../../shared/interfaces/product';
-import { specification } from '../../../../../data/shop-product-spec';
 import { Review } from '../../../../shared/interfaces/review';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
@@ -21,8 +20,6 @@ export class ProductTabsComponent implements OnInit {
 
     @Input() product;
 
-    specification: ProductFeaturesSection[] = specification;
-   
     constructor(public translateService: TranslateService) {
     }
 

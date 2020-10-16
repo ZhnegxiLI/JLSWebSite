@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { order } from '../../../../../data/account-order-details';
 import { Order } from '../../../../shared/interfaces/order';
 import { RootService } from '../../../../shared/services/root.service';
 import { ActivatedRoute } from '@angular/router';
