@@ -20,8 +20,8 @@
     </div> 
 
     <div class="product-card__image">
-        <a appClick  *ngIf="product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img [src]="host+product.DefaultPhotoPath" alt="" ></a>
-        <a appClick  *ngIf="!product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img src="assets/images/products/product-7.jpg" alt=""></a> 
+        <a appClick  *ngIf="product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img [src]="host+product.DefaultPhotoPath" alt="" style="max-height: 100%;"></a>
+        <a appClick  *ngIf="!product.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }"><img src="assets/images/products/product-7.jpg" alt=""style="max-height: 100%;"></a> 
     </div>
     <div class="product-card__info">
         <div class="product-card__name">
