@@ -48,8 +48,8 @@ export class PageRegistreComponent {
             ZipCode: ['', Validators.required],
             ContactTelephone: ['', Validators.required],
             ContactFax: [''],
-            ContactFirstName: ['', Validators.required],
-            ContactLastName: ['', Validators.required]
+            ContactFirstName: [''],
+            ContactLastName: ['']
         });
     }
 

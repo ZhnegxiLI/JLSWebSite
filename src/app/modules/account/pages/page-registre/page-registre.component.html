@@ -60,12 +60,10 @@
                                 </mat-form-field>
 
                                 <mat-form-field>
-                                    <span matPrefix>+33 &nbsp;</span>
-                                    <input matInput required type="tel" matInput
-                                        placeholder="{{'registre.PhoneNumber' | translate}}"
+                                    <mat-label>{{'registre.PhoneNumber' | translate}}</mat-label>
+                                    <input matInput required type="tel" matInput placeholder="EX: +33 xx xx xx xx xx"
                                         formControlName="phoneNumber">
                                 </mat-form-field>
-
                                 <div>
                                     <button mat-raised-button color="warn"
                                         matStepperPrevious>{{'registre.Back' | translate}}</button>
@@ -78,22 +76,6 @@
                             <form [formGroup]="addressForm">
                                 <ng-template matStepLabel>{{'registre.Address' | translate}}</ng-template>
 
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <mat-form-field>
-                                            <input matInput placeholder="{{'registre.Firstname' | translate}}"
-                                                formControlName="ContactFirstName" required>
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <mat-form-field>
-                                            <input matInput placeholder="{{'registre.Lastname' | translate}}"
-                                                formControlName="ContactLastName" required>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-
                                 <mat-form-field>
                                     <input matInput placeholder="{{'registre.AddressLine1' | translate}}"
                                         formControlName="FirstLineAddress" required>
@@ -104,38 +86,43 @@
                                         formControlName="SecondLineAddress">
                                 </mat-form-field>
 
-                                <mat-form-field>
-                                    <input matInput placeholder="{{'registre.Country' | translate}}"
-                                        formControlName="Country" required>
-                                </mat-form-field>
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <mat-form-field>
-                                            <input matInput placeholder="{{'registre.City' | translate}}"
-                                                formControlName="City" required>
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="col-md-6">
+
+                                    <div class="col-md-4">
                                         <mat-form-field>
                                             <input matInput placeholder="{{'registre.ZipCode' | translate}}"
                                                 formControlName="ZipCode" required>
                                         </mat-form-field>
                                     </div>
+                                    <div class="col-md-4">
+                                        <mat-form-field>
+                                            <input matInput placeholder="{{'registre.City' | translate}}"
+                                                formControlName="City" required>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <mat-form-field>
+                                            <input matInput placeholder="{{'registre.Country' | translate}}"
+                                                formControlName="Country" required>
+                                        </mat-form-field>
+                                    </div>
                                 </div>
 
                                 <mat-form-field>
-                                    <span matPrefix>+33 &nbsp;</span>
-                                    <input matInput required type="tel" matInput
-                                        placeholder="{{'registre.PhoneNumber' | translate}}"
+                                    <mat-label>{{'registre.PhoneNumber' | translate}} </mat-label>
+                                    <input matInput required type="tel" matInput placeholder="EX: +33 xx xx xx xx xx"
                                         formControlName="ContactTelephone">
                                 </mat-form-field>
 
                                 <mat-form-field>
-                                    <span matPrefix>+33 &nbsp;</span>
-                                    <input matInput type="tel" matInput placeholder="{{'registre.Fax' | translate}}"
+                                    <mat-label>{{'registre.Fax' | translate}}</mat-label>
+                                    <input matInput type="tel" matInput placeholder="EX: +33 xx xx xx xx xx"
                                         formControlName="ContactFax">
                                 </mat-form-field>
+
+
                                 <div>
                                     <button mat-raised-button color="warn"
                                         matStepperPrevious>{{'registre.Back' | translate}}</button>
