@@ -77,3 +77,30 @@ $local-transition-duration: .2s;
         transform: rotateZ(180deg);
     }
 }
+
+
+.subcategory__body {
+    margin-left: 5px;;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height $local-transition-duration,
+                opacity $local-transition-duration,
+                visibility 0s $local-transition-duration;
+}
+.subcategory__container {
+    padding: 10px $widget-shop-padding 16px;
+}
+
+.subcategory--opened {
+    .subcategory__body {
+        transition-delay: 0s, 0s;
+        visibility: visible;
+        height: auto;
+        opacity: 1;
+    }
+    .subcategory__arrow {
+        transform: rotateZ(180deg);
+    }
+}

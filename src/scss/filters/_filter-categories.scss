@@ -26,7 +26,7 @@ $local-item-padding-left: 14px;
 }
 .filter-categories__item {
     padding: 6px 0;
-    display: flex;
+   // display: flex;
 
     & > a {
         flex-grow: 1;
@@ -70,12 +70,33 @@ $local-item-padding-left: 14px;
     padding-top: 4px;
     font-weight: $font-weight-normal;
     color: $card-font-muted-color;
+    float: right;
+    cursor: pointer;
 }
+
+
 
 .filter-categories--root {
     .filter-categories__item--child {
         @include direction {
             #{$padding-inline-start}: 0;
         }
+    }
+}
+
+
+.subcategory__list {
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #747474;
+
+    a {
+        color: inherit;
+        transition: color .15s;
+    }
+    a:hover {
+        color: $link-hover-color;
     }
 }

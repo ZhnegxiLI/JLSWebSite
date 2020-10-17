@@ -96,12 +96,6 @@ export class WidgetFiltersComponent implements OnInit, OnDestroy {
                 min: 0,
                 max: 2000
             });
-            this.filters.push({
-                name: 'widget-filters.MinQuantity',
-                type: 'singleRange',
-                min: 0,
-                max: 200
-            })
         });
 
         /* TODO Bind the form change*/

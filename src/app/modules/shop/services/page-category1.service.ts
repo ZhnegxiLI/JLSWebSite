@@ -30,7 +30,7 @@ export class PageCategoryService1 {
     isLoading$: Observable<boolean> = this.isLoadingSource.asObservable();
 
     // list
-    private listState: any;
+    private listState: any = [];
     private listSource: BehaviorSubject<any> = new BehaviorSubject<any>(this.listState);
 
     list$: Observable<any> = this.listSource.pipe(filter(x => x !== null));

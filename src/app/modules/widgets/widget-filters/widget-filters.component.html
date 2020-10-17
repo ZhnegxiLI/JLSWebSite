@@ -21,10 +21,25 @@
                                     <app-icon *ngIf="item.type == 'parent'" class="filter-categories__arrow"
                                         name="arrow-rounded-left-6x9" size="6x9"></app-icon>
                                     <a [routerLink]="['/shop/catalog']"
-                                        [queryParams]="{CategoryId: item.CategoryId ,CategoryLabel :item.CategoryShortLabel, ReferenceItemId: item.Id}">{{ item.Label }}</a>
+                                        [queryParams]="{CategoryLabel :item.CategoryShortLabel, ReferenceItemId: item.Id}">{{ item.Label }}</a>
                                     <!--[routerLink]="this.root.category(item.category)" -->
-                                    <div class="filter-categories__counter">{{ item.SecondCategory.length }}</div>
+                                    <span  (click)="collapse.toggle()"class="filter-categories__counter filter">
+                                        {{ item.SecondCategory.length }}
+                                    </span>
+                                    <div  appCollapseItem="subcategory--opened" #collapse="appCollapseItem">
+                                   
+
+                                        <div class="subcategory__body" appCollapseContent> 
+                                            <ul class="subcategory__list">
+                                                <li *ngFor="let itemSub of item.SecondCategory" style="padding: 3px;">
+                                                    <a [routerLink]="['/shop/catalog']"
+                                                    [queryParams]="{CategoryLabel :itemSub.CategoryShortLabel, ReferenceItemId: itemSub.Id}">{{ itemSub.Label }}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </li>
+                                
                             </ul>
                         </div>
 
@@ -51,28 +66,6 @@
                                     class="filter-price__max-value">{{ (rightToLeft ? slider.value : slider.highValue)|currencyFormat }}</span>
                             </div>
                         </div>
-
-
-
-                        <div *ngIf="filter.type === 'singleRange' && isPlatformBrowser" class="filter-price">
-                            <div class="filter-price__slider">
-                                <div class="ng5-slider-custom">
-                                    <ng5-slider [(value)]="minQuantity" (userChangeEnd)="filterValueChange()" [options]="{
-                                            animate: false,
-                                            mouseEventsInterval: 10,
-                                            rightToLeft: rightToLeft,
-                                            floor: filter.min,
-                                            ceil: filter.max,
-                                            step: 1
-                                        }" #slider1></ng5-slider>
-                                </div>
-                            </div>
-                            <div class="filter-price__title">
-                                <span class="filter-price__min-value">
-                                    {{'widget-filters.Minquantity' | translate}}:{{ slider1.value }}</span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
