@@ -10,7 +10,7 @@
                 <div class="widget-products__name">
                     <a appClick [routerLink]="['/shop/products']" [queryParams]="{ProductId: product.ProductId }">{{ product.Label }}</a>
                 </div>
-                <div class="widget-products__prices">
+                <div class="widget-products__prices" *ngIf="loginService.loginStatus|async">
                     <ng-container>
                         {{ product.Price|currencyFormat }}
                     </ng-container>

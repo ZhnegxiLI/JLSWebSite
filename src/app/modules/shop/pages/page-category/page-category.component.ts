@@ -61,37 +61,30 @@ export class PageCategoryComponent implements OnDestroy {
             }
 
             /* Set the parameter of the first search */
-            route.queryParams.subscribe(param => {
-                /* Todo find out a better solution */
-                var criteria: any = {
-                    Begin: 0,
-                    Step: 12,
-                    Lang: localStorage.getItem('lang')
-                };
-                var categoryShortLabel = param.CategoryLabel;
-                if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
-                    criteria.MainCategory = param.ReferenceItemId
-                }
-                else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
-                    criteria.SecondCategory = param.ReferenceItemId
-                }
+            // route.queryParams.subscribe(param => {
+            //     /* Todo find out a better solution */
+            //     var criteria: any = {
+            //         Begin: 0,
+            //         Step: 12,
+            //         Lang: localStorage.getItem('lang')
+            //     };
+            //     var categoryShortLabel = param.CategoryLabel;
+            //     if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
+            //         criteria.MainCategory = param.ReferenceItemId
+            //     }
+            //     else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
+            //         criteria.SecondCategory = param.ReferenceItemId
+            //     }
 
-                var searchText = param.SearchText;
-                if(searchText!=null){
-                    criteria.SearchText = searchText;
-                }
+            //     var searchText = param.SearchText;
+            //     if(searchText!=null){
+            //         criteria.SearchText = searchText;
+            //     }
 
-                this.pageService1.setOptions(criteria, false);
-            });
+            //     this.pageService1.setOptions(criteria, false);
+            // });
 
 
-
-            /* Map the data */
-            var formatedData = {
-                items: data.products.List,
-                TotalCount: data.products.TotalCount
-            }
-            this.pageService1.setList(formatedData);
 
             /* Build category page */
             this.columns = 'columns' in data ? data.columns : this.columns;
@@ -103,7 +96,7 @@ export class PageCategoryComponent implements OnDestroy {
         this.pageService1.optionsChange$.pipe(
 
             mergeMap(() => {
-                this.updateUrl();
+               // this.updateUrl();
                 this.pageService1.setIsLoading(true);
 
                 var criteria = this.pageService1.options;
@@ -124,14 +117,14 @@ export class PageCategoryComponent implements OnDestroy {
             }
 
             this.pageService1.setList(formatedData);
-            this.pageService1.setIsLoading(false);
+            //this.pageService1.setIsLoading(false);
         });
     }
 
 
     ngOnInit(): void {
         this.route.queryParamMap.subscribe((params: ParamMap) => {
-            this.pageService1.resetAllOptions(false);
+           // this.pageService1.resetAllOptions(false);
             var criteria = this.pageService1.options;
 
 

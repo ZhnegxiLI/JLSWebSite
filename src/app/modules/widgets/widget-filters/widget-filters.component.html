@@ -31,7 +31,7 @@
 
                                         <div class="subcategory__body" appCollapseContent> 
                                             <ul class="subcategory__list">
-                                                <li *ngFor="let itemSub of item.SecondCategory" style="padding: 3px;">
+                                                <li *ngFor="let itemSub of item.SecondCategory" style="padding-top: 3px;padding-bottom: 3px;">
                                                     <a [routerLink]="['/shop/catalog']"
                                                     [queryParams]="{CategoryLabel :itemSub.CategoryShortLabel, ReferenceItemId: itemSub.Id}">{{ itemSub.Label }}</a>
                                                 </li>
