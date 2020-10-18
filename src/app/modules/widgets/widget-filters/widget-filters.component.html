@@ -20,12 +20,12 @@
                                     class="filter-categories__item filter-categories__item--{{ item.type }}">
                                     <app-icon *ngIf="item.type == 'parent'" class="filter-categories__arrow"
                                         name="arrow-rounded-left-6x9" size="6x9"></app-icon>
-                                    <a [routerLink]="['/shop/catalog']"
-                                        [queryParams]="{CategoryLabel :item.CategoryShortLabel, ReferenceItemId: item.Id}">{{ item.Label }}</a>
+                                    <a (click)="collapse.toggle()" style="cursor: pointer;">{{ item.Label }}</a>
                                     <!--[routerLink]="this.root.category(item.category)" -->
-                                    <span  (click)="collapse.toggle()"class="filter-categories__counter filter">
-                                        {{ item.SecondCategory.length }}
-                                    </span>
+                                    <a  class="filter-categories__counter filter" [routerLink]="['/shop/catalog']"
+                                    [queryParams]="{CategoryLabel :item.CategoryShortLabel, ReferenceItemId: item.Id}" style="color: #cc3333;">
+                                        {{ 'All' | translate}}
+                                    </a>
                                     <div  appCollapseItem="subcategory--opened" #collapse="appCollapseItem">
                                    
 
