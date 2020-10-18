@@ -27,24 +27,25 @@ const categoryPageData: Data = {
     sidebarPosition: 'start'
 };
 
-const categoryPageResolvers: ResolveData = {
-    categorys: CategoryResolverService,
-    products: ProductsListResolverService
-};
+// const categoryPageResolvers: ResolveData = {
+//     categorys: CategoryResolverService,
+//     products: ProductsListResolverService
+// };
 
 const routes: Routes = [
     {
         path: 'catalog',
         component: PageCategoryComponent,
         data: categoryPageData,
-        resolve: categoryPageResolvers,
+      //  resolve: categoryPageResolvers,
     },
     {
         // TODO REMOVE
         path: 'catalog/:categorySlug',
         component: PageCategoryComponent,
-        data: categoryPageData,
-        resolve: categoryPageResolvers,
+        data: categoryPageData
+        // ,
+        // resolve: categoryPageResolvers,
     },
     {
         // TODO REMOVE

@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/shared/api/product.service';
 import { map } from 'rxjs/operators';
 import { StoreService } from 'src/app/shared/services/store.service';
+import { PageCategoryService } from '../../services/page-category.service';
+import { PageCategoryService1 } from '../../services/page-category1.service';
 
 @Component({
     selector: 'app-page-product',
@@ -22,8 +24,10 @@ export class PageProductComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private productService: ProductService,
-        public storeService: StoreService
-    ) { }
+        public storeService: StoreService,
+        public pageCategoryService: PageCategoryService1
+    ) {
+    }
 
     ngOnInit(): void {
         this.route.data.subscribe(data => {
@@ -33,7 +37,7 @@ export class PageProductComponent implements OnInit {
 
             this.storeService.addVisitedReferenceIds(this.product.ReferenceId);
             
-            
+            /* Get similar product (Same sub categroy) */
             this.relatedProducts$ = this.productService.AdvancedProductSearchClient({
                 SecondCategory: this.product.SecondCategoryId,
                 Lang: localStorage.getItem('lang'),

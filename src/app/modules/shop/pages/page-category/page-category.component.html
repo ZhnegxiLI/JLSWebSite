@@ -1,3 +1,4 @@
+<mat-progress-bar mode="indeterminate" color="warn" *ngIf="(storeService.showHideProgressBar$ | async)"></mat-progress-bar>
 <app-page-header [header]="pageHeader" [breadcrumbs]="breadcrumbs"></app-page-header>
 
 <ng-container *ngIf="columns === 3">

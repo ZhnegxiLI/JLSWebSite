@@ -24,6 +24,9 @@ export class StoreService {
 
     public referenceCategoryList = new BehaviorSubject<any[]>([]);
 
+    /* Only one progress bar in application */
+    public showHideProgressBar$ = new BehaviorSubject<boolean>(false);
+
     constructor(referenceService: ReferenceService, translateService: TranslateService) {
 
         this.loadVisitedReferenceIds();
@@ -83,7 +86,7 @@ export class StoreService {
         }
         if(items.findIndex(p=>p== referenceId)==-1){
             if(items.length>=10){
-                items = items.shift()
+                items.shift()
             }
             items.push(referenceId);
         }

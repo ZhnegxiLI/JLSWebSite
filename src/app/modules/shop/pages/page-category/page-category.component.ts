@@ -12,6 +12,7 @@ import { ShopService } from '../../../../shared/api/shop.service';
 import { parseFilterValue } from '../../../../shared/helpers/filter';
 import { ProductService } from 'src/app/shared/api/product.service';
 import { TranslateService } from '@ngx-translate/core';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-grid',
@@ -38,8 +39,15 @@ export class PageCategoryComponent implements OnDestroy {
         private route: ActivatedRoute,
         private pageService1: PageCategoryService1,
         private productService: ProductService,
-        private translateService: TranslateService
+        private translateService: TranslateService,
+        public storeService: StoreService
     ) {
+  
+    }
+
+
+    ngOnInit(): void {
+
         this.route.data.subscribe(data => {
             this.breadcrumbs = [
                 { label: 'Home', url: this.root.home() },
@@ -59,32 +67,6 @@ export class PageCategoryComponent implements OnDestroy {
                     { label: data.category.name, url: this.root.category(data.category) },
                 ]);
             }
-
-            /* Set the parameter of the first search */
-            // route.queryParams.subscribe(param => {
-            //     /* Todo find out a better solution */
-            //     var criteria: any = {
-            //         Begin: 0,
-            //         Step: 12,
-            //         Lang: localStorage.getItem('lang')
-            //     };
-            //     var categoryShortLabel = param.CategoryLabel;
-            //     if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
-            //         criteria.MainCategory = param.ReferenceItemId
-            //     }
-            //     else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
-            //         criteria.SecondCategory = param.ReferenceItemId
-            //     }
-
-            //     var searchText = param.SearchText;
-            //     if(searchText!=null){
-            //         criteria.SearchText = searchText;
-            //     }
-
-            //     this.pageService1.setOptions(criteria, false);
-            // });
-
-
 
             /* Build category page */
             this.columns = 'columns' in data ? data.columns : this.columns;
@@ -117,12 +99,9 @@ export class PageCategoryComponent implements OnDestroy {
             }
 
             this.pageService1.setList(formatedData);
-            //this.pageService1.setIsLoading(false);
+            this.pageService1.setIsLoading(false);
         });
-    }
-
-
-    ngOnInit(): void {
+        
         this.route.queryParamMap.subscribe((params: ParamMap) => {
            // this.pageService1.resetAllOptions(false);
             var criteria = this.pageService1.options;
@@ -131,13 +110,20 @@ export class PageCategoryComponent implements OnDestroy {
             var categoryShortLabel = params.get('CategoryLabel');
             if (categoryShortLabel != null && categoryShortLabel == "MainCategory") {
                 criteria.MainCategory = parseInt(params.get('ReferenceItemId'));
+                criteria.SecondCategory = null;
             }
             else if (categoryShortLabel != null && categoryShortLabel == "SecondCategory") {
                 criteria.SecondCategory = parseInt(params.get('ReferenceItemId'));
+                criteria.MainCategory = null;
             }
             var searchText = params.get('SearchText');
             if(searchText!=null){
                 criteria.SearchText = searchText;
+            }
+
+            /* Resert page to 0 when 1 of 3 criteria has been changed */
+            if(searchText!= null || categoryShortLabel!=null){
+                criteria.Begin = 0;
             }
 
             this.pageService1.setOptions(criteria, true);
@@ -147,58 +133,6 @@ export class PageCategoryComponent implements OnDestroy {
         this.destroy$.next();
         this.destroy$.complete();
     }
-
-    updateUrl(): void {
-        // const tree = this.router.parseUrl(this.router.url);
-        // tree.queryParams = this.getQueryParams();
-        // this.location.replaceState(tree.toString());
-    }
-
-    // getQueryParams(): Params {
-    //     const params: Params = {};
-    //     const options =  this.pageService.options;
-    //     const filterValues = options.filterValues;
-
-    //     if ('page' in options && options.page !== 1) {
-    //         params.page = options.page;
-    //     }
-    //     if ('limit' in options && options.limit !== 12) {
-    //         params.limit = options.limit;
-    //     }
-    //     if ('sort' in options && options.sort !== 'default') {
-    //         params.sort = options.sort;
-    //     }
-    //     if ('filterValues' in options) {
-    //         this.pageService.filters.forEach(filter => {
-    //             if (!(filter.slug in filterValues)) {
-    //                 return;
-    //             }
-
-    //             const filterValue: any = parseFilterValue(filter.type as any, filterValues[filter.slug]);
-
-    //             switch (filter.type) {
-    //                 case 'range':
-    //                     if (filter.min !== filterValue[0] || filter.max !== filterValue[1]) {
-    //                         params[`filter_${filter.slug}`] = `${filterValue[0]}-${filterValue[1]}`;
-    //                     }
-    //                     break;
-    //                 case 'check':
-    //                 case 'color':
-    //                     if (filterValue.length > 0) {
-    //                         params[`filter_${filter.slug}`] = filterValues[filter.slug];
-    //                     }
-    //                     break;
-    //                 case 'radio':
-    //                     if (filterValue !== filter.items[0].slug) {
-    //                         params[`filter_${filter.slug}`] = filterValue;
-    //                     }
-    //                     break;
-    //             }
-    //         });
-    //     }
-
-    //     return params;
-    // }
 
     getCategorySlug(): string | null {
         return this.route.snapshot.params.categorySlug || this.route.snapshot.data.categorySlug || null;

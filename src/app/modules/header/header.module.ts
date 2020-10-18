@@ -46,7 +46,7 @@ import { FormsModule } from '@angular/forms';
         RouterModule,
         // modules
         SharedModule,
-        FormsModule
+        FormsModule,
     ],
     exports: [
         // components

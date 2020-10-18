@@ -9,12 +9,12 @@ import { StoreService } from 'src/app/shared/services/store.service';
 })
 export class RootComponent {
     headerLayout: 'classic' | 'compact';
-
     constructor(
         public router: Router,
         public route: ActivatedRoute,
         public storeService: StoreService
     ) {
+
         this.route.data.subscribe(data => {
             this.headerLayout = data.headerLayout;
             storeService.storeInfo.next(data.initInfo[0].filter(p => p.ReferenceCategoryLabel == 'StoreInfomation'));

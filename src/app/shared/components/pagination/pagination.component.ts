@@ -42,7 +42,7 @@ export class PaginationComponent implements OnChanges, OnInit, ControlValueAcces
             return;
         }
 
-        if (this.current !== value) {
+        if (this.current !== value && emitEvent) {
             this.onChange(value);
         }
 

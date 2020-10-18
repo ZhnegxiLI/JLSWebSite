@@ -39,6 +39,8 @@ import { AppInterceptor } from './app.interceptor';
 import { LoginService } from './login.service';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+
+
 registerLocaleData(localeFr); 
 
 export function createTranslateLoader(http: HttpClient) {

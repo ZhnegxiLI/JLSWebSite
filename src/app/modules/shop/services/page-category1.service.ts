@@ -4,6 +4,7 @@ import { Product, Product1 } from '../../../shared/interfaces/product';
 import { Filter, SerializedFilterValues } from '../../../shared/interfaces/filter';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 
 export interface FilterOptions {
@@ -21,8 +22,11 @@ export interface FilterOptions {
 /**
  * This service serves as a mediator between the PageCategoryComponent, ProductsViewComponent and WidgetFiltersComponent components.
  */
-@Injectable()
+@Injectable( {
+    providedIn: 'root',
+  })
 export class PageCategoryService1 {
+
     // isLoading
     private isLoadingState = false;
     private isLoadingSource: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isLoadingState);
@@ -34,16 +38,14 @@ export class PageCategoryService1 {
     private listSource: BehaviorSubject<any> = new BehaviorSubject<any>(this.listState);
 
     list$: Observable<any> = this.listSource.pipe(filter(x => x !== null));
+    public pageOption = [12, 24];
 
-
-    public pageOption = [12,24];
+    constructor(public storeService: StoreService) {
+        this.initOptions();
+    }
     // options
     // Set default value
-    private optionsState: FilterOptions = {
-        Lang: localStorage.getItem('lang'),
-        Begin: 0,
-        Step: this.pageOption[0]
-    };
+    public optionsState: FilterOptions;
 
     get options(): FilterOptions {
         return this.optionsState;
@@ -65,6 +67,7 @@ export class PageCategoryService1 {
     setIsLoading(value: boolean): void {
         this.isLoadingState = value;
         this.isLoadingSource.next(value);
+        this.storeService.showHideProgressBar$.next(value);
     }
 
     setList(list: any): void {
@@ -84,7 +87,7 @@ export class PageCategoryService1 {
         this.setOptions({ ...this.optionsState, ...options }, emitEvent);
     }
 
-    resetAllOptions(emitEvent: boolean = true){
+    resetAllOptions(emitEvent: boolean = true) {
         this.setOptions({
             Begin: 0,
             Step: this.pageOption[0],
@@ -93,7 +96,7 @@ export class PageCategoryService1 {
         }, true);
     }
 
-    resetPartialOptions(emitEvent: boolean = true){
+    resetPartialOptions(emitEvent: boolean = true) {
         this.setOptions({
             Begin: 0,
             Step: this.pageOption[0],
@@ -101,7 +104,18 @@ export class PageCategoryService1 {
             OrderBy: 'Default',
             MainCategory: this.options.MainCategory,
             SecondCategory: this.options.SecondCategory
-        }, true);
+        }, emitEvent);
+    }
+
+    initOptions() {
+        if (this.optionsState == null) {
+            this.optionsState = {
+                Lang: localStorage.getItem('lang'),
+                Begin: 0,
+                Step: this.pageOption[0]
+            };
+        }
+
     }
 
 }
