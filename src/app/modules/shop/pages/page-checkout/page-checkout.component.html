@@ -95,6 +95,7 @@
                                     <th>{{'page-checkout.Subtotal' | translate}}</th>
                                     <td>{{ cart.subtotal$|async|currencyFormat }}</td>
                                 </tr>
+                      
                                 <tr *ngFor="let total of cart.totals$|async">
                                     <th>{{ total.title | translate }}</th>
                                     <td>{{ total.price|currencyFormat }}</td>

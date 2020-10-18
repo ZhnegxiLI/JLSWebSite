@@ -378,7 +378,8 @@
         "PhoneNumber": "Phone Number",
         "EmailAddress": "Email Address",
         "BillingAddress": "Billing Address",
-        "EmailIsSended":"The email has been successfully sent"
+        "EmailIsSended":"The email has been successfully sent",
+        "TxTAX": "Tax rate"
     },
     "page-track-order": {
         "TrackOrder": "TrackOrder",

@@ -377,7 +377,8 @@
         "PhoneNumber": "Numéro de Téléphone",
         "EmailAddress": "Email",
         "BillingAddress": "Adresse de facture",
-        "EmailIsSended":"L'email a été envoyé avec succès"
+        "EmailIsSended":"L'email a été envoyé avec succès",
+        "TxTAX": "Tx TVA"
     },
     "page-track-order": {
         "TrackOrder": "Suivi votre commande",

@@ -357,7 +357,8 @@
         "PhoneNumber": "电话号码",
         "EmailAddress": "邮箱",
         "BillingAddress": "账单地址",
-        "EmailIsSended":"邮件已成功发送"
+        "EmailIsSended":"邮件已成功发送",
+        "TxTAX": "税率"
     },
     "Header.links": {
         "Megamenu": "受欢迎类别",

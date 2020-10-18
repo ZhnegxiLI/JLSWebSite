@@ -57,18 +57,22 @@
                         <tbody class="order-list__subtotals">
                         <tr>
                             <th class="order-list__column-label" colspan="5">{{'page-order-success.Subtotal' | translate}}</th>
-                            <td class="order-list__column-total">{{ order.OrderInfo.TotalPrice|currencyFormat }}</td>
+                            <td class="order-list__column-total">{{ (order.OrderInfo.TotalPrice - 0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate) ) |currencyFormat }}</td>
+                        </tr>
+                        <tr>
+                            <th class="order-list__column-label" colspan="5">{{'page-order-success.TxTAX' | translate}}</th>
+                            <td class="order-list__column-total">{{ taxRate }}%</td>
                         </tr>
                         <tr>
                             <th class="order-list__column-label" colspan="5">{{'page-order-details.Tax' | translate}}</th>
-                            <td class="order-list__column-total">{{ 0.01* taxRate *order.OrderInfo.TotalPrice |currencyFormat }}</td>
+                            <td class="order-list__column-total"> {{  0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate)  |currencyFormat }}</td>
                         </tr>
                         </tbody>
                         <tfoot class="order-list__footer">
             
                         <tr>
                             <th class="order-list__column-label" colspan="5">{{'page-order-details.Total' | translate}}</th>
-                            <td class="order-list__column-total">{{ (order.OrderInfo.TotalPrice*(1+taxRate*0.01)) |currencyFormat }}</td>
+                            <td class="order-list__column-total">{{ order.OrderInfo.TotalPrice|currencyFormat }}</td>
                         </tr>
                         </tfoot>
                     </table>

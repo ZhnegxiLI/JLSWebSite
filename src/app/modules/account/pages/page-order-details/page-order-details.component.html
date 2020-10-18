@@ -30,6 +30,19 @@
                 </tr>
                 </tbody>
                 <tbody  class="card-table__body card-table__body--merge-rows">
+
+                <tr>
+                    <th>{{'page-order-success.Subtotal' | translate}}</th>
+                    <td></td>
+                    <td></td>
+                    <td>{{ (order.OrderInfo.TotalPrice - 0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate) ) |currencyFormat }}</td>
+                </tr>
+                <tr>
+                    <th>{{'page-order-success.TxTAX' | translate}}</th>
+                    <td></td>
+                    <td></td>
+                    <td>{{ taxRate }}%</td>
+                </tr>
                 <tr>
                     <th>{{'page-order-details.Tax' | translate}}</th>
                     <td></td>
