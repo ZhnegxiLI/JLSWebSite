@@ -12,7 +12,7 @@
                 </div>
                 <div class="widget-products__prices" *ngIf="loginService.loginStatus|async">
                     <ng-container>
-                        {{ product.Price|currencyFormat }}
+                        {{ product.Price|currencyFormat }}(HT)
                     </ng-container>
                 </div>
             </div>
