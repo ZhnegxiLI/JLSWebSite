@@ -6,7 +6,7 @@ export const environment = {
     production: false,
     SERVER_API_URL: "http://localhost/JLSMobileApplication/", //"http://localhost/JLSMobileApplication/" //https://localhost:44304/
     simplifyHomePage: true, // jls request, remove some unused module
-    hideRatingModule: true // jls request, remove some unused module
+    hideRatingModule: true, // jls request, remove some unused module
 };
 
 /*

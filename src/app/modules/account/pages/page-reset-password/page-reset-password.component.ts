@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/shared/api/user.service';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import CryptoJS from 'crypto-js';
 
 @Component({
     selector: 'app-reset-password',
@@ -56,8 +57,8 @@ export class PageResetPasswordComponent {
         }
         this.userService.ResetPassword({
             UserName: this.username,
-            Password: this.basicInfoForm.get('password').value,
-            ConfirmPassword: this.basicInfoForm.get('confirmPassword').value,
+            Password: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(this.basicInfoForm.get('password').value)),
+            ConfirmPassword: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(this.basicInfoForm.get('confirmPassword').value)),
             Token: this.token
         }).subscribe(p => {
             if (p == true) {

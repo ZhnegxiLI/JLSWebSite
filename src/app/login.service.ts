@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
-
+import CryptoJS from 'crypto-js';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,6 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginService {
     public loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
     private baseUrlToken: string = environment.SERVER_API_URL + 'api/Token/Auth';
-
     constructor(
         @Inject(PLATFORM_ID)
         private platformId: any,
@@ -30,9 +29,12 @@ export class LoginService {
     }
 
     login(email: string, password: string): Observable<any> {
-        var criteria = {
+
+        const encroyptPassword = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
+
+        const criteria = {
             UserName: email,
-            password: password,
+            password: encroyptPassword,
             GrantType: 'password'
         };
         return this.httpClient.post<any>(this.baseUrlToken, criteria);
