@@ -1,6 +1,7 @@
-<app-page-header [header]="'Shopping Cart'" [breadcrumbs]="[
-    {label: 'Home',          url: root.home()},
-    {label: 'Shopping Cart', url: ''}
+<mat-progress-bar mode="indeterminate" *ngIf="updating"></mat-progress-bar>
+<app-page-header [header]="'Panier'" [breadcrumbs]="[
+    {label: 'Page d\'accueil',          url: root.home()},
+    {label: 'Panier', url: ''}
 ]"></app-page-header>
 
 <div class="block block-empty" *ngIf="!items.length">
@@ -47,7 +48,7 @@
                             {{ item.cartItem.product.QuantityPerBox }}</span>
                     </td>
                     <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
-                        <app-input-number [formControl]="item.quantityControl"
+                        <app-input-number [formControl]="item.quantityControl" (quantityChange)="update()"
                             [min]="item.cartItem.product.MinQuantity"></app-input-number>
                     </td>
                     <td class="cart-table__column cart-table__column--total" data-title="Total">
@@ -66,10 +67,10 @@
 
         <div class="cart__actions">
             <div>
-                <a routerLink="/" class="btn btn-light">{{'page-cart.ContinueShopping' | translate}}</a>
-                <button type="button" class="btn btn-primary cart__update-button" (click)="update()"
+                <a routerLink="/" class="btn btn-primary">{{'page-cart.ContinueShopping' | translate}}</a>
+                <!-- <button type="button" class="btn btn-primary cart__update-button" (click)="update()"
                     [ngClass]="{'btn-loading': updating}"
-                    [disabled]="!needUpdate()">{{'page-cart.UpdateCart' | translate}}</button>
+                    [disabled]="!needUpdate()">{{'page-cart.UpdateCart' | translate}}</button> -->
             </div>
         </div>
 

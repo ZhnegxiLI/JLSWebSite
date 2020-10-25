@@ -214,7 +214,8 @@
         "PlaceOrder": "下订单",
         "termsandconditions": "条款和条件",
         "Clickheretologin": "点击这里登录",
-        "Fax": "传真"
+        "Fax": "传真",
+        "CheckCondition": "您还没有确认条款"
     },
     "components": {
         "AboutUs": "关于我们",
@@ -253,7 +254,8 @@
         "minimumachats": "最小购买量",
         "QuantityPerBox": "件/箱",
         "Size": "尺寸",
-        "RelatedProducts": "相关产品"
+        "RelatedProducts": "相关产品",
+        "AddtocartShort":"添加"
     },
     "page-dashboard": {
         "EditProfile": "修改个人资料",

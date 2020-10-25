@@ -78,10 +78,11 @@ export class CartService {
                 return true;
             });
 
-            quantity = product.MinQuantity > quantity ? product.MinQuantity : quantity;
+            // No neededs
+           // quantity = product.MinQuantity > quantity ? product.MinQuantity : quantity;
 
             if (item) {
-                item.quantity = quantity;
+                item.quantity = item.quantity +quantity;
             } else {
                 item = { product, quantity };
 

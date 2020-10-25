@@ -50,13 +50,13 @@ export class PageCategoryComponent implements OnDestroy {
 
         this.route.data.subscribe(data => {
             this.breadcrumbs = [
-                { label: 'Home', url: this.root.home() },
-                { label: 'Shop', url: this.root.shop() },
+                { label: 'Page d\'accueil', url: this.root.home() },
+                { label: 'Catégories', url: this.root.shop() },
             ];
 
             // If categorySlug is undefined then this is a root catalog page.
             if (!this.getCategorySlug()) {
-                this.pageHeader = 'Shop';
+                this.pageHeader = 'Catégories';
             } else {
                 this.pageHeader = data.category.name;
 

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { CartService } from '../../../../shared/services/cart.service';
 import { FormControl, Validators } from '@angular/forms';
 import { CartItem } from '../../../../shared/interfaces/cart-item';
@@ -25,6 +25,7 @@ export class PageCartComponent implements OnInit, OnDestroy {
     items: Item[] = [];
     updating = false;
 
+    
     constructor(
         public root: RootService,
         public cart: CartService,
@@ -55,9 +56,13 @@ export class PageCartComponent implements OnInit, OnDestroy {
         }
 
         this.removedItems.push(item);
-        this.cart.remove(item).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
+        this.cart.remove(item).subscribe({ complete: () => {
+            this.removedItems = this.removedItems.filter(eachItem => eachItem !== item);
+            this.update();
+        } });
     }
 
+    
     update(): void {
         this.updating = true;
         this.cart.update(

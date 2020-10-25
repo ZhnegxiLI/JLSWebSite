@@ -165,7 +165,7 @@
         "ApplyCoupon": "Appliquer Coupon",
         "ContinueShopping": "Continuer Shopping",
         "UpdateCart": "Mise à jour panier",
-        "CartTotals": "Totaux du panier",
+        "CartTotals": "Répapitulatif du commande",
         "Subtotal": "Total HT",
         "CalculateShipping": "Frais de livraison",
         "Proceedtocheckout": "Passer au paiement",
@@ -211,7 +211,8 @@
         "PlaceOrder": "Passer la commande",
         "termsandconditions": "Termes et conditions",
         "Clickheretologin": "Cliquez ici pour vous identifier",
-        "Fax": "Fax"
+        "Fax": "Fax",
+        "CheckCondition": "Vous n'avez pas encore accepter les conditions"
     },
     "components": {
         "AboutUs": "À propos de nous",
@@ -246,6 +247,7 @@
         "Material": "Matériel",
         "Quantity": "Quantité",
         "Addtocart": "Ajouter au panier",
+        "AddtocartShort":"Ajouter",
         "minimumachats": "Minimum d'achat",
         "QuantityPerBox": "Colis",
         "Size": "Taille",
@@ -358,7 +360,7 @@
         "EditProfile": "Editer profil",
         "OrderHistory": "Mes commandes",
         "OrderDetails": "Details de commande",
-        "AddressBook": "Mes adresse",
+        "AddressBook": "Mes adresse du livraison",
         "EditAddress": "Gérer mon adresse de facturation",
         "ChangePassword": "Modifier mot de passe"
     },
@@ -479,7 +481,7 @@
         "Dashboard": "Gérer mon compte",
         "EditProfile": "Editer le profil",
         "OrderHistory": "Mes Commandes",
-        "AddressBook": "Mes Adresses",
+        "AddressBook": "Mes adresse du livraisons",
         "ChangePassword": "Modifier mot de passe",
         "Pages": "Pages",
         "AboutUs": "A propos de nous",

@@ -211,7 +211,8 @@
         "PlaceOrder": "PlaceOrder",
         "termsandconditions": "terms and conditions",
         "Clickheretologin": "Click here to login",
-        "Fax": "Fax"
+        "Fax": "Fax",
+        "CheckCondition": "You have not yet accept the condition"
     },
     "components": {
         "AboutUs": "About Us",
@@ -247,6 +248,7 @@
         "Material": "Material",
         "Quantity": "Quantity",
         "Addtocart": "Add to cart",
+        "AddtocartShort":"Add",
         "minimumachats": "Minimum purchase",
         "QuantityPerBox": "Colis",
         "Size": "Size",

@@ -45,7 +45,10 @@
             {{'product.Availability' | translate}}:
             <span  class="text-success">{{'product.InStock' | translate}}</span>
         </div>
-
+        <ng-container>
+            {{'product.reference'| translate}}: {{ product.Code}}
+         </ng-container> 
+         |
         <ng-container>
             {{'product.QuantityPerBox'| translate}}: {{ product.QuantityPerBox}}
          </ng-container>
@@ -61,7 +64,10 @@
             </ng-container>
         </div>
         <div class="product-card__buttons">
-            <button class="btn btn-primary product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">{{'product.Addtocart' | translate}}</button>
+
+            <app-input-number aria-label="Quantity" class="product__quantity" size="sm" [min]="product.MinQuantity" [(ngModel)]="quantity"></app-input-number>
+
+            <button class="btn btn-primary product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">{{'product.AddtocartShort' | translate}}</button>
             <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">{{'product.Addtocart' | translate}}</button>
             <button *ngIf="loginService.loginStatus|async" class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button" appClick (click)="addToWishlist()" [ngClass]="{'btn-loading': addingToWishlist}">
                 <app-icon name="wishlist-16" size="16"></app-icon>

@@ -22,6 +22,8 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
 
     public host: string = environment.SERVER_API_URL;
     
+    public quantity:number = 1;
+
     hideRatingModule = environment.hideRatingModule;
     
     @Input() product: any;
@@ -67,9 +69,8 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
         if (this.addingToCart) {
             return;
         }
-
         this.addingToCart = true;
-        this.cart.add(this.product, 1).subscribe({
+        this.cart.add(this.product, this.quantity).subscribe({
             complete: () => {
                 this.addingToCart = false;
                 this.cd.markForCheck();

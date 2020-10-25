@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, HostBinding, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, forwardRef, HostBinding, Input, Output, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 function parseNumber<T>(value: any, def: T): number | T {
@@ -57,7 +57,7 @@ export class InputNumberComponent implements ControlValueAccessor {
     }
 
     @ViewChild('inputElement', { static: true }) inputElementRef: ElementRef;
-
+    @Output() quantityChange = new EventEmitter();
     get inputElement(): HTMLInputElement {
         return this.inputElementRef.nativeElement;
     }
@@ -82,6 +82,7 @@ export class InputNumberComponent implements ControlValueAccessor {
     add(): void {
         this.change(1);
         this.changeByTimer(1);
+        this.quantityChange.emit()
     }
 
     onTouch() {
@@ -93,10 +94,13 @@ export class InputNumberComponent implements ControlValueAccessor {
     sub(): void {
         this.change(-1);
         this.changeByTimer(-1);
+        this.quantityChange.emit()
     }
 
     input(): void {
         this.onChange(this.value);
+
+        this.quantityChange.emit()
     }
 
     registerOnChange(fn: any): void {
