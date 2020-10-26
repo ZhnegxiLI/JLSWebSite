@@ -11,6 +11,8 @@ export class BlockHeaderComponent {
     @Input() arrows = false;
     @Input() groups: BlockHeaderGroup[] = [];
 
+    @Input() badge: string;
+
     @Output() next: EventEmitter<any> = new EventEmitter();
     @Output() prev: EventEmitter<any> = new EventEmitter();
 

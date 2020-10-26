@@ -11,7 +11,7 @@
                                 <!-- <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">Sale</div>
                                 <div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">Hot</div>
                                 <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">New</div> -->
-                                <div style="font-size: 24px;" *ngIf="(loginService.loginStatus|async)&& storeService.formatProductPromotionInfo(product)!=null" class="product-card__badge product-card__badge--sale">
+                                <div style="font-size: 24px;" *ngIf="storeService.formatProductPromotionInfo(product)!=null" class="product-card__badge product-card__badge--sale">
                                     {{storeService.formatProductPromotionInfo(product).discountPerCent}}%
                                   </div>
                             </div> 

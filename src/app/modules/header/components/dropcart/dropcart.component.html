@@ -23,8 +23,8 @@
                     </ul> -->
                     <div class="dropcart__product-meta">
                         <span class="dropcart__product-quantity">{{ item.quantity }}</span> ×
-                        <span class="dropcart__product-quantity">{{ item.product.QuantityPerBox }}</span> ×
-                        <span *ngIf="loginService.loginStatus|async" class="dropcart__product-price">{{ item.product.Price|currencyFormat }}</span>
+                        <span class="dropcart__product-quantity">{{ item.product.QuantityPerBox }}</span> 
+                        <span *ngIf="loginService.loginStatus|async" class="dropcart__product-price">× {{ item.product.Price|currencyFormat }}</span>
 
                         <span *ngIf="loginService.loginStatus|async" class="dropcart__product-price" style="float:right">{{ item.product.Price * item.product.QuantityPerBox* item.quantity|currencyFormat }}</span>
                     </div>

@@ -14,8 +14,8 @@
 
 <app-block-banner *ngIf="!simplifyHomePage"></app-block-banner>
 
-<app-block-products header="Promotionproduit" layout="large-first" [products]="productService.promotionProductHomePage|async"></app-block-products>
-<app-block-products header="products-view.New" layout="large-first" [products]="productService.latestProductHomePage|async"></app-block-products>
+<app-block-products header="Promotionproduit" layout="large-first" badgeTitle = "promo" [products]="productService.promotionProductHomePage|async"></app-block-products>
+<app-block-products header="products-view.New" layout="large-first" badgeTitle = "new" [products]="productService.latestProductHomePage|async"></app-block-products>
 
 
 <app-block-products *ngIf="!simplifyHomePage" header="page-home-one.Bestsellers" layout="large-first" [products]="productService.latestProductHomePage|async"></app-block-products>
