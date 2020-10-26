@@ -33,11 +33,7 @@
                                 <div class="address-card__row-content">{{ facturationAddress.ContactTelephone }}
                                 </div>
                             </div>
-                            <div class="address-card__row">
-                                <div class="address-card__row-title">{{'page-dashboard.EntrepriseName' | translate}}
-                                </div>
-                                <div class="address-card__row-content">{{ facturationAddress.EntrepriseName }}</div>
-                            </div>
+             
                             <div class="address-card__footer">
                                 <a [routerLink]="['/account/address']"
                                     [queryParams]="{Type: 'facturationAdress' }">{{'page-dashboard.EditAddress' | translate}}</a>

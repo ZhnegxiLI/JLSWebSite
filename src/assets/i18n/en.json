@@ -17,6 +17,7 @@
     "All": "All",
     "Confirmation":"Confirmation",
     "Cancel":"No",
+    "Msg_LoginSuccess": "You have successfully login",
     "Msg_LogoutConfirm":"Are your really want to logout?",
     "Msg_Offline": "Currently offlin",
     "Msg_Error": "There is an error, please try again later.",

@@ -16,6 +16,7 @@
     "Meslistes": "Favoris",
     "Confirmation":"Confirmation",
     "Cancel":"Non",
+    "Msg_LoginSuccess": "Vous avez bien login!",
     "Msg_LogoutConfirm":"Vous voulez vraiment déconnecter?",
     "Msg_Offline": "Votre réseau n'est pas stable",
     "Msg_Error": "Une error s'est produit, veuillez réessayer plus tard",
