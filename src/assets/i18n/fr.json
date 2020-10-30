@@ -246,11 +246,11 @@
         "reference": "Référence",
         "Color": "Couleur",
         "Material": "Matériel",
-        "Quantity": "Quantité",
+        "Quantity": "Nbr. colis",
         "Addtocart": "Ajouter au panier",
         "AddtocartShort":"Ajouter",
         "minimumachats": "Minimum d'achat",
-        "QuantityPerBox": "Colis",
+        "QuantityPerBox": "Colissage",
         "Size": "Taille",
         "RelatedProducts": "Nos produits similaires"
     },
@@ -434,7 +434,7 @@
         "results": "résultats",
         "Sale": "Sale",
         "Hot": "Populaire",
-        "New": "Nouveau"
+        "New": "Nouveauté"
     },
     "page-not-found": {
         "Error404": "Oops!Erreur  404",

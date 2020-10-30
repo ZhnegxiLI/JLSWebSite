@@ -6,7 +6,7 @@ export const mobileMenu: MobileMenuItem[] = [
     {type: 'link', label: 'mobileMenu.Categories', url: '/shop/catalog' , code:'catalog'},
 
     {type: 'link', label: 'mobileMenu.Shop', url: '/shop/catalog', code:'shop', children: [
-        {type: 'link', label: 'mobileMenu.ShopList',          url: '/shop/category-list'},
+        {type: 'link', label: 'mobileMenu.ShopList',          url: '/shop/catalog'},
         {type: 'link', label: 'mobileMenu.Cart',        url: '/shop/cart'}
     ]},
 

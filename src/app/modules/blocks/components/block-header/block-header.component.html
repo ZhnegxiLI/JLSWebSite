@@ -1,9 +1,9 @@
 <div class="block-header">
-    <h3 class="block-header__title">{{ header | translate }}</h3>
   
-         <div *ngIf="badge == 'promo'" class="product-card__badge product-card__badge--sale" style="margin-bottom: 0px;margin-left: 8px;">Sales</div>
+    <h3 class="block-header__title" *ngIf="badge == null">{{ header | translate }}</h3>
+         <div *ngIf="badge == 'promo'" class="product-card__badge product-card__badge--sale" style="margin-bottom: 0px;margin-left: 8px;">  <h3 class="block-header__title">{{ header | translate }}</h3></div>
         <!--<div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">Hot</div>-->
-        <div *ngIf="badge == 'new'"  class="product-card__badge product-card__badge--hot" style="margin-bottom: 0px;margin-left: 8px;">Nouveauté</div> 
+        <div *ngIf="badge == 'new'"  class="product-card__badge product-card__badge--hot" style="margin-bottom: 0px;margin-left: 8px;">  <h3 class="block-header__title">{{ header | translate }}</h3></div> 
  
     <div class="block-header__divider"></div>
 

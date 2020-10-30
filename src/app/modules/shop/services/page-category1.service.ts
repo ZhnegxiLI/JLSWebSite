@@ -38,7 +38,7 @@ export class PageCategoryService1 {
     private listSource: BehaviorSubject<any> = new BehaviorSubject<any>(this.listState);
 
     list$: Observable<any> = this.listSource.pipe(filter(x => x !== null));
-    public pageOption = [12, 24];
+    public pageOption = [30, 60 ];
 
     constructor(public storeService: StoreService) {
         this.initOptions();

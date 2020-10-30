@@ -5,7 +5,7 @@ export const navigation: NavigationLink[] = [
     {label: 'Header.links.Shop', url: '/shop/catalog/power-tools', menu: {
         type: 'menu',
         items: [
-            {label: 'Header.links.ShopList', url: '/shop/category-list'},
+            {label: 'Header.links.ShopList', url: '/shop/catalog'},
             {label: 'Header.links.Cart', url: '/shop/cart'},
             {label: 'Header.links.Wishlist', url: '/shop/wishlist'},
         ]
