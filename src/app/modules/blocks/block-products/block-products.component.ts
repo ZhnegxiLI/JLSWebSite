@@ -11,7 +11,7 @@ export class BlockProductsComponent {
     @Input() layout: 'large-first' | 'large-last' = 'large-first';
     @Input() products: Product1[] = [];
     @Input() badgeTitle:string;
-    
+    @Input() orderby: string;
     get large(): any {
         if (this.products != null) {
             if (this.layout === 'large-first' && this.products.length > 0) {

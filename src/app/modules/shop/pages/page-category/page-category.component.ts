@@ -120,6 +120,10 @@ export class PageCategoryComponent implements OnDestroy {
             if(searchText!=null){
                 criteria.SearchText = searchText;
             }
+            var orderby = params.get('Orderby');
+            if(orderby!=null){
+                criteria.OrderBy = orderby;
+            }
 
             /* Resert page to 0 when 1 of 3 criteria has been changed */
             if(searchText!= null || categoryShortLabel!=null){

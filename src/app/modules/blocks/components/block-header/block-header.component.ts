@@ -13,11 +13,13 @@ export class BlockHeaderComponent {
 
     @Input() badge: string;
 
+    @Input() orderby: string;
+
     @Output() next: EventEmitter<any> = new EventEmitter();
     @Output() prev: EventEmitter<any> = new EventEmitter();
 
     @Output() groupChange: EventEmitter<BlockHeaderGroup> = new EventEmitter();
-
+    
     constructor() { }
 
     setGroup(group: BlockHeaderGroup): void {

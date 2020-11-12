@@ -11,7 +11,7 @@ export class BlockCategoriesComponent {
     @Input() header = '';
     @Input() layout: 'classic'|'compact' = 'classic';
     @Input() categories: any[] = [];
-
+    @Input() orderby: string;
     constructor(
         public root: RootService,
     ) { }

@@ -14,13 +14,13 @@
 
 <app-block-banner *ngIf="!simplifyHomePage"></app-block-banner>
 
-<app-block-products header="Promotionproduit" layout="large-first" badgeTitle = "promo" [products]="productService.promotionProductHomePage|async"></app-block-products>
-<app-block-products header="products-view.New" layout="large-first" badgeTitle = "new" [products]="productService.latestProductHomePage|async"></app-block-products>
+<app-block-products header="Promotionproduit" layout="large-first" badgeTitle = "promo" [products]="productService.promotionProductHomePage|async" orderby="Promotion_More"></app-block-products>
+<app-block-products header="products-view.New" layout="large-first" badgeTitle = "new" [products]="productService.latestProductHomePage|async" orderby="PublishDate_Recent"></app-block-products>
 
 
-<app-block-products *ngIf="!simplifyHomePage" header="page-home-one.Bestsellers" layout="large-first" [products]="productService.latestProductHomePage|async"></app-block-products>
+<app-block-products *ngIf="!simplifyHomePage" header="page-home-one.Bestsellers" layout="large-first" [products]="productService.latestProductHomePage|async" ></app-block-products>
 
-<app-block-categories header="page-home-one.PopularCategories" layout="classic" [categories]="popularCategories$" *ngIf="!simplifyHomePage"></app-block-categories>
+<app-block-categories header="page-home-one.PopularCategories" layout="classic" [categories]="popularCategories$" *ngIf="!simplifyHomePage" ></app-block-categories>
 
 <app-block-products-carousel1
     *ngIf="!simplifyHomePage"
