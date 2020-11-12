@@ -18,8 +18,7 @@
                         {{'All' |translate}}
 
                     </ng-template>
-                    <a class="departments__item-link" [routerLink]="['/shop/catalog']" (click)="onItemClick()"
-                        (appTouchClick)="onTouchClick($event, item)">
+                    <a class="departments__item-link" [routerLink]="['/shop/catalog']" (click)="onItemClick()">
                         <ng-container [ngTemplateOutlet]="link"></ng-container>
                     </a>
                 </li>
