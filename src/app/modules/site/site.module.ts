@@ -18,6 +18,7 @@ import { PageTermsComponent } from './pages/page-terms/page-terms.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxLoadingModule } from 'ngx-loading';
+import { PageDeliveryInfoComponent } from './pages/page-delivery-info/page-delivery-info.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { NgxLoadingModule } from 'ngx-loading';
         PageAboutUsComponent,
         PageContactUsComponent,
         PageTermsComponent,
+        PageDeliveryInfoComponent,
     ],
     imports: [
         TranslateModule,

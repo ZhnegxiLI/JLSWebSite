@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageAboutUsComponent } from './pages/page-about-us/page-about-us.component';
 import { PageContactUsComponent } from './pages/page-contact-us/page-contact-us.component';
+import { PageDeliveryInfoComponent } from './pages/page-delivery-info/page-delivery-info.component';
 import { PageTermsComponent } from './pages/page-terms/page-terms.component';
 
 
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'terms',
         component: PageTermsComponent
+    },
+    {
+        path: 'livraison',
+        component: PageDeliveryInfoComponent
     }
 ];
 

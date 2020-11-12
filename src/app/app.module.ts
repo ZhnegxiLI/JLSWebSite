@@ -54,7 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
         RootComponent,
         // pages
         PageHomeOneComponent,
-        PageNotFoundComponent,
+        PageNotFoundComponent
     ],
     imports: [
         NgxLoadingModule.forRoot({}),
