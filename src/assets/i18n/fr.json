@@ -226,7 +226,8 @@
         "Newsletter": "Newsletter",
         "Information": "Information",
         "MyAccount": "Mon compte",
-        "StoreLocation": "Location"
+        "StoreLocation": "Location",
+        "ExportAll": "Télécharger le catalogue"
     },
     "block-features": {
         "FreeShipping": "Livraison gratuit",
@@ -250,7 +251,7 @@
         "Addtocart": "Ajouter au panier",
         "AddtocartShort":"Ajouter",
         "minimumachats": "Minimum d'achat",
-        "QuantityPerBox": "Colissage",
+        "QuantityPerBox": "Colisage",
         "Size": "Taille",
         "RelatedProducts": "Nos produits similaires"
     },

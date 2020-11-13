@@ -60,7 +60,7 @@ export class PageCategoryService1 {
     get CurrentPage(): number { return this.optionsState.Begin + 1 }; // page of the programme start from 0 not 1
     get OrderBy(): string { return this.optionsState.OrderBy };
     get Step(): number { return this.optionsState.Step };
-    get TotalPage(): number { return (this.listState.TotalCount / this.optionsState.Step) + 1 };
+    get TotalPage(): number { return Math.floor( this.listState.TotalCount / this.optionsState.Step) + 1 };
     get FromItems(): number { return (this.optionsState.Begin * this.optionsState.Step) + 1 };
     get ToItems(): number { return (this.listState.TotalCount < (this.optionsState.Begin + 1) * this.optionsState.Step) ? this.listState.TotalCount : (this.optionsState.Begin + 1) * this.optionsState.Step };
     // set functions

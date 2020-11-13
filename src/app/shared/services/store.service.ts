@@ -24,6 +24,8 @@ export class StoreService {
 
     public referenceCategoryList = new BehaviorSubject<any[]>([]);
 
+    public numberOfFavoritProduct = new BehaviorSubject<number>(0);
+
     /* Only one progress bar in application */
     public showHideProgressBar$ = new BehaviorSubject<boolean>(false);
 

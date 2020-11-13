@@ -63,7 +63,7 @@
                     </div>
                 </app-indicator>
 
-                <app-indicator *ngIf="logined"  [link]="root.wishlist()" icon="heart-20" ></app-indicator>
+                <app-indicator *ngIf="logined"  [link]="root.wishlist()" icon="heart-20"></app-indicator>
 
                 <app-indicator link="./shop/cart" icon="cart-20" trigger="click" [counter]="(cart.items$|async).length" #indicator="appIndicator">
                     <app-header-dropcart (closeMenu)="indicator.close(true)"></app-header-dropcart>

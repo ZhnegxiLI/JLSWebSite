@@ -229,7 +229,8 @@
         "Brands": "我们的品牌",
         "Newsletter": "接收最新的消息",
         "Information": "信息",
-        "MyAccount": "我的账户"
+        "MyAccount": "我的账户",
+        "ExportAll": "导出所有商品"
     },
     "block-features": {
         "FreeShipping": "享受免运费",

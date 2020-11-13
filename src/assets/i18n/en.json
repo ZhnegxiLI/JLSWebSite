@@ -226,7 +226,8 @@
         "Brands": "Brands",
         "Newsletter": "Newsletter",
         "Information": "Information",
-        "MyAccount": "My Account"
+        "MyAccount": "My Account",
+        "ExportAll": "Export all products"
     },
     "block-features": {
         "FreeShipping": "Free Shipping",

@@ -14,7 +14,7 @@
                 </div>
                 <div class="dropcart__product-info">
                     <div class="dropcart__product-name">
-                        <a (click)="closeMenu.emit()" [routerLink]="['/shop/products']"
+                        <a (click)="closeMenu.emit()" [routerLink]="['/shop/products']" style="font-weight: bold;"
                             [queryParams]="{ProductId: item.product.ProductId }">{{ item.product.Label }}</a>
                     </div>
                     <!-- 

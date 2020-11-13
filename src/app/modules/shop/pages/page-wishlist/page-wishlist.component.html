@@ -22,6 +22,7 @@
                 <th class="wishlist__column wishlist__column--image">{{'page-wishlist.Image' | translate}}</th>
                 <th class="wishlist__column wishlist__column--product">{{'page-wishlist.Product' | translate}}</th>
                 <th class="wishlist__column wishlist__column--stock">{{'page-wishlist.StockStatus' | translate}}</th>
+                <th class="wishlist__column wishlist__column--stock">{{'product.QuantityPerBox' | translate}}</th>
                 <th class="wishlist__column wishlist__column--price">{{'page-wishlist.Price' | translate}}</th>
                 <th class="wishlist__column wishlist__column--tocart"></th>
                 <th class="wishlist__column wishlist__column--remove"></th>
@@ -42,7 +43,9 @@
                 <td class="wishlist__column wishlist__column--stock">
                     <div class="badge badge-success">{{'page-wishlist.InStock' | translate}}</div>
                 </td>
-                <td class="wishlist__column wishlist__column--price">{{ product.Price|currencyFormat }}</td>
+                
+                <td class="wishlist__column wishlist__column--stock">{{ product.QuantityPerBox }}</td>
+                <td class="wishlist__column wishlist__column--price">{{ product.Price|currencyFormat }}(HT)</td>
                 <td class="wishlist__column wishlist__column--tocart">
                     <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addingToCart}" >{{'page-wishlist.AddToCart' | translate}}</button>
                 </td>
