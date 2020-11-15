@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 
 @Component({
     selector: 'app-main',
@@ -12,7 +13,8 @@ export class RootComponent {
     constructor(
         public router: Router,
         public route: ActivatedRoute,
-        public storeService: StoreService
+        public storeService: StoreService,
+        public wishListService: WishlistService
     ) {
 
         this.route.data.subscribe(data => {
@@ -32,5 +34,7 @@ export class RootComponent {
             storeService.slideList.next(data.initInfo[2]);
             storeService.referenceCategoryList.next(data.initInfo[3].ReferenceCategoryList);
         });
+
+        this.wishListService.loadUserFavoriteList();
     }
 }

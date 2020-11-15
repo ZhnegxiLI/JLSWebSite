@@ -50,9 +50,9 @@ export class AppComponent implements OnInit {
         // https://angular.io/api/common/CurrencyPipe
         this.currency.options = {
             code: 'EUR',
-             display: 'symbol',
-             digitsInfo: '1.2-2',
-             locale: 'fr-FR'
+            display: 'symbol',
+            digitsInfo: '1.2-2',
+            locale: 'fr-FR'
         };
 
         this.router.events.subscribe((event) => {
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
             this.toastr.success(this.translate.instant("page-cart.Product") + " " + product.Label + " " + this.translate.instant("component.AddedToCart"));
         });
         this.wishlist.onAdding$.subscribe(product => {
-            this.toastr.success(this.translate.instant("page-cart.Product") + " " + product.name + " " + this.translate.instant("component.AddedToCart"));
+            this.toastr.success(this.translate.instant("page-cart.Product") + " " + this.translate.instant("component.AddedToWishList"));
         });
     }
 }

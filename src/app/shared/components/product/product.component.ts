@@ -36,6 +36,8 @@ export class ProductComponent implements OnInit {
     showGallery = true;
     showGalleryTimeout: number;
 
+    public isAddedToWishList: boolean = false;
+
 
     public quantity: number = 0;
 
@@ -142,7 +144,7 @@ export class ProductComponent implements OnInit {
         if (!this.addingToWishlist && this.product) {
             this.addingToWishlist = true;
             // todo
-            this.wishlist.addOrRemove(this.product.ProductId,true).subscribe({complete: () => this.addingToWishlist = false});
+            this.wishlist.addOrRemove(this.product.ProductId, true).subscribe({ complete: () => { this.addingToWishlist = false; this.isAddedToWishList = true; } });
         }
     }
 
@@ -169,7 +171,7 @@ export class ProductComponent implements OnInit {
 
             const images = this.images.map(eachImage => {
                 return {
-                    src:  this.host + eachImage.Path,
+                    src: this.host + eachImage.Path,
                     msrc: this.host + eachImage.Path,
                     w: 700,
                     h: 700

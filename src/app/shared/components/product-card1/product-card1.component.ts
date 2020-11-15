@@ -35,6 +35,8 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
     showingQuickview = false;
     featuredAttributes: ProductAttribute[] = [];
 
+    isAddedToWishList : boolean = false;
+    
     constructor(
         private cd: ChangeDetectorRef,
         public root: RootService,
@@ -82,10 +84,11 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
         if (this.addingToWishlist) {
             return;
         }
-
+        // #cc3333;
         this.addingToWishlist = true;
         this.wishlist.addOrRemove(this.product.ProductId,true).subscribe({// todo change
             complete: () => {
+                this.isAddedToWishList = true;
                 this.addingToWishlist = false;
                 this.cd.markForCheck();
             }

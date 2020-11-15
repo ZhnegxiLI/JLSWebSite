@@ -14,10 +14,10 @@
     "NewProduit": "Nouveauté",
     "Promotionproduit": "Promotion",
     "Meslistes": "Favoris",
-    "Confirmation":"Confirmation",
-    "Cancel":"Non",
+    "Confirmation": "Confirmation",
+    "Cancel": "Non",
     "Msg_LoginSuccess": "Vous avez bien login!",
-    "Msg_LogoutConfirm":"Vous voulez vraiment déconnecter?",
+    "Msg_LogoutConfirm": "Vous voulez vraiment déconnecter?",
     "Msg_Offline": "Votre réseau n'est pas stable",
     "Msg_Error": "Une error s'est produit, veuillez réessayer plus tard",
     "Msg_NotConnected": "Non connecté, connectez-vous pour découvrir.",
@@ -160,7 +160,7 @@
         "Image": "Image",
         "Product": "Produit",
         "Price": "Prix",
-        "Quantity": "Nbr. colis",
+        "Quantity": "Colisage",
         "Total": "Net a payer",
         "Password": "Mot de passe",
         "ApplyCoupon": "Appliquer Coupon",
@@ -247,9 +247,9 @@
         "reference": "Référence",
         "Color": "Couleur",
         "Material": "Matériel",
-        "Quantity": "Nbr. colis",
+        "Quantity": "Colisage",
         "Addtocart": "Ajouter au panier",
-        "AddtocartShort":"Ajouter",
+        "AddtocartShort": "Ajouter",
         "minimumachats": "Minimum d'achat",
         "QuantityPerBox": "Colisage",
         "Size": "Taille",
@@ -290,7 +290,7 @@
         "RememberMe": "Se souvenir de mot de passe oublié",
         "Register": "S'inscrire",
         "RepeatPassword": "Confirmer mot de passe",
-        "ResetPassword":"Réinitialiser le mot de passe"
+        "ResetPassword": "Réinitialiser le mot de passe"
     },
     "page-order-details": {
         "Backtolist": "Revenir",
@@ -368,7 +368,7 @@
     },
     "page-order-success": {
         "Thankyou": "Merci",
-        "Yourorderhasbeenreceived": "Nous avons bien reçu votre commande",
+        "Yourorderhasbeenreceived": "Nous vous remercions d'avoir passé la commande sur le site. Vous allez recevoir votre commande dans votre boîte d'E-mail. Nous allons traiter votre commande dans les meilleurs délais, puis vous demander le règlement par virement.",
         "GoToHomepage": "Retour à l'accueil",
         "Ordernumber": "Numéro de commande",
         "Createdat": "Créé à",
@@ -381,7 +381,7 @@
         "PhoneNumber": "Numéro de Téléphone",
         "EmailAddress": "Email",
         "BillingAddress": "Adresse de facture",
-        "EmailIsSended":"L'email a été envoyé avec succès",
+        "EmailIsSended": "L'email a été envoyé avec succès",
         "TxTAX": "Tx TVA"
     },
     "page-track-order": {
@@ -454,7 +454,7 @@
         "Categories": "Catégories",
         "Prix": "Prix",
         "MinQuantity": "Minimum Quantité",
-        "Export":"Exporter",
+        "Export": "Exporter",
         "LatestProducts": "Produits vous avez consultés"
     },
     "widget-comments": {
@@ -498,10 +498,10 @@
         "Chinois": "Chinois",
         "Wishlist": "Liste de souhaits"
     },
-    "forget-password":{
-        "EmailSendSuccessfully":"L'email a été envoyé avec succès",
-        "AccountNotExists":"Le compte n'existe pas",
-        "SendMessageTo":"Le lien de réinitialisation est envoyé à {Email}",
-        "registersuccessed":"Enregistré avec succès, veuillez activer le lien dans votre e-mail({Email})."
+    "forget-password": {
+        "EmailSendSuccessfully": "L'email a été envoyé avec succès",
+        "AccountNotExists": "Le compte n'existe pas",
+        "SendMessageTo": "Le lien de réinitialisation est envoyé à {Email}",
+        "registersuccessed": "Enregistré avec succès, veuillez activer le lien dans votre e-mail({Email})."
     }
 }

@@ -5,6 +5,7 @@ import { LoginService } from 'src/app/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/shared/api/user.service';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 
 @Component({
     selector: 'app-login',
@@ -22,7 +23,8 @@ export class PageLoginComponent {
     constructor(private loginService: LoginService, private router: Router,
         private toastr: ToastrService,
         private translateService: TranslateService,
-        private userService: UserService) { }
+        private userService: UserService,
+        public wishListService: WishlistService) { }
 
     login() {
         this.loginService.login(this.email, this.password).subscribe(result => {
@@ -39,6 +41,8 @@ export class PageLoginComponent {
                 this.loginService.loginStatus.next(true);
 
                 this.toastr.success(this.translateService.instant("Msg_LoginSuccess"));// todo translate
+
+                this.wishListService.loadUserFavoriteList();
                 this.router.navigate(['/account/dashboard']);
             }
             else {

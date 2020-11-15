@@ -19,12 +19,13 @@ export class WishlistService implements OnDestroy {
 
     private destroy$: Subject<void> = new Subject();
     private itemsSubject$: BehaviorSubject<Product[]> = new BehaviorSubject([]);
-    private onAddingSubject$: Subject<Product> = new Subject();
+    private onAddingSubject$: Subject<number> = new Subject();
 
     readonly items$: Observable<Product[]> = this.itemsSubject$.pipe(takeUntil(this.destroy$));
     readonly count$: Observable<number> = this.itemsSubject$.pipe(map(items => items.length));
-    readonly onAdding$: Observable<Product> = this.onAddingSubject$.asObservable();
+    readonly onAdding$: Observable<number> = this.onAddingSubject$.asObservable();
 
+    public numberOfFavoirteProduct$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
     constructor(
         @Inject(PLATFORM_ID)
         private platformId: any,
@@ -36,11 +37,33 @@ export class WishlistService implements OnDestroy {
     }
 
     addOrRemove(productId: number, IsFavorite: boolean): Observable<void> {
+        
+        var numberOfFavoirteProduct = this.numberOfFavoirteProduct$.value;
+        if (IsFavorite) {
+            this.onAddingSubject$.next(productId);
+            this.numberOfFavoirteProduct$.next(numberOfFavoirteProduct + 1);
+        }
+        else{
+            this.numberOfFavoirteProduct$.next(numberOfFavoirteProduct - 1);
+        }
+
         return this.productService.AddIntoProductFavoriteList({
             UserId: localStorage.getItem('userId'),
             ProductId: productId,
             IsFavorite: IsFavorite
         });
+    }
+
+
+    loadUserFavoriteList(): void {
+        if (localStorage.getItem('userId') != null) {
+            this.productService.GetFavoriteListByUserId({ UserId: localStorage.getItem('userId'), Lang: localStorage.getItem('lang') }).subscribe(result => {
+                if (result != null) {
+                    this.numberOfFavoirteProduct$.next(result.length);
+                }
+            });
+        }
+
     }
 
     remove(product: Product): Observable<void> {

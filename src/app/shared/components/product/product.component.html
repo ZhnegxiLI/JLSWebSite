@@ -114,7 +114,7 @@
                                     appClick (click)="addToCart()">{{'product.Addtocart' | translate}}</button>
                         </div>
                         <div *ngIf="loginService.loginStatus|async" class="product__actions-item product__actions-item--wishlist">
-                            <button type="button" class="btn btn-secondary btn-svg-icon btn-lg" data-toggle="tooltip" title="Wishlist"
+                            <button type="button" class="btn btn-secondary btn-svg-icon btn-lg" [ngStyle]="isAddedToWishList && {'fill': '#cc3333'}" data-toggle="tooltip" title="Wishlist"
                                     [ngClass]="{'btn-loading': addingToWishlist}"
                                     appClick (click)="addToWishlist()">
                                 <app-icon name="wishlist-16" size="16"></app-icon>
