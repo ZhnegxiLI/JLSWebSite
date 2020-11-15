@@ -257,7 +257,8 @@
         "QuantityPerBox": "件/箱",
         "Size": "尺寸",
         "RelatedProducts": "相关产品",
-        "AddtocartShort":"添加"
+        "AddtocartShort":"添加",
+        "Forme": "形状"
     },
     "page-dashboard": {
         "EditProfile": "修改个人资料",

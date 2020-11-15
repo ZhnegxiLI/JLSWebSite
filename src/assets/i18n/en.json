@@ -254,7 +254,8 @@
         "minimumachats": "Minimum purchase",
         "QuantityPerBox": "Colis",
         "Size": "Size",
-        "RelatedProducts": "Related Products"
+        "RelatedProducts": "Related Products",
+        "Forme": "Form"
     },
     "page-dashboard": {
         "EditProfile": "Edit Profile",

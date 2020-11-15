@@ -66,6 +66,12 @@ export class ProductTabsComponent implements OnInit {
                         Value: this.product[key]
                     });
                     break;
+                case 'Forme':
+                    list.push({
+                        Label : this.translateService.instant('product.Forme'),
+                        Value: this.product[key]
+                    });
+                    break;
             }
         });
         return list;
