@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/login.service';
 import { ExportService } from 'src/app/shared/api/export.service';
 import { Link } from '../../../../shared/interfaces/link';
 
@@ -14,7 +15,7 @@ export class LinksComponent {
     @Input() header: string;
     @Input() links: Link[] = [];
 
-    constructor(public exportService: ExportService, public datePipe: DatePipe, public translateService: TranslateService,
+    constructor(public exportService: ExportService, public datePipe: DatePipe, public translateService: TranslateService, public loginService: LoginService,
         private toastr: ToastrService) { }
     private searchCriteria = {
         MainCategoryReferenceId: 0,
