@@ -10,4 +10,8 @@ export class HeaderComponent {
     @Input() layout: 'classic'|'compact' = 'classic';
 
     constructor(public store: StoreService) { }
+
+    helpWindow(event) { 
+        window.open('chat', '_blank', 'location=yes,height=570,width=600,scrollbars=yes,status=yes'); 
+    } 
 }

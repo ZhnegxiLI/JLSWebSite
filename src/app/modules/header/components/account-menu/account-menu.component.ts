@@ -35,6 +35,11 @@ export class AccountMenuComponent {
 
     }
 
+    helpWindow() { 
+        window.open('chat', '_blank', 'location=yes,height=570,width=600,scrollbars=yes,status=yes'); 
+        this.closeMenu.emit();
+    } 
+
     login() {
         this.loginService.login(this.email, this.password).subscribe(result => {
             if (result != null && result.authToken != null) {

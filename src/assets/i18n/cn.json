@@ -297,6 +297,11 @@
         "RepeatPassword": "确认密码",
         "ResetPassword":"重置密码"
     },
+    "page-chat": {
+        "Title":"在线助手",
+        "Send": "发送",
+        "SendAMessage": "发送一个信息"
+    },
     "page-order-details": {
         "Backtolist": "返回",
         "Order": "订单",

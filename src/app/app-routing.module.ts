@@ -4,9 +4,14 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { RootComponent } from './components/root/root.component';
 import { RootResolverService } from './components/root/root-resolver.service';
+import { ChatComponent } from './shared/components/chat/chat.component';
 
 
 const routes: Routes = [
+    {
+        path:'chat',
+        component: ChatComponent
+    },
     {
         path: '',
         component: RootComponent,
@@ -41,7 +46,7 @@ const routes: Routes = [
                 component: PageNotFoundComponent
             }
         ],
-    },
+    }
 ];
 
 @NgModule({

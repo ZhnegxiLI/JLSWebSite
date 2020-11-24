@@ -43,6 +43,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
     declarations: [
@@ -69,6 +70,7 @@ import { MatButtonModule } from '@angular/material/button';
         ProductComponent,
         QuickviewComponent,
         RatingComponent,
+        ChatComponent,
         // pipes
         CurrencyFormatPipe,
         ColorTypePipe,
@@ -78,7 +80,6 @@ import { MatButtonModule } from '@angular/material/button';
         MatDialogModule,
         MatFormFieldModule,
         MatButtonModule,
-        
         TranslateModule,
         // modules (angular)
         CommonModule,
@@ -116,7 +117,8 @@ import { MatButtonModule } from '@angular/material/button';
         RatingComponent,
         // pipes
         ColorTypePipe,
-        CurrencyFormatPipe
+        CurrencyFormatPipe,
+        ChatComponent
     ]
 })
 export class SharedModule { }

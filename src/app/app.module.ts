@@ -39,6 +39,7 @@ import { AppInterceptor } from './app.interceptor';
 import { LoginService } from './login.service';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { ChatService } from './shared/api/chat.service';
 
 
 registerLocaleData(localeFr); 
@@ -85,6 +86,7 @@ export function createTranslateLoader(http: HttpClient) {
         
     ],
     providers: [
+        ChatService,
         LoginService,
         { provide: LOCALE_ID, useValue: 'fr-FR'}, 
         {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},

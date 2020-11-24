@@ -17,7 +17,9 @@
             <div class="site-header__phone-title">{{'topbar.CustomerService' | translate}}</div>
             <div class="site-header__phone-number">
                 <p>Livraison gratuite dès 1500€ HT d'achat </p> 
-                <p>Tél: {{ store.phone }} - Fax: {{store.fax}} </p></div>
+                <p>Tél: {{ store.phone }} - Fax: {{store.fax}} </p>
+                <a style="color: #cc3333;text-decoration: underline;cursor: pointer;" (click)="helpWindow($event)"  >{{ 'page-chat.Title' | translate}} </a>
+            </div>
         </div>
     </div>
 

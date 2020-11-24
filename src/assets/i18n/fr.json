@@ -294,6 +294,11 @@
         "RepeatPassword": "Confirmer mot de passe",
         "ResetPassword": "Réinitialiser le mot de passe"
     },
+    "page-chat": {
+        "Title":"Assistance en ligne",
+        "Send": "Envoyer",
+        "SendAMessage": "Envoyer un message"
+    },
     "page-order-details": {
         "Backtolist": "Revenir",
         "Order": "Commandes",

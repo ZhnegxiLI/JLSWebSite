@@ -294,6 +294,11 @@
         "RepeatPassword": "Repeat Password",
         "ResetPassword":"Reset Password"
     },
+    "page-chat": {
+        "Title":"Online Assitance",
+        "Send": "Send",
+        "SendAMessage": "Send a message"
+    },
     "page-order-details": {
         "Backtolist": "Back to list",
         "Order": "Order",

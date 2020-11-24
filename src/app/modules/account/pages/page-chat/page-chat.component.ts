@@ -11,7 +11,7 @@ import { Message } from 'src/app/shared/models/message';
 import { ChatService } from 'src/app/shared/api/chat.service';
 
 @Component({
-    selector: 'app-chat',
+    selector: 'app-chat-page',
     templateUrl: './page-chat.component.html',
     styleUrls: ['./page-chat.component.scss']
 })

@@ -33,8 +33,7 @@
             <li><a routerLink="/account/profile"
                     (click)="closeMenu.emit()">{{'account-menu.EditProfile' | translate}}</a>
             </li>
-            <li><a routerLink="/account/chat"
-                (click)="closeMenu.emit()">{{'account-menu.Chat' | translate}}</a>
+            <li><a (click)="helpWindow()" style="cursor: pointer;">{{'account-menu.Chat' | translate}}</a>
             </li>
             <li><a routerLink="/account/orders"
                     (click)="closeMenu.emit()">{{'account-menu.OrderHistory' | translate}}</a>
