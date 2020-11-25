@@ -22,6 +22,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import { FormsModule } from '@angular/forms';
         // modules
         SharedModule,
         FormsModule,
+        MatIconModule
     ],
     exports: [
         // components

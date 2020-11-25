@@ -17,8 +17,9 @@
             <div class="site-header__phone-title">{{'topbar.CustomerService' | translate}}</div>
             <div class="site-header__phone-number">
                 <p>Livraison gratuite dès 1500€ HT d'achat </p> 
-                <p>Tél: {{ store.phone }} - Fax: {{store.fax}} </p>
-                <a style="color: #cc3333;text-decoration: underline;cursor: pointer;" (click)="helpWindow($event)" *ngIf="loginService.loginStatus|async" >{{ 'page-chat.Title' | translate}} </a>
+                <p style="margin-bottom: 5px;">Tél: {{ store.phone }} - Fax: {{store.fax}} </p>
+                <a style="color: #cc3333;text-decoration: underline;cursor: pointer;" (click)="helpWindow($event)" *ngIf="loginService.loginStatus|async" > <div><div  style="vertical-align: middle;display: inline-block;margin-right: 3px;"><mat-icon>message</mat-icon></div>{{ 'page-chat.Title' | translate}}   </div> </a>
+             
             </div>
         </div>
     </div>
