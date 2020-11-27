@@ -160,7 +160,7 @@
         "Image": "Image",
         "Product": "Produit",
         "Price": "Prix",
-        "Quantity": "Colisage",
+        "Quantity": "Quantité",
         "Total": "Net a payer",
         "Password": "Mot de passe",
         "ApplyCoupon": "Appliquer Coupon",
@@ -246,12 +246,12 @@
         "InStock": "En stock",
         "reference": "Référence",
         "Color": "Couleur",
-        "Material": "Matériel",
+        "Material": "Matière",
         "Quantity": "Colisage",
         "Addtocart": "Ajouter au panier",
         "AddtocartShort": "Ajouter",
         "minimumachats": "Minimum d'achat",
-        "QuantityPerBox": "Colisage",
+        "QuantityPerBox": "Colis",
         "Size": "Taille",
         
         "Forme": "Forme",
@@ -509,6 +509,6 @@
         "EmailSendSuccessfully": "L'email a été envoyé avec succès",
         "AccountNotExists": "Le compte n'existe pas",
         "SendMessageTo": "Le lien de réinitialisation est envoyé à {Email}",
-        "registersuccessed": "Enregistré avec succès, veuillez activer le lien dans votre e-mail({Email})."
+        "registersuccessed": "Enregistré avec succès, veuillez activer le lien dans votre e-mail({Email}).(Si vous n'avez pas reçu le mail dans 10 minutes, merci de vérifier vos Spams ou contactez notre service client)"
     }
 }

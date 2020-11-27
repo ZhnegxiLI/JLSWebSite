@@ -31,6 +31,7 @@ import { AccountModule } from '../account/account.module';
 import { NgxLoadingModule } from 'ngx-loading';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { PageCategoryService1 } from './services/page-category1.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -63,6 +64,7 @@ import { PageCategoryService1 } from './services/page-category1.service';
         AccountModule,
         MatProgressBarModule,
         NgxLoadingModule.forRoot({}),
+        MatIconModule
     ],
     providers: [
         

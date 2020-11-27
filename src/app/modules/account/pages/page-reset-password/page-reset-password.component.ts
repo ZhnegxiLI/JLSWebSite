@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/shared/api/user.service';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
-import CryptoJS from 'crypto-js';
 
 @Component({
     selector: 'app-reset-password',

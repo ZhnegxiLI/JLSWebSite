@@ -512,6 +512,6 @@
         "EmailSendSuccessfully":"邮件已成功发送",
         "AccountNotExists":"账户不存在",
         "SendMessageTo":"重置信息已发送至 {Email}",
-        "registersuccessed":"成功注册，请激活您电子邮件({Email})中的链接."
+        "registersuccessed":"成功注册，请激活您电子邮件({Email})中的链接.(如果您在10分钟内未能收到激活邮件，请查看您的垃圾邮箱或联系我们的客服)"
     }
 }

@@ -79,6 +79,7 @@ export interface ProductDetail1 {
     ProductId: number;
     QuantityPerBox: number;
     ReferenceCode: string;
+    Forme: string;
     ReferenceId: number;
     SecondCategoryId: number;
     Size: string;
