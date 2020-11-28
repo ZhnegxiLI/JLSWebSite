@@ -29,7 +29,7 @@ export class LoginService {
 
     login(email: string, password: string): Observable<any> {
 
-        const encroyptPassword = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
+        const encroyptPassword = btoa(password);
 
         const criteria = {
             UserName: email,

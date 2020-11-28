@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/shared/api/user.service';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { distinctUntilChanged, debounceTime, switchMap, map, first } from 'rxjs/operators';
-import CryptoJS from 'crypto-js';
+
 
 @Component({
     selector: 'app-registre',
@@ -93,7 +93,7 @@ export class PageRegistreComponent {
 
             var registreInfo = {
                 Email: this.basicInfoForm.value['email'],
-                Password: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(this.basicInfoForm.value['password'])),
+                Password: btoa(this.basicInfoForm.value['password']),
                 Siret: this.entrepriseForm.value['siret'],
                 EntrepriseName: this.entrepriseForm.value['entrepriseName'],
                 PhoneNumber: this.entrepriseForm.value['phoneNumber'],

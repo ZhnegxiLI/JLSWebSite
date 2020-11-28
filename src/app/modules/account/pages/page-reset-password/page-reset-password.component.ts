@@ -56,8 +56,8 @@ export class PageResetPasswordComponent {
         }
         this.userService.ResetPassword({
             UserName: this.username,
-            Password: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(this.basicInfoForm.get('password').value)),
-            ConfirmPassword: CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(this.basicInfoForm.get('confirmPassword').value)),
+            Password: btoa(this.basicInfoForm.get('password').value),
+            ConfirmPassword: btoa(this.basicInfoForm.get('confirmPassword').value),
             Token: this.token
         }).subscribe(p => {
             if (p == true) {
