@@ -20,11 +20,11 @@
                     </li>
                     <li class="order-success__meta-item">
                         <span class="order-success__meta-title">{{'page-order-success.Createdat' | translate}}:</span>
-                        <span class="order-success__meta-value">{{ order.OrderInfo.CreatedOn }}</span>
+                        <span class="order-success__meta-value">{{ order.OrderInfo.CreatedOn| date:'short' }}</span>
                     </li>
                     <li class="order-success__meta-item">
                         <span class="order-success__meta-title">{{'page-order-success.Total' | translate}}:</span>
-                        <span class="order-success__meta-value">{{ (order.OrderInfo.TotalPrice*(1+taxRate*0.01)) |currencyFormat }}</span>
+                        <span class="order-success__meta-value">{{ order.OrderInfo.TotalPrice|currencyFormat }}</span>
                     </li>
                 </ul>
             </div>

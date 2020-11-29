@@ -5,7 +5,7 @@
         </div>
         <h5 class="order-header__title">{{'page-order-details.Order' | translate}} #{{ order.OrderInfo.Id }}</h5>
         <div class="order-header__subtitle">
-            {{'page-order-details.Wasplacedon' | translate}} <mark class="order-header__date">{{order.OrderInfo.CreatedOn }}</mark>
+            {{'page-order-details.Wasplacedon' | translate}} <mark class="order-header__date">{{order.OrderInfo.CreatedOn| date:'short' }}</mark>
             {{'page-order-details.andiscurrently' | translate}} <mark class="order-header__status">{{ order.Status.Label }}</mark>.
         </div>
     </div>
@@ -18,6 +18,7 @@
                     <th>{{'page-order-details.Product' | translate}}</th>
                     <th>{{'page-order-details.UnitPrice' | translate}}</th>
                     <th>{{'product.QuantityPerBox' | translate}}</th>
+                    <th>{{'product.Quantity' | translate}}</th>
                     <th>{{'page-order-details.Total' | translate}}</th>
                 </tr>
                 </thead>
@@ -26,6 +27,7 @@
                     <td>{{ item.Label }} × {{ item.Quantity }} x {{ item.QuantityPerBox }} </td>
                     <td>{{ item.Price |currencyFormat }}</td>
                     <td>{{ item.QuantityPerBox }}</td>
+                    <td>{{ item.Quantity }}</td>
                     <td>{{ (item.Price*item.Quantity*item.QuantityPerBox) |currencyFormat }}</td>
                 </tr>
                 </tbody>
@@ -35,16 +37,19 @@
                     <th>{{'page-order-success.Subtotal' | translate}}</th>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>{{ (order.OrderInfo.TotalPrice - 0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate) ) |currencyFormat }}</td>
                 </tr>
                 <tr>
                     <th>{{'page-order-success.TxTAX' | translate}}</th>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>{{ taxRate }}%</td>
                 </tr>
                 <tr>
                     <th>{{'page-order-details.Tax' | translate}}</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>{{  0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate)  |currencyFormat }}</td>
@@ -54,6 +59,7 @@
                 <tfoot>
                 <tr>
                     <th>{{'page-order-details.Total' | translate}}</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>{{ order.OrderInfo.TotalPrice |currencyFormat }}</td>
