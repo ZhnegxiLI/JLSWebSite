@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header-search',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
 export class SearchComponent {
 
     public searchText: string;
-    constructor() { }
+    constructor(public router: Router) { }
+
+    keyEnter(){
+        this.router.navigate(['/shop/catalog'],{queryParams: {SearchText: this.searchText}});
+    }
 }
