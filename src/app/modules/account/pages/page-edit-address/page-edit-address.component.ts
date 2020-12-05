@@ -14,7 +14,7 @@ export class PageEditAddressComponent {
     public adressForm: FormGroup;
     public loading: boolean = false;
 
-    constructor(public route: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService,
+    constructor(public route: ActivatedRoute, public router: Router, private formBuilder: FormBuilder, private userService: UserService,
         private toastr: ToastrService, private translateService: TranslateService) {
 
         this.adressForm = this.formBuilder.group({
@@ -57,10 +57,14 @@ export class PageEditAddressComponent {
                 userId: localStorage.getItem('userId'),
                 type: p.Type
             }
+           
             this.loading = true;
             this.userService.CreateOrUpdateAdress(criteria).subscribe(result => {
                 this.toastr.success(this.translateService.instant("Msg_SaveSuccess")); 
                 this.loading = false;
+                if(p.ReturnUrl!=null && p.ReturnUrl!=''){
+                    this.router.navigateByUrl(p.ReturnUrl);
+                }
             },
             error => {
                 this.toastr.error(this.translateService.instant("Msg_Error"));

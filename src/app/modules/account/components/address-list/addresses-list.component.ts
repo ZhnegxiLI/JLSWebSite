@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
     styleUrls: ['./addresses-list.component.sass']
 })
 export class AddressesListComponent {
+    @Input() returnUrl: string;
     @Input() addresses: any[] = [];
     @Input() disableRemove: boolean = false;
     @Input() selectAddress: boolean = false;

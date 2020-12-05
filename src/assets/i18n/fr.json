@@ -302,7 +302,7 @@
     "page-order-details": {
         "Backtolist": "Revenir",
         "Order": "Commandes",
-        "Wasplacedon": "Créer à",
+        "Wasplacedon": "Créer le",
         "andiscurrently": "Statut de commande",
         "Product": "Produits",
         "Total": "Total à payer",
@@ -378,7 +378,7 @@
         "Yourorderhasbeenreceived": "Nous vous remercions d'avoir passé la commande sur le site. Vous allez recevoir votre commande dans votre boîte d'E-mail. Nous allons traiter votre commande dans les meilleurs délais, puis vous demander le règlement par virement.",
         "GoToHomepage": "Retour à l'accueil",
         "Ordernumber": "Numéro de commande",
-        "Createdat": "Créé à",
+        "Createdat": "Créé le",
         "Total": "Total à payer",
         "Paymentmethod": "Méthode de payment",
         "Product": "Produits",

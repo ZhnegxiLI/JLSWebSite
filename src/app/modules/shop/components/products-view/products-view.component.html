@@ -1,4 +1,8 @@
+
 <div class="products-view" [ngClass]="{'products-view--loading': this.pageService.isLoading$|async}" [formGroup]="listOptionsForm">
+    <div class="products-view__pagination">
+        <app-pagination formControlName="CurrentPage" [siblings]="2" [total]="pageService1.TotalPage"></app-pagination>
+    </div>
     <div class="products-view__loader"></div>
 
     <div *ngIf="pageService1.items?.length" class="products-view__content">

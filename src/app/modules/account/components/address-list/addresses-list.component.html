@@ -1,5 +1,5 @@
 <div class="addresses-list">
-    <a [routerLink]="['/account/address']" [queryParams]="{AddressId: 0, Type: 'shippingAdress' }" class="addresses-list__item addresses-list__item--new">
+    <a [routerLink]="['/account/address']" [queryParams]="{AddressId: 0, Type: 'shippingAdress' , ReturnUrl:returnUrl}" class="addresses-list__item addresses-list__item--new">
         <div class="addresses-list__plus"></div>
         <div class="btn btn-secondary btn-sm">{{'page-addresses-list.AddNew' | translate}}</div>
     </a>
@@ -23,7 +23,7 @@
                     <div class="address-card__row-content">{{ address.ContactTelephone }}</div>
                 </div>
                 <div class="address-card__footer">
-                    <a [routerLink]="['/account/address']" [queryParams]="{AddressId: address.Id, Type: 'shippingAdress' }" style="cursor: pointer; color: #cc3333;">{{'page-addresses-list.Edit' | translate}}</a>&nbsp;&nbsp;
+                    <a [routerLink]="['/account/address']" [queryParams]="{AddressId: address.Id, Type: 'shippingAdress', ReturnUrl:returnUrl }" style="cursor: pointer; color: #cc3333;">{{'page-addresses-list.Edit' | translate}}</a>&nbsp;&nbsp;
                     <a *ngIf="addresses.length>1 && !disableRemove" (click)="remove(address.Id)"  style="cursor: pointer; color: #cc3333;" >{{'page-addresses-list.Remove' | translate}}</a>
                     <a *ngIf="selectAddress" (click)="selectAddressEvent(address)"  style="cursor: pointer; color: #cc3333;" >{{'page-addresses-list.Selected' | translate}}</a>
                 </div>

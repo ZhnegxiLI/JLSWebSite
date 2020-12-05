@@ -49,7 +49,7 @@
                 <div class="card mb-lg-0">
                     <div class="card-body">
                         <h3 class="card-title">{{'page-checkout.ShippingAddress' | translate}}</h3>
-                        <app--addresses-list (change)="selectedAddressChange($event)" [addresses] = "shippingAddress" [disableRemove]="true" [selectAddress]="true"></app--addresses-list>
+                        <app--addresses-list (change)="selectedAddressChange($event)" returnUrl="/shop/cart/checkout" [addresses] = "shippingAddress" [disableRemove]="true" [selectAddress]="true"></app--addresses-list>
                     </div>
                 </div>
             </div>
