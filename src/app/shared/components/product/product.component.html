@@ -14,6 +14,9 @@
                                 <div style="font-size: 24px;" *ngIf="storeService.formatProductPromotionInfo(product)!=null" class="product-card__badge product-card__badge--sale">
                                     {{storeService.formatProductPromotionInfo(product).discountPerCent}}%
                                   </div>
+                                  <div style="font-size: 24px;" *ngIf="product.IsNew==true" class="product-card__badge product-card__badge--hot">
+                                    {{ 'products-view.New' | translate }}
+                                </div>
                             </div> 
                             <a appClick (click)="openPhotoSwipe($event, image);" [href]="host + image.Path" target="_blank">
                                 <img [src]="host + image.Path" alt="" #imageElement>

@@ -84,4 +84,5 @@ export interface ProductDetail1 {
     SecondCategoryId: number;
     Size: string;
     Comments: any[];
+    IsNew: boolean;
 }
