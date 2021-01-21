@@ -4,6 +4,7 @@ import { CartItem } from '../../../../shared/interfaces/cart-item';
 import { RootService } from '../../../../shared/services/root.service';
 import { LoginService } from 'src/app/login.service';
 import { environment } from 'src/environments/environment';
+import { AppConfigService } from 'src/app/app-config.service';
 
 @Component({
     selector: 'app-header-dropcart',
@@ -15,12 +16,13 @@ export class DropcartComponent {
 
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
-    public host: string = environment.SERVER_API_URL;
+    public host: string = this.appconfigService.getUrl() ;//environment.SERVER_API_URL;
     
     constructor(
         public cart: CartService,
         public root: RootService,
-        public loginService: LoginService
+        public loginService: LoginService,
+        public appconfigService: AppConfigService
     ) { }
 
     remove(item: CartItem): void {

@@ -11,6 +11,7 @@ import { DirectionService } from '../../services/direction.service';
 import { environment } from 'src/environments/environment';
 import { StoreService } from '../../services/store.service';
 import { LoginService } from 'src/app/login.service';
+import { AppConfigService } from 'src/app/app-config.service';
 
 interface ProductImage {
     Id: string;
@@ -31,7 +32,7 @@ export class ProductComponent implements OnInit {
 
     hideRatingModule = environment.hideRatingModule;
 
-    public host: string = environment.SERVER_API_URL;
+    public host: string = this.appconfigService.getUrl() // environment.SERVER_API_URL;
 
     showGallery = true;
     showGalleryTimeout: number;
@@ -107,7 +108,8 @@ export class ProductComponent implements OnInit {
         private photoSwipe: PhotoSwipeService,
         private direction: DirectionService,
         public storeService: StoreService,
-        public loginService: LoginService
+        public loginService: LoginService,
+        public appconfigService: AppConfigService
     ) { }
 
     ngOnInit(): void {

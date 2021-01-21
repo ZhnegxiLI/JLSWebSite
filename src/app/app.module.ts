@@ -1,4 +1,4 @@
-import { /*LOCALE_ID, */LOCALE_ID, NgModule } from '@angular/core';
+import { /*LOCALE_ID, */APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 // import { registerLocaleData } from '@angular/common';
 // import localeIt from '@angular/common/locales/it';
 //
@@ -40,10 +40,18 @@ import { LoginService } from './login.service';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { ChatService } from './shared/api/chat.service';
+import { AppConfigService } from './app-config.service';
 
 
 registerLocaleData(localeFr); 
 
+
+const appInitializerFn = (appConfig: AppConfigService) => {
+    return () => {
+      return appConfig.loadAppConfig();
+    };
+  };
+  
 export function createTranslateLoader(http: HttpClient) {
     //此出的路径需要和第二步新建的文件夹保持一致
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -91,7 +99,14 @@ export function createTranslateLoader(http: HttpClient) {
         { provide: LOCALE_ID, useValue: 'fr-FR'}, 
         {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
         // { provide: LOCALE_ID, useValue: 'it' }
-        RootResolverService
+        RootResolverService,
+        AppConfigService,
+        {
+          provide: APP_INITIALIZER,
+          useFactory: appInitializerFn,
+          multi: true,
+          deps: [AppConfigService]
+        }
     ],
     bootstrap: [AppComponent]
 })

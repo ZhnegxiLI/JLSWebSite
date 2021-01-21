@@ -4,10 +4,11 @@ import { Message } from '../models/message';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
+import { AppConfigService } from 'src/app/app-config.service';
 
 @Injectable()
 export class ChatService {
-    public host: string = environment.SERVER_API_URL;
+    public host: string = this.appconfigService.getUrl();//environment.SERVER_API_URL;
 
     private apiUrlMessageHub = this.host + 'MessageHub'
     private apiUrlGetNoReadedDialogClient = this.host + 'api/User/GetNoReadedDialogClient';
@@ -21,7 +22,8 @@ export class ChatService {
     private connectionIsEstablished = false;
     private _hubConnection: HubConnection;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,    
+        public appconfigService: AppConfigService) {
         this.createConnection();
         this.registerOnServerEvents();
         this.startConnection();

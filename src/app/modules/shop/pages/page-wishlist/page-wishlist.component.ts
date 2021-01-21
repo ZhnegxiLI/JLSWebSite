@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/api/product.service';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { environment } from 'src/environments/environment';
+import { AppConfigService } from 'src/app/app-config.service';
 
 @Component({
     selector: 'app-wishlist',
@@ -17,7 +18,7 @@ export class PageWishlistComponent {
     public favoirteList : Product1[];
     hideRatingModule = environment.hideRatingModule;
     
-    public host: string = environment.SERVER_API_URL;
+    public host: string = this.appconfigService.getUrl(); //environment.SERVER_API_URL;
     
     addingToCart: boolean = false;
     removingFromWishList : boolean = false;
@@ -27,7 +28,8 @@ export class PageWishlistComponent {
         public wishlist: WishlistService,
         public cart: CartService,
         public productService: ProductService,
-        public storeService: StoreService
+        public storeService: StoreService,
+        public appconfigService: AppConfigService
     ) {
         this.route.data.subscribe(data => {
             this.favoirteList = data.favoriteList;

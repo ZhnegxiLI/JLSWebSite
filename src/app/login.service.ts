@@ -7,19 +7,21 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { AppConfigService } from './app-config.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
     public loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
-    private baseUrlToken: string = environment.SERVER_API_URL + 'api/Token/Auth';
+    private baseUrlToken: string = this.appconfigService.getUrl() + 'api/Token/Auth'; //environment.SERVER_API_URL
     constructor(
         @Inject(PLATFORM_ID)
         private platformId: any,
         protected router: Router,
         private httpClient: HttpClient,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        public appconfigService: AppConfigService
         // public translateService: TranslateService
     ) {
         if (isPlatformBrowser(this.platformId)) {

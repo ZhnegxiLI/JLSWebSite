@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 import { StoreService } from '../../services/store.service';
 import { LoginService } from 'src/app/login.service';
 import { environment } from 'src/environments/environment';
+import { AppConfigService } from 'src/app/app-config.service';
 
 @Component({
     selector: 'app-product-card1',
@@ -20,7 +21,7 @@ import { environment } from 'src/environments/environment';
 export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
     private destroy$: Subject<void> = new Subject();
 
-    public host: string = environment.SERVER_API_URL;
+    public host: string = this.appconfigService.getUrl();
     
     public quantity:number = 1;
 
@@ -45,7 +46,8 @@ export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
         public quickview: QuickviewService,
         public currency: CurrencyService,
         public storeService: StoreService,
-        public loginService: LoginService
+        public loginService: LoginService,
+        public appconfigService: AppConfigService
     ) { 
        
     }
