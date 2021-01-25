@@ -12,7 +12,7 @@ import { AppConfigService } from 'src/app/app-config.service';
     providedIn: 'root'
 })
 export class ProductService {
-    public host: string = this.appconfigService.getUrl();//environment.SERVER_API_URL;
+    public host: string = '';//environment.SERVER_API_URL;
 
     bestsellersHomePage$: Observable<Product[]>;
     promotionProductHomePage$: Observable<Product[]>;
@@ -47,6 +47,10 @@ export class ProductService {
     private apiUrlGetProductListByNote = this.host +'api/Product/GetProductListByNote';
 
     private apiUrlGetPromotionProduct = this.host + "api/Product/GetPromotionProduct";
+
+    async ngOnInit() {
+        this.host = (await this.appconfigService.getAsyncUrl());
+    }
 
     GetCategoryForWebSite(criteria): Observable<any> {
         let params = new HttpParams({ fromObject: criteria });

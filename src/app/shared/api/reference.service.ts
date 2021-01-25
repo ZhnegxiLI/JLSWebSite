@@ -9,11 +9,15 @@ import { AppConfigService } from 'src/app/app-config.service';
     providedIn: 'root'
 })
 export class ReferenceService {
-    public host: string = this.appconfigService.getUrl();//environment.SERVER_API_URL;
+    public host: string = ''//environment.SERVER_API_URL;
     constructor(
         private http: HttpClient,
         public appconfigService: AppConfigService
     ) { }
+
+    async ngOnInit() {
+        this.host = (await this.appconfigService.getAsyncUrl());
+    }
 
     private apiUrlGetReferenceItemsByCategoryLabels = this.host + 'api/Reference/GetReferenceItemsByCategoryLabels';
     private apiUrlGetWbesiteslides = this.host + 'api/Reference/GetWbesiteslides';

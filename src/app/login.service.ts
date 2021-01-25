@@ -14,7 +14,7 @@ import { AppConfigService } from './app-config.service';
 })
 export class LoginService {
     public loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
-    private baseUrlToken: string = this.appconfigService.getUrl() + 'api/Token/Auth'; //environment.SERVER_API_URL
+    private baseUrlToken: string = '' ;//environment.SERVER_API_URL
     constructor(
         @Inject(PLATFORM_ID)
         private platformId: any,
@@ -27,6 +27,10 @@ export class LoginService {
         if (isPlatformBrowser(this.platformId)) {
 
         }
+    }
+
+    async ngOnInit(){
+        this.baseUrlToken = (await this.appconfigService.getAsyncUrl()) + 'api/Token/Auth';
     }
 
     login(email: string, password: string): Observable<any> {
