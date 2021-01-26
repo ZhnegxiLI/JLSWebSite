@@ -8,12 +8,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
+declare const Configuration: any;
+
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
     public loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
-    private baseUrlToken: string = environment.SERVER_API_URL + 'api/Token/Auth';
+    private baseUrlToken: string = Configuration.SERVER_API_URL + 'api/Token/Auth';
     constructor(
         @Inject(PLATFORM_ID)
         private platformId: any,

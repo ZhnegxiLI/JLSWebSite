@@ -6,12 +6,12 @@ import { environment } from '../../../environments/environment';
 import { mergeMap, map, shareReplay } from 'rxjs/operators';
 import { Product } from '../interfaces/product';
 import { TranslateService } from '@ngx-translate/core';
-
+declare const Configuration: any;
 @Injectable({
     providedIn: 'root'
 })
 export class ProductService {
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
 
     bestsellersHomePage$: Observable<Product[]>;
     promotionProductHomePage$: Observable<Product[]>;

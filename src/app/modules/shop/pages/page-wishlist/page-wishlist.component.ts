@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/api/product.service';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { environment } from 'src/environments/environment';
-
+declare const Configuration: any;
 @Component({
     selector: 'app-wishlist',
     templateUrl: './page-wishlist.component.html',
@@ -17,7 +17,7 @@ export class PageWishlistComponent {
     public favoirteList : Product1[];
     hideRatingModule = environment.hideRatingModule;
     
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
     
     addingToCart: boolean = false;
     removingFromWishList : boolean = false;

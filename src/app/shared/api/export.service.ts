@@ -4,12 +4,12 @@ import { Category } from '../interfaces/category';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { mergeMap, map } from 'rxjs/operators';
-
+declare const Configuration: any;
 @Injectable({
     providedIn: 'root'
 })
 export class ExportService {
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
     constructor(
         private http: HttpClient,
     ) { }

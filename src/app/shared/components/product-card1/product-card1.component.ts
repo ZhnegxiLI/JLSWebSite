@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 import { StoreService } from '../../services/store.service';
 import { LoginService } from 'src/app/login.service';
 import { environment } from 'src/environments/environment';
-
+declare const Configuration: any;
 @Component({
     selector: 'app-product-card1',
     templateUrl: './product-card1.component.html',
@@ -20,7 +20,7 @@ import { environment } from 'src/environments/environment';
 export class ProductCard1Component implements OnInit, OnDestroy, OnChanges {
     private destroy$: Subject<void> = new Subject();
 
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
     
     public quantity:number = 1;
 

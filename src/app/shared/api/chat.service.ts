@@ -4,10 +4,11 @@ import { Message } from '../models/message';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
+declare const Configuration: any;
 
 @Injectable()
 export class ChatService {
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
 
     private apiUrlMessageHub = this.host + 'MessageHub'
     private apiUrlGetNoReadedDialogClient = this.host + 'api/User/GetNoReadedDialogClient';

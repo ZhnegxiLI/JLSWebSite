@@ -4,7 +4,7 @@ import { CartItem } from '../../../../shared/interfaces/cart-item';
 import { RootService } from '../../../../shared/services/root.service';
 import { LoginService } from 'src/app/login.service';
 import { environment } from 'src/environments/environment';
-
+declare const Configuration: any;
 @Component({
     selector: 'app-header-dropcart',
     templateUrl: './dropcart.component.html',
@@ -15,7 +15,7 @@ export class DropcartComponent {
 
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
     
     constructor(
         public cart: CartService,

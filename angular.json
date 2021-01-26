@@ -26,6 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/configuration",
               {
                 "glob": "**/*",
                 "input": "node_modules/photoswipe/dist",
@@ -44,7 +45,7 @@
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [],
+      
             "es5BrowserSupport": true,
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -59,6 +60,21 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
+              ],
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "glob": "**/*",
+                  "input": "node_modules/photoswipe/dist",
+                  "output": "assets/vendor/photoswipe"
+                },
+                {
+                  "glob": "{webfonts/**/*,css/all.min.css}",
+                  "input": "node_modules/@fortawesome/fontawesome-free",
+                  "output": "assets/vendor/fontawesome"
+                },
+                { "glob": "**/*", "input": "src/configuration/prod", "output": "/configuration/" }
               ],
               "optimization": true,
               "outputHashing": "all",

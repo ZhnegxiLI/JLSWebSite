@@ -11,7 +11,7 @@ import { DirectionService } from '../../services/direction.service';
 import { environment } from 'src/environments/environment';
 import { StoreService } from '../../services/store.service';
 import { LoginService } from 'src/app/login.service';
-
+declare const Configuration: any;
 interface ProductImage {
     Id: string;
     Path: string;
@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
 
     hideRatingModule = environment.hideRatingModule;
 
-    public host: string = environment.SERVER_API_URL;
+    public host: string = Configuration.SERVER_API_URL;
 
     showGallery = true;
     showGalleryTimeout: number;
