@@ -1,3 +1,3 @@
 Configuration = {
-    SERVER_API_URL: "http://jlstest.europetechs.com/"
+    SERVER_API_URL: "https://test.jlsimport.fr/"
 }
