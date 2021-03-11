@@ -168,12 +168,13 @@
     }
 }
 .product__option-label {
-    font-size: 13px;
+    font-size: 15px;
     text-transform: uppercase;
     font-weight: $font-weight-medium;
-    color: $body-font-alt-color;
+    color: #999;
     padding-bottom: 2px;
 }
+
 .product__actions {
     display: flex;
     flex-wrap: wrap;

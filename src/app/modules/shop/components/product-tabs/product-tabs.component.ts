@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class ProductTabsComponent implements OnInit {
 
     hideRatingModule = environment.hideRatingModule;
-    
+
     private dataProduct: ProductDetail1;
 
     @Input() withSidebar = false;
@@ -32,13 +32,13 @@ export class ProductTabsComponent implements OnInit {
             switch (key) {
                 case 'Color':
                     list.push({
-                        Label : this.translateService.instant('product.Color'),
+                        Label: this.translateService.instant('product.Color'),
                         Value: this.product[key]
                     });
                     break;
                 case 'Material':
                     list.push({
-                        Label : this.translateService.instant('product.Material'),
+                        Label: this.translateService.instant('product.Material'),
                         Value: this.product[key]
                     });
                     break;
@@ -50,25 +50,45 @@ export class ProductTabsComponent implements OnInit {
                 //     break;
                 case 'QuantityPerBox':
                     list.push({
-                        Label : this.translateService.instant('product.QuantityPerBox'),
+                        Label: this.translateService.instant('product.QuantityPerBox'),
                         Value: this.product[key]
                     });
                     break;
                 case 'ReferenceCode':
                     list.push({
-                        Label : this.translateService.instant('product.reference'),
+                        Label: this.translateService.instant('product.reference'),
                         Value: this.product[key]
                     });
                     break;
                 case 'Size':
                     list.push({
-                        Label : this.translateService.instant('product.Size'),
+                        Label: this.translateService.instant('product.Size'),
                         Value: this.product[key]
                     });
                     break;
                 case 'Forme':
                     list.push({
-                        Label : this.translateService.instant('product.Forme'),
+                        Label: this.translateService.instant('product.Forme'),
+                        Value: this.product[key]
+                    });
+                    break;
+
+                case 'Forme':
+                    list.push({
+                        Label: this.translateService.instant('product.Forme'),
+                        Value: this.product[key]
+                    });
+                    break;
+
+                case 'MainCategoryLabel':
+                    list.push({
+                        Label: this.translateService.instant('product.MainCategoryLabel'),
+                        Value: this.product[key]
+                    });
+                    break;
+                case 'SecondCategoryLabel':
+                    list.push({
+                        Label: this.translateService.instant('product.SecondCategoryLabel'),
                         Value: this.product[key]
                     });
                     break;

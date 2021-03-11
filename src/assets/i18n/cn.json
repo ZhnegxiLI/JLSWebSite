@@ -258,7 +258,9 @@
         "Size": "尺寸",
         "RelatedProducts": "相关产品",
         "AddtocartShort":"添加",
-        "Forme": "形状"
+        "Forme": "形状",        
+        "MainCategoryLabel": "类别",
+        "SecondCategoryLabel": "小类"
     },
     "page-dashboard": {
         "EditProfile": "修改个人资料",

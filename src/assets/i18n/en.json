@@ -255,7 +255,9 @@
         "QuantityPerBox": "Colis",
         "Size": "Size",
         "RelatedProducts": "Related Products",
-        "Forme": "Form"
+        "Forme": "Form",        
+        "MainCategoryLabel": "Main category",
+        "SecondCategoryLabel": "Second category"
     },
     "page-dashboard": {
         "EditProfile": "Edit Profile",

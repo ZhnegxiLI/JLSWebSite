@@ -253,7 +253,8 @@
         "minimumachats": "Minimum d'achat",
         "QuantityPerBox": "Colisage",
         "Size": "Taille",
-        
+        "MainCategoryLabel": "Catégorie",
+        "SecondCategoryLabel": "Sous-Catégorie",
         "Forme": "Forme",
         "RelatedProducts": "Nos produits similaires"
     },
