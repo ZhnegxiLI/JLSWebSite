@@ -170,7 +170,8 @@
         "Subtotal": "小计",
         "CalculateShipping": "运费",
         "Proceedtocheckout": "下一步",
-        "CouponCode": "折扣卷码"
+        "CouponCode": "折扣卷码",
+        "Reference": "编号"
     },
     "page-checkout": {
         "ShippingAddress": "运送地址",
@@ -255,6 +256,7 @@
         "Addtocart": "加入购物车",
         "minimumachats": "最小购买量",
         "QuantityPerBox": "件/箱",
+        "QuantityPerParcel": "小包装",
         "Size": "尺寸",
         "RelatedProducts": "相关产品",
         "AddtocartShort":"添加",

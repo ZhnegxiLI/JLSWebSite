@@ -170,7 +170,8 @@
         "Subtotal": "Subtotal",
         "CalculateShipping": "Calculate Shipping",
         "Proceedtocheckout": "Proceed to checkout",
-        "CouponCode": "Coupon code"
+        "CouponCode": "Coupon code",
+        "Reference": "Reference"
     },
     "page-checkout": {
         "ChooseAnotherAddress": "Choose another address",
@@ -252,7 +253,8 @@
         "Addtocart": "Add to cart",
         "AddtocartShort":"Add",
         "minimumachats": "Minimum purchase",
-        "QuantityPerBox": "Colis",
+        "QuantityPerBox": "Sub Colis",
+        "QuantityPerParcel": "Colis",
         "Size": "Size",
         "RelatedProducts": "Related Products",
         "Forme": "Form",        

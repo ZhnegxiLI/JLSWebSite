@@ -22,9 +22,15 @@
                 <tr class="cart-table__row">
                     <th class="cart-table__column cart-table__column--image">{{'page-cart.Image' | translate}}</th>
                     <th class="cart-table__column cart-table__column--product">{{'page-cart.Product' | translate}}</th>
+                    <th class="cart-table__column cart-table__column--product">{{'page-cart.Reference' | translate}}
+                    </th>
                     <th class="cart-table__column cart-table__column--price">{{'page-cart.Price' | translate}}</th>
-                    <th class="cart-table__column cart-table__column--price">{{'product.QuantityPerBox' | translate}}</th>
+                    <th class="cart-table__column cart-table__column--price">{{'product.QuantityPerBox' | translate}}
+                    </th>
                     <th class="cart-table__column cart-table__column--quantity">{{'page-cart.Quantity' | translate}}
+                    </th>
+                    <th class="cart-table__column cart-table__column--quantity">
+                        QT.CDEE
                     </th>
                     <th class="cart-table__column cart-table__column--total">{{'page-cart.Total' | translate}}</th>
                     <th class="cart-table__column cart-table__column--remove"></th>
@@ -39,12 +45,15 @@
                     <td class="cart-table__column cart-table__column--product">
                         <a class="cart-table__product-name">{{ item.cartItem.product.Label }}</a>
                     </td>
+                    <td class="cart-table__column cart-table__column--product" style="text-align: center;">
+                        <a class="cart-table__product-name">{{ item.cartItem.product.Code }}</a>
+                    </td>
                     <td class="cart-table__column cart-table__column--price" data-title="Price">
                         <span *ngIf="loginService.loginStatus|async">
                             {{ item.cartItem.product.Price|currencyFormat }}</span>
                     </td>
                     <td class="cart-table__column cart-table__column--price" data-title="QuantityPerBox">
-                        <span >
+                        <span>
                             {{ item.cartItem.product.QuantityPerBox }}</span>
                     </td>
                     <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
@@ -52,8 +61,14 @@
                             [min]="item.cartItem.product.MinQuantity"></app-input-number>
                     </td>
                     <td class="cart-table__column cart-table__column--total" data-title="Total">
+                        <span>
+                            {{item.quantity * item.cartItem.product.QuantityPerBox }}
+                        </span>
+                    </td>
+                    <td class="cart-table__column cart-table__column--total" data-title="Total">
                         <span *ngIf="loginService.loginStatus|async">
-                            {{ item.cartItem.product.Price * item.quantity * item.cartItem.product.QuantityPerBox |currencyFormat }}</span>
+                            {{ item.cartItem.product.Price * item.quantity * item.cartItem.product.QuantityPerBox
+                            |currencyFormat }}</span>
                     </td>
                     <td class="cart-table__column cart-table__column--remove">
                         <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(item.cartItem)"
@@ -90,7 +105,7 @@
                             <tbody *ngIf="(cart.totals$|async).length" class="cart__totals-body">
                                 <tr *ngFor="let total of cart.totals$|async">
                                     <th>{{ total.title | translate }}</th>
-                                    <td *ngIf="total.type!='shipping'">{{ total.price|currencyFormat  }}</td>
+                                    <td *ngIf="total.type!='shipping'">{{ total.price|currencyFormat }}</td>
                                     <td *ngIf="total.type =='shipping'">{{'dropcart.Aestimer' | translate}} </td>
                                 </tr>
                             </tbody>

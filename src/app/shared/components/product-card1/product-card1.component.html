@@ -52,9 +52,24 @@
             {{'product.reference'| translate}}: {{ product.Code}}
          </ng-container> 
        <br>
-        <ng-container>
-            {{'product.QuantityPerBox'| translate}}: {{ product.QuantityPerBox}}
-         </ng-container>
+       <div *ngIf="product.QuantityPerParcel==null">
+            <ng-container>
+                {{'product.QuantityPerParcel'| translate}}: {{ product.QuantityPerBox}} pcs
+            </ng-container>
+       </div>
+
+       <div *ngIf="product.QuantityPerParcel!=null">
+            <ng-container>
+                {{'product.QuantityPerParcel'| translate}}: {{ product.QuantityPerParcel}} pcs
+            </ng-container>
+            <br>
+            <ng-container >
+                <span style="color: red;">
+                    {{'product.QuantityPerBox'| translate}}: {{ product.QuantityPerBox}} pcs
+                </span>
+            </ng-container>
+        </div>
+
         <div class="product-card__prices" *ngIf="loginService.loginStatus|async">
 
            <ng-container *ngIf="storeService.formatProductPromotionInfo(product)!=null">
@@ -67,8 +82,11 @@
             </ng-container>
         </div>
         <div class="product-card__buttons">
-
-            <app-input-number aria-label="Quantity" class="product__quantity" size="sm" [min]="product.MinQuantity" [(ngModel)]="quantity"></app-input-number>
+            <div>
+                <app-input-number aria-label="Quantity" class="product__quantity" size="sm" [min]="product.MinQuantity" [(ngModel)]="quantity"></app-input-number>
+            </div>
+            <span style="margin-top: 4px;">Paquet(s)</span>
+           
 
             <button class="btn btn-primary product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">{{'product.AddtocartShort' | translate}}</button>
             <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">{{'product.Addtocart' | translate}}</button>
