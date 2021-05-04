@@ -68,7 +68,7 @@
 
         <div class="products-view__list products-list" [attr.data-layout]="layout != 'list' ? grid : layout" [attr.data-with-features]="layout == 'grid-with-features' ? 'true' : 'false'">
             <div class="products-list__body">
-                <div *ngFor="let product of pageService1.items" class="products-list__item">
+                <div *ngFor="let product of pageService1.items" class="products-list__item" >
                     <app-product-card1 [product]="product"></app-product-card1>
                 </div>
             </div>
