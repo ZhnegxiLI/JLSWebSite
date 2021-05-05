@@ -29,8 +29,8 @@
                     </th>
                     <th class="cart-table__column cart-table__column--quantity">{{'page-cart.Quantity' | translate}}
                     </th>
-                    <th class="cart-table__column cart-table__column--quantity">
-                        QT.CDEE
+                    <th class="cart-table__column cart-table__column--price">
+                        {{'page-cart.TotalQuantity' | translate}}
                     </th>
                     <th class="cart-table__column cart-table__column--total">{{'page-cart.Total' | translate}}</th>
                     <th class="cart-table__column cart-table__column--remove"></th>
@@ -60,7 +60,7 @@
                         <app-input-number [formControl]="item.quantityControl" (quantityChange)="update()"
                             [min]="item.cartItem.product.MinQuantity"></app-input-number>
                     </td>
-                    <td class="cart-table__column cart-table__column--total" data-title="Total">
+                    <td class="cart-table__column cart-table__column--price" data-title="Total">
                         <span>
                             {{item.quantity * item.cartItem.product.QuantityPerBox }}
                         </span>

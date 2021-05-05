@@ -171,7 +171,8 @@
         "CalculateShipping": "运费",
         "Proceedtocheckout": "下一步",
         "CouponCode": "折扣卷码",
-        "Reference": "编号"
+        "Reference": "编号",
+        "TotalQuantity":"总个数"
     },
     "page-checkout": {
         "ShippingAddress": "运送地址",

@@ -171,7 +171,8 @@
         "Subtotal": "Total HT",
         "CalculateShipping": "Frais de livraison",
         "Proceedtocheckout": "Passer au paiement",
-        "CouponCode": "Code de coupon"
+        "CouponCode": "Code de coupon",
+        "TotalQuantity":"QT.Total"
     },
     "page-checkout": {
         "ShippingAddress": "Adresse de livraison",

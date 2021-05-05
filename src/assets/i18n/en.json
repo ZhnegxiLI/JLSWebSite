@@ -171,7 +171,8 @@
         "CalculateShipping": "Calculate Shipping",
         "Proceedtocheckout": "Proceed to checkout",
         "CouponCode": "Coupon code",
-        "Reference": "Reference"
+        "Reference": "Reference",
+        "TotalQuantity":"QT.Total"
     },
     "page-checkout": {
         "ChooseAnotherAddress": "Choose another address",
