@@ -17,8 +17,9 @@
                 <tr>
                     <th>{{'page-order-details.Product' | translate}}</th>
                     <th>{{'page-order-details.UnitPrice' | translate}}</th>
-                    <th>{{'product.QuantityPerBox' | translate}}</th>
+                    <th>{{'product.QuantityPerParcel' | translate}}</th>
                     <th>{{'product.Quantity' | translate}}</th>
+                    <th>{{'page-cart.TotalQuantity' | translate}}</th>
                     <th>{{'page-order-details.Total' | translate}}</th>
                 </tr>
                 </thead>
@@ -28,6 +29,7 @@
                     <td>{{ item.Price |currencyFormat }}</td>
                     <td>{{ item.QuantityPerBox }}</td>
                     <td>{{ item.Quantity }}</td>
+                    <td>{{ item.Quantity * item.QuantityPerBox  }}</td>
                     <td>{{ (item.Price*item.Quantity*item.QuantityPerBox) |currencyFormat }}</td>
                 </tr>
                 </tbody>
@@ -38,10 +40,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>{{ (order.OrderInfo.TotalPrice - 0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate) ) |currencyFormat }}</td>
                 </tr>
                 <tr>
                     <th>{{'page-order-success.TxTAX' | translate}}</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -52,6 +56,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>{{  0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate)  |currencyFormat }}</td>
                 </tr>
      
@@ -59,6 +64,7 @@
                 <tfoot>
                 <tr>
                     <th>{{'page-order-details.Total' | translate}}</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
