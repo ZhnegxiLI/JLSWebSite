@@ -30,70 +30,87 @@ export class ProductTabsComponent implements OnInit {
         let list = [];
         Object.keys(this.product).map(key => {
             switch (key) {
-                case 'Color':
-                    list.push({
-                        Label: this.translateService.instant('product.Color'),
-                        Value: this.product[key]
-                    });
-                    break;
-                case 'Material':
-                    list.push({
-                        Label: this.translateService.instant('product.Material'),
-                        Value: this.product[key]
-                    });
-                    break;
-                // case 'MinQuantity':
-                //     list.push({
-                //         Label : this.translateService.instant('product.minimumachats'),
-                //         Value: this.product[key]
-                //     });
-                //     break;
-                case 'QuantityPerBox':
-                    list.push({
-                        Label: this.translateService.instant('product.QuantityPerBox'),
-                        Value: this.product[key]
-                    });
-                    break;
-                case 'ReferenceCode':
-                    list.push({
-                        Label: this.translateService.instant('product.reference'),
-                        Value: this.product[key]
-                    });
-                    break;
-                case 'Size':
-                    list.push({
-                        Label: this.translateService.instant('product.Size'),
-                        Value: this.product[key]
-                    });
-                    break;
-                case 'Forme':
-                    list.push({
-                        Label: this.translateService.instant('product.Forme'),
-                        Value: this.product[key]
-                    });
-                    break;
-
-                case 'Forme':
-                    list.push({
-                        Label: this.translateService.instant('product.Forme'),
-                        Value: this.product[key]
-                    });
-                    break;
-
                 case 'MainCategoryLabel':
                     list.push({
                         Label: this.translateService.instant('product.MainCategoryLabel'),
-                        Value: this.product[key]
+                        Value: this.product[key],
+                        Order: 0
                     });
                     break;
                 case 'SecondCategoryLabel':
                     list.push({
                         Label: this.translateService.instant('product.SecondCategoryLabel'),
-                        Value: this.product[key]
+                        Value: this.product[key],
+                        Order: 1
+                    });
+                    break;
+                case 'ReferenceCode':
+                    list.push({
+                        Label: this.translateService.instant('product.reference'),
+                        Value: this.product[key],
+                        Order: 3
+                    });
+                    break;
+
+                case 'QuantityPerParcel':
+                    if (this.product[key] != null) {
+                        list.push({
+                            Label: this.translateService.instant('product.QuantityPerParcel'),
+                            Value: this.product[key] + ' PCS',
+                            Order: 4
+                        });
+                    }
+                    break;
+
+                case 'QuantityPerBox':
+                    if (this.product.QuantityPerParcel != null) {
+                        list.push({
+                            Label: this.translateService.instant('product.QuantityPerBox'),
+                            Value: this.product[key] + ' PCS',
+                            Order: 5
+                        });
+                    }
+                    else {
+                        list.push({
+                            Label: this.translateService.instant('product.QuantityPerParcel'),
+                            Value: this.product[key] + ' PCS',
+                            Order: 5
+                        });
+                    }
+                    break;
+
+                case 'Color':
+                    list.push({
+                        Label: this.translateService.instant('product.Color'),
+                        Value: this.product[key],
+                        Order: 6
+                    });
+                    break;
+                case 'Material':
+                    list.push({
+                        Label: this.translateService.instant('product.Material'),
+                        Value: this.product[key],
+                        Order: 7
+                    });
+                    break;
+
+
+                case 'Size':
+                    list.push({
+                        Label: this.translateService.instant('product.Size'),
+                        Value: this.product[key],
+                        Order: 8
+                    });
+                    break;
+                case 'Forme':
+                    list.push({
+                        Label: this.translateService.instant('product.Forme'),
+                        Value: this.product[key],
+                        Order: 9
                     });
                     break;
             }
         });
-        return list;
+        return list.sort((a,b)=>a.Order-b.Order);
     }
 }

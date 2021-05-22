@@ -175,6 +175,7 @@
         "TotalQuantity":"QT.Total"
     },
     "page-checkout": {
+        "SameAddress": "Use same address for billing",
         "ChooseAnotherAddress": "Choose another address",
         "ShippingAddress": "Shipping address",
         "NoAddressAvailable": "No address available",

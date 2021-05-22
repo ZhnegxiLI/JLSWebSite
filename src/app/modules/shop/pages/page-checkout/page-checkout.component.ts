@@ -18,6 +18,8 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
     public loading = false;
 
+    public setSameAddress: boolean = false;
+
     public orderCriteria: any = {
         ShippingAdressId: 0,
         FacturationAdressId: 0,
@@ -77,7 +79,12 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
     }
 
     ValideOrder():void {
- 
+        // Set shipping address as facturation address 
+        if(this.setSameAddress==true &&  this.orderCriteria!=null && this.orderCriteria.ShippingAdressId!=null){
+            this.orderCriteria.FacturationAdressId = this.orderCriteria.ShippingAdressId
+        }
+
+        // Save
         if (this.orderCriteria.ShippingAdressId != null && this.orderCriteria.ShippingAdressId > 0
             && this.orderCriteria.FacturationAdressId != null && this.orderCriteria.FacturationAdressId > 0
             && this.orderCriteria.UserId != null && this.orderCriteria.UserId > 0

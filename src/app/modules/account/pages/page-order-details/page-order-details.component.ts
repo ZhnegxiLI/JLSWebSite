@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Order } from '../../../../shared/interfaces/order';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from 'src/app/shared/services/store.service';
+declare const Configuration: any;
 
 @Component({
     selector: 'app-page-order-details',
@@ -11,6 +12,8 @@ import { StoreService } from 'src/app/shared/services/store.service';
 export class PageOrderDetailsComponent {
     order: any = {};
     taxRate : number = 0;
+
+    public host: string = Configuration.SERVER_API_URL;
     constructor(public route: ActivatedRoute, public storeService: StoreService) {
         this.route.data.subscribe(data => {
             this.order = data.initInfo;

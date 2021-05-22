@@ -35,6 +35,7 @@
                         <thead class="order-list__header">
                         <tr>
                             <th class="order-list__column-label" colspan="2">{{'page-order-success.Product' | translate}}</th>
+                            <th class="order-list__column-label">{{'page-cart.Reference' | translate}}</th>
                             <th class="order-list__column-quantity">{{'product.QuantityPerParcel' | translate}}</th>
                             <th class="order-list__column-quantity">{{'page-order-success.Qty' | translate}}</th>
                             <th class="order-list__column-quantity">{{'page-cart.TotalQuantity' | translate}}</th>
@@ -49,7 +50,15 @@
                                 <a appClick  *ngIf="!item.DefaultPhotoPath" [routerLink]="['/shop/products']" [queryParams]="{ProductId: item.ProductId }"><img src="assets/images/products/product-7.jpg" alt=""></a> 
                             </td>
                             <td class="order-list__column-product">
-                                {{item.Label}}
+                                <a [routerLink]="['/shop/products']" [queryParams]="{ProductId: item.ProductId }">
+                                    {{item.Label}}
+                                </a>
+                            </td>
+
+                            <td class="order-list__column-product">
+                                <a [routerLink]="['/shop/products']" [queryParams]="{ProductId: item.ProductId }">
+                                    {{item.Code}}
+                                </a>
                             </td>
                             <td class="order-list__column-quantity" >{{ item.QuantityPerBox }}</td>
                             <td class="order-list__column-quantity" data-title="Qty:">{{ item.Quantity }}</td>
@@ -60,22 +69,22 @@
                         </tbody>
                         <tbody class="order-list__subtotals">
                         <tr>
-                            <th class="order-list__column-label" colspan="6">{{'page-order-success.Subtotal' | translate}}</th>
+                            <th class="order-list__column-label" colspan="7">{{'page-order-success.Subtotal' | translate}}</th>
                             <td class="order-list__column-total">{{ (order.OrderInfo.TotalPrice - 0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate) ) |currencyFormat }}</td>
                         </tr>
                         <tr>
-                            <th class="order-list__column-label" colspan="6">{{'page-order-success.TxTAX' | translate}}</th>
+                            <th class="order-list__column-label" colspan="7">{{'page-order-success.TxTAX' | translate}}</th>
                             <td class="order-list__column-total">{{ taxRate }}%</td>
                         </tr>
                         <tr>
-                            <th class="order-list__column-label" colspan="6">{{'page-order-details.Tax' | translate}}</th>
+                            <th class="order-list__column-label" colspan="7">{{'page-order-details.Tax' | translate}}</th>
                             <td class="order-list__column-total"> {{  0.01* taxRate* order.OrderInfo.TotalPrice/(1 + 0.01* taxRate)  |currencyFormat }}</td>
                         </tr>
                         </tbody>
                         <tfoot class="order-list__footer">
             
                         <tr>
-                            <th class="order-list__column-label" colspan="6">{{'page-order-details.Total' | translate}}</th>
+                            <th class="order-list__column-label" colspan="7">{{'page-order-details.Total' | translate}}</th>
                             <td class="order-list__column-total">{{ order.OrderInfo.TotalPrice|currencyFormat }}</td>
                         </tr>
                         </tfoot>

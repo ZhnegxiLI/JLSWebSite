@@ -39,14 +39,20 @@
             <tbody class="cart-table__body">
                 <tr *ngFor="let item of items" class="cart-table__row">
                     <td class="cart-table__column cart-table__column--image">
-                        <a *ngIf="item.cartItem.product.DefaultPhotoPath"><img
-                                [src]="item.cartItem.product.DefaultPhotoPath" alt=""></a>
+                        <a *ngIf="item.cartItem.product.DefaultPhotoPath" [routerLink]="['/shop/products']"
+                            [queryParams]="{ProductId: item.cartItem.product.ProductId }">
+                            <img  [src]="item.cartItem.product.DefaultPhotoPath" alt="">
+                        </a>
                     </td>
                     <td class="cart-table__column cart-table__column--product">
-                        <a class="cart-table__product-name">{{ item.cartItem.product.Label }}</a>
+                        <a class="cart-table__product-name" [routerLink]="['/shop/products']"
+                            [queryParams]="{ProductId: item.cartItem.product.ProductId }">{{ item.cartItem.product.Label
+                            }}</a>
                     </td>
                     <td class="cart-table__column cart-table__column--product" style="text-align: center;">
-                        <a class="cart-table__product-name">{{ item.cartItem.product.Code }}</a>
+                        <a class="cart-table__product-name" [routerLink]="['/shop/products']"
+                            [queryParams]="{ProductId: item.cartItem.product.ProductId }">
+                            {{ item.cartItem.product.Code }}</a>
                     </td>
                     <td class="cart-table__column cart-table__column--price" data-title="Price">
                         <span *ngIf="loginService.loginStatus|async">

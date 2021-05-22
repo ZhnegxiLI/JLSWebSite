@@ -175,6 +175,7 @@
         "TotalQuantity":"总个数"
     },
     "page-checkout": {
+        "SameAddress": "同时使用该地址作为账单地址",
         "ShippingAddress": "运送地址",
         "ChooseAnotherAddress": "选择另一个地址",
         "NoAddressAvailable": "无可用发货地址",

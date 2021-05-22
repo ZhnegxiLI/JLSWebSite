@@ -12,7 +12,7 @@
                 <app-alert type="primary" size="lg" [innerHTML] = "storeService.shippingInfo|async"></app-alert>
             </div>
            
-            <div class="col-12 col-lg-12 col-xl-12">
+            <div class="col-12 col-lg-12 col-xl-12" *ngIf="!setSameAddress">
                 <div class="card mb-0">
                     <div class="dashboard__address address-card address-card--featured" style="width: 100%;">
 
@@ -48,7 +48,23 @@
             <div class="col-12 col-lg-12 col-xl-12" style="margin-top: 20px!important;">
                 <div class="card mb-lg-0">
                     <div class="card-body">
-                        <h3 class="card-title">{{'page-checkout.ShippingAddress' | translate}}</h3>
+                        <div class="card-title">
+                           <h3>{{'page-checkout.ShippingAddress' | translate}}</h3> 
+                           <div class="form-check">
+                            <span class="form-check-input input-check">
+                                <span class="input-check__body">
+                                    <input class="input-check__input" type="checkbox" id="checkout-same" [(ngModel)]="setSameAddress">
+                                    <span class="input-check__box"></span>
+                                    <svg class="input-check__icon" width="9px" height="7px">
+                                        <use xlink:href="assets/images/sprite.svg#check-9x7"></use>
+                                    </svg>
+                                </span>
+                            </span>
+                            <label class="form-check-label" for="checkout-same">
+                                {{'page-checkout.SameAddress' | translate}}
+                            </label>
+                        </div>
+                        </div>
                         <app--addresses-list (change)="selectedAddressChange($event)" returnUrl="/shop/cart/checkout" [addresses] = "shippingAddress" [disableRemove]="true" [selectAddress]="true"></app--addresses-list>
                     </div>
                 </div>
