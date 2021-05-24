@@ -8,7 +8,7 @@ import { Product1 } from 'src/app/shared/interfaces/product';
 })
 export class BlockProductsComponent {
     @Input() header: string;
-    @Input() layout: 'large-first' | 'large-last' = 'large-first';
+    @Input() layout: 'large-first' | 'large-last' | 'none' = 'large-first';
     @Input() products: Product1[] = [];
     @Input() badgeTitle:string;
     @Input() orderby: string;
