@@ -78,6 +78,7 @@ export interface ProductDetail1 {
     PreviousPrice?: number;
     ProductId: number;
     QuantityPerBox: number;
+    QuantityPerParcel?: number;
     ReferenceCode: string;
     Forme: string;
     ReferenceId: number;

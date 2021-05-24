@@ -59,6 +59,7 @@ const routes: Routes = [
             // For LTR scripts "start" is "left" and "end" is "right".
             sidebarPosition: 'start'
         },
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
         resolve: {
             product: ProductResolverService
         },
