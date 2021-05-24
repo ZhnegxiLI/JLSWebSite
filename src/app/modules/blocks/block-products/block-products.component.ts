@@ -29,7 +29,7 @@ export class BlockProductsComponent {
             if (this.layout === 'large-first') {
                 return this.products.slice(1, 10);
             } else {
-                return this.products.slice(0, 10);
+                return this.products.slice(0, 12);
             }
         }
         return [];

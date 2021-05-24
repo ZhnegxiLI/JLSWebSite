@@ -128,7 +128,7 @@ export class ProductService {
             this.latestProductHomePage$ = this.GetProductListByPublishDate({
                 Lang: this.translateService.currentLang,
                 Begin: 0,
-                Step: 11
+                Step: 12
             })
             .pipe(
                 shareReplay({ bufferSize: 1, refCount: true })
@@ -141,7 +141,7 @@ export class ProductService {
             this.promotionProductHomePage$ = this.GetPromotionProduct({
                 Lang: this.translateService.currentLang,
                 Begin: 0,
-                Step: 11
+                Step: 12
             })
             .pipe(
                 shareReplay({ bufferSize: 1, refCount: true })

@@ -47,7 +47,7 @@ $local-product-margin: 6px;
 }
 .block-products__list-item {
     display: flex;
-    width: calc(33.3333% - #{$local-product-margin * 2});
+    width: calc(25% - #{$local-product-margin * 2});
     margin: $local-product-margin;
 
     .product-card {

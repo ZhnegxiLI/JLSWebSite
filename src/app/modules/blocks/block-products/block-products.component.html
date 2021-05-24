@@ -22,8 +22,11 @@
             </ng-template>
 
             <ng-container *ngIf="layout === 'large-last'" [ngTemplateOutlet]="smallsTemplate"></ng-container>
-            <ng-container [ngTemplateOutlet]="largeTemplate"></ng-container>
+            <ng-container [ngTemplateOutlet]="largeTemplate"  *ngIf="layout != 'none'"></ng-container>
             <ng-container *ngIf="layout === 'large-first'" [ngTemplateOutlet]="smallsTemplate"></ng-container>
+
+            
+            <ng-container *ngIf="layout === 'none'" [ngTemplateOutlet]="smallsTemplate"></ng-container>
         </div>
     </div>
 </div>
