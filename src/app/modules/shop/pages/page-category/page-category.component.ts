@@ -126,8 +126,19 @@ export class PageCategoryComponent implements OnDestroy {
             }
 
             /* Resert page to 0 when 1 of 3 criteria has been changed */
-            if(searchText!= null || categoryShortLabel!=null){
+            if(searchText!= null || categoryShortLabel!=null ){
                 criteria.Begin = 0;
+            }
+            
+            // TODO, add step 
+            var begin = params.get('Begin');
+            if(begin!=null){
+                criteria.Begin = parseInt(begin);
+            }
+
+            var step = params.get('Step');
+            if(step!=null){
+                criteria.Step = parseInt(step);
             }
 
             this.pageService1.setOptions(criteria, true);

@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ShopSidebarService } from '../../services/shop-sidebar.service';
 import { PageCategoryService } from '../../services/page-category.service';
@@ -27,15 +28,17 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         public sidebar: ShopSidebarService,
         public pageService: PageCategoryService,
-        public pageService1: PageCategoryService1
+        public pageService1: PageCategoryService1,
+        public router: Router,
+        public activatedRoute: ActivatedRoute
     ) {
     }
 
     ngOnInit(): void {
         /* Bind the form */
         this.listOptionsForm = this.fb.group({
-            CurrentPage: this.fb.control(this.pageService1.CurrentPage),
-            Begin: this.fb.control(this.pageService1.CurrentPage - 1),
+            CurrentPage: this.fb.control(this.pageService1.Begin+1),
+            Begin: this.fb.control(this.pageService1.Begin),
             Step: this.fb.control(this.pageService1.Step),
             OrderBy: this.fb.control(this.pageService1.OrderBy || 'Default'),
         });
@@ -44,7 +47,21 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         /* Bind the change of Begin, Step, OrderBy */
         this.listOptionsForm.valueChanges.subscribe(value => {
             value.Begin = value.CurrentPage - 1;
-            this.pageService1.updateOptions(value);
+
+            // Save all changes(Begin, Step, OrderBy) in url
+            this.router.navigate(
+            [], 
+            {
+                relativeTo: this.activatedRoute,
+                queryParams: {
+                    Orderby: value.OrderBy, 
+                    Begin: value.Begin,
+                    Step: value.Step
+                }, 
+                queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
+
+            //this.pageService1.updateOptions(value);
         });
         this.pageService1.optionsChange$.subscribe(reuslt=>{
             this.listOptionsForm.patchValue({

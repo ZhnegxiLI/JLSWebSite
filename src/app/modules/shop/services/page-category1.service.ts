@@ -55,8 +55,10 @@ export class PageCategoryService1 {
 
     // getters for list
     get items(): Product1[] { return this.listState.items; }
-    get TotalCount(): number { return this.listState.TotalCount; }
+    get TotalCount(): number { return this.listState.TotalCount; };
 
+    get Begin(): number { return this.optionsState.Begin  };
+    
     get CurrentPage(): number { return this.optionsState.Begin + 1 }; // page of the programme start from 0 not 1
     get OrderBy(): string { return this.optionsState.OrderBy };
     get Step(): number { return this.optionsState.Step };
