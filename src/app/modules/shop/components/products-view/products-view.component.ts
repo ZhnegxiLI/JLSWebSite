@@ -44,6 +44,13 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         });
 
 
+        // When OrderBy changed, current page will reset to 1
+        this.listOptionsForm.get("OrderBy").valueChanges.subscribe(value=>{
+ 
+            this.listOptionsForm.get("CurrentPage").setValue(1,{
+                emitEvent: false
+            })
+        });
         /* Bind the change of Begin, Step, OrderBy */
         this.listOptionsForm.valueChanges.subscribe(value => {
             value.Begin = value.CurrentPage - 1;
