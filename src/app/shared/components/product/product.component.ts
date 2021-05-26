@@ -4,7 +4,7 @@ import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, Location } from '@angular/common';
 import { OwlCarouselOConfig } from 'ngx-owl-carousel-o/lib/carousel/owl-carousel-o-config';
 import { PhotoSwipeService } from '../../services/photo-swipe.service';
 import { DirectionService } from '../../services/direction.service';
@@ -107,7 +107,8 @@ export class ProductComponent implements OnInit {
         private photoSwipe: PhotoSwipeService,
         private direction: DirectionService,
         public storeService: StoreService,
-        public loginService: LoginService
+        public loginService: LoginService,
+        public location: Location
     ) { }
 
     ngOnInit(): void {
@@ -131,6 +132,11 @@ export class ProductComponent implements OnInit {
             }
         }
     }
+
+    returnToPreviousPage(): void{
+        this.location.back()
+    }
+
 
     addToCart(): void {
         if (!this.addingToCart && this.product && this.quantity > 0) {
