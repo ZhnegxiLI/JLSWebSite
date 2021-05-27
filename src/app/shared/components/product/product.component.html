@@ -139,11 +139,7 @@
                             <app-input-number aria-label="Quantity" class="product__quantity" size="lg"
                                 [min]="product.MinQuantity" [(ngModel)]="quantity"></app-input-number>
                         </div>
-                        <div class="product__actions-item product__actions-item--addtocart">
-                            <button type="button" class="btn btn-primary btn-lg"
-                                [ngClass]="{'btn-loading': addingToCart}" appClick
-                                (click)="addToCart()">{{'product.Addtocart' | translate}}</button>
-                        </div>
+              
                         <div *ngIf="loginService.loginStatus|async"
                             class="product__actions-item product__actions-item--wishlist">
                             <button type="button" class="btn btn-secondary btn-svg-icon btn-lg"
@@ -154,9 +150,16 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product__actions">
+                    <div class="product__actions" style="margin-top: 5%;">
+                    
                         <div class="product__actions-item product__actions-item--addtocart" style="width: 80%;">
                             <button type="button" class="btn btn-primary btn-lg" style="width: 100%;"
+                            [ngClass]="{'btn-loading': addingToCart}" appClick
+                            (click)="addToCart()">{{'product.Addtocart' | translate}}</button>
+                        </div>
+                        <div class="product__actions-item product__actions-item--addtocart" style="width: 80%;">
+         
+                            <button type="button" class="btn btn-primary btn-lg" style="width: 100%; background-color: white; color: red;border-color: red;"
                                 appClick (click)="returnToPreviousPage()">{{'page-cart.ContinueShopping' | translate}}
                             </button>
                         </div>
