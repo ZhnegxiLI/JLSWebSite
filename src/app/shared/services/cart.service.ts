@@ -96,6 +96,32 @@ export class CartService {
         }));
     }
 
+    addMultiple(productList: any[]){
+        
+        if(productList!=null && productList.length >0 ){
+            productList.map(x=>{
+                var product = x.product;
+                var quantity = x.quantity;
+
+                let item = this.items.find(eachItem => {
+                   return eachItem.product.ProductId == product.ProductId;
+                });
+
+                if (item) {
+                    item.quantity = item.quantity + quantity;
+                } else {
+                    item = { product, quantity };
+                    this.data.items.push(item);
+                }
+
+                this.onAddingSubject$.next(product);
+            });
+
+            this.save();
+            this.calc();
+        }
+    }
+
     update(updates: { item: CartItem, quantity: number }[]): Observable<void> {
         // timer only for demo
         return timer(1000).pipe(map(() => {

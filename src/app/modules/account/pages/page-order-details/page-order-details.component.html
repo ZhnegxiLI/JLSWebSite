@@ -4,7 +4,10 @@
             <a routerLink="/account/orders" class="btn btn-xs btn-secondary">{{'page-order-details.Backtolist' |
                 translate}}</a>
         </div>
-        <h5 class="order-header__title">{{'page-order-details.Order' | translate}} #{{ order.OrderInfo.Id }}</h5>
+        <h5 class="order-header__title">
+            {{'page-order-details.Order' | translate}} #{{ order.OrderInfo.Id }}
+            <button (click)="copyCommande(confirmModal)" class="btn btn-primary btn-xs" style="vertical-align: middle;margin-bottom: 3px;">{{'CopyOrderTitle' | translate}}</button>
+        </h5>
         <div class="order-header__subtitle">
             {{'page-order-details.Wasplacedon' | translate}} <mark
                 class="order-header__date">{{order.OrderInfo.CreatedOn| date:'short' }}</mark>
@@ -158,3 +161,13 @@
         </div>
     </div>
 </div>
+
+
+  <ng-template #confirmModal>
+    <div class="modal-body text-center">
+      <p> {{'CopyOrder' | translate}}</p>
+      
+      <button type="button" class="btn btn-default" (click)="modalRef.hide()" >{{'No' | translate}}</button>
+      <button type="button" class="btn btn-primary" (click)="confirm()" >{{'Yes' | translate}}</button>
+    </div>
+  </ng-template>

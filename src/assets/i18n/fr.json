@@ -37,6 +37,8 @@
     "Msg_ReLogin": "Vous êtes déconnecté, essayez de vous reconnecter",
     "Leave": "Quitter?",
     "Yes": "Oui",
+    "CopyOrderTitle":"Acheter à nouveau",
+    "CopyOrder": "Est-ce que vous voulez rajouter les produits de cette commande dans le panier?",
     "No": "Non",
     "imcomplete": "Les informations sont incomplètes, veuillez les remplir à nouveau",
     "All": "Tous",

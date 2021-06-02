@@ -21,6 +21,8 @@
     "Leave": "离开?",
     "All": "全部",
     "Yes": "是",
+    "CopyOrderTitle":"重新下单",
+    "CopyOrder": "是否要将该订单重新加入购物车?",
     "No": "否",
     "Cancel":"取消",
     "Confirmation":"确认",

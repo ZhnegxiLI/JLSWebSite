@@ -38,6 +38,8 @@
     "Msg_ReLogin": "You have been log out, try to log in again",
     "Leave": "Leave?",
     "Yes": "Yes",
+    "CopyOrderTitle":"Buy again",
+    "CopyOrder": "Do you want to recreate this order?",
     "No": "No",
     "imcomplete": "Information is incomplete, please fill in again",
     "ShowAll": "Show All",
